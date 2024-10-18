@@ -1,0 +1,36 @@
+---
+title: "Slides"
+listing:
+  id: "slides-list"
+  contents: 
+    - "slides/*.qmd"
+  type: table  
+  table-striped: true
+  table-hover: true
+  sort: date
+  fields: [date, title, subtitle] 
+  field-display-names: 
+    title: "Titre"
+    subtitle: "Description"
+---
+
+Slides summarize the lectures. Feel free to watch them before and after the lectures.
+
+
+Icon {{< fa person-chalkboard >}} point to material to be developped on blackboard. 
+
+
+
+
+::: {#slides-list}
+:::
+
+
+::: {.callout-note}
+### Mode d'emploi
+
+Slides use library [`revealjs`](https://revealjs.com) from {{< fa brands js >}}. They are displayed in your browser. 
+
+To get help, press  {{< fa question >}}
+
+:::

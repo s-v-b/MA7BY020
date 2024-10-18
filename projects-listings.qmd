@@ -1,0 +1,40 @@
+---
+title: "Projects"
+listing:
+  id: "projects"
+  contents: 
+    - "projects/*.qmd"
+  fields: [date, title, subtitle] 
+  field-display-names: 
+    title: "Titre"
+    subtitle: "Description"
+  type: table  
+  table-striped: true
+  table-hover: true
+  sort: date
+
+---
+
+
+::: {.callout-note}
+
+Projects ...
+
+:::
+
+
+
+::: {#projects}
+:::
+
+
+::: {.callout-tip}
+
+### Tips 
+
+
+
+:::
+
+
+{{< include /projects/_evaluation_guidelines.qmd >}}

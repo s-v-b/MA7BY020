@@ -1,0 +1,52 @@
+Package: MA7BY020
+Title: Website For Course MA7BY020 At Université Paris Cité
+Version: 0.0.0.9000
+Authors@R: 
+    person("S", "B", , "stephane.boucheron@u-paris.fr", role = c("aut", "cre"),
+           comment = c(ORCID = "0000-0003-4647-7181"))
+Description: What the package does (one paragraph).
+License: `use_mit_license()`
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.2
+Imports: 
+    arrow,
+    broom,
+    DBI,
+    DT,
+    dbplyr,
+    dplyr,
+    dtplyr,
+    forcats,
+    fs,
+    gapminder,
+    ggforce,
+    ggfortify,
+    ggmosaic,
+    ggplot2,
+    ggrepel,
+    ggthemes,
+    gt,
+    httr,
+    knitr,
+    lobstr,
+    lubridate,
+    magrittr,
+    nycflights13,
+    MASS,
+    pak,
+    patchwork,
+    plotly,
+    renv,
+    rmarkdown,
+    RSQLite,
+    scales,
+    shiny,
+    skimr,
+    sqldf,
+    stringr,
+    tibble,
+    vcd,
+    glue,
+    pryr,
+    purrr

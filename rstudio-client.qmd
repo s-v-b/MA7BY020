@@ -1,0 +1,38 @@
+---
+title: "Rstudio Desktop"
+
+format:
+  html:
+    highlight-style: zenburn
+---
+
+
+# Installer 
+
+# Options
+
+- `General`: Check whether you want to save and restore `.Rdata` after and before each session.
+- `Code`: choose you favorite pipe operator: `|>` or `%>%`
+
+
+# Goodies
+
+- Rstudio addins
+- Customize keyboad shortcuts 
+- Code snippets
+
+# Use {{< fa brands r-project >}} projects
+
+- Automatically sets working directory
+- Settles version control options
+- Use `renv` (or not)
+- 
+
+
+## Project options
+
+# Use {{< fa brands git-alt >}} {{< fa brands git >}}
+
+- 
+
+
