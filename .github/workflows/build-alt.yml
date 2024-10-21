@@ -58,6 +58,12 @@ jobs:
             any::DT
             any::dtplyr
             any::dbplyr
+            any::pak
+            any::pryr
+            any::rlang
+            any::MASS
+            
+            
             
 
 
