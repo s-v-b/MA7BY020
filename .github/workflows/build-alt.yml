@@ -44,6 +44,7 @@ jobs:
             any::ggforce
             any::ggfortify
             any::ggrepel
+            any::ggthemes
             any::ggmosaic
             any::viridis
             any::skimr
@@ -58,10 +59,10 @@ jobs:
 
 
 
-      - name: Set up renv
-        uses: r-lib/actions/setup-renv@v2
-        with:
-          cache-version: 1
+ #     - name: Set up renv
+ #       uses: r-lib/actions/setup-renv@v2
+ #       with:
+ #         cache-version: 1
 
       - name: Render Quarto Project
         uses: quarto-dev/quarto-actions/render@v2
