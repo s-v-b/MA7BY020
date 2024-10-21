@@ -55,6 +55,10 @@ jobs:
             any::vcd
             any::fs
             any::httr
+            any::DT
+            any::dtplyr
+            any::dbplyr
+            
 
 
 
