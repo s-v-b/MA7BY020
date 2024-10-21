@@ -44,6 +44,7 @@ jobs:
             any::ggforce
             any::ggfortify
             any::ggrepel
+            any::ggthemes
             any::ggmosaic
             any::viridis
             any::skimr
