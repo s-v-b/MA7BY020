@@ -485,7 +485,7 @@ more readable and modular approach than vanilla `SQL`.
 
 ::: {.content-visible when-profile="solution"} 
 
-In table `flights`, `r nrow(filter(flights, is.na(dep_time)))` rows have a missing `dep_time` field. 
+In table `flights`, 8255 (`nrow(filter(flights, is.na(dep_time)))`) rows have a missing `dep_time` field. 
 
 :::
 

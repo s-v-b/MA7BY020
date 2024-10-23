@@ -37,6 +37,7 @@ Imports:
     pak,
     patchwork,
     plotly,
+    quarto,
     renv,
     rmarkdown,
     RSQLite,
