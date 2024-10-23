@@ -46,7 +46,7 @@ jobs:
         run: |
           R -e 'quarto::quarto_render(".", as_job = FALSE, output_format="html")'
           # R -e 'quarto::quarto_render("slides", as_job = FALSE, profile = "slides", use_freezer=T, quarto_args = c("--no-clean"))'
-          # R -e 'quarto::quarto_render("labs-solutions", output_format="html", as_job = FALSE, profile = "solution", use_freezer=T, quarto_args = c("--no-clean"))'
+          R -e 'quarto::quarto_render("labs-solutions", output_format="html", as_job = FALSE, profile = "solution", use_freezer=T, quarto_args = c("--no-clean"))'
           # R -e 'quarto::quarto_render("exams", output_format="html", as_job = FALSE, profile = "solution", use_freezer=T, quarto_args = c("--no-clean"))'
                     
 
