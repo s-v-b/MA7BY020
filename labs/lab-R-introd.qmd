@@ -94,7 +94,11 @@ stopifnot(
   require("ggforce"),
   require("nycflights13"),
   require("patchwork"), 
-  require("viridis")
+  require("viridis"),
+  require("MASS"),
+  require("gapminder"),
+  require("pryr"),
+  require("pak")
 )
 ```
 
