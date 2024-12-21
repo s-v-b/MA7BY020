@@ -3,15 +3,15 @@ project:
   render:
     - "*.qmd"
     - "weeks/"
-    - "labs/"
-    - "!slides/"
-    - "!projects/"
+    - "core/labs/"
+    - "!core/slides/"
+    - "!core/projects/"
     - "!exams-listings.qmd"
     - "!corrections-listings.qmd"
     - "!projects-listings.qmd"
-    - "!labs-solutions/"
-    - "!exams/"
-    - "!technos/"
+    - "!core/labs-solutions/"
+    - "!core/exams/"
+    - "!core/technos/"
   output-dir: _site
 
 website:

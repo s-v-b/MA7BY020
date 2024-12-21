@@ -1,12 +1,12 @@
 - title: "Introduction and Visualization"
   author: "Master I MIDS UParis Cité"
   date: "2025-01-15"
-  path: "labs/lab-gapminder.html"
+  path: "core/labs/lab-gapminder.html"
   categories: [Visualization, Public Statistics]
 - title: "Brush up your R"
   author: "Master I MIDS UParis Cité"
   date: "2025-01-15"
-  path: "labs/lab-r-intro.html"
+  path: "core/labs/lab-r-intro.html"
   categories: [R language, Tidyverse, IDE]
 # - title: "GSS data"
 #   author: "Master I MIDS UParis Cité"
@@ -16,7 +16,7 @@
 - title: "Table wranglig"
   author: "Master I MIDS UParis Cité"
   date: "2025-01-22"
-  path: "labs/lab-tables.html"
+  path: "core/labs/lab-tables.html"
   categories: [R language, dplyr, tabula data]
 # - title: "Bivariate data. GSS"
 #   author: "Master I MIDS UParis Cité"

@@ -71,6 +71,9 @@ Subscribe to [Moodle portal](https://moodle.u-paris.fr/course/view.php?id=2313)
 - [`quarto`](https://quarto.org)
 - [`jupyter`]
 - [`vs code`]
+- [`git`]
+- [`docker`]
+- [`postgresql`]
 
 :::
 

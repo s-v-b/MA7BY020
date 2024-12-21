@@ -1,6 +1,6 @@
 project:
   render:
-    - labs-solutions/
+    - core/labs-solutions/
     # - exams/
 
 
