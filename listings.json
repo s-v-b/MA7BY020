@@ -1,0 +1,19 @@
+[
+  {
+    "listing": "/slides-listings.html",
+    "items": []
+  },
+  {
+    "listing": "/labs-solutions-listings.html",
+    "items": []
+  },
+  {
+    "listing": "/labs-listings.html",
+    "items": [
+      "/core/labs/lab-bivariate.html",
+      "/core/labs/lab-gapminder.html",
+      "/core/labs/lab-r-intro.html",
+      "/core/labs/lab-tables.html"
+    ]
+  }
+]

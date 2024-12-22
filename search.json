@@ -1,0 +1,471 @@
+[
+  {
+    "objectID": "slides-listings.html",
+    "href": "slides-listings.html",
+    "title": "Slides",
+    "section": "",
+    "text": "Slides summarize the lectures. Feel free to watch them before and after the lectures.\nIcon  point to material to be developped on blackboard.\n\n\n    \n      \n      \n    \n\n\n\n\n\nDate\n\n\nTitre\n\n\nDescription\n\n\n\n\n\n\n\nNo matching items\n\n\n\n\n\n\n\n\nMode d’emploi\n\n\n\nSlides use library revealjs from . They are displayed in your browser.\nTo get help, press",
+    "crumbs": [
+      "Slides"
+    ]
+  },
+  {
+    "objectID": "quarto-format.html#a-translator",
+    "href": "quarto-format.html#a-translator",
+    "title": "Quarto",
+    "section": "A translator",
+    "text": "A translator",
+    "crumbs": [
+      "Support",
+      "Quarto"
+    ]
+  },
+  {
+    "objectID": "quarto-format.html#quarto-and-rstudio",
+    "href": "quarto-format.html#quarto-and-rstudio",
+    "title": "Quarto",
+    "section": "Quarto and rstudio",
+    "text": "Quarto and rstudio",
+    "crumbs": [
+      "Support",
+      "Quarto"
+    ]
+  },
+  {
+    "objectID": "quarto-format.html#quarto-and-vs-code",
+    "href": "quarto-format.html#quarto-and-vs-code",
+    "title": "Quarto",
+    "section": "Quarto and vs code",
+    "text": "Quarto and vs code",
+    "crumbs": [
+      "Support",
+      "Quarto"
+    ]
+  },
+  {
+    "objectID": "quarto-format.html#command-line-tool",
+    "href": "quarto-format.html#command-line-tool",
+    "title": "Quarto",
+    "section": "Command Line Tool",
+    "text": "Command Line Tool",
+    "crumbs": [
+      "Support",
+      "Quarto"
+    ]
+  },
+  {
+    "objectID": "labs-solutions-listings.html",
+    "href": "labs-solutions-listings.html",
+    "title": "Labs Solutions",
+    "section": "",
+    "text": "Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Tags\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\nDate\n\n\nTitle\n\n\nTags\n\n\n\n\n\n\nJan 15, 2025\n\n\nIntroduction and Visualization\n\n\nVisualization, Public Statistics\n\n\n\n\nJan 15, 2025\n\n\nBrush up your R\n\n\nR language, Tidyverse, IDE\n\n\n\n\nJan 22, 2025\n\n\nGSS data\n\n\nUnivariate data, GSS\n\n\n\n\nJan 22, 2025\n\n\nTable wranglig\n\n\nR language, dplyr, tabula data\n\n\n\n\nJan 29, 2025\n\n\nBivariate data. GSS\n\n\nGSS, bivariate data, mosaicplots, scatterplots, simple linear regression\n\n\n\n\nJan 29, 2025\n\n\nMultiple Linear regression: OLS\n\n\nLinear regression, OLS, lm\n\n\n\n\nFeb 5, 2025\n\n\nMultiple Linear Regression: diagnostics, broom\n\n\nLinear regression, diagnostics, broom\n\n\n\n\nFeb 5, 2025\n\n\nLinear regression, Variable selection, Transformations\n\n\nLinear regression, Variable selection, Transformations, Penalized LS\n\n\n\n\nFeb 12, 2025\n\n\nBi and Multivariate categorical data\n\n\nCategorical data, Tests, Area plots\n\n\n\n\nFeb 12, 2025\n\n\nTemporal data\n\n\nTmeporal data, Time series, Babynames\n\n\n\n\nFeb 19, 2025\n\n\nSVD\n\n\nSVD, PCA, CA, MCA, CCA\n\n\n\n\nFeb 19, 2025\n\n\nSVD and PCA\n\n\nSVD, PCA, CA, MCA, CCA\n\n\n\n\nFeb 19, 2025\n\n\nSVD and PCA\n\n\nSVD, PCA, CA, MCA, CCA\n\n\n\n\nMar 5, 2025\n\n\nPCA, CA, MCA\n\n\nSVD, PCA, CA, MCA, CCA\n\n\n\n\nMar 5, 2025\n\n\nPCA, CA, MCA\n\n\nSVD, PCA, CA, MCA, CCA\n\n\n\n\nMar 12, 2025\n\n\nSVD plots and R programming\n\n\nSVD, tidy evaluation, R packages\n\n\n\n\nMar 12, 2025\n\n\nSVD plots and R programming (continued)\n\n\nSVD, tidy evaluation, R packages\n\n\n\n\nMar 12, 2025\n\n\nSVD, Life tables and Lee-Cater modeling\n\n\nSVD, Life tables, Lee-Carter\n\n\n\n\nMar 19, 2025\n\n\nR programming Genericity\n\n\nR programming, S3\n\n\n\n\nMar 19, 2025\n\n\nR programming Vectorization\n\n\nR programming, Vectorization\n\n\n\n\nMar 26, 2025\n\n\nClustering: kmeans\n\n\nClustering, k-means\n\n\n\n\nMar 26, 2025\n\n\nClustering: Hierarchical\n\n\nClustering, Hierarchical\n\n\n\n\nApr 2, 2025\n\n\nClustering: kmeans\n\n\nClustering, k-means\n\n\n\n\nApr 2, 2025\n\n\nClustering: Hierarchical\n\n\nClustering, Hierarchical\n\n\n\n\nApr 9, 2025\n\n\nSpatial data visualization\n\n\nClustering, k-means\n\n\n\n\nApr 9, 2025\n\n\nSpatio-Temporal data visualization\n\n\nClustering, Hierarchical\n\n\n\n\n\nNo matching items",
+    "crumbs": [
+      "Solutions"
+    ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "MA7BY020: Exporatory Data Analysis",
+    "section": "",
+    "text": "twitter\n  \n  \n    \n     Github\n  \n\n  \n  \n\n\n\n\n\n\n\n\n\n\n\n\n\nSyllabus\nTeaching team\nComputing environment\nSlides\nLabs\nLabs solutions\nProjects\nPast examninations",
+    "crumbs": [
+      "Information",
+      "Glimpse"
+    ]
+  },
+  {
+    "objectID": "course-syllabus.html",
+    "href": "course-syllabus.html",
+    "title": "MA7BY020 Syllabus",
+    "section": "",
+    "text": "Schedule\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDay\nTime\nLocation\nStart\n\n\n\n\nLab session 1\nTBA\nTBA\nSophie Germain TBA\n2025-01-13\n\n\nLab session 2\nTBA\nTBA - 18:15\nSophie Germain TBA\n2024-01-15\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nObjectives\n\n\n\n\n\n\n\n\n\n\n\n\nUniversité Paris Cité\n\n\n\nUseful links:\n\nCharte Université Paris Cité\nDémarches et accessibilité\nCentre de contact\nRelais handicap\n\n\n\n\n\n\n\n\n\nCommunication \n\n\n\nAll material is available from s-v-b.github.io/MA7BY020\nMoodle\nSubscribe to Moodle portal\n\n\n\n\n\n\n\n\nSoftware \n\n\n\n …\n\n\nR\nPosit\nrstudio\nquarto\n[jupyter]\n[vs code]\n[git]\n[docker]\n[postgresql]\n\n\n\n\n\n\n\n\n\nReferences \n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCourse material \n\n\n\nSlides\nThe labs are available (html and pdf)\nLabs corrections are available\n\n\n\n\n\n\n\n\n\n\n\n\n\n3 projects:\n\n\\(\\textsf{P}_1\\)\n\\(\\textsf{P}_2\\)\n\\(\\textsf{P}_3\\)\n\n2 Examinations\n\n\\(\\textsf{EST}_1\\)\n\\(\\textsf{EST}_2\\)\n\nGrading\n\n\\[.2 (\\textsf{P}_1 + \\textsf{P}_2) + . 3 \\textsf{P}_3 + .1 (\\textsf{EST}_1+\\textsf{EST}_2)\\]\n\n\n\n\n\n\n\n\n Tips\n\n\n\n\n\n\n\n\n\n\n\n\nCode of conduct\n\n\n\nTL;DR: No cheating!\n\n\n\n\n\n\n\n\nSave the dates ! \n\n\n\nClick here for U Paris Cite Calendar.\nClick here for M1 MIDS Calendar",
+    "crumbs": [
+      "Information",
+      "Syllabus"
+    ]
+  },
+  {
+    "objectID": "core/labs/lab-gapminder.html#grammar-of-graphics",
+    "href": "core/labs/lab-gapminder.html#grammar-of-graphics",
+    "title": "Data visualization",
+    "section": "Grammar of Graphics",
+    "text": "Grammar of Graphics\nWe will use the Grammar of Graphics approach to visualization\nThe expression Grammar of Graphics was coined by Leiland Wilkinson to describe a principled approach to visualization in Data Analysis (EDA)\nA plot is organized around tabular data (a table with rows (observations) and columns (variables))\nA plot is a graphical object that can be built layer by layer\nBuilding a graphical object consists in chaining elementary operations\nThe acclaimed TED presentation by Hans Rosling illustrates the Grammar of Graphics approach\n\nWe will reproduce the animated demonstration using\n\n\nggplot2: an implementation of grammar of graphics in `R\n\nplotly: a bridge between R and the javascript library D3.js\n\nUsing plotly, opting for html ouput, brings the possibility of interactivity and animation"
+  },
+  {
+    "objectID": "core/labs/lab-gapminder.html#setup",
+    "href": "core/labs/lab-gapminder.html#setup",
+    "title": "Data visualization",
+    "section": "Setup",
+    "text": "Setup\nWe will use the following packages. If needed, we install them.\n\nCodestopifnot(\n  require(tidyverse), \n  require(patchwork), \n  require(glue), \n  require(ggforce), \n  require(plotly),\n  require(ggthemes),\n  require(gapminder),\n  require(ggrepel)\n)\n\n\nThe data we will use can be obtained by loading package gapminder\n\n\n\n\n\n\nTip\n\n\n\nIf the packages have not yet been installed on your hard drive, install them.\nYou can do that using base R install.packages() function:\ninstall.packages(\"tidyverse\")\nIt is often faster to use functions from package pak\ninstall.packages(\"pak\")\npak::pkg_install(\"tidyverse\")\n\n\nYou need to understand the difference between installing and loading a package\n\n\n\n\n\n\nQuestion\n\n\n\n\nHow do we get the list of installed packages?\nHow do we get the list of loaded packages?\nWhich objects are made available by a package?"
+  },
+  {
+    "objectID": "core/labs/lab-gapminder.html#have-a-look-at-gapminder-dataset",
+    "href": "core/labs/lab-gapminder.html#have-a-look-at-gapminder-dataset",
+    "title": "Data visualization",
+    "section": "Have a look at gapminder dataset",
+    "text": "Have a look at gapminder dataset\nThe gapminder table can be found at gapminder::gapminder\n\nA table has a schema: a list of named columns, each with a given type\nA table has a content: rows. Each row is a collection of items, corresponding to the columns\n\n\n\n\n\n\n\nQuestion\n\n\n\nExplore gapminder::gapminder, using glimpse() and head()\n\n\nglimpse() allows to see the schema and the first rows\n\nhead() allows to see the first rows\nUse the pipe |&gt; to chain operations"
+  },
+  {
+    "objectID": "core/labs/lab-gapminder.html#get-a-feeling-of-the-dataset",
+    "href": "core/labs/lab-gapminder.html#get-a-feeling-of-the-dataset",
+    "title": "Data visualization",
+    "section": "Get a feeling of the dataset",
+    "text": "Get a feeling of the dataset\n\n\n\n\n\n\nQuestion\n\n\n\nPick two random rows for each continent using slice_sample()\n\n\n\n\n\n\n\n\nQuestion\n\n\n\nWhat makes a table tidy?\n\n\n\n\n\n\n\n\nTip\n\n\n\nHave a look at Data tidying in R for Data Science (2nd ed.)\n\n\n\n\n\n\n\n\nQuestion\n\n\n\nIs the gapminder table redundant?"
+  },
+  {
+    "objectID": "core/labs/lab-gapminder.html#gapminder-tibble-extract",
+    "href": "core/labs/lab-gapminder.html#gapminder-tibble-extract",
+    "title": "Data visualization",
+    "section": "Gapminder tibble (extract)",
+    "text": "Gapminder tibble (extract)\n\n\n\n\n\n\nQuestion\n\n\n\nExtract/filter a subset of rows using dplyr::filter(...)\n\nAll rows concerning a given country\nAll rows concerning a year\nAll rows concerning a given continnent and a year"
+  },
+  {
+    "objectID": "core/labs/lab-gapminder.html#filtering-selection-σ-from-database-theory-picking-one-year-of-data",
+    "href": "core/labs/lab-gapminder.html#filtering-selection-σ-from-database-theory-picking-one-year-of-data",
+    "title": "Data visualization",
+    "section": "Filtering (selection \\(σ\\) from database theory) : Picking one year of data",
+    "text": "Filtering (selection \\(σ\\) from database theory) : Picking one year of data\nThere is simple way to filter rows satisfying some condition. It consists in mimicking indexation in a matrix, leaving the colum index empty, replacing the row index by a condition statement (a logical expression) also called a mask.\n\nCodegapminder_2002 &lt;- gapminder[gapminder$year==2002, ]\n\n\nHave a look at gapminder$year==2002. What is the type/class of this expression?\nThis is possible in base R and very often convenient.\nNevertheless, this way of performing row filtering does not emphasize the connection between the dataframe and the condition. Any logical vector with the right length could be used as a mask. Moreover, this way of performing filtering is not very functional.\n\n\n\n\n\n\nIn the parlance of Relational Algebra, filter performs a selection of rows. Relational expression \\[σ_{\\text{condition}}(\\text{Table})\\] translates to\nfilter(Table, condition)\nwhere \\(\\text{condition}\\) is a boolean expression that can be evaluated on each row of \\(\\text{Table}\\). In SQL, the relational expression would translate into\nSELECT *\nFROM Table\nWHERE condition\nCheck Package dplyr docs\nThe posit cheatsheet on dplyr is an unvaluable resource for table manipulation.\n\n\n\nUse dplyr::filter() to perform row filtering"
+  },
+  {
+    "objectID": "core/labs/lab-gapminder.html#static-plotting-first-attempt",
+    "href": "core/labs/lab-gapminder.html#static-plotting-first-attempt",
+    "title": "Data visualization",
+    "section": "Static plotting: First attempt",
+    "text": "Static plotting: First attempt\n\n\n\n\n\n\nQuestion\n\n\n\nDefine a plot with respect to gapminder_2002 along the lines suggested by Rosling’s presentation.\n\n\n\n\n\n\n\n\nYou should define a ggplot object with data layer gapminder_2022 and call this object p for further reuse.\n\n\n\n\n\n\n\n\n\nQuestion\n\n\n\nMap variables gdpPercap and lifeExp to axes x and y. Define the axes. In ggplot2 parlance, this is called aesthetic mapping. Use aes().\n\n\n\n\n\n\n\n\nUse ggplot object p and add a global aesthetic mapping gdpPercap and lifeExp to axes x and y (using + from ggplot2) .\n\n\n\n\n\n\n\n\n\nQuestion\n\n\n\nFor each row, draw a point at coordinates defined by the mapping. You need to add a geom_ layer to your ggplot object, in this case geom_point() will do.\n\n\n\n\n\n\n\n\nWhat’s up?\n\n\n\nWe are building a graphical object (a ggplot object) around a data frame (gapminder)\nWe supply aesthetic mappings (aes()) that can be either global or bound to some geometries (geom_point())or statistics\nThe global aesthetic mapping defines which columns are\n\nmapped to which axes,\npossibly mapped to colours, linetypes, shapes, …\n\nGeometries and Statistics describe the building blocks of graphics\n\n\nWhat’s missing here?\nwhen comparing to the Gapminder demonstration, we can spot that\n\ncolors are missing\nbubble sizes are all the same. They should reflect the population size of the country\ntitles and legends are missing. This means the graphic object is useless.\n\nWe will add other layers to the graphical object to complete the plot"
+  },
+  {
+    "objectID": "core/labs/lab-gapminder.html#second-attempt-display-more-information",
+    "href": "core/labs/lab-gapminder.html#second-attempt-display-more-information",
+    "title": "Data visualization",
+    "section": "Second attempt: display more information",
+    "text": "Second attempt: display more information\n\n\n\n\n\n\nQuestion\n\n\n\n\nMap continent to color (use aes())\nMap pop to bubble size (use aes())\nMake point transparent by tuning alpha (inside geom_point() avoid overplotting)"
+  },
+  {
+    "objectID": "core/labs/lab-gapminder.html#scaling",
+    "href": "core/labs/lab-gapminder.html#scaling",
+    "title": "Data visualization",
+    "section": "Scaling",
+    "text": "Scaling\nIn order to pay tribute to Hans Rosling, we need to take care of two scaling issues:\n\nthe gdp per capita axis should be logarithmic scale_x_log10()\n\nthe area of the point should be proportional to the population scale_size_area()\n\n\n\n\n\n\n\n\nComplete the graphical object accordingly\n\n\n\n\n\n\n\n\n\n\n\n\nQuestion\n\n\n\nMotivate the proposed scalings.\n\nWhy is it important to use logarithmic scaling for gdp per capita?\nWhen is it important to use logarithmic scaling on some axis (in other contexts)?\nWhy is it important to specify scale_size_area() ?"
+  },
+  {
+    "objectID": "core/labs/lab-gapminder.html#in-perspective",
+    "href": "core/labs/lab-gapminder.html#in-perspective",
+    "title": "Data visualization",
+    "section": "In perspective",
+    "text": "In perspective\n\n\n\n\n\n\nQuestion\n\n\n\n\nAdd a plot title\nMake axes titles\n\nexplicit\nreadable\n\n\nUse labs(...)\n\n\n\n\n\n\n\n\n\n\nQuestion\n\n\n\nWhat should be the respective purposes of Title, Subtitle, Caption, … ?"
+  },
+  {
+    "objectID": "core/labs/lab-gapminder.html#theming-using-ggthemes-or-not",
+    "href": "core/labs/lab-gapminder.html#theming-using-ggthemes-or-not",
+    "title": "Data visualization",
+    "section": "Theming using ggthemes (or not)",
+    "text": "Theming using ggthemes (or not)\n\nCodestopifnot(\n  require(\"ggthemes\")\n)\n\n\nA theme defines the look and feel of plots\nWithin a single document, we should use only one theme\nSee Getting the theme for a gallery of available themes\n\nCodep +\n  theme_economist()"
+  },
+  {
+    "objectID": "core/labs/lab-gapminder.html#tuning-scales",
+    "href": "core/labs/lab-gapminder.html#tuning-scales",
+    "title": "Data visualization",
+    "section": "Tuning scales",
+    "text": "Tuning scales\n\n\n\n\n\n\nQuestion\n\n\n\nUse scale_color_manual(...) to fine tune the color aesthetic mapping.\n\n\n\n\n\n\n\n\nTip\n\n\n\n\n\nChoosing a color scale is a difficult task\nviridis is often a good pick."
+  },
+  {
+    "objectID": "core/labs/lab-gapminder.html#zooming-on-a-continent",
+    "href": "core/labs/lab-gapminder.html#zooming-on-a-continent",
+    "title": "Data visualization",
+    "section": "Zooming on a continent",
+    "text": "Zooming on a continent\n\nCodezoom_continent &lt;- 'Europe'  # choose another continent at your convenience \n\n\n\n\n\n\n\n\nUse facet_zoom() from package ggforce"
+  },
+  {
+    "objectID": "core/labs/lab-gapminder.html#adding-labels",
+    "href": "core/labs/lab-gapminder.html#adding-labels",
+    "title": "Data visualization",
+    "section": "Adding labels",
+    "text": "Adding labels\n\n\n\n\n\n\nQuestion\n\n\n\nAdd labels to points. This can be done by aesthetic mapping. Use aes(label=..)\nTo avoid text cluttering, package ggrepel offers interesting tools."
+  },
+  {
+    "objectID": "core/labs/lab-gapminder.html#facetting",
+    "href": "core/labs/lab-gapminder.html#facetting",
+    "title": "Data visualization",
+    "section": "Facetting",
+    "text": "Facetting\nSo far we have only presented one year of data (2002)\nRosling used an animation to display the flow of time\nIf we have to deliver a printable report, we cannot rely on animation, but we can rely on facetting\nFacets are collections of small plots constructed in the same way on subsets of the data\n\n\n\n\n\n\nQuestion\n\n\n\nAdd a layer to the graphical object using facet_wrap()\n\n\n\nAs all rows in gapminder_2002 are all related to year 2002, we need to rebuild the graphical object along the same lines (using the same graphical pipeline) but starting from the whole gapminder dataset.\nShould we do this using cut and paste?\n No!!!\n\n\n\n\n\n\n\nDon’t Repeat Yoursel (DRY)\n\n\n\n\nAbide to the DRY principle using operator %+%: the ggplot2 object p can be fed with another dataframe and all you need is proper facetting."
+  },
+  {
+    "objectID": "core/labs/lab-gapminder.html#animate-for-free-with-plotly",
+    "href": "core/labs/lab-gapminder.html#animate-for-free-with-plotly",
+    "title": "Data visualization",
+    "section": "Animate for free with plotly\n",
+    "text": "Animate for free with plotly\n\n\n\n\n\n\n\nQuestion\n\n\n\nUse plotly::ggplotly() to create a Rosling like animation.\nUse frame aesthetics."
+  },
+  {
+    "objectID": "core/labs/lab-gapminder.html#more-material",
+    "href": "core/labs/lab-gapminder.html#more-material",
+    "title": "Data visualization",
+    "section": "More material",
+    "text": "More material\n\nRead Visualization in R for Data Science"
+  },
+  {
+    "objectID": "core/labs/lab-r-intro.html#packages",
+    "href": "core/labs/lab-r-intro.html#packages",
+    "title": "R language: a tour",
+    "section": "Packages",
+    "text": "Packages\nBase R can do a lot. But the full power of R comes from a fast growing collection of packages.\nPackages are first installed (that is downloaded from cran and copied somewhere on the hard drive), and if needed, loaded during a session.\n\nInstallation can usually be performed using command install.packages(). In some circumstances, ad hoc installation commands (often from packages devtools) are needed\nPackage pak offers an insteresting alternative to base R install.packages()\n\nOnce a package has been installed/downloaded on your drive\n\nif you want all objects exported by the package to be available in your session, you should load the package, using library() or require() (what’s the difference?). Technically, this loads the NameSpace defined by the package.\nif you just want to pick some objects exported from the package, you can use qualified names like package_name::object_name to access the object (function, dataset, …).\n\n\n\nFor example. when we write\ngapminder &lt;- gapminder::gapminder\nwe assign dataframe/tibble gapminder from package gapminder to identifier \"gapminder\" in global environment .\nFunction p_load() from pacman (package manager) blends installation and loading: if the package named in the argument of p_load() is not installed (not among the installed.packages()), p_load() attempts to install the package. If installation is successful, the package is loaded.\n\nif (! require(pak)){\n  install.packages(\"pak\")\n}\n\n\nstopifnot(\n  require(\"tidyverse\"), \n  require(\"lobstr\"),\n  require(\"ggforce\"),\n  require(\"nycflights13\"),\n  require(\"patchwork\"), \n  require(\"viridis\"),\n  require(\"MASS\"),\n  require(\"gapminder\"),\n  require(\"pryr\"),\n  require(\"pak\")\n)\n\n\n\n\n\n\n\nOptional arguments\n\n\n\nA very nice feature of R is that functions from base R as well as from packages have optional arguments with sensible default values. Look for example at documentation of require() using expression ?require.\nOptional settings may concern individual functions or the collection of functions exported by some packages. In the next chunk, we reset the default color scales used by graphical functions from ggplot2.\n\nopts &lt;- options()  # save old options\n\noptions(ggplot2.discrete.colour=\"viridis\")\noptions(ggplot2.continuous.colour=\"viridis\")\n\n\n\n\n\n\n\n\n\n\n\n\n\nYou shall not confuse installing (on your hard-drive) and loading (in session) a package.\n\n\n\n\n\n\n\n\nQuestion for Pythonistas\n\n\n\n\nIn  what is the analogue of install.packages()?\nIn  what is the analogue of require()/library()?"
+  },
+  {
+    "objectID": "core/labs/lab-r-intro.html#vector-creation-and-assignment",
+    "href": "core/labs/lab-r-intro.html#vector-creation-and-assignment",
+    "title": "R language: a tour",
+    "section": "Vector creation and assignment",
+    "text": "Vector creation and assignment\nThe next three lines create three numerical atomic vectors.\nIn IDE Rstudio, have a look at the environment pane on the right before running the chunk, and after.\nUse ls() to investigate the environment before and after the execution of the three assignments.\n\nls()\nx &lt;- c(1, 2, 12)\ny &lt;- 5:7\nz &lt;- 10:1\nx ; y ; z \nls()\n\n\n\n\n\n\n\nQuestion\n\n\n\n\nWhat are the identifiers known in the global environment before execution of lines 2-4?\nWhat are the identifiers known in the global environment after execution of lines 2-4?\nWhich objects are attached to identifiers x, y, and z?\n\n\n\n\n\n\n\n\n\nQuestion\n\n\n\nWhat does the next chunk?\n\nls()\nw &lt;- y\nls()\n\n\n\n\n\n\n\n\n\nQuestion\n\n\n\n\nIs the content of object denoted by y copied to a new object bound to w?\nInterpret the result of w == y.\nInterpret the result of identical(w,y) (use help(\"identical\") if needed).\n\n\nw == y \nidentical(w,y)"
+  },
+  {
+    "objectID": "core/labs/lab-r-intro.html#indexation-slicing-modification",
+    "href": "core/labs/lab-r-intro.html#indexation-slicing-modification",
+    "title": "R language: a tour",
+    "section": "Indexation, slicing, modification",
+    "text": "Indexation, slicing, modification\nSlicing a vector can be done in two ways:\n\nproviding a vector of indices to be selected. Indices need not be consecutive\nproviding a Boolean mask, that is a logical vector to select a set of positions\n\n\nx &lt;- c(1, 2, 12) ; y &lt;- 5:7 ; z &lt;- 10:1\n\n\n\n\n\n\n\nQuestion\n\n\n\nExplain the next lines\n\nz[1]   # slice of length 1\nz[0]   # What did you expect?\nz[x]   # slice of length ??? index error ?\nz[y]\nz[x %% 2]   # what happens with x[0] ?\nz[0 == (x %% 2)] # masking\nz[c(2, 1, 1)]\n\n\n\n\n\n\n\n\n\nQuestion\n\n\n\nIf the length of mask and and the length of the sliced vector do not coincide, what happens?\n\n\n\n\n\n\n\n\n\n\n\n\nA scalar is just a vector of length \\(1\\)!\n\nclass(z)\n\n[1] \"integer\"\n\nclass(z[1])\n\n[1] \"integer\"\n\nclass(z[c(2,1)])\n\n[1] \"integer\"\n\n\n\n\n\n\n\n\n\n\nQuestion\n\n\n\nExplain the next lines\n\ny[2:3] &lt;- z[2:3]\ny == z[-10]\n\nz[-11]\n\n\n\n\n\n\n\n\n\nQuestion\n\n\n\nExplain the next line\n\nz[-(1:5)]\n\n\n\n\n\n\n\n\n\nQuestion\n\n\n\nHow would you select the last element from a vector (say z)?\n\n\n\n\n\n\n\n\nQuestion\n\n\n\nReverse the entries of a vector. Find two ways to do that.\n\n\nIn statistics, machine learning, we are often faced with the task of building grid of regularly spaced elements (these elements can be numeric or not). R offers a collection of tools to perform this. The most basic tool is rep().\n\n\n\n\n\n\nQuestion\n\n\n\n\nRepeat a vector \\(2\\) times\nRepeat each element of a vector twice\n\n\n\nLet us remove objects from the global environment.\n\nrm(w, x, y ,z)"
+  },
+  {
+    "objectID": "core/labs/lab-r-intro.html#numbers",
+    "href": "core/labs/lab-r-intro.html#numbers",
+    "title": "R language: a tour",
+    "section": "Numbers",
+    "text": "Numbers\nSo far, we told about numeric vectors. Numeric vectors are vectors of floating point numbers. R distinguishes several kinds of numbers.\n\nIntegers\nFloating point numbers (double)\n\nTo check whether a vector is made of numeric or of integer, use is.numeric() or is.integer(). Use as.integer, as.numeric() to enforce type conversion.\n\n\n\n\n\n\nQuestion\n\n\n\nExplain the outcome of the next chunks\n\nclass(113L) ; class(113) ; class(113L + 113) ; class(2 * 113L) ; class(pi) ; as.integer(pi)\n\n[1] \"integer\"\n\n\n[1] \"numeric\"\n\n\n[1] \"numeric\"\n\n\n[1] \"numeric\"\n\n\n[1] \"numeric\"\n\n\n[1] 3\n\n\n\nclass(as.integer(113))\n\n[1] \"integer\"\n\n\n\npi ; class(pi)\n\n[1] 3.141593\n\n\n[1] \"numeric\"\n\n\n\nfloor(pi) ; class(floor(pi)) # mind the floor\n\n[1] 3\n\n\n[1] \"numeric\""
+  },
+  {
+    "objectID": "core/labs/lab-r-intro.html#integer-arithmetic",
+    "href": "core/labs/lab-r-intro.html#integer-arithmetic",
+    "title": "R language: a tour",
+    "section": "Integer arithmetic",
+    "text": "Integer arithmetic\n\n29L * 31L ; 899L %/% 32L ; 899L %% 30L\n\n[1] 899\n\n\n[1] 28\n\n\n[1] 29\n\n\n\n\n\n\n\n\nR integers are not the natural numbers from Mathematics\nR numerics are not the real numbers from Mathematics\n\n.Machine$double.eps\n\n[1] 2.220446e-16\n\n.Machine$double.xmax\n\n[1] 1.797693e+308\n\n.Machine$sizeof.longlong\n\n[1] 8\n\nu &lt;- double(19L)\nv &lt;- numeric(5L)\nw &lt;- integer(7L)\nlapply(list(u, v, w), typeof)\n\n[[1]]\n[1] \"double\"\n\n[[2]]\n[1] \"double\"\n\n[[3]]\n[1] \"integer\"\n\nlength(c(u, v, w))\n\n[1] 31\n\ntypeof(c(u, v, w))\n\n[1] \"double\"\n\n\n\n\n\nR is (sometimes) able to make sensible use of Infinite.\n\nlog(0)\n\n[1] -Inf\n\nlog(Inf)\n\n[1] Inf\n\n1/0\n\n[1] Inf\n\n0/0\n\n[1] NaN\n\nmax(c( 0/0,1,10))\n\n[1] NaN\n\nmax(c(NA,1,10))\n\n[1] NA\n\nmax(c(-Inf,1,10))\n\n[1] 10\n\nis.finite(c(-Inf,1,10))\n\n[1] FALSE  TRUE  TRUE\n\nis.na(c(NA,1,10))\n\n[1]  TRUE FALSE FALSE\n\nis.nan(c(NaN,1,10))\n\n[1]  TRUE FALSE FALSE"
+  },
+  {
+    "objectID": "core/labs/lab-r-intro.html#computing-with-vectors",
+    "href": "core/labs/lab-r-intro.html#computing-with-vectors",
+    "title": "R language: a tour",
+    "section": "Computing with vectors",
+    "text": "Computing with vectors\nSumming, scalar multiplication\n\nx &lt;- 1:3\ny &lt;- 9:7\n\nsum(x) ; prod(x)\n\n[1] 6\n\n\n[1] 6\n\nz &lt;- cumsum(1:3)\nw &lt;- cumprod(3:5)\n\nx + y\n\n[1] 10 10 10\n\nx + z\n\n[1] 2 5 9\n\n2 * w\n\n[1]   6  24 120\n\n2 + w\n\n[1]  5 14 62\n\nw / 2\n\n[1]  1.5  6.0 30.0\n\n\n\n\n\n\n\n\nQuestion\n\n\n\nHow would you compute a factorial?\n\n\n\n\n\n\n\n\nQuestion\n\n\n\nApproximate \\(\\sum_{n=1}^\\infty 1/n^2\\) within \\(10^{-3}\\)?\n\n\n\n\n\n\n\n\nQuestion\n\n\n\nHow would you compute the inner product between two (atomic numeric) vectors?\n\n\n\n\n\n\n\n\nWhat we have called vectors so far are indeed atomic vectors.\n\nRead Chapter on Vectors in R advanced Programming\n\nKeep an eye on package vctrs for getting insights into the R vectors."
+  },
+  {
+    "objectID": "core/labs/lab-r-intro.html#creation-transposition-and-reshaping",
+    "href": "core/labs/lab-r-intro.html#creation-transposition-and-reshaping",
+    "title": "R language: a tour",
+    "section": "Creation, transposition and reshaping",
+    "text": "Creation, transposition and reshaping\nA vector can be turned into a column matrix.\n\nv &lt;- as.matrix(1:5)\nv\n\n     [,1]\n[1,]    1\n[2,]    2\n[3,]    3\n[4,]    4\n[5,]    5\n\n\nA matrix can be transposed\n\nt(v)  # transpose \n\n     [,1] [,2] [,3] [,4] [,5]\n[1,]    1    2    3    4    5\n\ncat(dim(v), ' ', dim(t(v)), '\\n')\n\n5 1   1 5 \n\n\n\nA &lt;- matrix(1, nrow=5, ncol=2) ; A\n\n     [,1] [,2]\n[1,]    1    1\n[2,]    1    1\n[3,]    1    1\n[4,]    1    1\n[5,]    1    1\n\n\n\n\n\n\n\n\nQuestion\n\n\n\nlobstr::mem_used() allows us to keep track of the amount of memory used by our R session. lobstr::obj_size() tells us the amount of memory used by the representation of an object.\nComment the next chunk\n\nm1 &lt;-lobstr::mem_used()\nA &lt;- matrix(rnorm(100000L), nrow=1000L)\nm2 &lt;- lobstr::mem_used()\nlobstr::obj_size(A)\n\n800.22 kB\n\nB &lt;- t(A)\nlobstr::obj_size(B)\n\n800.22 kB\n\nm3 &lt;- lobstr::mem_used()\nm2-m1 ; m3-m2\n\n804.31 kB\n\n\n1.09 MB\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nQuestion\n\n\n\n\nIs there a difference between the next two assignments?\nHow would you assign value to all entries of a matrix?\n\n\nA &lt;- matrix(rnorm(16), nrow=4)\nA[] &lt;- 0 ; A\n\n     [,1] [,2] [,3] [,4]\n[1,]    0    0    0    0\n[2,]    0    0    0    0\n[3,]    0    0    0    0\n[4,]    0    0    0    0\n\nA   &lt;- 0 ; A\n\n[1] 0\n\n\n\n\n\n\n\n\n\n\nQuestion\n\n\n\nWhat is the final shape of A?\n\nA &lt;- matrix(1, nrow=5, ncol=2) \nA\nA[] &lt;- 1:15 \nA\n\n\n\nWe can easily generate diagonal matrices and constant matrices.\n\ndiag(1, 3)  # building identity matrix\n\n     [,1] [,2] [,3]\n[1,]    1    0    0\n[2,]    0    1    0\n[3,]    0    0    1\n\nmatrix(0, 3, 3) # building null matrix\n\n     [,1] [,2] [,3]\n[1,]    0    0    0\n[2,]    0    0    0\n[3,]    0    0    0\n\n\n\n\n\n\n\n\nQuestion\n\n\n\nIs there any difference between the next two assignments?\n\nB &lt;- A[]\nB ; A\n\n[1] 0\n\n\n[1] 0\n\nlobstr::obj_addr(B) ; lobstr::obj_addr(A)\n\n[1] \"0x627b470242c0\"\n\n\n[1] \"0x627b47bdb820\"\n\nB &lt;- A"
+  },
+  {
+    "objectID": "core/labs/lab-r-intro.html#indexation-slicing-modification-1",
+    "href": "core/labs/lab-r-intro.html#indexation-slicing-modification-1",
+    "title": "R language: a tour",
+    "section": "Indexation, slicing, modification",
+    "text": "Indexation, slicing, modification\nIndexation consists in getting one item from a vector/list/matrix/array/dataframe.\nSlicing and subsetting consists in picking a substructure:\n\nsubsetting a vector returns a vector\nsubsetting a list returns a list\nsubsetting a matrix/array returns a matrix/array (beware of implicit simplifications and dimension dropping)\nsubsetting a dataframe returns a dataframe or a vector (again, beware of implicit simplifications).\n\n\n\n\n\n\n\nQuestion\n\n\n\nExplain the next results\n\nA &lt;- matrix(1, nrow=5, ncol=2)\n\ndim(A[sample(5, 3), -1])\ndim(A[sample(5, 3), 1])\nlength(A[sample(5, 3), 1])\nis.vector(A[sample(5, 3), 1])\nA[10:15]\nA[60]\ndim(A[])\n\n\n\n\n\n\n\n\n\nQuestion\n\n\n\nHow would you create a fresh copy of a matrix?"
+  },
+  {
+    "objectID": "core/labs/lab-r-intro.html#computing-with-matrices",
+    "href": "core/labs/lab-r-intro.html#computing-with-matrices",
+    "title": "R language: a tour",
+    "section": "Computing with matrices",
+    "text": "Computing with matrices\n\n\n* versus %*%\n\n\n%*% stands for matrix multiplication. In order to use it, the two matrices should have conformant dimensions.\n\n\n\nt(v) %*% A\n\n          [,1]     [,2]\n[1,] -3.989275 9.988059\n\n\nThere are a variety of reasonable products around. Some of them are available in R.\n\n\n\n\n\n\nQuestion\n\n\n\nHow would you compute the Hilbert-Schmidt inner product between two matrices?\n\\[\\langle A, B\\rangle_{\\text{HS}} = \\text{Trace} \\big(A \\times B^\\top\\big)\\]\n\n\n\n\n\n\n\n\nQuestion\n\n\n\nHow can you invert a square (invertible) matrix?"
+  },
+  {
+    "objectID": "core/labs/lab-r-intro.html#handling-three-valued-logic",
+    "href": "core/labs/lab-r-intro.html#handling-three-valued-logic",
+    "title": "R language: a tour",
+    "section": "Handling three-valued logic",
+    "text": "Handling three-valued logic\n\n\n\n\n\n\nQuestion\n\n\n\n\nTRUE &  (1&gt; (0/0))\n(1&gt; (0/0)) | TRUE\n(1&gt; (0/0)) | FALSE\nTRUE || (1&gt; (0/0))\nTRUE |  (1&gt; (0/0))\nTRUE || stopifnot(4&lt;3)\n# TRUE |  stopifnot(4&lt;3)  \nFALSE && stopifnot(4&lt;3)\n# FALSE & stopifnot(4&lt;3)\n\n\n\n\n\n\n\n\n\nQuestion\n\n\n\nWhat is the difference between logical operators || and | ?\n\n\n\n\n\n\n\n\n\n\n\n\nRemark: favor &, | over &&, ||."
+  },
+  {
+    "objectID": "core/labs/lab-r-intro.html#all-and-any",
+    "href": "core/labs/lab-r-intro.html#all-and-any",
+    "title": "R language: a tour",
+    "section": "\nall and any\n",
+    "text": "all and any\n\nLook at the definition of all and any.\n\n\n\n\n\n\nQuestion\n\n\n\n\nHow would you check that a square matrix is symmetric?\nHow would you check that a matrix is diagonal?"
+  },
+  {
+    "objectID": "core/labs/lab-r-intro.html#if-then-else",
+    "href": "core/labs/lab-r-intro.html#if-then-else",
+    "title": "R language: a tour",
+    "section": "If () then {} else {}",
+    "text": "If () then {} else {}\nIf expressions yes_expr and no_expr are complicated it makes sense to use the if (...) {...} else {...} construct\nThere is also a conditional statement with an optional else {}\n#| eval: false\n#| collapse: false\nif (condition) {\n  ...\n} else {\n  ...\n}\n\n\n\n\n\n\nQuestion\n\n\n\nIs there an elif construct in R?\n\n\n R also offers a switch\nswitch (object,\n  case1 = {action1}, \n  case2 = {action2}, \n  ...\n)\n\n\n\n\n\n\nThere exists a selection function ifelse(test, yes_expr, no_expr).\n\nifelse(test, yes, no)\n\nNote that ifelse(...) is vectorized.\n\nx &lt;-  1L:6L\ny &lt;-  rep(\"odd\", 6)\nz &lt;- rep(\"even\", 6)\n\nifelse(x %% 2L, y, z)\n\n[1] \"odd\"  \"even\" \"odd\"  \"even\" \"odd\"  \"even\"\n\n\n This is a vectorized function"
+  },
+  {
+    "objectID": "core/labs/lab-r-intro.html#iterations-for-it-in-iterable-...",
+    "href": "core/labs/lab-r-intro.html#iterations-for-it-in-iterable-...",
+    "title": "R language: a tour",
+    "section": "Iterations for (it in iterable) {...}\n",
+    "text": "Iterations for (it in iterable) {...}\n\nHave a look at Iteration section in R for Data Science\n\n\n\n\n\n\nQuestion\n\n\n\nCreate a lower triangular matrix which represents the 5 first lines of the Pascal triangle.\n\n\nRecall\n\\[\\binom{n}{k} = \\binom{n-1}{k-1} + \\binom{n-1}{k}\\]\n\n\n\n\n\n\nQuestion\n\n\n\nLocate the smallest element in a numerical vector"
+  },
+  {
+    "objectID": "core/labs/lab-r-intro.html#while-condition",
+    "href": "core/labs/lab-r-intro.html#while-condition",
+    "title": "R language: a tour",
+    "section": "While (condition) {…}",
+    "text": "While (condition) {…}\n\n\n\n\n\n\nQuestion\n\n\n\nFind the location of the minimum in a vector v\n\n\n\n\n\n\n\n\nQuestion\n\n\n\nWrite a loop that checks whether vector v is non-decreasing."
+  },
+  {
+    "objectID": "core/labs/lab-r-intro.html#operators-purrrmap_",
+    "href": "core/labs/lab-r-intro.html#operators-purrrmap_",
+    "title": "R language: a tour",
+    "section": "Operators purrr::map_???\n",
+    "text": "Operators purrr::map_???\n\n\n\n\n\n\n\nQuestion\n\n\n\nWrite truth tables for &, |, &&, ||, ! and xor\nHint: use purrr::map, function outer()\n\n\n\n\n\n\n\n\nQuestion\n\n\n\nWrite a function that takes as input a square matrix and returns TRUE if it is lower triangular.\n\n\n\n\n\n\n\n\nQuestion\n\n\n\nUse map , choose and proper use of pronouns to deliver the n first lines of the Pascal triangle using one line of code.\nAs far as the total number of operations is concerned, would you recommend this way of computing the Pascal triangle?\n\n\n\n\n\n\n\n\nRead Chapter on Functional Programming in Advanced R"
+  },
+  {
+    "objectID": "computing-access.html",
+    "href": "computing-access.html",
+    "title": "Computing environment",
+    "section": "",
+    "text": "Version &gt; 4.0\nCheatsheets\n\n\nIDEs\n\nrstudio\nvs code\nemacs\njupyter\n\n\n\nPositcloud\nPosit Cloud lets you access Posit’s powerful set of data science tools right in your browser – no installation or complex configuration required.\n\n\nQuarto\nDownload from Quarto Website\n\n\n\n\n\n\nFrom the Quarto website\n\n\n\n\nAn open-source scientific and technical publishing system\nAuthor using Jupyter notebooks or with plain text markdown in your favorite editor.\nCreate dynamic content with Python, R, Julia, and Observable.\nPublish reproducible, production quality articles, presentations, dashboards, websites, blogs, and books in HTML, PDF, MS Word, ePub, and more.\nShare knowledge and insights organization-wide by publishing to Posit Connect, Confluence, or other publishing systems.\nWrite using Pandoc markdown, including equations, citations, crossrefs, figure panels, callouts, advanced layout, and more.\n\n\n\n\n\n Docker",
+    "crumbs": [
+      "Support",
+      "Computing resources"
+    ]
+  },
+  {
+    "objectID": "core/labs/lab-bivariate.html#setup",
+    "href": "core/labs/lab-bivariate.html#setup",
+    "title": "Bivariate analysis",
+    "section": "Setup",
+    "text": "Setup\n\nCodestopifnot(\n  require(tidyverse), \n  require(glue),\n  require(magrittr),\n  require(lobstr),\n  require(arrow),\n  require(ggforce),\n  require(vcd),\n  require(ggmosaic),\n  require(httr),\n  require(patchwork)\n)\n\n\nBivariate techniques depend on the types of columns we are facing.\nFor numerical/numerical samples\n\nScatter plots\nSmoothed lineplots (for example linear regression)\n2-dimensional density plots\n\nFor categorical/categorical samples : mosaicplots and variants\nFor numerical/categorical samples\n\nBoxplots per group\nHistograms per group\nDensity plots per group\nQuantile-Quantile plots"
+  },
+  {
+    "objectID": "core/labs/lab-bivariate.html#chi-square-independenceassociation-test",
+    "href": "core/labs/lab-bivariate.html#chi-square-independenceassociation-test",
+    "title": "Bivariate analysis",
+    "section": "Chi-square independence/association test",
+    "text": "Chi-square independence/association test"
+  },
+  {
+    "objectID": "core/labs/lab-bivariate.html#grouped-boxplots",
+    "href": "core/labs/lab-bivariate.html#grouped-boxplots",
+    "title": "Bivariate analysis",
+    "section": "Grouped boxplots",
+    "text": "Grouped boxplots\nPlot boxplots of AGE according to NIV_ETUDES\nDraw density plots of AGE, facet by NIV_ETUDES and SEXE\nCollapse rare levels of NIV_ETUDES and replay."
+  },
+  {
+    "objectID": "core/labs/lab-bivariate.html#scatterplots",
+    "href": "core/labs/lab-bivariate.html#scatterplots",
+    "title": "Bivariate analysis",
+    "section": "Scatterplots",
+    "text": "Scatterplots\nMake a scatterplot of SAL_HORwith respect to AGE"
+  },
+  {
+    "objectID": "core/labs/lab-bivariate.html#correlations",
+    "href": "core/labs/lab-bivariate.html#correlations",
+    "title": "Bivariate analysis",
+    "section": "Correlations",
+    "text": "Correlations\n\nLinear correlation coefficient (Pearson \\(\\rho\\))\nLinear rank correlation coefficient (Spearman, Kendall)\n\n\\(\\xi\\) rank correlation coefficient (Chatterjee)"
+  },
+  {
+    "objectID": "core/labs/lab-tables.html#setup",
+    "href": "core/labs/lab-tables.html#setup",
+    "title": "Tables manipulation II",
+    "section": "Setup",
+    "text": "Setup\nWe will use the following packages. If needed, we install them.\n\nCodeold_theme &lt;- theme_set(theme_minimal())\n\n\nCheck nycflights13 for any explanation concerning the tables and their columns."
+  },
+  {
+    "objectID": "core/labs/lab-tables.html#data-loading",
+    "href": "core/labs/lab-tables.html#data-loading",
+    "title": "Tables manipulation II",
+    "section": "Data loading",
+    "text": "Data loading\n\nCodeflights &lt;- nycflights13::flights\nweather &lt;- nycflights13::weather\nairports &lt;- nycflights13::airports\nairlines &lt;- nycflights13::airlines\nplanes &lt;- nycflights13::planes\n\n\n\nCodecon &lt;- DBI::dbConnect(RSQLite::SQLite(), \":memory:\")\nflights_lite &lt;- copy_to(con, nycflights13::flights)\nairports_lite &lt;- copy_to(con, nycflights13::airports)\nplanes_lite &lt;-  copy_to(con, nycflights13::planes)\nweather_lite &lt;- copy_to(con, nycflights13::weather)\nairlines_lite &lt;- copy_to(con, nycflights13::airlines)\n\n\n\nCodeflights_lite |&gt;\n  select(contains(\"delay\")) |&gt;\n  show_query()\n\n&lt;SQL&gt;\nSELECT `dep_delay`, `arr_delay`\nFROM `nycflights13::flights`\n\n\nView data in spreadsheet style.\n\nCodeView(flights)\n\n\nAsk for help about table flights"
+  },
+  {
+    "objectID": "core/labs/lab-tables.html#first-queries-the-dplyr-way",
+    "href": "core/labs/lab-tables.html#first-queries-the-dplyr-way",
+    "title": "Tables manipulation II",
+    "section": "First Queries (the dplyr way)",
+    "text": "First Queries (the dplyr way)\nFind all flights that\n\nHad an arrival delay of two or more hours\n\n\nFlew to Houston (IAH or HOU)\n\n\nWere operated by United, American, or Delta\n\n\n\n\n\n\n\nPackage stringr could be useful.\n\nCodeairlines |&gt; \n  filter(stringr::str_starts(name, \"United\") |\n        stringr::str_starts(name, \"American\") |\n        stringr::str_starts(name, \"Delta\"))\n\n# A tibble: 3 × 2\n  carrier name                  \n  &lt;chr&gt;   &lt;chr&gt;                 \n1 AA      American Airlines Inc.\n2 DL      Delta Air Lines Inc.  \n3 UA      United Air Lines Inc. \n\nCodeairlines |&gt; \n  filter(stringr::str_detect(name, (\"United|American|Delta\"))) |&gt; \n  pull(carrier)\n\n[1] \"AA\" \"DL\" \"UA\"\n\n\n#| eval: false\nairlines_lite |&gt; \n  filter(stringr::str_starts(name, \"United\") |\n        stringr::str_starts(name, \"American\") |\n        stringr::str_starts(name, \"Delta\")) |&gt; \n  show_query()\nSELECT *\nFROM `nycflights13::airlines`\nWHERE \"name\" LIKE 'United%' OR \n      \"name\" LIKE 'American%' OR \n      \"name\" LIKE 'Delta%' ;\nstringr is part of tidyverse\n\n\n\n\nDeparted in summer (July, August, and September)\n\n\n\n\n\n\n\nWhen manipulating temporal information (date, time, duration), keep an eye on what lubridate offers. The API closely parallels what RDMS and Python offer.\n\n\n\n\nArrived more than two hours late, but didn’t leave late\n\n\nWere delayed by at least an hour, but made up over 30 minutes in flight\n\n\nDeparted between midnight and 6am (inclusive)\n\n\n\n\n\n\n\nRead filter() in R for Data Science 1st Ed\nRead Chapter Transform in R for Data Science 2nd Ed"
+  },
+  {
+    "objectID": "core/labs/lab-tables.html#missing-data",
+    "href": "core/labs/lab-tables.html#missing-data",
+    "title": "Tables manipulation II",
+    "section": "Missing data",
+    "text": "Missing data\n\nHow many flights per origin have a missing dep_time?\n\n\nWhat other variables are missing?\n\n\n\n\n\n\n\nThe introduction to tidyselect is a must read.\n\n\n\n\nWhat might these rows with missing data represent?\n\n\nCodenot_cancelled &lt;-  flights |&gt; \n  filter(!is.na(dep_time))\n\n\n\n\nMore questions: for each column in flight report the number of missing values."
+  },
+  {
+    "objectID": "core/labs/lab-tables.html#arrange",
+    "href": "core/labs/lab-tables.html#arrange",
+    "title": "Tables manipulation II",
+    "section": "Arrange",
+    "text": "Arrange\n\nHow could you use arrange() to sort all missing values to the start? (Hint: use is.na()).\n\n\nSort flights to find the most delayed flights.\n\n\nPick the ten most delayed flights (with finite dep_delay)\n\n\nFind the flights that left earliest.\n\n\nSort flights to find the fastest (highest speed) flights.\n\n\nWhich flights travelled the farthest?\n\n\n\n\n\n\n\nThe database provides all we need with columns distance and air_time. Otherwise, with the positions of airports from table airports, we should be able to compute distances using :\n\n‘Haversine’ formula.\n\nhttps://en.wikipedia.org/wiki/Haversine_formula\n\n\n\n\nWhich travelled the shortest?"
+  },
+  {
+    "objectID": "core/labs/lab-tables.html#projection",
+    "href": "core/labs/lab-tables.html#projection",
+    "title": "Tables manipulation II",
+    "section": "Projection",
+    "text": "Projection\n\nBrainstorm as many ways as possible to select dep_time, dep_delay, arr_time, and arr_delay from flights.\n\n\n\nWhat happens if you include the name of a variable multiple times in a select() call?\n\n\nWhat does the any_of() function do? Why might it be helpful in conjunction with this vector?\n\nvars &lt;- c(\"year\", \"month\", \"day\", \"dep_delay\", \"arr_delay\")\n\nDoes the result of running the following code surprise you?\n\n\nCodeselect(\n  flights, \n  contains(\"TIME\", ignore.case =TRUE))  |&gt; \n  head()\n\n# A tibble: 6 × 6\n  dep_time sched_dep_time arr_time sched_arr_time air_time time_hour          \n     &lt;int&gt;          &lt;int&gt;    &lt;int&gt;          &lt;int&gt;    &lt;dbl&gt; &lt;dttm&gt;             \n1      517            515      830            819      227 2013-01-01 05:00:00\n2      533            529      850            830      227 2013-01-01 05:00:00\n3      542            540      923            850      160 2013-01-01 05:00:00\n4      544            545     1004           1022      183 2013-01-01 05:00:00\n5      554            600      812            837      116 2013-01-01 06:00:00\n6      554            558      740            728      150 2013-01-01 05:00:00\n\n\n\nHow do the select helpers deal with case by default?\n\n\nHow can you change that default?"
+  },
+  {
+    "objectID": "core/labs/lab-tables.html#mutations",
+    "href": "core/labs/lab-tables.html#mutations",
+    "title": "Tables manipulation II",
+    "section": "Mutations",
+    "text": "Mutations\n\nCurrently dep_time and sched_dep_time are convenient to look at, but hard to compute with because they’re not really continuous numbers. Convert them to a more convenient representation of number of minutes since midnight.\n\n\nCompare air_time with arr_time - dep_time. What do you expect to see? What do you see? What do you need to do to fix it?\n\n\nCompare dep_time, sched_dep_time, and dep_delay. How would you expect those three numbers to be related?\n\n\nFind the 10 most delayed flights using a ranking function. How do you want to handle ties?\n\n\nCarefully read the documentation for min_rank().\nWindowed rank functions."
+  },
+  {
+    "objectID": "core/labs/lab-tables.html#aggregations",
+    "href": "core/labs/lab-tables.html#aggregations",
+    "title": "Tables manipulation II",
+    "section": "Aggregations",
+    "text": "Aggregations\n\nBrainstorm at least 5 different ways to assess the typical delay characteristics of a group of flights. Consider the following scenarios:\n\nA flight is 15 minutes early 50% of the time, and 15 minutes late 10% of the time.\nA flight is always 10 minutes late.\nA flight is 30 minutes early 50% of the time, and 30 minutes late 50% of the time.\n99% of the time a flight is on time. 1% of the time it’s 2 hours late.\n\n\n\n\nCodeflights |&gt; \n  group_by(dest) |&gt; \n  summarise(n_cancelled = sum(is.na(dep_time)))\n\n# A tibble: 105 × 2\n   dest  n_cancelled\n   &lt;chr&gt;       &lt;int&gt;\n 1 ABQ             0\n 2 ACK             0\n 3 ALB            20\n 4 ANC             0\n 5 ATL           317\n 6 AUS            21\n 7 AVL            12\n 8 BDL            31\n 9 BGR            15\n10 BHM            25\n# ℹ 95 more rows\n\n\n\nCodeflights_lite |&gt; \n  group_by(dest) |&gt; \n  summarise(n_cancelled = sum(is.na(dep_time))) |&gt; \n  show_query()\n\nWarning: Missing values are always removed in SQL aggregation functions.\nUse `na.rm = TRUE` to silence this warning\nThis warning is displayed once every 8 hours.\n\n\n&lt;SQL&gt;\nSELECT `dest`, SUM((`dep_time` IS NULL)) AS `n_cancelled`\nFROM `nycflights13::flights`\nGROUP BY `dest`\n\n\n\nWhich is more important: arrival delay or departure delay?\n\n\nCome up with another approach that will give you the same output as not_cancelled |&gt; count(dest) and (without usingcount()`).\n\n\nOur definition of cancelled flights (is.na(dep_delay) | is.na(arr_delay) ) is slightly suboptimal. Why? Which is the most important column?\n\n\nLook at the number of cancelled flights per day. Is there a pattern? Is the proportion of cancelled flights related to the average delay?\n\n\nWhich carrier has the worst delays?\n\nChallenge: can you disentangle the effects of bad airports vs. bad carriers? Why/why not? (Hint: think about flights |&gt; group_by(carrier, dest) |&gt; summarise(n()))\n\nWhat does the sort argument to count() do. When might you use it?"
+  },
+  {
+    "objectID": "core/labs/lab-tables.html#miscellanea",
+    "href": "core/labs/lab-tables.html#miscellanea",
+    "title": "Tables manipulation II",
+    "section": "Miscellanea",
+    "text": "Miscellanea\n\nWhich carriers serve all destination airports (in the table) ?\n\n\nRefer back to the lists of useful mutate and filtering functions.\nDescribe how each operation changes when you combine it with grouping.\n\n\nWhich plane (tailnum) has the worst on-time record amongst planes with at least ten flights?\n\n\nWhat time of day should you fly if you want to avoid delays as much as possible?\n\n\nFor each destination, compute the total minutes of delay.\n\n\nFor each flight, compute the proportion of the total positive arrival delays for its destination.\n\nUsing dplyr, it is easy. See A second look at group_by\n\nDelays are typically temporally correlated: even once the problem that caused the initial delay has been resolved, later flights are delayed to allow earlier flights to leave. Using lag(), explore how the delay of a flight is related to the delay of the immediately preceding flight.\n\n\n\n\n\n\n\nlag() is an example of window function. If we were using SQL, we would define a WINDOW using an expression like\nWINDOW w As (PARTITION BY origin ORDER BY year, month, day, sched_dep_time)\nSomething still needs fixing here: some flights never took off (is.na(dep_time)). Should they be sided out? assigned an infinite departure delay?\n\n\n\n\nLook at each destination. Can you find flights that are suspiciously fast? (i.e. flights that represent a potential data entry error). Compute the air time of a flight relative to the shortest flight to that destination. Which flights were most delayed in the air?\n\nConsider all flights with average speed above \\(950\\text{km/h}\\) as suspicious.\nLet us visualize destinations and origins of the speedy flights.\n\nFind all destinations that are flown by at least two carriers. Use that information to rank the carriers.\n\n\nFor each plane, count the number of flights before the first delay greater than 1 hour.\n\n\n\n\n\n\n\nAssume a plane is characterized by tailnum. Some flights have no tailnum. We ignore them."
+  },
+  {
+    "objectID": "core/labs/lab-tables.html#references",
+    "href": "core/labs/lab-tables.html#references",
+    "title": "Tables manipulation II",
+    "section": "References",
+    "text": "References\n\nData transformation cheatsheet\nR4Data Science Tidy\nBenchmarking\ndplyr and vctrs\nPosts on dplyr\nWindow functions on dplyr"
+  },
+  {
+    "objectID": "course-team.html",
+    "href": "course-team.html",
+    "title": " Teacher",
+    "section": "",
+    "text": "Teacher",
+    "crumbs": [
+      "Information",
+      "Team"
+    ]
+  },
+  {
+    "objectID": "labs-listings.html",
+    "href": "labs-listings.html",
+    "title": "Labs",
+    "section": "",
+    "text": "Note\n\n\n\nSessions are orgnized around labs. Feel free to look at the lab before sessions. Do not rush to solutions proposed here\n\n\n\n\n   \n     \n     \n       Order By\n       Default\n         \n          Title\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\nTitle\n\n\nCategories\n\n\n\n\n\n\nBivariate analysis\n\n\nBivariate analysis, Boxplots, Pairplots\n\n\n\n\nData visualization\n\n\nVisualization, Rosling, gapminder, ggplot2, Grammar of Graphics\n\n\n\n\nR language: a tour\n\n\nR, Vectors, Lists, Arrays, Data.frames, Functions\n\n\n\n\nTables manipulation II\n\n\nTables, tibbles, dplyr, SQL, Relational Algebra, nycflights13\n\n\n\n\n\nNo matching items\n\n\n\n\n\n\n\n\nTip\n\n\n\nBefore working out a lab, make sure the relevant packages are installed in your environment.",
+    "crumbs": [
+      "Labs"
+    ]
+  },
+  {
+    "objectID": "posit-cloud.html",
+    "href": "posit-cloud.html",
+    "title": "Positcloud",
+    "section": "",
+    "text": "Website",
+    "crumbs": [
+      "Support",
+      "Posit cloud"
+    ]
+  },
+  {
+    "objectID": "rstudio-client.html#project-options",
+    "href": "rstudio-client.html#project-options",
+    "title": "Rstudio Desktop",
+    "section": "Project options",
+    "text": "Project options",
+    "crumbs": [
+      "Support",
+      "rstudio"
+    ]
+  }
+]
