@@ -1,0 +1,40 @@
+---
+title: "MA7BY020: Exporatory Data Analysis"
+about:
+  id: hero-heading
+  template: trestles
+  image: ./images/team/avatar.jpg 
+  image-width: 10em
+  image-shape: round
+  links:
+    - icon: twitter
+      text: twitter
+      href: https://twitter.com
+    - icon: github
+      text: Github
+      href: https://github.com
+---
+
+:::{#hero-heading}
+
+### {{< fa server >}} 
+
+
+### {{< fa user-graduate >}} 
+
+
+### {{< fa brands r-project >}} 
+
+
+:::
+
+
+- [Syllabus](/course-syllabus.qmd)
+- [Teaching team](/course-team.qmd)
+- [Computing environment](/course-support.qmd)
+- [Slides](/slides-listings.qmd)
+- [Labs](/labs-listings.qmd)
+- [Labs solutions](/corriges-tds.qmd)
+- [Projects](/projects-listings.qmd)
+- [Past examninations](/exams-listings.qmd)
+
