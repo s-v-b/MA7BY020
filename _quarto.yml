@@ -18,7 +18,7 @@ website:
   page-navigation: true
   title: "MA7BY020 - Spring 2025"
   description: "Homepage for course MA7BY020 - Exploratory Data Analysis, Master MIDS Spring   2025."
-  site-url: "https://s-v-b.github.io/MA7BY020/"
+  site-url: "https://s-v-b.github.io/ma7by020-portal/"
 
   repo-url: https://github.com/s-v-b/ma7by020-portal/
   repo-actions: [edit, issue]
