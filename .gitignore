@@ -1,1 +1,12 @@
 /.quarto/
+
+
+/core/slides/*_cache/
+/core/slides/*_files/
+/_site/
+/core/notebooks/.jupyter_cache/
+/core/labs/*_cache/
+/core/labs/*_files/
+/core/labs/*thm
+
+/_*.local
