@@ -3,38 +3,64 @@ title: "Projects"
 listing:
   id: "projects"
   contents: 
-    - "projects/*.qmd"
-  fields: [date, title, subtitle] 
+    - projects-listings.yml
+  fields: [date, title, description, categories]
   field-display-names: 
-    title: "Titre"
-    subtitle: "Description"
+    date: "Due date"
+    title: "Title"
+    description: "Description"
+    categories: "Tags"
   type: table  
   table-striped: true
   table-hover: true
   sort: date
 
+engine: knitr
 ---
 
 
 ::: {.callout-note}
 
-Projects ...
+Course evaluation is based on Projects {{< fa hands-holding-circle >}}
+
+- {{< fa hand-holding-hand >}} Find a friend : all work done by *pairs of students*
+- {{< fa brands github >}} Create a single *private* `GitHub` repository  for each project and each pair of students. 
+- {{< fa unlock-keyhole >}} Grant me access to these repositories
+- {{< fa circle-radiation >}} All work is transmitted through your private repository and nowhere else
+- {{< fa paper-plane >}} No emails for project submission
+- {{< fa laptop-file >}} All projects deliverables consist of `Quarto` notebooks
 
 :::
+
 
 
 
 ::: {#projects}
-:::
-
-
-::: {.callout-tip}
-
-### Tips 
-
-
 
 :::
 
 
-{{< include /projects/_evaluation_guidelines.qmd >}}
+
+
+
+::: {.callout-warning}
+
+### Evaluation guidelines
+
+Grading criteria are given per project. They involve the following aspects:
+
+| Criterion | Points  | Details |
+|:----------|:-------:|:--------|
+|Narrative, spelling and syntax |  | English/French {{<  fa pen-fancy >}}|
+|Plots correction |  | choice of `aesthetics`, `geom`, `scale` ... {{<  fa chart-area >}}|
+|Plots style |  | Titles, legends, labels, breaks ... {{<  fa chart-area >}} |
+|Table wrangling |  | ETL, SQL like manipulations {{<  fa database >}} |
+|Computing Statistics |  | Aggregations, LR, PCA, CA, ... {{<  fa chart-area >}} |
+|DRY compliance |  | DRY principle at {{<  fa brands  wikipedia-w  >}} [ Wikipedia ](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself)|
+|Report organization| | {{< fa pen-to-square >}}|
+|Code organization| | {{< fa code-pull-request >}} |
+
+
+
+
+:::

@@ -1,0 +1,15 @@
+- title: "Data wrangling and Visualization"
+  description: "Data extraction, wrangling, visualization, reproducible data science"
+  categories: ["OECD", "Visualization", "Quarto", "tidyverse", "plotly"]
+  path: "core/projects/hmw_gapminder_oecd.html"
+  date: "February 7 2025"
+- title: "TBA"
+  description: "Statistical summaries, Regression, Diagnostics, Model comparison"
+  categories: ["Regression", "Diagnostics", "Selection", "Quarto", "tidyverse", "tidymodels"]
+  path: "core/projects/hmw_2.html"
+  date: "March 28 2025"
+- title: "TBA"
+  description: "SVD, Clustering, Regression, Package management"
+  categories: ["Spatial data", "Package", "Tidy evaluation", "Quarto"]
+  path: "core/projects/hmw_2.html"
+  date: "May 16 2025"

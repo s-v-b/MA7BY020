@@ -8,5 +8,11 @@
 /core/labs/*_cache/
 /core/labs/*_files/
 /core/labs/*thm
+/core/projects/*_cache/
+/core/projects/*_files/
+/core/labs-solutions/*_cache/
+/core/labs-solutions/*_files/
+/core/labs-solutions/*thm
 
 /_*.local
+.Rproj.user

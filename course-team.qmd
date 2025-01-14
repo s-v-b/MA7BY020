@@ -1,13 +1,29 @@
 ---
-title: ""
+title: "Course team"
 ---
 
-# {{< fa chalkboard-teacher >}}  Teacher
 
+::: {.columns}
+::: {.column}
+
+# {{< fa chalkboard-teacher >}}  Teacher 2024-25
 
 ```{=html}
-<iframe src="http://stephane-v-boucheron.fr" width="900" height="400"></iframe>
+<iframe src="http://stephane-v-boucheron.fr" width="450" height="400"></iframe>
 ```
 
+:::
+
+::: {.column}
+
+# {{< fa graduation-cap >}}  Former contributors
+
+- [Aurélie Fischer](https://www.lpsm.paris/users/fischer/index)
+- [Sothéa Has](https://hassothea.github.io) 
+- [Clément Levrard](https://www.normalesup.org/~levrard/)
+- [Maud Thomas](https://sites.google.com/site/maudthomaspro)
+
+:::
+::: 
 
 

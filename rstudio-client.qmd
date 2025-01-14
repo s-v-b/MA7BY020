@@ -7,12 +7,19 @@ format:
 ---
 
 
-# Installer 
+# Installation
+
+
 
 # Options
 
-- `General`: Check whether you want to save and restore `.Rdata` after and before each session.
-- `Code`: choose you favorite pipe operator: `|>` or `%>%`
+Follow `Tools > Global Options`
+
+- `General`: Check whether you want to save and restore `.Rdata` after and before each session. (No recommended)
+- `Code`: choose you favorite pipe operator: `|>` or `%>%` (favor standard pipe `|>`)
+- For other options, pick as you like.
+
+{{< fa hand-point-right >}} You can tune options for each RStudio project.
 
 
 # Goodies

@@ -8,126 +8,126 @@
   date: "2025-01-15"
   path: "core/labs-solutions/lab-r-intro.html"
   categories: [R language, Tidyverse, IDE]
-- title: "GSS data"
-  author: "Master I MIDS UParis Cité"
-  date: "2025-01-22"
-  path: "core/labs-solutions/lab-gss.html"
-  categories: [Univariate data, GSS]
 - title: "Table wranglig"
   author: "Master I MIDS UParis Cité"
   date: "2025-01-22"
   path: "core/labs-solutions/lab-tables.html"
   categories: [R language, dplyr, tabula data]
-- title: "Bivariate data. GSS"
+- title: "GSS data"
   author: "Master I MIDS UParis Cité"
-  date: "2025-01-29"
-  path: "core/labs-solutions/lab-bivariate.html"
-  categories: [GSS, bivariate data, mosaicplots, scatterplots, simple linear regression]
-- title: "Multiple Linear regression: OLS"
-  author: "Master I MIDS UParis Cité"
-  date: "2025-01-29"
-  path: "core/labs-solutions/lab-lin-reg.html"
-  categories: [Linear regression, OLS, lm]
-- title: "Multiple Linear Regression: diagnostics, `broom`"
-  author: "Master I MIDS UParis Cité"
-  date: "2025-02-05"
-  path: "core/labs-solutions/lab-whiteside.html"
-  categories: [Linear regression, diagnostics, broom]
-- title: "Linear regression, Variable selection, Transformations"
-  author: "Master I MIDS UParis Cité"
-  date: "2025-02-05"
-  path: "core/labs-solutions/lab-whiteside.html"
-  categories: [Linear regression, Variable selection, Transformations, Penalized LS]
-- title: "Bi and Multivariate categorical data"
-  author: "Master I MIDS UParis Cité"
-  date: "2025-02-12"
-  path: "core/labs-solutions/lab-test-miashs.html"
-  categories: [Categorical data, Tests, Area plots]
-- title: "Temporal data"
-  author: "Master I MIDS UParis Cité"
-  date: "2025-02-12"
-  path: "core/labs-solutions/lab-babynames.html"
-  categories: [Tmeporal data, Time series, Babynames]
-- title: "SVD"
-  author: "Master I MIDS UParis Cité"
-  date: "2025-02-19"
-  path: "core/labs-solutions/lab-pca.html"
-  categories: [SVD, PCA, CA, MCA, CCA]
-- title: "SVD and PCA"
-  author: "Master I MIDS UParis Cité"
-  date: "2025-02-19"
-  path: "core/labs-solutions/lab-pca-misc.html"
-  categories: [SVD, PCA, CA, MCA, CCA]  
-- title: "SVD and PCA"
-  author: "Master I MIDS UParis Cité"
-  date: "2025-02-19"
-  path: "core/labs-solutions/lab-pca-misc.html"
-  categories: [SVD, PCA, CA, MCA, CCA]  
-- title: "PCA, CA, MCA"
-  author: "Master I MIDS UParis Cité"
-  date: "2025-03-05"
-  path: "core/labs-solutions/lab-ca-mortality.html"
-  categories: [SVD, PCA, CA, MCA, CCA]  
-- title: "PCA, CA, MCA"
-  author: "Master I MIDS UParis Cité"
-  date: "2025-03-05"
-  path: "core/labs-solutions/lab-ca-hesitancy.html"
-  categories: [SVD, PCA, CA, MCA, CCA] 
-- title: "SVD plots and R programming"
-  author: "Master I MIDS UParis Cité"
-  date: "2025-03-12"
-  path: "core/labs-solutions/lab-pca-misc.html"
-  categories: [SVD, tidy evaluation, R packages] 
-- title: "SVD plots and R programming (continued)"
-  author: "Master I MIDS UParis Cité"
-  date: "2025-03-12"
-  path: "core/labs-solutions/lab-pca-misc.html"
-  categories: [SVD, tidy evaluation, R packages] 
-- title: "SVD, Life tables and Lee-Cater modeling"
-  author: "Master I MIDS UParis Cité"
-  date: "2025-03-12"
-  path: "core/labs-solutions/lab-lee-carter.html"
-  categories: [SVD, Life tables, Lee-Carter] 
-- title: "R programming Genericity"
-  author: "Master I MIDS UParis Cité"
-  date: "2025-03-19"
-  path: "core/labs-solutions/lab-vctrs.html"
-  categories: [R programming, S3]
-- title: "R programming Vectorization"
-  author: "Master I MIDS UParis Cité"
-  date: "2025-03-19"
-  path: "core/labs-solutions/lab-vecorization.html"
-  categories: [R programming, Vectorization]
-- title: "Clustering: kmeans"
-  author: "Master I MIDS UParis Cité"
-  date: "2025-03-26"
-  path: "core/labs-solutions/lab-vctrs.html"
-  categories: [Clustering, k-means]
-- title: "Clustering: Hierarchical"
-  author: "Master I MIDS UParis Cité"
-  date: "2025-03-26"
-  path: "core/labs-solutions/lab-vecorization.html"
-  categories: [Clustering, Hierarchical]
-- title: "Clustering: kmeans"
-  author: "Master I MIDS UParis Cité"
-  date: "2025-04-02"
-  path: "core/labs-solutions/lab-vctrs.html"
-  categories: [Clustering, k-means]
-- title: "Clustering: Hierarchical"
-  author: "Master I MIDS UParis Cité"
-  date: "2025-04-02"
-  path: "core/labs-solutions/lab-vecorization.html"
-  categories: [Clustering, Hierarchical]
-- title: "Spatial data visualization"
-  author: "Master I MIDS UParis Cité"
-  date: "2025-04-09"
-  path: "core/labs-solutions/lab-vctrs.html"
-  categories: [Clustering, k-means]
-- title: "Spatio-Temporal data visualization"
-  author: "Master I MIDS UParis Cité"
-  date: "2025-04-09"
-  path: "core/labs-solutions/lab-vecorization.html"
-  categories: [Clustering, Hierarchical]
+  date: "2025-01-22"
+  path: "core/labs-solutions/lab-gss.html"
+  categories: [Univariate data, GSS]
+# - title: "Bivariate data. GSS"
+#   author: "Master I MIDS UParis Cité"
+#   date: "2025-01-29"
+#   path: "core/labs-solutions/lab-bivariate.html"
+#   categories: [GSS, bivariate data, mosaicplots, scatterplots, simple linear regression]
+# - title: "Multiple Linear regression: OLS"
+#   author: "Master I MIDS UParis Cité"
+#   date: "2025-01-29"
+#   path: "core/labs-solutions/lab-lin-reg.html"
+#   categories: [Linear regression, OLS, lm]
+# - title: "Multiple Linear Regression: diagnostics, `broom`"
+#   author: "Master I MIDS UParis Cité"
+#   date: "2025-02-05"
+#   path: "core/labs-solutions/lab-whiteside.html"
+#   categories: [Linear regression, diagnostics, broom]
+# - title: "Linear regression, Variable selection, Transformations"
+#   author: "Master I MIDS UParis Cité"
+#   date: "2025-02-05"
+#   path: "core/labs-solutions/lab-whiteside.html"
+#   categories: [Linear regression, Variable selection, Transformations, Penalized LS]
+# - title: "Bi and Multivariate categorical data"
+#   author: "Master I MIDS UParis Cité"
+#   date: "2025-02-12"
+#   path: "core/labs-solutions/lab-test-miashs.html"
+#   categories: [Categorical data, Tests, Area plots]
+# - title: "Temporal data"
+#   author: "Master I MIDS UParis Cité"
+#   date: "2025-02-12"
+#   path: "core/labs-solutions/lab-babynames.html"
+#   categories: [Tmeporal data, Time series, Babynames]
+# - title: "SVD"
+#   author: "Master I MIDS UParis Cité"
+#   date: "2025-02-19"
+#   path: "core/labs-solutions/lab-pca.html"
+#   categories: [SVD, PCA, CA, MCA, CCA]
+# - title: "SVD and PCA"
+#   author: "Master I MIDS UParis Cité"
+#   date: "2025-02-19"
+#   path: "core/labs-solutions/lab-pca-misc.html"
+#   categories: [SVD, PCA, CA, MCA, CCA]  
+# - title: "SVD and PCA"
+#   author: "Master I MIDS UParis Cité"
+#   date: "2025-02-19"
+#   path: "core/labs-solutions/lab-pca-misc.html"
+#   categories: [SVD, PCA, CA, MCA, CCA]  
+# - title: "PCA, CA, MCA"
+#   author: "Master I MIDS UParis Cité"
+#   date: "2025-03-05"
+#   path: "core/labs-solutions/lab-ca-mortality.html"
+#   categories: [SVD, PCA, CA, MCA, CCA]  
+# - title: "PCA, CA, MCA"
+#   author: "Master I MIDS UParis Cité"
+#   date: "2025-03-05"
+#   path: "core/labs-solutions/lab-ca-hesitancy.html"
+#   categories: [SVD, PCA, CA, MCA, CCA] 
+# - title: "SVD plots and R programming"
+#   author: "Master I MIDS UParis Cité"
+#   date: "2025-03-12"
+#   path: "core/labs-solutions/lab-pca-misc.html"
+#   categories: [SVD, tidy evaluation, R packages] 
+# - title: "SVD plots and R programming (continued)"
+#   author: "Master I MIDS UParis Cité"
+#   date: "2025-03-12"
+#   path: "core/labs-solutions/lab-pca-misc.html"
+#   categories: [SVD, tidy evaluation, R packages] 
+# - title: "SVD, Life tables and Lee-Cater modeling"
+#   author: "Master I MIDS UParis Cité"
+#   date: "2025-03-12"
+#   path: "core/labs-solutions/lab-lee-carter.html"
+#   categories: [SVD, Life tables, Lee-Carter] 
+# - title: "R programming Genericity"
+#   author: "Master I MIDS UParis Cité"
+#   date: "2025-03-19"
+#   path: "core/labs-solutions/lab-vctrs.html"
+#   categories: [R programming, S3]
+# - title: "R programming Vectorization"
+#   author: "Master I MIDS UParis Cité"
+#   date: "2025-03-19"
+#   path: "core/labs-solutions/lab-vecorization.html"
+#   categories: [R programming, Vectorization]
+# - title: "Clustering: kmeans"
+#   author: "Master I MIDS UParis Cité"
+#   date: "2025-03-26"
+#   path: "core/labs-solutions/lab-vctrs.html"
+#   categories: [Clustering, k-means]
+# - title: "Clustering: Hierarchical"
+#   author: "Master I MIDS UParis Cité"
+#   date: "2025-03-26"
+#   path: "core/labs-solutions/lab-vecorization.html"
+#   categories: [Clustering, Hierarchical]
+# - title: "Clustering: kmeans"
+#   author: "Master I MIDS UParis Cité"
+#   date: "2025-04-02"
+#   path: "core/labs-solutions/lab-vctrs.html"
+#   categories: [Clustering, k-means]
+# - title: "Clustering: Hierarchical"
+#   author: "Master I MIDS UParis Cité"
+#   date: "2025-04-02"
+#   path: "core/labs-solutions/lab-vecorization.html"
+#   categories: [Clustering, Hierarchical]
+# - title: "Spatial data visualization"
+#   author: "Master I MIDS UParis Cité"
+#   date: "2025-04-09"
+#   path: "core/labs-solutions/lab-vctrs.html"
+#   categories: [Clustering, k-means]
+# - title: "Spatio-Temporal data visualization"
+#   author: "Master I MIDS UParis Cité"
+#   date: "2025-04-09"
+#   path: "core/labs-solutions/lab-vecorization.html"
+#   categories: [Clustering, Hierarchical]
   
 # core/labs-solutions/lab-ca-hesitancy.qmd
 # core/labs-solutions/lab-ca-mortality.qmd

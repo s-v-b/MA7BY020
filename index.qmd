@@ -3,13 +3,10 @@ title: "MA7BY020: Exporatory Data Analysis"
 about:
   id: hero-heading
   template: trestles
-  image: ./images/team/avatar.jpg 
-  image-width: 10em
-  image-shape: round
+  image: https://imgs.xkcd.com/comics/machine_learning.png 
+  image-width: 15em
+  image-shape: rectangle
   links:
-    - icon: twitter
-      text: twitter
-      href: https://twitter.com
     - icon: github
       text: Github
       href: https://github.com
@@ -19,11 +16,36 @@ about:
 
 ### {{< fa server >}} 
 
+Course MA7BY020: Exploratory Data Analysis is an introduction to the principles and practice of data exploration and visualization using the R programming language.
+Keeping an eye on Machine Learning and Data Science, the course will cover the following topics:
 
+- Tabular data manipulation
+- Data visualization
+- Univariate and bivariate analysis for qualitative and quantitative data
+- Multivariate analysis starting with multiple linear
+- Matrix methods based on Singular Value Decomposition: PCA, CA, CCA, ...
+- Clustering methods
+  
 ### {{< fa user-graduate >}} 
 
+After that course, you will be able to:
+
+- Handle tabular data using R version of the relational algebra (`dplyr`)
+- Visualize data using `ggplot2` and `plotly`
+- Perform univariate and bivariate analysis, compute and assess statistical summaries
+- Perform multivariate analysis using matrix methods
+- Diagnose and validate the results of multivariate analysis
+- Perform, discuss and communicate the results of SVD factorization methods
+- Perform, discuss and communicate the results of clustering methods
+- Communicate the results of the analysis in a clear and concise manner using Quarto reports, presentations, and dashboards
 
 ### {{< fa brands r-project >}} 
+
+The course is based on the R programming language, the RStudio IDE, and the VS Code Ide.
+We will rely on the `tidyverse` package and attempt to take advantage of `R` tidy evaluation
+mechanisms to write expressive and efficient code.
+
+We will use the `quarto` package for reproducible research.
 
 
 :::
@@ -34,7 +56,6 @@ about:
 - [Computing environment](/course-support.qmd)
 - [Slides](/slides-listings.qmd)
 - [Labs](/labs-listings.qmd)
-- [Labs solutions](/corriges-tds.qmd)
+- [Labs solutions](/labs-solution-listings.qmd)
 - [Projects](/projects-listings.qmd)
-- [Past examninations](/exams-listings.qmd)
-
+- [Class notes](https://s-v-b.github.io/EDA_CLASS_NOTES/)

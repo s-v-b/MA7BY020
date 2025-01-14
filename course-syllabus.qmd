@@ -11,10 +11,25 @@ title: "MA7BY020 Syllabus"
 
 |           | Day       | Time              | Location                       |  Start |
 |:---------:|:-----------:|:-------------------:|:--------------------------------|:--------|
-| Lab session 1   | TBA  | TBA  | Sophie Germain TBA      | 2025-01-13 |
-| Lab session 2   | TBA  | TBA  - 18:15  | Sophie Germain TBA      | 2024-01-15 |
+| Lab session 1   | Wednesday  | 13:13-15:00  | Olympe de Gouges 163      | 2025-01-15 |
+| Lab session 2   | Friday  | 9:00-10:30  | Sophie Germain 2012      | 2024-01-17 |
 
 ### [{{< fa cal >}}](https://edt.math.univ-paris-diderot.fr/#/parcours/mids/m1)
+
+:::
+
+
+::: {.callout-note}
+
+### Organization  {{< fa chalkboard-teacher >}}{{< fa laptop-code >}}
+
+We will have two weeky sessions of 1+1/2 hours each. Each session is organized around a [Lab](labs-listings.qmd). We will switch from blackboard to laptop and back. You are invited to bring your laptop to the lab sessions. 
+
+{{< fa hand-point-right >}} We will not attempt to complete the labs during the sessions. You are expected to complete the labs on your own time. Solutions (at least partial solutions) are available on the course website.
+
+You can fork the [course repository](https://github.com/s-v-b/MA7BY020) and post issues, comments, and corrections.
+
+
 
 :::
 
@@ -27,29 +42,13 @@ title: "MA7BY020 Syllabus"
 
 :::
 
-::: {.callout-note}
-
-## [Université Paris Cité](https://u-paris.fr)
-
-Useful links:
-
-- [Charte Université Paris Cité](https://u-paris.fr/valeurs/)
-
-- [Démarches et accessibilité](https://u-paris.fr/demarches-administratives-de-scolarite/)
-
-- [Centre de contact](https://u-paris.fr/centre-de-contact/)
-
-- [Relais handicap](https://u-paris.fr/etudes-et-handicap/)
-
-:::
-
 
 ::: {.callout-note}
 
 
 ### Communication  {{< fa bullhorn >}}
 
-All material is available from  [s-v-b.github.io/MA7BY020](https://s-v-b.github.io/MA7BY020)
+Material is available from  [s-v-b.github.io/MA7BY020](https://s-v-b.github.io/MA7BY020)
 
 [Moodle](https://moodle.u-paris.fr/course/view.php?id=2313)
 
@@ -61,20 +60,17 @@ Subscribe to [Moodle portal](https://moodle.u-paris.fr/course/view.php?id=2313)
 
 ### [Software](/course-support.html) {{< fa bullhorn >}}
 
-{{< fa database >}} ...
 
-{{< fa laptop-code >}}  
-
-- [`R`](https://www.postgresql.org/docs/current/app-psql.html)
-- [Posit](https://posit.co)
+- [`R`](https://www.r-project.org)
+- [`Posit`](https://posit.co)
 - [`rstudio`](https://posit.co/products/open-source/rstudio/)
 - [`quarto`](https://quarto.org)
-- [`jupyter`]
-- [`vs code`]
-- [`git`]
-- [`docker`]
-- [`postgresql`]
+- [`vs code`](https://code.visualstudio.com)
+- [`git`](https://git-scm.com)
+- [`docker`](https://www.docker.com)
+- [`postgresql`](https://www.postgresql.org)
 
+ 
 :::
 
 
@@ -83,8 +79,13 @@ Subscribe to [Moodle portal](https://moodle.u-paris.fr/course/view.php?id=2313)
 
 ## References  {{< fa book >}}
 
-
-- 
+- Bin Yu and Rebecca Barter, [Veridical Data Science](https://vdsbook.com)
+- Hadley Wickham, [ggplot2: Elegant Graphics for Data Analysis](https://ggplot2-book.org)
+- Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund, [R for Data Science](https://r4ds.hadley.nz)
+- Hadley Wickham, [Advanced R](https://adv-r.hadley.nz)
+- Hadley Wickham and Jennifer Bryan., [R packages](https://r-pkgs.org)
+- Hadley Wickham, [Mastering Shiny](https://mastering-shiny.org)
+- [`kaggle`](https://www.kaggle.com)
 :::
 
 
@@ -94,9 +95,9 @@ Subscribe to [Moodle portal](https://moodle.u-paris.fr/course/view.php?id=2313)
 
 [Slides](/slides-listings.qmd) 
 
-The labs are  [available](/labs-listings.qmd) (html and pdf)
+Labs are  [available](/labs-listings.qmd) (html and pdf)
 
-Labs  corrections are [available](/corrections-listings.qmd)
+Labs  with corrections are [available](/corrections-listings.qmd)
 
 
 
@@ -109,28 +110,18 @@ Labs  corrections are [available](/corrections-listings.qmd)
 
 - 3 projects:
 
-   - $\textsf{P}_1$ 
-   - $\textsf{P}_2$ 
-   - $\textsf{P}_3$ 
-
-- 2 Examinations
-
-  - $\textsf{EST}_1$ 
-  - $\textsf{EST}_2$
-
+   - $\textsf{P}_1$ Visualization
+   - $\textsf{P}_2$ Regression
+   - $\textsf{P}_3$ Packaging
 
 - Grading
 
-$$.2 (\textsf{P}_1 + \textsf{P}_2) + . 3 \textsf{P}_3 + .1 (\textsf{EST}_1+\textsf{EST}_2)$$
+$$.2 \textsf{P}_1 + .3 \textsf{P}_2 + .5 \textsf{P}_3$$
 
 
 :::
 
-::: {.callout-tip}
 
-### {{< fa wizard >}} Tips 
-
-:::
 
 
 ::: {.callout-warning}
@@ -150,8 +141,22 @@ $$.2 (\textsf{P}_1 + \textsf{P}_2) + . 3 \textsf{P}_3 + .1 (\textsf{EST}_1+\text
 
 ### Save the dates !  {{< fa calendar >}}
 
-Click [here]() for U Paris Cite Calendar.
+Click [here]() for [U Paris Cite]() Calendar.
 
 Click [here](https://edt.math.univ-paris-diderot.fr/#/parcours/mids/m1) for M1 MIDS Calendar
+
+:::
+
+
+::: {.callout-note}
+
+## [Université Paris Cité](https://u-paris.fr)
+
+Useful links:
+
+- [Charte Université Paris Cité](https://u-paris.fr/valeurs/)
+- [Démarches et accessibilité](https://u-paris.fr/demarches-administratives-de-scolarite/)
+- [Centre de contact](https://u-paris.fr/centre-de-contact/)
+- [Relais handicap](https://u-paris.fr/etudes-et-handicap/)
 
 :::

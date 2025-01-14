@@ -9,16 +9,26 @@ format:
 
 # {{< fa brands r-project >}} 
 
-[Version > 4.0](https://www.r-project.org)
+In this course, we will use the `R` programming language. Install the latest version of `R` from the [R Project website](https://www.r-project.org) on your hard drive. In any case, you shall have [Version > 4.0](https://www.r-project.org).
 
 [Cheatsheets](https://posit.co/resources/cheatsheets/)
 
 # IDEs 
 
+There exist several Integrated Development Environments (IDEs) for `R`. Here are some of them:
+
 - [`rstudio`](https://posit.co/downloads/)
 - [`vs code`](https://code.visualstudio.com)
 - [`emacs`](https://www.gnu.org/software/emacs/)
-- [`jupyter`](https://jupyter.org)
+
+
+[`rstudio`](https://posit.co/downloads/) has been designed to work around `R`. It is free and open-source. It is available for Windows, Mac, and Linux. It works very well `git`. `Quarto` has been designed and developed by the same team. 
+
+[`vs code`](https://code.visualstudio.com) is a general-purpose IDE. It works very well with `git`. It is very versatile and can be used for many programming languages. It is endowed with a large number of extensions for `R`, `Python`, `SQL`, and `Quarto`. It integrates very well with `git`. It is promoted by github just as copilot
+
+[`emacs`](https://www.gnu.org/software/emacs/) is a classical and powerful general-purpose editor that can be turned into an  IDE.  It is available for Windows, Mac, and Linux. It also works very well with `git`. Extension ESS (Emacs Speaks Statistics) is available for `R`. 
+
+In the course, we will use `rstudio` and `vs code`.
 
 # Positcloud
 
@@ -26,8 +36,7 @@ format:
 
 # Quarto
 
-[Download from Quarto Website](https://quarto.org)
-
+[Download from Quarto Website](https://quarto.org). It is very convenient to work the Command Line Interface (CLI) of `Quarto`.
 
 ::: {.callout-important}
 
@@ -36,12 +45,12 @@ format:
 - An open-source scientific and technical publishing system
 - Author using Jupyter notebooks or with plain text markdown in your favorite editor.
 - Create dynamic content with `Python`, `R`, `Julia`, and `Observable`.
-- Publish reproducible, production quality articles, presentations, dashboards, websites, blogs, and books in HTML, PDF, MS Word, ePub, and more.
+- Publish *reproducible*, production quality articles, presentations, dashboards, websites, blogs, and books in HTML, PDF, MS Word, ePub, and more.
 -  Share knowledge and insights organization-wide by publishing to Posit Connect, Confluence, or other publishing systems.
-- Write using Pandoc markdown, including equations, citations, crossrefs, figure panels, callouts, advanced layout, and more.
+- Write using Pandoc markdown, including equations, citations, cross references, figure panels, callouts, advanced layout, and more.
 
 :::
 
-# {{< fa brands docker >}} Docker
+
 
 

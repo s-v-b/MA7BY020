@@ -1,0 +1,8 @@
+The objectives of course *Introduction to Exploratory Data Analysis*  are to develop the ability to:
+
+-  perform data collection, tidying, and management,
+-  compute statistics for summarizing data,
+-  visualize the output of data analysis in the Grammar of Graphics framework,
+-  use the `R` programming language for data analysis.
+-  build an `R` package,
+-  write reports, design presentations, and possibly build dashboards in the `quarto` document format.
