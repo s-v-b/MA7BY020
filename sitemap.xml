@@ -1,59 +1,87 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://s-v-b.github.io/ma7by020-portal/slides-listings.html</loc>
+    <loc>https://s-v-b.github.io/MA7BY020/weeks/week-1.html</loc>
+    <lastmod>2025-01-13T22:04:05.329Z</lastmod>
+  </url>
+  <url>
+    <loc>https://s-v-b.github.io/MA7BY020/rstudio-client.html</loc>
+    <lastmod>2025-01-14T13:59:20.772Z</lastmod>
+  </url>
+  <url>
+    <loc>https://s-v-b.github.io/MA7BY020/projects-listings.html</loc>
+    <lastmod>2025-01-14T12:58:32.533Z</lastmod>
+  </url>
+  <url>
+    <loc>https://s-v-b.github.io/MA7BY020/labs-solutions-listings.html</loc>
     <lastmod>2024-12-21T13:40:45.721Z</lastmod>
   </url>
   <url>
-    <loc>https://s-v-b.github.io/ma7by020-portal/quarto-format.html</loc>
-    <lastmod>2024-12-21T13:40:45.721Z</lastmod>
+    <loc>https://s-v-b.github.io/MA7BY020/index.html</loc>
+    <lastmod>2025-01-14T08:35:58.504Z</lastmod>
   </url>
   <url>
-    <loc>https://s-v-b.github.io/ma7by020-portal/labs-solutions-listings.html</loc>
-    <lastmod>2024-12-21T13:40:45.721Z</lastmod>
+    <loc>https://s-v-b.github.io/MA7BY020/course-syllabus.html</loc>
+    <lastmod>2025-01-13T13:15:32.400Z</lastmod>
   </url>
   <url>
-    <loc>https://s-v-b.github.io/ma7by020-portal/index.html</loc>
-    <lastmod>2024-12-21T13:40:45.721Z</lastmod>
-  </url>
-  <url>
-    <loc>https://s-v-b.github.io/ma7by020-portal/course-syllabus.html</loc>
-    <lastmod>2024-12-21T13:40:45.720Z</lastmod>
-  </url>
-  <url>
-    <loc>https://s-v-b.github.io/ma7by020-portal/core/labs/lab-gapminder.html</loc>
+    <loc>https://s-v-b.github.io/MA7BY020/core/labs/lab-tables.html</loc>
     <lastmod>2024-12-22T20:28:24.549Z</lastmod>
   </url>
   <url>
-    <loc>https://s-v-b.github.io/ma7by020-portal/core/labs/lab-r-intro.html</loc>
+    <loc>https://s-v-b.github.io/MA7BY020/core/labs/lab-bivariate.html</loc>
     <lastmod>2024-12-22T20:28:24.548Z</lastmod>
   </url>
   <url>
-    <loc>https://s-v-b.github.io/ma7by020-portal/computing-access.html</loc>
-    <lastmod>2024-12-21T13:40:45.720Z</lastmod>
+    <loc>https://s-v-b.github.io/MA7BY020/computing-access.html</loc>
+    <lastmod>2025-01-14T13:17:41.384Z</lastmod>
   </url>
   <url>
-    <loc>https://s-v-b.github.io/ma7by020-portal/core/labs/lab-bivariate.html</loc>
+    <loc>https://s-v-b.github.io/MA7BY020/core/labs/lab-r-intro.html</loc>
+    <lastmod>2025-01-13T20:49:42.181Z</lastmod>
+  </url>
+  <url>
+    <loc>https://s-v-b.github.io/MA7BY020/core/labs/lab-gapminder.html</loc>
+    <lastmod>2025-01-13T13:20:04.856Z</lastmod>
+  </url>
+  <url>
+    <loc>https://s-v-b.github.io/MA7BY020/core/projects/hmw_gapminder_oecd.html</loc>
+    <lastmod>2025-01-14T15:06:31.448Z</lastmod>
+  </url>
+  <url>
+    <loc>https://s-v-b.github.io/MA7BY020/course-team.html</loc>
+    <lastmod>2025-01-11T21:32:08.226Z</lastmod>
+  </url>
+  <url>
+    <loc>https://s-v-b.github.io/MA7BY020/labs-listings.html</loc>
+    <lastmod>2025-01-14T11:18:53.392Z</lastmod>
+  </url>
+  <url>
+    <loc>https://s-v-b.github.io/MA7BY020/posit-cloud.html</loc>
+    <lastmod>2024-12-21T13:40:45.721Z</lastmod>
+  </url>
+  <url>
+    <loc>https://s-v-b.github.io/MA7BY020/quarto-format.html</loc>
+    <lastmod>2024-12-21T13:40:45.721Z</lastmod>
+  </url>
+  <url>
+    <loc>https://s-v-b.github.io/MA7BY020/slides-listings.html</loc>
+    <lastmod>2024-12-21T13:40:45.721Z</lastmod>
+  </url>
+  <url>
+    <loc>https://s-v-b.github.io/MA7BY020/core/labs-solutions/lab-bivariate.html</loc>
     <lastmod>2024-12-22T20:28:24.548Z</lastmod>
   </url>
   <url>
-    <loc>https://s-v-b.github.io/ma7by020-portal/core/labs/lab-tables.html</loc>
+    <loc>https://s-v-b.github.io/MA7BY020/core/labs-solutions/lab-gapminder.html</loc>
+    <lastmod>2025-01-13T13:20:04.856Z</lastmod>
+  </url>
+  <url>
+    <loc>https://s-v-b.github.io/MA7BY020/core/labs-solutions/lab-r-intro.html</loc>
+    <lastmod>2025-01-13T20:49:42.181Z</lastmod>
+  </url>
+  <url>
+    <loc>https://s-v-b.github.io/MA7BY020/core/labs-solutions/lab-tables.html</loc>
     <lastmod>2024-12-22T20:28:24.549Z</lastmod>
-  </url>
-  <url>
-    <loc>https://s-v-b.github.io/ma7by020-portal/course-team.html</loc>
-    <lastmod>2024-12-21T13:40:45.721Z</lastmod>
-  </url>
-  <url>
-    <loc>https://s-v-b.github.io/ma7by020-portal/labs-listings.html</loc>
-    <lastmod>2024-12-21T13:40:45.721Z</lastmod>
-  </url>
-  <url>
-    <loc>https://s-v-b.github.io/ma7by020-portal/posit-cloud.html</loc>
-    <lastmod>2024-12-21T13:40:45.721Z</lastmod>
-  </url>
-  <url>
-    <loc>https://s-v-b.github.io/ma7by020-portal/rstudio-client.html</loc>
-    <lastmod>2024-12-21T13:40:45.721Z</lastmod>
   </url>
 </urlset>
