@@ -1,0 +1,15 @@
+{
+  "hash": "98cab8d44572f67c9bf0a46fd988a939",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Projects\"\nlisting:\n  id: \"projects\"\n  contents: \n    - projects-listings.yml\n  fields: [date, title, description, categories]\n  field-display-names: \n    date: \"Due date\"\n    title: \"Title\"\n    description: \"Description\"\n    categories: \"Tags\"\n  type: table  \n  table-striped: true\n  table-hover: true\n  sort: date\n\nengine: knitr\n---\n\n\n\n\n::: {.callout-note}\n\nCourse evaluation is based on Projects {{< fa hands-holding-circle >}}\n\n- {{< fa hand-holding-hand >}} Find a friend : all work done by *pairs of students*\n- {{< fa brands github >}} Create a single *private* `GitHub` repository  for each project and each pair of students. \n- {{< fa unlock-keyhole >}} Grant me access to these repositories\n- {{< fa circle-radiation >}} All work is transmitted through your private repository and nowhere else\n- {{< fa paper-plane >}} No emails for project submission\n- {{< fa laptop-file >}} All projects deliverables consist of `Quarto` notebooks\n\n:::\n\n\n\n\n::: {#projects}\n\n:::\n\n\n\n\n\n::: {.callout-warning}\n\n### Evaluation guidelines\n\nGrading criteria are given per project. They involve the following aspects:\n\n| Criterion | Points  | Details |\n|:----------|:-------:|:--------|\n|Narrative, spelling and syntax |  | English/French {{<  fa pen-fancy >}}|\n|Plots correction |  | choice of `aesthetics`, `geom`, `scale` ... {{<  fa chart-area >}}|\n|Plots style |  | Titles, legends, labels, breaks ... {{<  fa chart-area >}} |\n|Table wrangling |  | ETL, SQL like manipulations {{<  fa database >}} |\n|Computing Statistics |  | Aggregations, LR, PCA, CA, ... {{<  fa chart-area >}} |\n|DRY compliance |  | DRY principle at {{<  fa brands  wikipedia-w  >}} [ Wikipedia ](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself)|\n|Report organization| | {{< fa pen-to-square >}}|\n|Code organization| | {{< fa code-pull-request >}} |\n\n\n\n\n:::",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

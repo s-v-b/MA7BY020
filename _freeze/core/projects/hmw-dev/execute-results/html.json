@@ -1,0 +1,15 @@
+{
+  "hash": "eb499b9f9aa80fd3125afbbe00d28603",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Package Development\"\nengine: knitr\ndate: \"2025-01-14 21:19:56.257101\"\n\nexecute:\n  echo: true\n  eval: false\n  collapse: true\n\nformat:\n  html:\n    output-file: hmw-dev-2025.html\n  pdf:\n    output-file: hmw-dev-2025.pdf\n\ndraft: true\nstandalone: true\nprefer-html: true\n---\n\n\n\n\n\n\n\n\n### {{< fa map >}} Objectives\n\n\nThis homework is concerned with developping methods \nfor objects produced by factorial methods like Correspondence Analysis, Multiple Correspondence Analysis, Canonical Correlation Analysis, ...  (`R`). \n\n\n\n\n\n\n\n\n\n### Supplementing the `broom` package\n\nThe `broom` package offers `S3` generic functions for \nbuilding dataframes from the output of a variety of statistical techniques (for example `lm`, `prcomp`, or `kmeans`): `augment`, `tidy`, and `glance`.\n\nThe first goal of this homework is to  design and code methods for generic functions `augment`, `tidy`, and `glance` for classes `CA`, `MCA`, `CCA`.\n\nYou may use classes `CA`, `MCA`, and `CCA` from `FactoMineR` or design your own classes. \n\n### Programming with `dplyr` and `ggplot2`\n\nThe second goal of this homework is to design and code functions that take as input the output of `augment`, `tidy`, and `glance`  (possibly simultaneously) to build `ggplot` objects corresponding to the plots associated with  `CA`, `MCA`, and `CCA` (screeplot, row plot, column plot, and symmetric plot).\n\n::: {.callout-note}\n\n`ggplot2` offers a generic function `autoplot()`. See [Tidyverse documentation on `autoplot`](https://ggplot2.tidyverse.org/reference/autoplot.html), More generally \nhave a look at [automatic plotting](https://ggplot2.tidyverse.org/reference/automatic_plotting.html)\n\n:::\n\nThe third goal of this homework is to design and code methods for generic function `autoplot()` for classes `CA`, `MCA`, `CCA`.\n\n::: {.callout-tip}\n\nHave a look at `autolayer()` generic. Could be useful for implementing symmetric plots (biplots). \n\n:::\n\n\n\n### Package development\n\nThe function and methods coded in this homework should be delivered as a `package`.\n\nFollow the package devlopment guidelines in [R Packages (2e)](https://r-pkgs.org).\n\n- Define a dedicated rstudio project for this homework\n- Don't forget documentation and testing\n  \n\n\n### References\n\n- [Advanced R Programming](https://adv-r.hadley.nz)\n- [S3](https://adv-r.hadley.nz/s3.html)\n- [Programming with/for `ggplot2`](https://ggplot2-book.org)\n- [Cheatsheets](https://posit.co/resources/cheatsheets/)\n- [Packages](https://r-pkgs.org)\n\n\n\n\n### {{<  fa graduation-cap >}} Grading criteria \n\n\n| Criterion | Points  | Details |\n|:----------|:-------:|:--------|\n| Documentation| 25% | English/French {{<  fa pen-fancy >}}|\n| Testing  | 25% |  {{<  fa check >}}|\n| Coding   | 50% |    {{<  fa code >}} |\n\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}
