@@ -14,22 +14,55 @@ draft: false
 :::
 
 
-## Labs
+## {{< fa flask-vial >}} Labs
+
+We worked on the next two labs ([solutions](/core/labs-solutions/) )
 
 -   [Lab 1](/core/labs/lab-r-intro.html) - Introduction to R and RStudio
 -   [Lab 2](/core/labs/lab-gapminder.html) - Introduction to Data Visualization using Gapminder dataset
 
-## Logistics
+We used [Rstudio](https://posit.co/download/rstudio-desktop/), created and initialized a dedicated  `R` project (without `git` and `renv`). We installed packages `tidyverse`, `pak` and `gapminder`. 
 
-{{< fa bullhorn >}} : you will work with the `R` programming language in this course. 
+We reconstructed the [`gapminder`](/core/labs/lab-gapminder.qmd) demo using `ggplot2` and `plotly`. 
+
+We went through several aspects of `R` following [Intro to `R`](/core/labs/lab-gapminder.qmd). This is an incentive to install packages `lobstr` and `rlang`. They can be very hepful when visualizing the data structures that underpin vectors, matrices, lists, and data frames. 
+
+## {{< fa person-digging >}} Further work
+
+{{< fa hand-point-right >}} Review the content of the two labs. Work out every part you do not already know. 
+Report an issue if you are unhappy with the proposed solutions/hints.
+
+
+## {{< fa book >}} Further reading
+
+- [The `ggplot` book](https://ggplot2-book.org)
+- [`R` for data science](https://r4ds.hadley.nz)
+  - Data visualization
+  - Transform
+    - Logical vectors
+    - Numbers
+    - Factors
+    - Missing values
+    - Functions
+    - Iteration
+    - A field guide to base R
+- [Advanced `R`](https://adv-r.hadley.nz)
+  - Names and values
+  - Vectors
+  - Subsetting
+  
+ 
+## {{< fa laptop >}} Logistics  
+
+{{< fa bullhorn >}}{{< fa bullhorn >}} : you will work with the [`R` programming language](https://www.r-project.org) in this course. 
 
 You need either to install `R`, `RStudio` and `VS Code` on your computer, or to use your `posit-cloud` account. 
 
-{{< fa bullhorn >}} Install `Quarto` on your computer to render the `.qmd` files. 
+{{< fa bullhorn >}}{{< fa bullhorn >}} Install [`Quarto`](https://quarto.org) on your computer to render the `.qmd` files. 
 
 Please follow the instructions [here](/computing-access.qmd) to install `R`, `RStudio`, `VS Code`, and `Quarto` or to access `posit-cloud`. 
 
-{{< fa bullhorn >}} Please activate your ENT account (follow the instructions on [Moodle](https://moodle.u-paris.fr/course/view.php?id=2313)). You will be able to access the PostGres server.
+{{< fa bullhorn >}}{{< fa bullhorn >}} Please activate your ENT account (follow the instructions on [Moodle](https://moodle.u-paris.fr/course/view.php?id=6143)). You will be able to access the PostGres server.
 
 
 <br><br>

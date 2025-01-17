@@ -50,9 +50,9 @@ You can fork the [course repository](https://github.com/s-v-b/MA7BY020) and post
 
 Material is available from  [s-v-b.github.io/MA7BY020](https://s-v-b.github.io/MA7BY020)
 
-[Moodle](https://moodle.u-paris.fr/course/view.php?id=2313)
+[Moodle](https://moodle.u-paris.fr/course/view.php?id=6143)
 
-Subscribe to [Moodle portal](https://moodle.u-paris.fr/course/view.php?id=2313) 
+Subscribe to [Moodle portal](https://moodle.u-paris.fr/course/view.php?id=6143) 
 
 :::
 
