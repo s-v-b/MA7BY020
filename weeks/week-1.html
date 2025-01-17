@@ -245,8 +245,10 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#labs" id="toc-labs" class="nav-link active" data-scroll-target="#labs">Labs</a></li>
-  <li><a href="#logistics" id="toc-logistics" class="nav-link" data-scroll-target="#logistics">Logistics</a></li>
+  <li><a href="#labs" id="toc-labs" class="nav-link active" data-scroll-target="#labs"><i class="fa-solid fa-flask-vial" aria-label="flask-vial"></i> Labs</a></li>
+  <li><a href="#further-work" id="toc-further-work" class="nav-link" data-scroll-target="#further-work"><i class="fa-solid fa-person-digging" aria-label="person-digging"></i> Further work</a></li>
+  <li><a href="#further-reading" id="toc-further-reading" class="nav-link" data-scroll-target="#further-reading"><i class="fa-solid fa-book" aria-label="book"></i> Further reading</a></li>
+  <li><a href="#logistics" id="toc-logistics" class="nav-link" data-scroll-target="#logistics"><i class="fa-solid fa-laptop" aria-label="laptop"></i> Logistics</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/s-v-b/MA7BY020/edit/main/weeks/week-1.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/s-v-b/MA7BY020/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -291,19 +293,53 @@ Important
 </div>
 </div>
 <section id="labs" class="level2">
-<h2 class="anchored" data-anchor-id="labs">Labs</h2>
+<h2 class="anchored" data-anchor-id="labs"><i class="fa-solid fa-flask-vial" aria-label="flask-vial"></i> Labs</h2>
+<p>We worked on the next two labs (<a href="../core/labs-solutions/">solutions</a> )</p>
 <ul>
 <li><a href="../core/labs/lab-r-intro.html">Lab 1</a> - Introduction to R and RStudio</li>
 <li><a href="../core/labs/lab-gapminder.html">Lab 2</a> - Introduction to Data Visualization using Gapminder dataset</li>
 </ul>
+<p>We used <a href="https://posit.co/download/rstudio-desktop/">Rstudio</a>, created and initialized a dedicated <code>R</code> project (without <code>git</code> and <code>renv</code>). We installed packages <code>tidyverse</code>, <code>pak</code> and <code>gapminder</code>.</p>
+<p>We reconstructed the <a href="../core/labs/lab-gapminder.html"><code>gapminder</code></a> demo using <code>ggplot2</code> and <code>plotly</code>.</p>
+<p>We went through several aspects of <code>R</code> following <a href="../core/labs/lab-gapminder.html">Intro to <code>R</code></a>. This is an incentive to install packages <code>lobstr</code> and <code>rlang</code>. They can be very hepful when visualizing the data structures that underpin vectors, matrices, lists, and data frames.</p>
+</section>
+<section id="further-work" class="level2">
+<h2 class="anchored" data-anchor-id="further-work"><i class="fa-solid fa-person-digging" aria-label="person-digging"></i> Further work</h2>
+<p><i class="fa-solid fa-hand-point-right" aria-label="hand-point-right"></i> Review the content of the two labs. Work out every part you do not already know. Report an issue if you are unhappy with the proposed solutions/hints.</p>
+</section>
+<section id="further-reading" class="level2">
+<h2 class="anchored" data-anchor-id="further-reading"><i class="fa-solid fa-book" aria-label="book"></i> Further reading</h2>
+<ul>
+<li><a href="https://ggplot2-book.org">The <code>ggplot</code> book</a></li>
+<li><a href="https://r4ds.hadley.nz"><code>R</code> for data science</a>
+<ul>
+<li>Data visualization</li>
+<li>Transform
+<ul>
+<li>Logical vectors</li>
+<li>Numbers</li>
+<li>Factors</li>
+<li>Missing values</li>
+<li>Functions</li>
+<li>Iteration</li>
+<li>A field guide to base R</li>
+</ul></li>
+</ul></li>
+<li><a href="https://adv-r.hadley.nz">Advanced <code>R</code></a>
+<ul>
+<li>Names and values</li>
+<li>Vectors</li>
+<li>Subsetting</li>
+</ul></li>
+</ul>
 </section>
 <section id="logistics" class="level2">
-<h2 class="anchored" data-anchor-id="logistics">Logistics</h2>
-<p><i class="fa-solid fa-bullhorn" aria-label="bullhorn"></i> : you will work with the <code>R</code> programming language in this course.</p>
+<h2 class="anchored" data-anchor-id="logistics"><i class="fa-solid fa-laptop" aria-label="laptop"></i> Logistics</h2>
+<p><i class="fa-solid fa-bullhorn" aria-label="bullhorn"></i><i class="fa-solid fa-bullhorn" aria-label="bullhorn"></i> : you will work with the <a href="https://www.r-project.org"><code>R</code> programming language</a> in this course.</p>
 <p>You need either to install <code>R</code>, <code>RStudio</code> and <code>VS Code</code> on your computer, or to use your <code>posit-cloud</code> account.</p>
-<p><i class="fa-solid fa-bullhorn" aria-label="bullhorn"></i> Install <code>Quarto</code> on your computer to render the <code>.qmd</code> files.</p>
+<p><i class="fa-solid fa-bullhorn" aria-label="bullhorn"></i><i class="fa-solid fa-bullhorn" aria-label="bullhorn"></i> Install <a href="https://quarto.org"><code>Quarto</code></a> on your computer to render the <code>.qmd</code> files.</p>
 <p>Please follow the instructions <a href="../computing-access.html">here</a> to install <code>R</code>, <code>RStudio</code>, <code>VS Code</code>, and <code>Quarto</code> or to access <code>posit-cloud</code>.</p>
-<p><i class="fa-solid fa-bullhorn" aria-label="bullhorn"></i> Please activate your ENT account (follow the instructions on <a href="https://moodle.u-paris.fr/course/view.php?id=2313">Moodle</a>). You will be able to access the PostGres server.</p>
+<p><i class="fa-solid fa-bullhorn" aria-label="bullhorn"></i><i class="fa-solid fa-bullhorn" aria-label="bullhorn"></i> Please activate your ENT account (follow the instructions on <a href="https://moodle.u-paris.fr/course/view.php?id=6143">Moodle</a>). You will be able to access the PostGres server.</p>
 <p><br><br></p>
 <div style="font-size: 0.875em;">
 <p>Back to <a href="../slides-listings.html">Agenda</a> ⏎</p>
