@@ -1,0 +1,66 @@
+---
+title: "Week 2"
+subtitle: "Package dplyr and table calculus"
+editor: source
+draft: false
+---
+
+::: callout-important
+
+-   Session I Olympe de Gouges (163) Wednesday 13h30-15h
+-   Session II Sophie Germain (2012) Friday 9h00-10h30
+-   {{< fa cal >}} [Calendar](https://edt.math.univ-paris-diderot.fr/#/parcours/mids/m1)
+
+:::
+
+
+## {{< fa flask-vial >}} Labs
+
+We revisit the first two labs ([solutions](/core/labs-solutions/) )
+
+-   [Lab 1](/core/labs/lab-r-intro.html) - Introduction to R and RStudio
+-   [Lab 2](/core/labs/lab-gapminder.html) - Introduction to Data Visualization using Gapminder dataset
+
+We use [Rstudio](https://posit.co/download/rstudio-desktop/), and our dedicated  `R` project (without `git` and `renv`). We install packages `gt`, `nycflights` and `slider`. 
+
+We review our first slide deck:
+
+- [Introduction to `dplyr`](/core/slides/_slides-dplyr.html)
+
+and dig into 
+
+- [Lab 3](/core/labs/lab-tables.html) - Working with `dplyr`
+  
+
+## {{< fa person-digging >}} Further work
+
+{{< fa hand-point-right >}} Review the content of the three labs. Work out every part you do not already know. 
+Report an issue if you are unhappy with the proposed solutions/hints.
+
+
+## {{< fa book >}} Further reading
+
+
+- [`R` for data science](https://r4ds.hadley.nz)
+- [Advanced `R`](https://adv-r.hadley.nz)
+
+  
+ 
+## {{< fa laptop >}} Logistics  
+
+{{< fa bullhorn >}}{{< fa bullhorn >}} : you will work with the [`R` programming language](https://www.r-project.org) in this course. 
+
+You need either to install `R`, `RStudio` and `VS Code` on your computer, or to use your `posit-cloud` account. 
+
+{{< fa bullhorn >}}{{< fa bullhorn >}} Install [`Quarto`](https://quarto.org) on your computer to render the `.qmd` files. 
+
+Please follow the instructions [here](/computing-access.qmd) to install `R`, `RStudio`, `VS Code`, and `Quarto` or to access `posit-cloud`. 
+
+{{< fa bullhorn >}}{{< fa bullhorn >}} Please activate your ENT account (follow the instructions on [Moodle](https://moodle.u-paris.fr/course/view.php?id=6143)). You will be able to access the PostGres server.
+
+
+<br><br>
+
+::: {style="font-size: 0.875em;"}
+Back to [Agenda](/slides-listings.qmd) ⏎
+:::
