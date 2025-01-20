@@ -1,0 +1,2735 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Tables manipulation with dplyr</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Stéphane Boucheron" />
+    <script src="libs/header-attrs-2.28/header-attrs.js"></script>
+    <link href="libs/tile-view-0.2.6/tile-view.css" rel="stylesheet" />
+    <script src="libs/tile-view-0.2.6/tile-view.js"></script>
+    <link href="libs/animate.css-3.7.2/animate.xaringan.css" rel="stylesheet" />
+    <link href="libs/tachyons-4.12.0/tachyons.min.css" rel="stylesheet" />
+    <link href="libs/panelset-0.3.0/panelset.css" rel="stylesheet" />
+    <script src="libs/panelset-0.3.0/panelset.js"></script>
+    <script type="application/json" id="xaringanExtra-editable-docid">{"id":"f91def6215374635b672cff86ce529a8","expires":1}</script>
+    <script src="libs/himalaya-1.1.0/himalaya.js"></script>
+    <script src="libs/js-cookie-3.0.0/js.cookie.js"></script>
+    <link href="libs/editable-0.2.6/editable.css" rel="stylesheet" />
+    <script src="libs/editable-0.2.6/editable.js"></script>
+    <script src="libs/clipboard-2.0.6/clipboard.min.js"></script>
+    <link href="libs/xaringanExtra-clipboard-0.2.6/xaringanExtra-clipboard.css" rel="stylesheet" />
+    <script src="libs/xaringanExtra-clipboard-0.2.6/xaringanExtra-clipboard.js"></script>
+    <script>window.xaringanExtraClipboard(null, {"button":"Copy Code","success":"Copied!","error":"Press Ctrl+C to Copy"})</script>
+    <link rel="stylesheet" href="header-footer.css" type="text/css" />
+    <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+
+class: inverse, left, middle
+
+
+
+&lt;style&gt;
+.remark-slide-number {
+  position: inherit;
+}
+
+.remark-slide-number .progress-bar-container {
+  position: absolute;
+  bottom: 0;
+  height: 4px;
+  display: block;
+  left: 0;
+  right: 0;
+}
+
+.remark-slide-number .progress-bar {
+  height: 100%;
+  background-color: red;
+}
+
+/* custom.css */
+.plot-callout {
+  width: 300px;
+  bottom: 5%;
+  right: 5%;
+  position: absolute;
+  padding: 0px;
+  z-index: 100;
+}
+.plot-callout img {
+  width: 100%;
+  border: 1px solid #23373B;
+}
+&lt;/style&gt;
+
+
+<div>
+<style type="text/css">.xaringan-extra-logo {
+width: 110px;
+height: 128px;
+z-index: 0;
+background-image: url(./img/UniversiteParisCite_logo_horizontal_couleur_RVB.jpeg);
+background-size: contain;
+background-repeat: no-repeat;
+position: absolute;
+top:1em;right:1em;
+}
+</style>
+<script>(function () {
+  let tries = 0
+  function addLogo () {
+    if (typeof slideshow === 'undefined') {
+      tries += 1
+      if (tries < 10) {
+        setTimeout(addLogo, 100)
+      }
+    } else {
+      document.querySelectorAll('.remark-slide-content:not(.hide_logo)')
+        .forEach(function (slide) {
+          const logo = document.createElement('a')
+          logo.classList = 'xaringan-extra-logo'
+          logo.href = 'http://master.math.univ-paris-diderot.fr/annee/m1-isifar/'
+          slide.appendChild(logo)
+        })
+    }
+  }
+  document.addEventListener('DOMContentLoaded', addLogo)
+})()</script>
+</div>
+
+
+
+
+
+# Analyse des Données : Introduction to table manipulation(s)
+
+### 2025-01-20
+
+#### [Master I MIDS](https://master.math.univ-paris-diderot.fr/annee/m1-isifar/)
+
+#### [Analyse de Données](http://s-v-b.github.io/MA7BY020)
+
+#### [Stéphane Boucheron](http://stephane-v-boucheron.fr)
+
+
+---
+class: inverse, left, middle
+
+## <svg aria-hidden="true" role="img" viewBox="0 0 576 512" style="height:1em;width:1.12em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:white;overflow:visible;position:relative;"><path d="M565.6 36.2C572.1 40.7 576 48.1 576 56V392c0 10-6.2 18.9-15.5 22.4l-168 64c-5.2 2-10.9 2.1-16.1 .3L192.5 417.5l-160 61c-7.4 2.8-15.7 1.8-22.2-2.7S0 463.9 0 456V120c0-10 6.1-18.9 15.5-22.4l168-64c5.2-2 10.9-2.1 16.1-.3L383.5 94.5l160-61c7.4-2.8 15.7-1.8 22.2 2.7zM48 136.5V421.2l120-45.7V90.8L48 136.5zM360 422.7V137.3l-144-48V374.7l144 48zm48-1.5l120-45.7V90.8L408 136.5V421.2z"/></svg>
+
+### [Tables](#dt)
+
+### [SQL and Relational algebra with `dplyr`](#sql)
+
+### [Tidy tables](#tidytables)
+
+### [Aggregations](#aggregation)
+
+### [Pivoting](#pivots)
+
+### [Pipe](#pipe)
+
+---
+class: inverse, left, middle
+name: dt
+
+## Tables
+
+
+---
+
+### Tables (examples)
+
+- Speadsheets (Excel)
+
+- <svg aria-hidden="true" role="img" viewBox="0 0 448 512" style="height:1em;width:0.88em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M448 80v48c0 44.2-100.3 80-224 80S0 172.2 0 128V80C0 35.8 100.3 0 224 0S448 35.8 448 80zM393.2 214.7c20.8-7.4 39.9-16.9 54.8-28.6V288c0 44.2-100.3 80-224 80S0 332.2 0 288V186.1c14.9 11.8 34 21.2 54.8 28.6C99.7 230.7 159.5 240 224 240s124.3-9.3 169.2-25.3zM0 346.1c14.9 11.8 34 21.2 54.8 28.6C99.7 390.7 159.5 400 224 400s124.3-9.3 169.2-25.3c20.8-7.4 39.9-16.9 54.8-28.6V432c0 44.2-100.3 80-224 80S0 476.2 0 432V346.1z"/></svg> Relational tables
+
+- Dataframes in datascience frameworks
+
+  - <svg aria-hidden="true" role="img" viewBox="0 0 581 512" style="height:1em;width:1.13em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M581 226.6C581 119.1 450.9 32 290.5 32S0 119.1 0 226.6C0 322.4 103.3 402 239.4 418.1V480h99.1v-61.5c24.3-2.7 47.6-7.4 69.4-13.9L448 480h112l-67.4-113.7c54.5-35.4 88.4-84.9 88.4-139.7zm-466.8 14.5c0-73.5 98.9-133 220.8-133s211.9 40.7 211.9 133c0 50.1-26.5 85-70.3 106.4-2.4-1.6-4.7-2.9-6.4-3.7-10.2-5.2-27.8-10.5-27.8-10.5s86.6-6.4 86.6-92.7-90.6-87.9-90.6-87.9h-199V361c-74.1-21.5-125.2-67.1-125.2-119.9zm225.1 38.3v-55.6c57.8 0 87.8-6.8 87.8 27.3 0 36.5-38.2 28.3-87.8 28.3zm-.9 72.5H365c10.8 0 18.9 11.7 24 19.2-16.1 1.9-33 2.8-50.6 2.9v-22.1z"/></svg>: `data.frame`, `tibble`, ...
+  - <svg aria-hidden="true" role="img" viewBox="0 0 448 512" style="height:1em;width:0.88em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M439.8 200.5c-7.7-30.9-22.3-54.2-53.4-54.2h-40.1v47.4c0 36.8-31.2 67.8-66.8 67.8H172.7c-29.2 0-53.4 25-53.4 54.3v101.8c0 29 25.2 46 53.4 54.3 33.8 9.9 66.3 11.7 106.8 0 26.9-7.8 53.4-23.5 53.4-54.3v-40.7H226.2v-13.6h160.2c31.1 0 42.6-21.7 53.4-54.2 11.2-33.5 10.7-65.7 0-108.6zM286.2 404c11.1 0 20.1 9.1 20.1 20.3 0 11.3-9 20.4-20.1 20.4-11 0-20.1-9.2-20.1-20.4.1-11.3 9.1-20.3 20.1-20.3zM167.8 248.1h106.8c29.7 0 53.4-24.5 53.4-54.3V91.9c0-29-24.4-50.7-53.4-55.6-35.8-5.9-74.7-5.6-106.8.1-45.2 8-53.4 24.7-53.4 55.6v40.7h106.9v13.6h-147c-31.1 0-58.3 18.7-66.8 54.2-9.8 40.7-10.2 66.1 0 108.6 7.6 31.6 25.7 54.2 56.8 54.2H101v-48.8c0-35.3 30.5-66.4 66.8-66.4zm-6.7-142.6c-11.1 0-20.1-9.1-20.1-20.3.1-11.3 9-20.4 20.1-20.4 11 0 20.1 9.2 20.1 20.4s-9 20.3-20.1 20.3z"/></svg>: `pandas.dataframe`
+  - `spark`: `dataframe`
+  - `Dask`: `dataframe`
+  - and many others
+
+
+---
+
+### Tables (Why ?)
+
+In Data Science, each framework comes with its own flavor(s) of table(s)
+
+<svg aria-hidden="true" role="img" viewBox="0 0 448 512" style="height:1em;width:0.88em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M448 80v48c0 44.2-100.3 80-224 80S0 172.2 0 128V80C0 35.8 100.3 0 224 0S448 35.8 448 80zM393.2 214.7c20.8-7.4 39.9-16.9 54.8-28.6V288c0 44.2-100.3 80-224 80S0 332.2 0 288V186.1c14.9 11.8 34 21.2 54.8 28.6C99.7 230.7 159.5 240 224 240s124.3-9.3 169.2-25.3zM0 346.1c14.9 11.8 34 21.2 54.8 28.6C99.7 390.7 159.5 400 224 400s124.3-9.3 169.2-25.3c20.8-7.4 39.9-16.9 54.8-28.6V432c0 44.2-100.3 80-224 80S0 476.2 0 432V346.1z"/></svg> Tables from relational databases serve as inspiration
+
+In <svg aria-hidden="true" role="img" viewBox="0 0 581 512" style="height:1em;width:1.13em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M581 226.6C581 119.1 450.9 32 290.5 32S0 119.1 0 226.6C0 322.4 103.3 402 239.4 418.1V480h99.1v-61.5c24.3-2.7 47.6-7.4 69.4-13.9L448 480h112l-67.4-113.7c54.5-35.4 88.4-84.9 88.4-139.7zm-466.8 14.5c0-73.5 98.9-133 220.8-133s211.9 40.7 211.9 133c0 50.1-26.5 85-70.3 106.4-2.4-1.6-4.7-2.9-6.4-3.7-10.2-5.2-27.8-10.5-27.8-10.5s86.6-6.4 86.6-92.7-90.6-87.9-90.6-87.9h-199V361c-74.1-21.5-125.2-67.1-125.2-119.9zm225.1 38.3v-55.6c57.8 0 87.8-6.8 87.8 27.3 0 36.5-38.2 28.3-87.8 28.3zm-.9 72.5H365c10.8 0 18.9 11.7 24 19.2-16.1 1.9-33 2.8-50.6 2.9v-22.1z"/></svg> legacy dataframes shape the life of statisticians and data scientists
+
+The purpose of this session is
+
+- describe dataframes from an end-user viewpoint (we leave aside implementations)
+
+- presenting tools for
+  - accessing information within dataframes (*querying*)
+  - summarizing information (*aggregation queries*)
+  - cleaning/cleaning dataframes  (*tidying*)
+
+
+
+---
+
+### Loading tables and packages
+
+
+
+``` r
+require("tidyverse")      # All we need is there
+# Almost all. Helper packages
+require("nycflights13")    # for flight data
+```
+
+```
+## Loading required package: nycflights13
+```
+
+``` r
+# for manipulating dates and times
+require("gt")
+require("kableExtra")
+
+# 
+data(flights)
+```
+
+---
+
+### About loaded packages 
+
+- Metapackage [`tidyverse`](https://www.tidyverse.org) provides tools to create, query, tidy dataframes as well as tools to load data from various sources and save them in persistent storage
+
+- [`nycflights13`](https://github.com/tidyverse/nycflights13) provides the dataframes we play with
+
+- [`gt`](https://gt.rstudio.com)  for tayloring table displays
+
+---
+
+### The `flights` table
+
+.f6[
+
+
+``` r
+head(flights) |&gt;
+  glimpse(width = 50) 
+```
+
+```
+## Rows: 6
+## Columns: 19
+## $ year           &lt;int&gt; 2013, 2013, 2013, 2013, 2…
+## $ month          &lt;int&gt; 1, 1, 1, 1, 1, 1
+## $ day            &lt;int&gt; 1, 1, 1, 1, 1, 1
+## $ dep_time       &lt;int&gt; 517, 533, 542, 544, 554, …
+## $ sched_dep_time &lt;int&gt; 515, 529, 540, 545, 600, …
+## $ dep_delay      &lt;dbl&gt; 2, 4, 2, -1, -6, -4
+## $ arr_time       &lt;int&gt; 830, 850, 923, 1004, 812,…
+## $ sched_arr_time &lt;int&gt; 819, 830, 850, 1022, 837,…
+## $ arr_delay      &lt;dbl&gt; 11, 20, 33, -18, -25, 12
+## $ carrier        &lt;chr&gt; "UA", "UA", "AA", "B6", "…
+## $ flight         &lt;int&gt; 1545, 1714, 1141, 725, 46…
+## $ tailnum        &lt;chr&gt; "N14228", "N24211", "N619…
+## $ origin         &lt;chr&gt; "EWR", "LGA", "JFK", "JFK…
+## $ dest           &lt;chr&gt; "IAH", "IAH", "MIA", "BQN…
+## $ air_time       &lt;dbl&gt; 227, 227, 160, 183, 116, …
+## $ distance       &lt;dbl&gt; 1400, 1416, 1089, 1576, 7…
+## $ hour           &lt;dbl&gt; 5, 5, 5, 5, 6, 5
+## $ minute         &lt;dbl&gt; 15, 29, 40, 45, 0, 58
+## $ time_hour      &lt;dttm&gt; 2013-01-01 05:00:00, 2013…
+```
+
+]
+
+???
+
+A dataframe is a two-ways (two-dimensional) table
+
+`head(df)` displays the first 6 rows of its first argument
+
+The vectors making a dataframe may have different types/classes (a dataframe is not a matrix)
+
+Compare `str()`, `glimpse()`, `head()`
+
+---
+
+
+### Table schema
+
+.fl.w-30.pa2.f6[
+
+A table is a _list_ of _columns_
+
+Each _column_ has
+
+- _name_ and
+- _type_ (_class_ in <svg aria-hidden="true" role="img" viewBox="0 0 581 512" style="height:1em;width:1.13em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M581 226.6C581 119.1 450.9 32 290.5 32S0 119.1 0 226.6C0 322.4 103.3 402 239.4 418.1V480h99.1v-61.5c24.3-2.7 47.6-7.4 69.4-13.9L448 480h112l-67.4-113.7c54.5-35.4 88.4-84.9 88.4-139.7zm-466.8 14.5c0-73.5 98.9-133 220.8-133s211.9 40.7 211.9 133c0 50.1-26.5 85-70.3 106.4-2.4-1.6-4.7-2.9-6.4-3.7-10.2-5.2-27.8-10.5-27.8-10.5s86.6-6.4 86.6-92.7-90.6-87.9-90.6-87.9h-199V361c-74.1-21.5-125.2-67.1-125.2-119.9zm225.1 38.3v-55.6c57.8 0 87.8-6.8 87.8 27.3 0 36.5-38.2 28.3-87.8 28.3zm-.9 72.5H365c10.8 0 18.9 11.7 24 19.2-16.1 1.9-33 2.8-50.6 2.9v-22.1z"/></svg>)
+
+
+
+``` r
+*glimpse(flights,
+        width=50)
+```
+]
+
+
+.fl.w-70.pa2.f6[
+
+
+```
+## Rows: 336,776
+## Columns: 19
+## $ year           &lt;int&gt; 2013, 2013, 2013, 2013, 2…
+## $ month          &lt;int&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1…
+## $ day            &lt;int&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1…
+## $ dep_time       &lt;int&gt; 517, 533, 542, 544, 554, …
+## $ sched_dep_time &lt;int&gt; 515, 529, 540, 545, 600, …
+## $ dep_delay      &lt;dbl&gt; 2, 4, 2, -1, -6, -4, -5, …
+## $ arr_time       &lt;int&gt; 830, 850, 923, 1004, 812,…
+## $ sched_arr_time &lt;int&gt; 819, 830, 850, 1022, 837,…
+## $ arr_delay      &lt;dbl&gt; 11, 20, 33, -18, -25, 12,…
+## $ carrier        &lt;chr&gt; "UA", "UA", "AA", "B6", "…
+## $ flight         &lt;int&gt; 1545, 1714, 1141, 725, 46…
+## $ tailnum        &lt;chr&gt; "N14228", "N24211", "N619…
+## $ origin         &lt;chr&gt; "EWR", "LGA", "JFK", "JFK…
+## $ dest           &lt;chr&gt; "IAH", "IAH", "MIA", "BQN…
+## $ air_time       &lt;dbl&gt; 227, 227, 160, 183, 116, …
+## $ distance       &lt;dbl&gt; 1400, 1416, 1089, 1576, 7…
+## $ hour           &lt;dbl&gt; 5, 5, 5, 5, 6, 5, 6, 6, 6…
+## $ minute         &lt;dbl&gt; 15, 29, 40, 45, 0, 58, 0,…
+## $ time_hour      &lt;dttm&gt; 2013-01-01 05:00:00, 201…
+```
+
+]
+
+
+
+
+???
+
+- `flights` has 19 columns
+- Each column is  a sequence (`vector`) of items with the same type/class
+- All columns have the same length
+- `flights` has 336776 rows
+- In <svg aria-hidden="true" role="img" viewBox="0 0 448 512" style="height:1em;width:0.88em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M448 80v48c0 44.2-100.3 80-224 80S0 172.2 0 128V80C0 35.8 100.3 0 224 0S448 35.8 448 80zM393.2 214.7c20.8-7.4 39.9-16.9 54.8-28.6V288c0 44.2-100.3 80-224 80S0 332.2 0 288V186.1c14.9 11.8 34 21.2 54.8 28.6C99.7 230.7 159.5 240 224 240s124.3-9.3 169.2-25.3zM0 346.1c14.9 11.8 34 21.2 54.8 28.6C99.7 390.7 159.5 400 224 400s124.3-9.3 169.2-25.3c20.8-7.4 39.9-16.9 54.8-28.6V432c0 44.2-100.3 80-224 80S0 476.2 0 432V346.1z"/></svg> parlance, a row is (often) called a _tuple_
+- In <svg aria-hidden="true" role="img" viewBox="0 0 448 512" style="height:1em;width:0.88em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M448 80v48c0 44.2-100.3 80-224 80S0 172.2 0 128V80C0 35.8 100.3 0 224 0S448 35.8 448 80zM393.2 214.7c20.8-7.4 39.9-16.9 54.8-28.6V288c0 44.2-100.3 80-224 80S0 332.2 0 288V186.1c14.9 11.8 34 21.2 54.8 28.6C99.7 230.7 159.5 240 224 240s124.3-9.3 169.2-25.3zM0 346.1c14.9 11.8 34 21.2 54.8 28.6C99.7 390.7 159.5 400 224 400s124.3-9.3 169.2-25.3c20.8-7.4 39.9-16.9 54.8-28.6V432c0 44.2-100.3 80-224 80S0 476.2 0 432V346.1z"/></svg> parlance, a column is (often) called a _variable_
+
+---
+
+### Column types
+
+.fl.w-50.pa2[
+
+| class |  columns |
+|:-----:|:---------|
+| `integer`   |  'year' 'month' 'day' 'dep_time' 'sched_dep_time' 'arr_time' 'sched_arr_time' 'flight'  |
+| `numeric`  | 'dep_delay' 'arr_delay' 'air_time' 'distance' 'hour' 'minute'  |
+| `character`   |  'carrier' 'tailnum' 'origin' 'dest' |
+| `POSIXct`   |  'time_hour' |
+| `POSIXt`   |  'time_hour' |
+
+
+]
+
+.fl.w-50.pa2[
+
+A column, as a vector, may be belong to different classes
+
+Other classes:  `factor` for categorical variables
+
+Columns `dest`, `origin` `carrier` could be coerced as factors
+
+Should columns `dest`  and `origin` be coerced to the same factor?
+
+]
+
+
+
+---
+
+### `nycflights13`
+
+
+
+![](/images/schema-nycflights.png)
+
+
+---
+
+### Columns specification
+
+.fl.w-30.pa2[
+
+``` r
+as.col_spec(flights)
+```
+]
+
+.fl.w-70.pa2.f6[
+
+``` r
+cols(
+  year = col_integer(),
+  month = col_integer(),
+  day = col_integer(),
+  dep_time = col_integer(),
+  sched_dep_time = col_integer(),
+  dep_delay = col_double(),
+  arr_time = col_integer(),
+  sched_arr_time = col_integer(),
+  arr_delay = col_double(),
+  carrier = col_character(),
+  flight = col_integer(),
+  tailnum = col_character(),
+  origin = col_character(),
+  dest = col_character(),
+  air_time = col_double(),
+  distance = col_double(),
+  hour = col_double(),
+  minute = col_double(),
+  time_hour = col_datetime(format = "")
+)
+```
+]
+
+
+???
+
+`\(\approx\)` table schema in relational databases
+
+Column specifications are useful when loading dataframes from structured text files
+like `.csv` files
+
+`.csv` files do not contain typing information
+
+File loaders from package `readr` can be tipped about column classes using column specifications
+
+---
+class: inverse, left, middle
+name: sql
+
+## SQL and Relational algebra with `dplyr`
+
+???
+
+---
+
+- SQL stands for structured/simple Query Language
+
+- A query language elaborated during the 1970's at IBM by E. Codd
+
+- Geared towards exploitation of collections of relational tables
+
+- Less powerful but simpler to use than a programming language
+
+- `dplyr` is a principled <svg aria-hidden="true" role="img" viewBox="0 0 581 512" style="height:1em;width:1.13em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M581 226.6C581 119.1 450.9 32 290.5 32S0 119.1 0 226.6C0 322.4 103.3 402 239.4 418.1V480h99.1v-61.5c24.3-2.7 47.6-7.4 69.4-13.9L448 480h112l-67.4-113.7c54.5-35.4 88.4-84.9 88.4-139.7zm-466.8 14.5c0-73.5 98.9-133 220.8-133s211.9 40.7 211.9 133c0 50.1-26.5 85-70.3 106.4-2.4-1.6-4.7-2.9-6.4-3.7-10.2-5.2-27.8-10.5-27.8-10.5s86.6-6.4 86.6-92.7-90.6-87.9-90.6-87.9h-199V361c-74.1-21.5-125.2-67.1-125.2-119.9zm225.1 38.3v-55.6c57.8 0 87.8-6.8 87.8 27.3 0 36.5-38.2 28.3-87.8 28.3zm-.9 72.5H365c10.8 0 18.9 11.7 24 19.2-16.1 1.9-33 2.8-50.6 2.9v-22.1z"/></svg>-friendly
+implementation of SQL ideas (and other things)
+
+At the core of SQL lies the idea of a table calculus called **relational algebra**
+
+---
+
+### Relational algebra (basics)
+
+Convention: `\(R\)`  is a table with columns `\(A_1, \ldots, A_k\)`
+
+
+- Projection (picking columns)
+
+.f4[
+
+`\(\pi(R, A_1, A_3)\)`
+
+]
+
+- Selection/Filtering (picking rows)
+
+.f4[
+
+`\(\sigma(R, {\text{condition}})\)`
+
+]
+
+- Join (mulitple tables operation)
+
+.f4[
+
+`\(\bowtie(R,S, {\text{condition}})\)`
+
+]
+
+<svg aria-hidden="true" role="img" viewBox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M448 128l-177.6 0c1 5.2 1.6 10.5 1.6 16l0 16 32 0 144 0c8.8 0 16-7.2 16-16s-7.2-16-16-16zM224 144c0-17.7-14.3-32-32-32c0 0 0 0 0 0l-24 0c-66.3 0-120 53.7-120 120l0 48c0 52.5 33.7 97.1 80.7 113.4c-.5-3.1-.7-6.2-.7-9.4c0-20 9.2-37.9 23.6-49.7c-4.9-9-7.6-19.4-7.6-30.3c0-15.1 5.3-29 14-40c-8.8-11-14-24.9-14-40l0-40c0-13.3 10.7-24 24-24s24 10.7 24 24l0 40c0 8.8 7.2 16 16 16s16-7.2 16-16l0-40 0-40zM192 64s0 0 0 0c18 0 34.6 6 48 16l208 0c35.3 0 64 28.7 64 64s-28.7 64-64 64l-82 0c1.3 5.1 2 10.5 2 16c0 25.3-14.7 47.2-36 57.6c2.6 7 4 14.5 4 22.4c0 20-9.2 37.9-23.6 49.7c4.9 9 7.6 19.4 7.6 30.3c0 35.3-28.7 64-64 64l-64 0-24 0C75.2 448 0 372.8 0 280l0-48C0 139.2 75.2 64 168 64l24 0zm64 336c8.8 0 16-7.2 16-16s-7.2-16-16-16l-48 0-16 0c-8.8 0-16 7.2-16 16s7.2 16 16 16l64 0zm16-176c0 5.5-.7 10.9-2 16l2 0 32 0c8.8 0 16-7.2 16-16s-7.2-16-16-16l-32 0 0 16zm-24 64l-40 0c-8.8 0-16 7.2-16 16s7.2 16 16 16l48 0 16 0c8.8 0 16-7.2 16-16s-7.2-16-16-16l-24 0z"/></svg> Any operation produces a table
+
+<svg aria-hidden="true" role="img" viewBox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M448 128l-177.6 0c1 5.2 1.6 10.5 1.6 16l0 16 32 0 144 0c8.8 0 16-7.2 16-16s-7.2-16-16-16zM224 144c0-17.7-14.3-32-32-32c0 0 0 0 0 0l-24 0c-66.3 0-120 53.7-120 120l0 48c0 52.5 33.7 97.1 80.7 113.4c-.5-3.1-.7-6.2-.7-9.4c0-20 9.2-37.9 23.6-49.7c-4.9-9-7.6-19.4-7.6-30.3c0-15.1 5.3-29 14-40c-8.8-11-14-24.9-14-40l0-40c0-13.3 10.7-24 24-24s24 10.7 24 24l0 40c0 8.8 7.2 16 16 16s16-7.2 16-16l0-40 0-40zM192 64s0 0 0 0c18 0 34.6 6 48 16l208 0c35.3 0 64 28.7 64 64s-28.7 64-64 64l-82 0c1.3 5.1 2 10.5 2 16c0 25.3-14.7 47.2-36 57.6c2.6 7 4 14.5 4 22.4c0 20-9.2 37.9-23.6 49.7c4.9 9 7.6 19.4 7.6 30.3c0 35.3-28.7 64-64 64l-64 0-24 0C75.2 448 0 372.8 0 280l0-48C0 139.2 75.2 64 168 64l24 0zm64 336c8.8 0 16-7.2 16-16s-7.2-16-16-16l-48 0-16 0c-8.8 0-16 7.2-16 16s7.2 16 16 16l64 0zm16-176c0 5.5-.7 10.9-2 16l2 0 32 0c8.8 0 16-7.2 16-16s-7.2-16-16-16l-32 0 0 16zm-24 64l-40 0c-8.8 0-16 7.2-16 16s7.2 16 16 16l48 0 16 0c8.8 0 16-7.2 16-16s-7.2-16-16-16l-24 0z"/></svg> The schema of the derived table depends on the operation (but does not depend on the content/value of the operands)
+
+
+???
+
+Relational calculus relies on a small set of basic operations `\(\pi, \sigma, \bowtie\)`
+
+Each operation has one or two table **operands** and produce a table
+
+<svg aria-hidden="true" role="img" viewBox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M256 32c14.2 0 27.3 7.5 34.5 19.8l216 368c7.3 12.4 7.3 27.7 .2 40.1S486.3 480 472 480H40c-14.3 0-27.6-7.7-34.7-20.1s-7-27.8 .2-40.1l216-368C228.7 39.5 241.8 32 256 32zm0 128c-13.3 0-24 10.7-24 24V296c0 13.3 10.7 24 24 24s24-10.7 24-24V184c0-13.3-10.7-24-24-24zm32 224a32 32 0 1 0 -64 0 32 32 0 1 0 64 0z"/></svg> There is more to SQL than relational algebra
+
+---
+
+.f3[
+
+`\(\pi(R, {A_1, A_3})\)`
+
+]
+
+A projection  `\(\pi(\cdot, {A_1, A_3})\)` is defined by a set of column names, say `\(A_1, A_3\)`
+
+If `\(R\)` has columns with given names, the result is a table with names `\(A_1, A_3\)` and one row per row of `\(R\)`
+
+A projection is parametrized by a list of column names
+
+???
+
+- Checks
+
+- Variable number of arguments or list argument
+
+- What if `\(R\)` does not have columns named `\(A_1, A_3\)`?
+
+---
+
+### <svg aria-hidden="true" role="img" viewBox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M78.6 5C69.1-2.4 55.6-1.5 47 7L7 47c-8.5 8.5-9.4 22-2.1 31.6l80 104c4.5 5.9 11.6 9.4 19 9.4h54.1l109 109c-14.7 29-10 65.4 14.3 89.6l112 112c12.5 12.5 32.8 12.5 45.3 0l64-64c12.5-12.5 12.5-32.8 0-45.3l-112-112c-24.2-24.2-60.6-29-89.6-14.3l-109-109V104c0-7.5-3.5-14.5-9.4-19L78.6 5zM19.9 396.1C7.2 408.8 0 426.1 0 444.1C0 481.6 30.4 512 67.9 512c18 0 35.3-7.2 48-19.9L233.7 374.3c-7.8-20.9-9-43.6-3.6-65.1l-61.7-61.7L19.9 396.1zM512 144c0-10.5-1.1-20.7-3.2-30.5c-2.4-11.2-16.1-14.1-24.2-6l-63.9 63.9c-3 3-7.1 4.7-11.3 4.7H352c-8.8 0-16-7.2-16-16V102.6c0-4.2 1.7-8.3 4.7-11.3l63.9-63.9c8.1-8.1 5.2-21.8-6-24.2C388.7 1.1 378.5 0 368 0C288.5 0 224 64.5 224 144l0 .8 85.3 85.3c36-9.1 75.8 .5 104 28.7L429 274.5c49-23 83-72.8 83-130.5zM56 432a24 24 0 1 1 48 0 24 24 0 1 1 -48 0z"/></svg> Package `dplyr`
+
+.fl.w-30.pa2[
+
+- [_Tranformation_ chapter in R4DS](https://r4ds.had.co.nz/transform.html)
+
+- [Cheat sheet I](https://github.com/rstudio/cheatsheets/blob/main/data-transformation.pdf)
+
+- [Cheat sheet II](https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf)
+]
+
+.fl.w-70.pa2[
+
+&lt;iframe src="https://dplyr.tidyverse.org" width="2100" height="400px" data-external="1"&gt;&lt;/iframe&gt;
+
+[https://dplyr.tidyverse.org](https://dplyr.tidyverse.org)
+
+]
+
+
+???
+
+Base <svg aria-hidden="true" role="img" viewBox="0 0 581 512" style="height:1em;width:1.13em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M581 226.6C581 119.1 450.9 32 290.5 32S0 119.1 0 226.6C0 322.4 103.3 402 239.4 418.1V480h99.1v-61.5c24.3-2.7 47.6-7.4 69.4-13.9L448 480h112l-67.4-113.7c54.5-35.4 88.4-84.9 88.4-139.7zm-466.8 14.5c0-73.5 98.9-133 220.8-133s211.9 40.7 211.9 133c0 50.1-26.5 85-70.3 106.4-2.4-1.6-4.7-2.9-6.4-3.7-10.2-5.2-27.8-10.5-27.8-10.5s86.6-6.4 86.6-92.7-90.6-87.9-90.6-87.9h-199V361c-74.1-21.5-125.2-67.1-125.2-119.9zm225.1 38.3v-55.6c57.8 0 87.8-6.8 87.8 27.3 0 36.5-38.2 28.3-87.8 28.3zm-.9 72.5H365c10.8 0 18.9 11.7 24 19.2-16.1 1.9-33 2.8-50.6 2.9v-22.1z"/></svg> provides tools to perform relational algebra operations
+
+But:
+
+- Base <svg aria-hidden="true" role="img" viewBox="0 0 581 512" style="height:1em;width:1.13em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M581 226.6C581 119.1 450.9 32 290.5 32S0 119.1 0 226.6C0 322.4 103.3 402 239.4 418.1V480h99.1v-61.5c24.3-2.7 47.6-7.4 69.4-13.9L448 480h112l-67.4-113.7c54.5-35.4 88.4-84.9 88.4-139.7zm-466.8 14.5c0-73.5 98.9-133 220.8-133s211.9 40.7 211.9 133c0 50.1-26.5 85-70.3 106.4-2.4-1.6-4.7-2.9-6.4-3.7-10.2-5.2-27.8-10.5-27.8-10.5s86.6-6.4 86.6-92.7-90.6-87.9-90.6-87.9h-199V361c-74.1-21.5-125.2-67.1-125.2-119.9zm225.1 38.3v-55.6c57.8 0 87.8-6.8 87.8 27.3 0 36.5-38.2 28.3-87.8 28.3zm-.9 72.5H365c10.8 0 18.9 11.7 24 19.2-16.1 1.9-33 2.8-50.6 2.9v-22.1z"/></svg> does not provide a consistent API
+
+- The lack of a consistent API makes operation chaining tricky
+
+---
+
+### `dplyr` verbs
+
+Five basic verbs:
+
+- Pick observations/rows by their values (`filter()`)  .fr[ σ(...) ]
+
+- Pick variables by their names (`select()`)    .fr[ π(...)]
+
+- Reorder the rows (`arrange()`)
+
+- Create new variables with functions of existing variables (`mutate()`)
+
+- Collapse many values down to a single summary (`summarise()`)
+
+--
+
+And
+
+- `group_by()`  changes the scope of each function from operating on the entire dataset to operating on it group-by-group
+
+???
+
+
+---
+
+### <svg aria-hidden="true" role="img" viewBox="0 0 576 512" style="height:1em;width:1.12em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M346.3 271.8l-60.1-21.9L214 448H32c-17.7 0-32 14.3-32 32s14.3 32 32 32H544c17.7 0 32-14.3 32-32s-14.3-32-32-32H282.1l64.1-176.2zm121.1-.2l-3.3 9.1 67.7 24.6c18.1 6.6 38-4.2 39.6-23.4c6.5-78.5-23.9-155.5-80.8-208.5c2 8 3.2 16.3 3.4 24.8l.2 6c1.8 57-7.3 113.8-26.8 167.4zM462 99.1c-1.1-34.4-22.5-64.8-54.4-77.4c-.9-.4-1.9-.7-2.8-1.1c-33-11.7-69.8-2.4-93.1 23.8l-4 4.5C272.4 88.3 245 134.2 226.8 184l-3.3 9.1L434 269.7l3.3-9.1c18.1-49.8 26.6-102.5 24.9-155.5l-.2-6zM107.2 112.9c-11.1 15.7-2.8 36.8 15.3 43.4l71 25.8 3.3-9.1c19.5-53.6 49.1-103 87.1-145.5l4-4.5c6.2-6.9 13.1-13 20.5-18.2c-79.6 2.5-154.7 42.2-201.2 108z"/></svg> tidyverse
+
+.fl.w-50.pa2[
+
+&gt; All verbs work similarly:
+
+&gt; The first argument is a data frame (table).
+
+&gt; The subsequent arguments describe what to do with the data frame, using the variable/column names (without quotes)
+
+&gt; The result is a new data frame (table)
+
+]
+
+.fl.w-50.pa2[
+
+&lt;iframe src="https://www.tidyverse.org" width="2100" height="400px" data-external="1"&gt;&lt;/iframe&gt;
+]
+
+
+???
+
+`dplyr` is part of `tidyverse`
+
+`dplyr` provides a consistent API
+
+
+---
+
+### `dplyr::select()` as a projection operator (π)
+
+`\(\pi(R, \underbrace{A_1, \ldots, A_3}_{\text{column names}})\)`
+
+
+``` r
+*select(R, A1, A3)
+```
+
+or,  equivalently
+
+
+``` r
+*R |&gt; select(A1, A3)
+```
+
+<svg aria-hidden="true" role="img" viewBox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M448 128l-177.6 0c1 5.2 1.6 10.5 1.6 16l0 16 32 0 144 0c8.8 0 16-7.2 16-16s-7.2-16-16-16zM224 144c0-17.7-14.3-32-32-32c0 0 0 0 0 0l-24 0c-66.3 0-120 53.7-120 120l0 48c0 52.5 33.7 97.1 80.7 113.4c-.5-3.1-.7-6.2-.7-9.4c0-20 9.2-37.9 23.6-49.7c-4.9-9-7.6-19.4-7.6-30.3c0-15.1 5.3-29 14-40c-8.8-11-14-24.9-14-40l0-40c0-13.3 10.7-24 24-24s24 10.7 24 24l0 40c0 8.8 7.2 16 16 16s16-7.2 16-16l0-40 0-40zM192 64s0 0 0 0c18 0 34.6 6 48 16l208 0c35.3 0 64 28.7 64 64s-28.7 64-64 64l-82 0c1.3 5.1 2 10.5 2 16c0 25.3-14.7 47.2-36 57.6c2.6 7 4 14.5 4 22.4c0 20-9.2 37.9-23.6 49.7c4.9 9 7.6 19.4 7.6 30.3c0 35.3-28.7 64-64 64l-64 0-24 0C75.2 448 0 372.8 0 280l0-48C0 139.2 75.2 64 168 64l24 0zm64 336c8.8 0 16-7.2 16-16s-7.2-16-16-16l-48 0-16 0c-8.8 0-16 7.2-16 16s7.2 16 16 16l64 0zm16-176c0 5.5-.7 10.9-2 16l2 0 32 0c8.8 0 16-7.2 16-16s-7.2-16-16-16l-32 0 0 16zm-24 64l-40 0c-8.8 0-16 7.2-16 16s7.2 16 16 16l48 0 16 0c8.8 0 16-7.2 16-16s-7.2-16-16-16l-24 0z"/></svg> `|&gt;` is the pipe operator from `magrittr`
+
+<svg aria-hidden="true" role="img" viewBox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M64 416L168.6 180.7c15.3-34.4 40.3-63.5 72-83.7l146.9-94c3-1.9 6.5-2.9 10-2.9C407.7 0 416 8.3 416 18.6v1.6c0 2.6-.5 5.1-1.4 7.5L354.8 176.9c-1.9 4.7-2.8 9.7-2.8 14.7c0 5.5 1.2 11 3.4 16.1L448 416H240.9l11.8-35.4 40.4-13.5c6.5-2.2 10.9-8.3 10.9-15.2s-4.4-13-10.9-15.2l-40.4-13.5-13.5-40.4C237 276.4 230.9 272 224 272s-13 4.4-15.2 10.9l-13.5 40.4-40.4 13.5C148.4 339 144 345.1 144 352s4.4 13 10.9 15.2l40.4 13.5L207.1 416H64zM279.6 141.5c-1.1-3.3-4.1-5.5-7.6-5.5s-6.5 2.2-7.6 5.5l-6.7 20.2-20.2 6.7c-3.3 1.1-5.5 4.1-5.5 7.6s2.2 6.5 5.5 7.6l20.2 6.7 6.7 20.2c1.1 3.3 4.1 5.5 7.6 5.5s6.5-2.2 7.6-5.5l6.7-20.2 20.2-6.7c3.3-1.1 5.5-4.1 5.5-7.6s-2.2-6.5-5.5-7.6l-20.2-6.7-6.7-20.2zM32 448H480c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32z"/></svg> `x |&gt; f(y, z)` is translated to `f(x, y, z)` and then evaluated
+
+???
+
+Function `select` has a variable number of arguments
+
+Function `select`  has a variable number of arguments
+
+Function `select` allows to pick column by names (and much more)
+
+Note that in the current environment, there are no objects called `A1`, `A3`
+
+The consistent API allows to use the pipe operator
+
+---
+
+### Toy tables
+
+.fl.w-50.pa2[
+
+
+``` r
+spam &lt;- set.seed(42)
+
+R &lt;-  tibble(A1=seq(2, 10, 2),
+             A2=sample(letters, 5),
+             A3=seq(from=date("2021-10-21"),
+                    to=date("2021-11-20"),
+                    by=7),
+             D=sample(letters, 5))
+
+S &lt;- tibble(E=c(3,4,6,9, 10),
+            F=sample(letters, 5),
+            G=seq(from=date("2021-10-21"),
+                   to=date("2021-10-21")+4, by=1),
+            D=sample(letters,5)
+          )
+```
+]
+
+.fl.w-50.pa2[
+
+
+Table: R
+
+| A1|A2 |A3         |D  |
+|--:|:--|:----------|:--|
+|  2|q  |2021-10-21 |r  |
+|  4|e  |2021-10-28 |q  |
+|  6|a  |2021-11-04 |o  |
+|  8|j  |2021-11-11 |g  |
+| 10|d  |2021-11-18 |d  |
+
+
+
+Table: S
+
+|  E|F  |G          |D  |
+|--:|:--|:----------|:--|
+|  3|y  |2021-10-21 |o  |
+|  4|e  |2021-10-22 |c  |
+|  6|n  |2021-10-23 |i  |
+|  9|t  |2021-10-24 |d  |
+| 10|r  |2021-10-25 |e  |
+
+
+]
+
+
+???
+
+
+---
+
+### Projecting toy tables 
+
+.fl.w-50.pa2[
+
+
+``` r
+R |&gt; 
+  dplyr::select(A2,D) |&gt; 
+  knitr::kable(caption="Projecting R")
+```
+
+
+
+Table: Projecting R
+
+|A2 |D  |
+|:--|:--|
+|q  |r  |
+|e  |q  |
+|a  |o  |
+|j  |g  |
+|d  |d  |
+
+]
+
+.fl.w-50.pa2[
+
+
+``` r
+R |&gt; 
+  dplyr::select(- where(is.character)) |&gt; 
+  knitr::kable(caption="Projecting R, all but character columns")
+```
+
+
+
+Table: Projecting R, all but character columns
+
+| A1|A3         |
+|--:|:----------|
+|  2|2021-10-21 |
+|  4|2021-10-28 |
+|  6|2021-11-04 |
+|  8|2021-11-11 |
+| 10|2021-11-18 |
+
+
+
+]
+
+
+
+
+---
+
+### Projecting `flights` on `origin`  and `dest`
+
+.fl.w-50.pa2[
+
+
+``` r
+flights |&gt;
+* select(origin, dest) |&gt;
+  head()
+```
+
+A more readable equivalent of
+
+
+``` r
+head(select(flights,
+            origin,
+            dest),
+     10)
+```
+]
+
+.fl.w-50.pa2[
+
+
+```
+## # A tibble: 6 × 2
+##   origin dest 
+##   &lt;chr&gt;  &lt;chr&gt;
+## 1 EWR    IAH  
+## 2 LGA    IAH  
+## 3 JFK    MIA  
+## 4 JFK    BQN  
+## 5 LGA    ATL  
+## 6 EWR    ORD
+```
+
+
+``` sql
+SELECT origin, dest
+FROM flights
+LIMIT 10;
+```
+
+
+]
+
+
+???
+
+
+
+
+---
+
+.f3[
+
+`\(\sigma(R, \text{condition})\)`
+
+]
+
+A selection/filtering operation is defined by a condition that can be checked on the rows of tables with convenient schema
+
+`\(\sigma(R, \text{condition})\)` returns a table with the same schema as `\(R\)`
+
+The resulting table contains the rows/tuples of `\(R\)` that satisfy `\(\text{condition}\)`
+
+`\(\sigma(R, \text{FALSE})\)` returns an empty table with the same schema as `\(R\)`
+
+
+---
+
+
+
+### Chaining filtering and projecting
+
+.fl.w-50.pa2[
+
+
+``` r
+start &lt;- date("2021-10-27")
+end &lt;- start + 21
+
+R |&gt;
+*#  filter(A2 &gt; "n") |&gt;
+  filter(between(A3, start, end)) |&gt;
+* select(A1, A3)
+```
+
+]
+
+.fl.w-50.pa2[
+
+
+```
+## # A tibble: 3 × 2
+##      A1 A3        
+##   &lt;dbl&gt; &lt;date&gt;    
+## 1     4 2021-10-28
+## 2     6 2021-11-04
+## 3     8 2021-11-11
+```
+
+Filtering dropped one row
+
+Projecting dropped two columns
+
+]
+---
+
+### Selecting `flights` based on `origin`  and `dest`
+
+and then projecting on `dest, time_hour, carrier`
+
+.fl.w-50.pa2[
+
+
+``` r
+flights |&gt;
+* filter(dest %in% c('ATL', 'LAX'),
+         origin == 'JFK') |&gt;
+* select(dest, time_hour, carrier) |&gt;
+  head()
+```
+
+- In SQL (<svg aria-hidden="true" role="img" viewBox="0 0 448 512" style="height:1em;width:0.88em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M448 80v48c0 44.2-100.3 80-224 80S0 172.2 0 128V80C0 35.8 100.3 0 224 0S448 35.8 448 80zM393.2 214.7c20.8-7.4 39.9-16.9 54.8-28.6V288c0 44.2-100.3 80-224 80S0 332.2 0 288V186.1c14.9 11.8 34 21.2 54.8 28.6C99.7 230.7 159.5 240 224 240s124.3-9.3 169.2-25.3zM0 346.1c14.9 11.8 34 21.2 54.8 28.6C99.7 390.7 159.5 400 224 400s124.3-9.3 169.2-25.3c20.8-7.4 39.9-16.9 54.8-28.6V432c0 44.2-100.3 80-224 80S0 476.2 0 432V346.1z"/></svg>) parlance:
+
+
+``` sql
+SELECT dest, time_hour, carrier
+FROM flights
+WHERE dest IN ('ATL', 'LAX') AND
+      origin = 'JFK'
+LIMIT 6
+```
+]
+
+.fl.w-50.pa2[
+
+
+```
+## # A tibble: 6 × 3
+##   dest  time_hour           carrier
+##   &lt;chr&gt; &lt;dttm&gt;              &lt;chr&gt;  
+## 1 LAX   2013-01-01 06:00:00 UA     
+## 2 ATL   2013-01-01 06:00:00 DL     
+## 3 LAX   2013-01-01 07:00:00 VX     
+## 4 LAX   2013-01-01 07:00:00 B6     
+## 5 LAX   2013-01-01 07:00:00 AA     
+## 6 ATL   2013-01-01 08:00:00 DL
+```
+
+]
+???
+
+Filtering is also called subsetting
+
+
+
+
+---
+
+### Logical operations
+
+`filter(R, condition_1, condition_2)` is meant to return the rows of `R` that satisfy `condition_1` **and** `condition_2`
+
+`filter(R, condition_1 &amp; condition_2)` is an equivalent formulation
+
+`filter(R, condition_1 | condition_2)` is meant to return the rows of `R` that satisfy `condition_1` **or** `condition_2` (possibly both)
+
+`filter(R, xor(condition_1,condition_2))` is meant to return the rows of `R` that satisfy **either** `condition_1` **or** `condition_2` (just one of them)
+
+`filter(R, ! condition_1)` is meant to return the rows of `R` that **do not** satisfy  `condition_1`
+
+---
+
+### Overview of set and boolean operations
+
+
+![](/images/transform-logical.png)
+
+---
+
+### <svg aria-hidden="true" role="img" viewBox="0 0 448 512" style="height:1em;width:0.88em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M368 128c0 44.4-25.4 83.5-64 106.4V256c0 17.7-14.3 32-32 32H176c-17.7 0-32-14.3-32-32V234.4c-38.6-23-64-62.1-64-106.4C80 57.3 144.5 0 224 0s144 57.3 144 128zM168 176a32 32 0 1 0 0-64 32 32 0 1 0 0 64zm144-32a32 32 0 1 0 -64 0 32 32 0 1 0 64 0zM3.4 273.7c7.9-15.8 27.1-22.2 42.9-14.3L224 348.2l177.7-88.8c15.8-7.9 35-1.5 42.9 14.3s1.5 35-14.3 42.9L295.6 384l134.8 67.4c15.8 7.9 22.2 27.1 14.3 42.9s-27.1 22.2-42.9 14.3L224 419.8 46.3 508.6c-15.8 7.9-35 1.5-42.9-14.3s-1.5-35 14.3-42.9L152.4 384 17.7 316.6C1.9 308.7-4.5 289.5 3.4 273.7z"/></svg> Missing values!
+
+Numerical column `dep_time` contains many `NA's` (missing values)
+
+
+``` r
+summary(flights$dep_time)
+```
+
+```
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+##       1     907    1401    1349    1744    2400    8255
+```
+
+<svg aria-hidden="true" role="img" viewBox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M448 128l-177.6 0c1 5.2 1.6 10.5 1.6 16l0 16 32 0 144 0c8.8 0 16-7.2 16-16s-7.2-16-16-16zM224 144c0-17.7-14.3-32-32-32c0 0 0 0 0 0l-24 0c-66.3 0-120 53.7-120 120l0 48c0 52.5 33.7 97.1 80.7 113.4c-.5-3.1-.7-6.2-.7-9.4c0-20 9.2-37.9 23.6-49.7c-4.9-9-7.6-19.4-7.6-30.3c0-15.1 5.3-29 14-40c-8.8-11-14-24.9-14-40l0-40c0-13.3 10.7-24 24-24s24 10.7 24 24l0 40c0 8.8 7.2 16 16 16s16-7.2 16-16l0-40 0-40zM192 64s0 0 0 0c18 0 34.6 6 48 16l208 0c35.3 0 64 28.7 64 64s-28.7 64-64 64l-82 0c1.3 5.1 2 10.5 2 16c0 25.3-14.7 47.2-36 57.6c2.6 7 4 14.5 4 22.4c0 20-9.2 37.9-23.6 49.7c4.9 9 7.6 19.4 7.6 30.3c0 35.3-28.7 64-64 64l-64 0-24 0C75.2 448 0 372.8 0 280l0-48C0 139.2 75.2 64 168 64l24 0zm64 336c8.8 0 16-7.2 16-16s-7.2-16-16-16l-48 0-16 0c-8.8 0-16 7.2-16 16s7.2 16 16 16l64 0zm16-176c0 5.5-.7 10.9-2 16l2 0 32 0c8.8 0 16-7.2 16-16s-7.2-16-16-16l-32 0 0 16zm-24 64l-40 0c-8.8 0-16 7.2-16 16s7.2 16 16 16l48 0 16 0c8.8 0 16-7.2 16-16s-7.2-16-16-16l-24 0z"/></svg> Missing values (`NA` and variants) should
+be handled with care
+
+
+``` r
+NA &amp; TRUE
+```
+
+[1] NA
+
+``` r
+NA | TRUE
+```
+
+[1] TRUE
+
+---
+
+### Truth tables for three-valued logic
+
+.fl.w-50.pa2[
+
+<svg aria-hidden="true" role="img" viewBox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M256 32c14.2 0 27.3 7.5 34.5 19.8l216 368c7.3 12.4 7.3 27.7 .2 40.1S486.3 480 472 480H40c-14.3 0-27.6-7.7-34.7-20.1s-7-27.8 .2-40.1l216-368C228.7 39.5 241.8 32 256 32zm0 128c-13.3 0-24 10.7-24 24V296c0 13.3 10.7 24 24 24s24-10.7 24-24V184c0-13.3-10.7-24-24-24zm32 224a32 32 0 1 0 -64 0 32 32 0 1 0 64 0z"/></svg> <svg aria-hidden="true" role="img" viewBox="0 0 581 512" style="height:1em;width:1.13em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M581 226.6C581 119.1 450.9 32 290.5 32S0 119.1 0 226.6C0 322.4 103.3 402 239.4 418.1V480h99.1v-61.5c24.3-2.7 47.6-7.4 69.4-13.9L448 480h112l-67.4-113.7c54.5-35.4 88.4-84.9 88.4-139.7zm-466.8 14.5c0-73.5 98.9-133 220.8-133s211.9 40.7 211.9 133c0 50.1-26.5 85-70.3 106.4-2.4-1.6-4.7-2.9-6.4-3.7-10.2-5.2-27.8-10.5-27.8-10.5s86.6-6.4 86.6-92.7-90.6-87.9-90.6-87.9h-199V361c-74.1-21.5-125.2-67.1-125.2-119.9zm225.1 38.3v-55.6c57.8 0 87.8-6.8 87.8 27.3 0 36.5-38.2 28.3-87.8 28.3zm-.9 72.5H365c10.8 0 18.9 11.7 24 19.2-16.1 1.9-33 2.8-50.6 2.9v-22.1z"/></svg> uses _three-valued logic_
+
+<svg aria-hidden="true" role="img" viewBox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M448 128l-177.6 0c1 5.2 1.6 10.5 1.6 16l0 16 32 0 144 0c8.8 0 16-7.2 16-16s-7.2-16-16-16zM224 144c0-17.7-14.3-32-32-32c0 0 0 0 0 0l-24 0c-66.3 0-120 53.7-120 120l0 48c0 52.5 33.7 97.1 80.7 113.4c-.5-3.1-.7-6.2-.7-9.4c0-20 9.2-37.9 23.6-49.7c-4.9-9-7.6-19.4-7.6-30.3c0-15.1 5.3-29 14-40c-8.8-11-14-24.9-14-40l0-40c0-13.3 10.7-24 24-24s24 10.7 24 24l0 40c0 8.8 7.2 16 16 16s16-7.2 16-16l0-40 0-40zM192 64s0 0 0 0c18 0 34.6 6 48 16l208 0c35.3 0 64 28.7 64 64s-28.7 64-64 64l-82 0c1.3 5.1 2 10.5 2 16c0 25.3-14.7 47.2-36 57.6c2.6 7 4 14.5 4 22.4c0 20-9.2 37.9-23.6 49.7c4.9 9 7.6 19.4 7.6 30.3c0 35.3-28.7 64-64 64l-64 0-24 0C75.2 448 0 372.8 0 280l0-48C0 139.2 75.2 64 168 64l24 0zm64 336c8.8 0 16-7.2 16-16s-7.2-16-16-16l-48 0-16 0c-8.8 0-16 7.2-16 16s7.2 16 16 16l64 0zm16-176c0 5.5-.7 10.9-2 16l2 0 32 0c8.8 0 16-7.2 16-16s-7.2-16-16-16l-32 0 0 16zm-24 64l-40 0c-8.8 0-16 7.2-16 16s7.2 16 16 16l48 0 16 0c8.8 0 16-7.2 16-16s-7.2-16-16-16l-24 0z"/></svg> Generate complete truth tables for `and, or, xor`
+
+
+``` r
+v &lt;- c(TRUE, FALSE, NA) # truth values
+
+*list_tt &lt;- map(c(`&amp;`, `|`, xor),
+*              ~ outer(v, v, .x))
+
+for (i in seq_along(list_tt)){
+  colnames(list_tt[[i]]) &lt;- v
+  rownames(list_tt[[i]]) &lt;- v
+}
+
+names(list_tt) &lt;- c('&amp; AND',
+                    '| OR',
+                    'XOR')
+```
+]
+
+--
+
+.fl.w-50.pa2.f6.tl[
+
+&lt;table class=" lightable-minimal" style='font-family: "Trebuchet MS", verdana, sans-serif; width: auto !important; '&gt;
+&lt;caption&gt;&amp;amp; AND&lt;/caption&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;font-weight: bold;background-color: lightgray !important;"&gt;   &lt;/th&gt;
+   &lt;th style="text-align:left;font-weight: bold;background-color: lightgray !important;"&gt; TRUE &lt;/th&gt;
+   &lt;th style="text-align:left;font-weight: bold;background-color: lightgray !important;"&gt; FALSE &lt;/th&gt;
+   &lt;th style="text-align:left;font-weight: bold;background-color: lightgray !important;"&gt; NA &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;font-weight: bold;background-color: lightgray !important;"&gt; TRUE &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; TRUE &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; FALSE &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;font-weight: bold;background-color: lightgray !important;"&gt; FALSE &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; FALSE &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; FALSE &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; FALSE &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;font-weight: bold;background-color: lightgray !important;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; FALSE &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;&lt;br&gt;
+
+&lt;!-- --&gt;
+
+&lt;table class=" lightable-minimal" style='font-family: "Trebuchet MS", verdana, sans-serif; width: auto !important; '&gt;
+&lt;caption&gt;| OR&lt;/caption&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;font-weight: bold;background-color: lightgray !important;"&gt;   &lt;/th&gt;
+   &lt;th style="text-align:left;font-weight: bold;background-color: lightgray !important;"&gt; TRUE &lt;/th&gt;
+   &lt;th style="text-align:left;font-weight: bold;background-color: lightgray !important;"&gt; FALSE &lt;/th&gt;
+   &lt;th style="text-align:left;font-weight: bold;background-color: lightgray !important;"&gt; NA &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;font-weight: bold;background-color: lightgray !important;"&gt; TRUE &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; TRUE &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; TRUE &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; TRUE &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;font-weight: bold;background-color: lightgray !important;"&gt; FALSE &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; TRUE &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; FALSE &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;font-weight: bold;background-color: lightgray !important;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; TRUE &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;&lt;br&gt;
+
+&lt;!-- --&gt;
+
+&lt;table class=" lightable-minimal" style='font-family: "Trebuchet MS", verdana, sans-serif; width: auto !important; '&gt;
+&lt;caption&gt;XOR&lt;/caption&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;font-weight: bold;background-color: lightgray !important;"&gt;   &lt;/th&gt;
+   &lt;th style="text-align:left;font-weight: bold;background-color: lightgray !important;"&gt; TRUE &lt;/th&gt;
+   &lt;th style="text-align:left;font-weight: bold;background-color: lightgray !important;"&gt; FALSE &lt;/th&gt;
+   &lt;th style="text-align:left;font-weight: bold;background-color: lightgray !important;"&gt; NA &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;font-weight: bold;background-color: lightgray !important;"&gt; TRUE &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; FALSE &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; TRUE &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;font-weight: bold;background-color: lightgray !important;"&gt; FALSE &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; TRUE &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; FALSE &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;font-weight: bold;background-color: lightgray !important;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;&lt;br&gt;
+
+&lt;!-- --&gt;
+
+]
+
+---
+exclude: true
+
+|  &lt;div style="width:80px"&gt;`and`&lt;/div&gt; | &lt;div style="width:80px"&gt;`TRUE`&lt;/div&gt;  | &lt;div style="width:80px"&gt;`FALSE`&lt;/div&gt; |&lt;div style="width:80px"&gt;`NA`&lt;/div&gt;    |
+|:-----|:-----|:-----|:-----|
+|**`TRUE`**  |TRUE  |FALSE |NA    |
+|**`FALSE`** |FALSE |FALSE |FALSE |
+|**`NA`**    |NA    |FALSE |NA    |
+
+&lt;br&gt;
+
+|  &lt;div style="width:80px"&gt;`or`&lt;/div&gt; | &lt;div style="width:80px"&gt;`TRUE`&lt;/div&gt;  | &lt;div style="width:80px"&gt;`FALSE`&lt;/div&gt; |&lt;div style="width:80px"&gt;`NA`&lt;/div&gt;    |
+|:-----|:----|:-----|:----|
+|**`TRUE`**  |TRUE |TRUE  |TRUE |
+|**`FALSE`** |TRUE |FALSE |NA   |
+|**`NA`**    |TRUE |NA    |NA   |
+
+&lt;br&gt;
+
+|  &lt;div style="width:80px"&gt;`xor`&lt;/div&gt; | &lt;div style="width:80px"&gt;`TRUE`&lt;/div&gt;  | &lt;div style="width:80px"&gt;`FALSE`&lt;/div&gt; |&lt;div style="width:80px"&gt;`NA`&lt;/div&gt;    |
+|:-----|:-----|:-----|:--|
+|**`TRUE`** |FALSE |TRUE  |NA |
+|**`FALSE`** |TRUE  |FALSE |NA |
+|**`NA`**   |NA    |NA    |NA |
+
+
+
+---
+
+### `slice()`: choosing rows based on location
+
+.fl.w-50.pa2[
+
+In base <svg aria-hidden="true" role="img" viewBox="0 0 581 512" style="height:1em;width:1.13em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M581 226.6C581 119.1 450.9 32 290.5 32S0 119.1 0 226.6C0 322.4 103.3 402 239.4 418.1V480h99.1v-61.5c24.3-2.7 47.6-7.4 69.4-13.9L448 480h112l-67.4-113.7c54.5-35.4 88.4-84.9 88.4-139.7zm-466.8 14.5c0-73.5 98.9-133 220.8-133s211.9 40.7 211.9 133c0 50.1-26.5 85-70.3 106.4-2.4-1.6-4.7-2.9-6.4-3.7-10.2-5.2-27.8-10.5-27.8-10.5s86.6-6.4 86.6-92.7-90.6-87.9-90.6-87.9h-199V361c-74.1-21.5-125.2-67.1-125.2-119.9zm225.1 38.3v-55.6c57.8 0 87.8-6.8 87.8 27.3 0 36.5-38.2 28.3-87.8 28.3zm-.9 72.5H365c10.8 0 18.9 11.7 24 19.2-16.1 1.9-33 2.8-50.6 2.9v-22.1z"/></svg> dataframe cells can be addressed by
+indices
+
+`flights[5000:5010,seq(1, 19, by=5)]` returns rows `5000:5010` and columns
+`1, 6, 11` from dataframe `flights`
+
+This can be done in a (verbose) `dplyr` way using `slice()` and `select()`
+
+]
+
+.fl.w-50.pa2[
+
+``` r
+flights |&gt;
+* slice(5001:5005) |&gt;
+  select(seq(1, 19, by=5))
+```
+
+```
+## # A tibble: 5 × 4
+##    year dep_delay flight distance
+##   &lt;int&gt;     &lt;dbl&gt;  &lt;int&gt;    &lt;dbl&gt;
+## 1  2013         3   4437      602
+## 2  2013        43   1016      187
+## 3  2013        -2   2190     1089
+## 4  2013        -1     91     2576
+## 5  2013         5   2131      502
+```
+]
+
+<svg aria-hidden="true" role="img" viewBox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M448 128l-177.6 0c1 5.2 1.6 10.5 1.6 16l0 16 32 0 144 0c8.8 0 16-7.2 16-16s-7.2-16-16-16zM224 144c0-17.7-14.3-32-32-32c0 0 0 0 0 0l-24 0c-66.3 0-120 53.7-120 120l0 48c0 52.5 33.7 97.1 80.7 113.4c-.5-3.1-.7-6.2-.7-9.4c0-20 9.2-37.9 23.6-49.7c-4.9-9-7.6-19.4-7.6-30.3c0-15.1 5.3-29 14-40c-8.8-11-14-24.9-14-40l0-40c0-13.3 10.7-24 24-24s24 10.7 24 24l0 40c0 8.8 7.2 16 16 16s16-7.2 16-16l0-40 0-40zM192 64s0 0 0 0c18 0 34.6 6 48 16l208 0c35.3 0 64 28.7 64 64s-28.7 64-64 64l-82 0c1.3 5.1 2 10.5 2 16c0 25.3-14.7 47.2-36 57.6c2.6 7 4 14.5 4 22.4c0 20-9.2 37.9-23.6 49.7c4.9 9 7.6 19.4 7.6 30.3c0 35.3-28.7 64-64 64l-64 0-24 0C75.2 448 0 372.8 0 280l0-48C0 139.2 75.2 64 168 64l24 0zm64 336c8.8 0 16-7.2 16-16s-7.2-16-16-16l-48 0-16 0c-8.8 0-16 7.2-16 16s7.2 16 16 16l64 0zm16-176c0 5.5-.7 10.9-2 16l2 0 32 0c8.8 0 16-7.2 16-16s-7.2-16-16-16l-32 0 0 16zm-24 64l-40 0c-8.8 0-16 7.2-16 16s7.2 16 16 16l48 0 16 0c8.8 0 16-7.2 16-16s-7.2-16-16-16l-24 0z"/></svg> combined with aggregation (`group_by()`) variants of `slice_` may be used 
+to perform *windowing* operations
+
+
+
+???
+
+Useful variant `slice_sample()`
+
+---
+class: inverse, left, middle
+
+
+## Joins : multi-table queries
+
+
+
+---
+
+.f3[
+
+`\(\bowtie(R,S, {\text{condition}})\)`
+
+]
+
+stands for
+
+&gt; join rows/tuples of `\(R\)` and rows/tuples of `\(S\)`  that satisfy `\(\text{condition}\)`
+
+
+---
+
+### `nycflights` tables
+
+The `nycflights13` package  offers five related tables:
+
+- _Fact_ tables:
+  - `flights`
+  - `weather`  (hourly weather conditions at different locations)
+
+- _Dimension_ tables:
+  - `airports`  (airports full names, location, ...)
+  - `planes`    (model, manufacturer, year, ...)
+  - `airlines`  (full names)
+
+This is an instance of a [Star Schema](https://en.wikipedia.org/wiki/Star_schema)
+
+.plot-callout[
+
+![](/images/schema-nycflights.png)
+
+
+???
+
+---
+
+### Star schema
+
+&gt; Fact tables record measurements for a specific event
+
+&gt; Fact tables generally consist of numeric values, and foreign keys to dimensional data where descriptive information is kept
+
+.fr[From [Wikipedia](https://en.wikipedia.org/wiki/Star_schema)]
+
+---
+
+### Star schema illustrated
+
+![](/images/schema-nycflights.png)
+
+---
+
+### <svg aria-hidden="true" role="img" viewBox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M288 32c0 17.7 14.3 32 32 32h32c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32 14.3-32 32s14.3 32 32 32H352c53 0 96-43 96-96s-43-96-96-96H320c-17.7 0-32 14.3-32 32zm64 352c0 17.7 14.3 32 32 32h32c53 0 96-43 96-96s-43-96-96-96H32c-17.7 0-32 14.3-32 32s14.3 32 32 32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H384c-17.7 0-32 14.3-32 32zM128 512h32c53 0 96-43 96-96s-43-96-96-96H32c-17.7 0-32 14.3-32 32s14.3 32 32 32H160c17.7 0 32 14.3 32 32s-14.3 32-32 32H128c-17.7 0-32 14.3-32 32s14.3 32 32 32z"/></svg> weather conditions
+
+.f6[
+
+
+``` r
+weather |&gt;
+  glimpse(width = 50)
+```
+
+```
+## Rows: 26,115
+## Columns: 15
+## $ origin     &lt;chr&gt; "EWR", "EWR", "EWR", "EWR", "…
+## $ year       &lt;int&gt; 2013, 2013, 2013, 2013, 2013,…
+## $ month      &lt;int&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,…
+## $ day        &lt;int&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,…
+## $ hour       &lt;int&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10…
+## $ temp       &lt;dbl&gt; 39.02, 39.02, 39.02, 39.92, 3…
+## $ dewp       &lt;dbl&gt; 26.06, 26.96, 28.04, 28.04, 2…
+## $ humid      &lt;dbl&gt; 59.37, 61.63, 64.43, 62.21, 6…
+## $ wind_dir   &lt;dbl&gt; 270, 250, 240, 250, 260, 240,…
+## $ wind_speed &lt;dbl&gt; 10.35702, 8.05546, 11.50780, …
+## $ wind_gust  &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, N…
+## $ precip     &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,…
+## $ pressure   &lt;dbl&gt; 1012.0, 1012.3, 1012.5, 1012.…
+## $ visib      &lt;dbl&gt; 10, 10, 10, 10, 10, 10, 10, 1…
+## $ time_hour  &lt;dttm&gt; 2013-01-01 01:00:00, 2013-01…
+```
+
+]
+
+---
+
+### Connecting `flights`  and `weather`
+
+
+We want to complement information in `flights` using data `weather`
+
+Motivation: we would like to relate delays (`arr_delay`) and weather conditions
+
+- can we explain (justify) delays using weather data?
+
+- can we predict delays using weather data?
+
+---
+
+### <svg aria-hidden="true" role="img" viewBox="0 0 640 512" style="height:1em;width:1.25em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M381 114.9L186.1 41.8c-16.7-6.2-35.2-5.3-51.1 2.7L89.1 67.4C78 73 77.2 88.5 87.6 95.2l146.9 94.5L136 240 77.8 214.1c-8.7-3.9-18.8-3.7-27.3 .6L18.3 230.8c-9.3 4.7-11.8 16.8-5 24.7l73.1 85.3c6.1 7.1 15 11.2 24.3 11.2H248.4c5 0 9.9-1.2 14.3-3.4L535.6 212.2c46.5-23.3 82.5-63.3 100.8-112C645.9 75 627.2 48 600.2 48H542.8c-20.2 0-40.2 4.8-58.2 14L381 114.9zM0 480c0 17.7 14.3 32 32 32H608c17.7 0 32-14.3 32-32s-14.3-32-32-32H32c-17.7 0-32 14.3-32 32z"/></svg> ⋈  <svg aria-hidden="true" role="img" viewBox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M288 32c0 17.7 14.3 32 32 32h32c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32 14.3-32 32s14.3 32 32 32H352c53 0 96-43 96-96s-43-96-96-96H320c-17.7 0-32 14.3-32 32zm64 352c0 17.7 14.3 32 32 32h32c53 0 96-43 96-96s-43-96-96-96H32c-17.7 0-32 14.3-32 32s14.3 32 32 32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H384c-17.7 0-32 14.3-32 32zM128 512h32c53 0 96-43 96-96s-43-96-96-96H32c-17.7 0-32 14.3-32 32s14.3 32 32 32H160c17.7 0 32 14.3 32 32s-14.3 32-32 32H128c-17.7 0-32 14.3-32 32s14.3 32 32 32z"/></svg>
+
+
+
+For each flight (row in `flights`)
+
+- `year`, `month`, `day`, `hour` (computed from `time_hour`) indicate
+the approaximate time of departure
+
+- `origin` indicates the airport where the plane takes off
+
+Each row of `weather` contains corresponding information
+
+<svg aria-hidden="true" role="img" viewBox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M448 128l-177.6 0c1 5.2 1.6 10.5 1.6 16l0 16 32 0 144 0c8.8 0 16-7.2 16-16s-7.2-16-16-16zM224 144c0-17.7-14.3-32-32-32c0 0 0 0 0 0l-24 0c-66.3 0-120 53.7-120 120l0 48c0 52.5 33.7 97.1 80.7 113.4c-.5-3.1-.7-6.2-.7-9.4c0-20 9.2-37.9 23.6-49.7c-4.9-9-7.6-19.4-7.6-30.3c0-15.1 5.3-29 14-40c-8.8-11-14-24.9-14-40l0-40c0-13.3 10.7-24 24-24s24 10.7 24 24l0 40c0 8.8 7.2 16 16 16s16-7.2 16-16l0-40 0-40zM192 64s0 0 0 0c18 0 34.6 6 48 16l208 0c35.3 0 64 28.7 64 64s-28.7 64-64 64l-82 0c1.3 5.1 2 10.5 2 16c0 25.3-14.7 47.2-36 57.6c2.6 7 4 14.5 4 22.4c0 20-9.2 37.9-23.6 49.7c4.9 9 7.6 19.4 7.6 30.3c0 35.3-28.7 64-64 64l-64 0-24 0C75.2 448 0 372.8 0 280l0-48C0 139.2 75.2 64 168 64l24 0zm64 336c8.8 0 16-7.2 16-16s-7.2-16-16-16l-48 0-16 0c-8.8 0-16 7.2-16 16s7.2 16 16 16l64 0zm16-176c0 5.5-.7 10.9-2 16l2 0 32 0c8.8 0 16-7.2 16-16s-7.2-16-16-16l-32 0 0 16zm-24 64l-40 0c-8.8 0-16 7.2-16 16s7.2 16 16 16l48 0 16 0c8.8 0 16-7.2 16-16s-7.2-16-16-16l-24 0z"/></svg> for each row of `flights` we look for rows of `weather`
+with matching values in `year`, `month`, `day`, `hour`  and `origin`
+
+<svg aria-hidden="true" role="img" viewBox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M448 128l-177.6 0c1 5.2 1.6 10.5 1.6 16l0 16 32 0 144 0c8.8 0 16-7.2 16-16s-7.2-16-16-16zM224 144c0-17.7-14.3-32-32-32c0 0 0 0 0 0l-24 0c-66.3 0-120 53.7-120 120l0 48c0 52.5 33.7 97.1 80.7 113.4c-.5-3.1-.7-6.2-.7-9.4c0-20 9.2-37.9 23.6-49.7c-4.9-9-7.6-19.4-7.6-30.3c0-15.1 5.3-29 14-40c-8.8-11-14-24.9-14-40l0-40c0-13.3 10.7-24 24-24s24 10.7 24 24l0 40c0 8.8 7.2 16 16 16s16-7.2 16-16l0-40 0-40zM192 64s0 0 0 0c18 0 34.6 6 48 16l208 0c35.3 0 64 28.7 64 64s-28.7 64-64 64l-82 0c1.3 5.1 2 10.5 2 16c0 25.3-14.7 47.2-36 57.6c2.6 7 4 14.5 4 22.4c0 20-9.2 37.9-23.6 49.7c4.9 9 7.6 19.4 7.6 30.3c0 35.3-28.7 64-64 64l-64 0-24 0C75.2 448 0 372.8 0 280l0-48C0 139.2 75.2 64 168 64l24 0zm64 336c8.8 0 16-7.2 16-16s-7.2-16-16-16l-48 0-16 0c-8.8 0-16 7.2-16 16s7.2 16 16 16l64 0zm16-176c0 5.5-.7 10.9-2 16l2 0 32 0c8.8 0 16-7.2 16-16s-7.2-16-16-16l-32 0 0 16zm-24 64l-40 0c-8.8 0-16 7.2-16 16s7.2 16 16 16l48 0 16 0c8.8 0 16-7.2 16-16s-7.2-16-16-16l-24 0z"/></svg> NATURAL INNER JOIN between the tables
+
+---
+
+### `inner_join`: natural join
+
+.fl.w-40.pa2[
+
+
+``` r
+f_w &lt;- flights |&gt;
+* inner_join(weather)
+
+
+f_w |&gt; 
+  select(seq(1, 
+             ncol(f_w),
+             by=2)) |&gt; 
+  glimpse(width=50)
+```
+]
+
+.fl.w-60.pa2.f6[
+
+
+```
+## Joining with `by = join_by(year, month, day, origin, hour, time_hour)`
+```
+
+```
+## Rows: 335,220
+## Columns: 14
+## $ year           &lt;int&gt; 2013, 2013, 2013, 2013, 2…
+## $ day            &lt;int&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1…
+## $ sched_dep_time &lt;int&gt; 515, 529, 540, 545, 600, …
+## $ arr_time       &lt;int&gt; 830, 850, 923, 1004, 812,…
+## $ arr_delay      &lt;dbl&gt; 11, 20, 33, -18, -25, 12,…
+## $ flight         &lt;int&gt; 1545, 1714, 1141, 725, 46…
+## $ origin         &lt;chr&gt; "EWR", "LGA", "JFK", "JFK…
+## $ air_time       &lt;dbl&gt; 227, 227, 160, 183, 116, …
+## $ hour           &lt;dbl&gt; 5, 5, 5, 5, 6, 5, 6, 6, 6…
+## $ time_hour      &lt;dttm&gt; 2013-01-01 05:00:00, 201…
+## $ dewp           &lt;dbl&gt; 28.04, 24.98, 26.96, 26.9…
+## $ wind_dir       &lt;dbl&gt; 260, 250, 260, 260, 260, …
+## $ wind_gust      &lt;dbl&gt; NA, 21.86482, NA, NA, 23.…
+## $ pressure       &lt;dbl&gt; 1011.9, 1011.4, 1012.1, 1…
+```
+
+]
+
+???
+
+
+
+---
+
+### Join schema
+
+.f6[
+
+
+```
+## Rows: 335,220
+## Columns: 28
+## $ year           &lt;int&gt; 2013, 2013, 2013, 2013, 2…
+## $ month          &lt;int&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1…
+## $ day            &lt;int&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1…
+## $ dep_time       &lt;int&gt; 517, 533, 542, 544, 554, …
+## $ sched_dep_time &lt;int&gt; 515, 529, 540, 545, 600, …
+## $ dep_delay      &lt;dbl&gt; 2, 4, 2, -1, -6, -4, -5, …
+## $ arr_time       &lt;int&gt; 830, 850, 923, 1004, 812,…
+## $ sched_arr_time &lt;int&gt; 819, 830, 850, 1022, 837,…
+## $ arr_delay      &lt;dbl&gt; 11, 20, 33, -18, -25, 12,…
+## $ carrier        &lt;chr&gt; "UA", "UA", "AA", "B6", "…
+## $ flight         &lt;int&gt; 1545, 1714, 1141, 725, 46…
+## $ tailnum        &lt;chr&gt; "N14228", "N24211", "N619…
+## $ origin         &lt;chr&gt; "EWR", "LGA", "JFK", "JFK…
+## $ dest           &lt;chr&gt; "IAH", "IAH", "MIA", "BQN…
+## $ air_time       &lt;dbl&gt; 227, 227, 160, 183, 116, …
+## $ distance       &lt;dbl&gt; 1400, 1416, 1089, 1576, 7…
+## $ hour           &lt;dbl&gt; 5, 5, 5, 5, 6, 5, 6, 6, 6…
+## $ minute         &lt;dbl&gt; 15, 29, 40, 45, 0, 58, 0,…
+## $ time_hour      &lt;dttm&gt; 2013-01-01 05:00:00, 201…
+## $ temp           &lt;dbl&gt; 39.02, 39.92, 39.02, 39.0…
+## $ dewp           &lt;dbl&gt; 28.04, 24.98, 26.96, 26.9…
+## $ humid          &lt;dbl&gt; 64.43, 54.81, 61.63, 61.6…
+## $ wind_dir       &lt;dbl&gt; 260, 250, 260, 260, 260, …
+## $ wind_speed     &lt;dbl&gt; 12.65858, 14.96014, 14.96…
+## $ wind_gust      &lt;dbl&gt; NA, 21.86482, NA, NA, 23.…
+## $ precip         &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0…
+## $ pressure       &lt;dbl&gt; 1011.9, 1011.4, 1012.1, 1…
+## $ visib          &lt;dbl&gt; 10, 10, 10, 10, 10, 10, 1…
+```
+]
+
+???
+
+The schema of the result is the union of the schemas of the operands
+
+A tuple from `flights` matches a tuple from `weather` if the tuple have the same values in the common columns
+
+year, month, day, dep_time, sched_dep_time, dep_delay, arr_time, sched_arr_time, arr_delay, carrier, flight, tailnum, origin, dest, air_time, distance, hour, minute, time_hour, temp, dewp, humid, wind_dir, wind_speed, wind_gust, precip, pressure, visib
+
+
+---
+
+### Which columns are used when joining tables `\(R\)` and `\(S\)`?
+
+- _default behavior_ of `inner_join`: all columns shared by  `\(R\)` and `\(S\)`. Common columns  have the same name
+in both schema. They are expected to have the same class
+
+- _manual definition_: in many settings, we  want to overrule the default behavior. We specify
+manually which column from `\(R\)` should match which column from `\(S\)`
+
+---
+
+### Natural join of  `flights`  and `weather`:
+
+
+``` r
+common_names &lt;- base::intersect(names(weather),
+                                names(flights))
+
+setequal(
+  inner_join(flights, weather),
+  inner_join(flights,
+             weather,
+             by=common_names)
+)
+```
+
+```
+## Joining with `by = join_by(year, month, day, origin, hour, time_hour)`
+```
+
+```
+## [1] TRUE
+```
+
+---
+
+### <svg aria-hidden="true" role="img" viewBox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M184 0c30.9 0 56 25.1 56 56V456c0 30.9-25.1 56-56 56c-28.9 0-52.7-21.9-55.7-50.1c-5.2 1.4-10.7 2.1-16.3 2.1c-35.3 0-64-28.7-64-64c0-7.4 1.3-14.6 3.6-21.2C21.4 367.4 0 338.2 0 304c0-31.9 18.7-59.5 45.8-72.3C37.1 220.8 32 207 32 192c0-30.7 21.6-56.3 50.4-62.6C80.8 123.9 80 118 80 112c0-29.9 20.6-55.1 48.3-62.1C131.3 21.9 155.1 0 184 0zM328 0c28.9 0 52.6 21.9 55.7 49.9c27.8 7 48.3 32.1 48.3 62.1c0 6-.8 11.9-2.4 17.4c28.8 6.2 50.4 31.9 50.4 62.6c0 15-5.1 28.8-13.8 39.7C493.3 244.5 512 272.1 512 304c0 34.2-21.4 63.4-51.6 74.8c2.3 6.6 3.6 13.8 3.6 21.2c0 35.3-28.7 64-64 64c-5.6 0-11.1-.7-16.3-2.1c-3 28.2-26.8 50.1-55.7 50.1c-30.9 0-56-25.1-56-56V56c0-30.9 25.1-56 56-56z"/></svg> Are you surprised by the next chunk?
+
+
+``` r
+dtu  &lt;- inner_join(flights,
+           weather,
+           by=c("year", "month", "day", "origin", "hour"))
+
+dtv &lt;- inner_join(flights,
+           weather,
+           by=c("origin", "time_hour"))
+
+# setequal(dtu, dtv)
+```
+
+Recall that columns `year`, `month` `day` `hour` can be computed from  `time_hour`
+
+
+``` r
+# helper for datetime objects
+require(lubridate)
+
+flights |&gt;
+  filter(year!=year(time_hour) |
+         month!=month(time_hour) |
+         day!=day(time_hour) |
+         hour!=hour(time_hour)) |&gt;
+  nrow()
+```
+
+```
+## [1] 0
+```
+
+???
+
+This is an example of functional dependency
+
+
+---
+
+The two results do not have the same schema!
+
+
+``` r
+setdiff(colnames(dtv), colnames(dtu))
+```
+
+```
+## [1] "year.x"    "month.x"   "day.x"     "hour.x"    "time_hour" "year.y"   
+## [7] "month.y"   "day.y"     "hour.y"
+```
+
+``` r
+setdiff(colnames(dtu), colnames(dtv))
+```
+
+```
+## [1] "year"        "month"       "day"         "hour"        "time_hour.x"
+## [6] "time_hour.y"
+```
+
+--
+
+Fixing
+
+
+``` r
+dtu  &lt;- inner_join(flights,
+           weather,
+           by=c("year", "month", "day", "origin", "hour"),
+*          suffix= c("", ".y")) |&gt;
+*          select(-ends_with(".y"))
+
+dtv &lt;- inner_join(flights,
+           weather,
+           by=c("origin", "time_hour"),
+*          suffix= c("", ".y")) |&gt;
+*          select(-ends_with(".y"))
+
+setequal(dtu, dtv)
+```
+
+```
+## [1] TRUE
+```
+
+---
+
+### About `inner_join`
+
+.fl.w-40.pa2[
+
+
+``` r
+inner_join(
+  x, y,
+* by = NULL,
+  copy = FALSE,
+* suffix = c(".x", ".y"),
+  ...,
+* keep = FALSE,
+* na_matches = "na")
+```
+
+]
+
+.fl.w-60.pa2[
+
+- `by`:
+  - `by=c("A1", "A3", "A7")` row `r` from `R` and `s` from `S` match if `r.A1 == s.A1`,
+  `r.A3 == s.A3`,   `r.A7 == s.A7`
+  - `by=c("A1"="B", "A3"="C", "A7"="D")` row `r` from `R` and `s` from `S` match if `r.A1 == s.B`,
+  `r.A3 == s.C`,   `r.A7 == s.D`
+
+- `suffix`: If there are non-joined duplicate variables in `x` and `y`, these suffixes will be added to the output to disambiguate them.
+
+- `keep`: Should the join keys from _both_ `x` and `y` be preserved in the output?
+
+- `na_matches`: Should NA and NaN values match one another?
+
+.fl[From online documentation]
+
+]
+
+???
+
+
+---
+
+### Join flavors
+
+Different flavors of `join` can be used to join one table to columns from another, matching values with the rows that they correspond to
+
+Each join retains a different combination of values from the tables
+
+--
+
+- `left_join(x, y, by = NULL, suffix = c(".x", ".y"), ...)` Join matching values from `y` to `x`.
+Retain all rows of `x` padding missing values from `y` by `NA`
+
+- `semi_join` ...
+
+- `anti_join` ...
+
+
+???
+
+---
+
+### Toy examples : `inner_join`
+
+.fl.w-30.pa2.f6[
+
+
+
+Table: R
+
+| A1|A2 |A3         |D  |
+|--:|:--|:----------|:--|
+|  2|q  |2021-10-21 |r  |
+|  4|e  |2021-10-28 |q  |
+|  6|a  |2021-11-04 |o  |
+|  8|j  |2021-11-11 |g  |
+| 10|d  |2021-11-18 |d  |
+
+
+
+Table: S
+
+|  E|F  |G          |D  |
+|--:|:--|:----------|:--|
+|  3|y  |2021-10-21 |o  |
+|  4|e  |2021-10-22 |c  |
+|  6|n  |2021-10-23 |i  |
+|  9|t  |2021-10-24 |d  |
+| 10|r  |2021-10-25 |e  |
+]
+
+.fl.w-70.pa2.f6[
+
+
+Table: inner_join(S, R, by=c("E"="A1"))
+
+|  E|F  |G          |D.x |A2 |A3         |D.y |
+|--:|:--|:----------|:---|:--|:----------|:---|
+|  4|e  |2021-10-22 |c   |e  |2021-10-28 |q   |
+|  6|n  |2021-10-23 |i   |a  |2021-11-04 |o   |
+| 10|r  |2021-10-25 |e   |d  |2021-11-18 |d   |
+
+]
+
+---
+
+### Toy examples : `left_join`
+
+.fl.w-30.pa2.f6[
+
+
+Table: R
+
+| A1|A2 |A3         |D  |
+|--:|:--|:----------|:--|
+|  2|q  |2021-10-21 |r  |
+|  4|e  |2021-10-28 |q  |
+|  6|a  |2021-11-04 |o  |
+|  8|j  |2021-11-11 |g  |
+| 10|d  |2021-11-18 |d  |
+
+
+
+Table: S
+
+|  E|F  |G          |D  |
+|--:|:--|:----------|:--|
+|  3|y  |2021-10-21 |o  |
+|  4|e  |2021-10-22 |c  |
+|  6|n  |2021-10-23 |i  |
+|  9|t  |2021-10-24 |d  |
+| 10|r  |2021-10-25 |e  |
+
+]
+
+.fl.w-70.pa2.f6[
+
+
+Table: left_join(S, R, by=c("E"="A1"))
+
+|  E|F  |G          |D.x |A2 |A3         |D.y |
+|--:|:--|:----------|:---|:--|:----------|:---|
+|  3|y  |2021-10-21 |o   |NA |NA         |NA  |
+|  4|e  |2021-10-22 |c   |e  |2021-10-28 |q   |
+|  6|n  |2021-10-23 |i   |a  |2021-11-04 |o   |
+|  9|t  |2021-10-24 |d   |NA |NA         |NA  |
+| 10|r  |2021-10-25 |e   |d  |2021-11-18 |d   |
+]
+
+---
+
+### Toy examples : `semi_join` `anti_join`
+
+.fl.w-30.pa2.f6[
+
+
+Table: R
+
+| A1|A2 |A3         |D  |
+|--:|:--|:----------|:--|
+|  2|q  |2021-10-21 |r  |
+|  4|e  |2021-10-28 |q  |
+|  6|a  |2021-11-04 |o  |
+|  8|j  |2021-11-11 |g  |
+| 10|d  |2021-11-18 |d  |
+
+
+
+Table: S
+
+|  E|F  |G          |D  |
+|--:|:--|:----------|:--|
+|  3|y  |2021-10-21 |o  |
+|  4|e  |2021-10-22 |c  |
+|  6|n  |2021-10-23 |i  |
+|  9|t  |2021-10-24 |d  |
+| 10|r  |2021-10-25 |e  |
+
+]
+
+.fl.w-70.pa2.f6[
+
+
+Table: semi_join(S, R, by=c("E"="A1"))
+
+|  E|F  |G          |D  |
+|--:|:--|:----------|:--|
+|  4|e  |2021-10-22 |c  |
+|  6|n  |2021-10-23 |i  |
+| 10|r  |2021-10-25 |e  |
+
+&lt;br&gt;&lt;br&gt;
+
+
+Table: anti_join(S, R, by=c("E"="A1"))
+
+|  E|F  |G          |D  |
+|--:|:--|:----------|:--|
+|  3|y  |2021-10-21 |o  |
+|  9|t  |2021-10-24 |d  |
+
+]
+
+---
+### Conditional/ `\(\theta\)` -join
+
+In relational databases, joins are not restricted to _natural joins_
+
+--
+
+`$$U \leftarrow R \bowtie_{\theta} S$$`
+
+reads as
+
+`$$\begin{array}{rl}
+T &amp; \leftarrow R \times S\\
+U &amp; \leftarrow \sigma(T, \theta)\end{array}$$`
+
+where
+
+- `\(R \times S\)` is the _cartesian product_ of `\(R\)` and `\(S\)`
+
+- `\(\theta\)` is a boolean expression that can be evaluated on any tuple of `\(R \times S\)`
+
+---
+
+### Do we need conditional/ `\(\theta\)` -joins?
+
+- <svg aria-hidden="true" role="img" viewBox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M448 128l-177.6 0c1 5.2 1.6 10.5 1.6 16l0 16 32 0 144 0c8.8 0 16-7.2 16-16s-7.2-16-16-16zM224 144c0-17.7-14.3-32-32-32c0 0 0 0 0 0l-24 0c-66.3 0-120 53.7-120 120l0 48c0 52.5 33.7 97.1 80.7 113.4c-.5-3.1-.7-6.2-.7-9.4c0-20 9.2-37.9 23.6-49.7c-4.9-9-7.6-19.4-7.6-30.3c0-15.1 5.3-29 14-40c-8.8-11-14-24.9-14-40l0-40c0-13.3 10.7-24 24-24s24 10.7 24 24l0 40c0 8.8 7.2 16 16 16s16-7.2 16-16l0-40 0-40zM192 64s0 0 0 0c18 0 34.6 6 48 16l208 0c35.3 0 64 28.7 64 64s-28.7 64-64 64l-82 0c1.3 5.1 2 10.5 2 16c0 25.3-14.7 47.2-36 57.6c2.6 7 4 14.5 4 22.4c0 20-9.2 37.9-23.6 49.7c4.9 9 7.6 19.4 7.6 30.3c0 35.3-28.7 64-64 64l-64 0-24 0C75.2 448 0 372.8 0 280l0-48C0 139.2 75.2 64 168 64l24 0zm64 336c8.8 0 16-7.2 16-16s-7.2-16-16-16l-48 0-16 0c-8.8 0-16 7.2-16 16s7.2 16 16 16l64 0zm16-176c0 5.5-.7 10.9-2 16l2 0 32 0c8.8 0 16-7.2 16-16s-7.2-16-16-16l-32 0 0 16zm-24 64l-40 0c-8.8 0-16 7.2-16 16s7.2 16 16 16l48 0 16 0c8.8 0 16-7.2 16-16s-7.2-16-16-16l-24 0z"/></svg>: We can implement `\(\theta\)`/conditional-joins by pipelining a cross product and a filtering
+
+--
+
+- <svg aria-hidden="true" role="img" viewBox="0 0 448 512" style="height:1em;width:0.88em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M368 128c0 44.4-25.4 83.5-64 106.4V256c0 17.7-14.3 32-32 32H176c-17.7 0-32-14.3-32-32V234.4c-38.6-23-64-62.1-64-106.4C80 57.3 144.5 0 224 0s144 57.3 144 128zM168 176a32 32 0 1 0 0-64 32 32 0 1 0 0 64zm144-32a32 32 0 1 0 -64 0 32 32 0 1 0 64 0zM3.4 273.7c7.9-15.8 27.1-22.2 42.9-14.3L224 348.2l177.7-88.8c15.8-7.9 35-1.5 42.9 14.3s1.5 35-14.3 42.9L295.6 384l134.8 67.4c15.8 7.9 22.2 27.1 14.3 42.9s-27.1 22.2-42.9 14.3L224 419.8 46.3 508.6c-15.8 7.9-35 1.5-42.9-14.3s-1.5-35 14.3-42.9L152.4 384 17.7 316.6C1.9 308.7-4.5 289.5 3.4 273.7z"/></svg>: Cross products are costly:
+  + `\(\#\text{rows}(R \times S) = \#\text{rows}(R) \times \#\text{rows}(S)\)`
+  + `\(\#\text{cols}(R \times S) = \#\text{cols}(R) + \#\text{cols}(S)\)`
+
+--
+
+- <svg aria-hidden="true" role="img" viewBox="0 0 448 512" style="height:1em;width:0.88em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M448 80v48c0 44.2-100.3 80-224 80S0 172.2 0 128V80C0 35.8 100.3 0 224 0S448 35.8 448 80zM393.2 214.7c20.8-7.4 39.9-16.9 54.8-28.6V288c0 44.2-100.3 80-224 80S0 332.2 0 288V186.1c14.9 11.8 34 21.2 54.8 28.6C99.7 230.7 159.5 240 224 240s124.3-9.3 169.2-25.3zM0 346.1c14.9 11.8 34 21.2 54.8 28.6C99.7 390.7 159.5 400 224 400s124.3-9.3 169.2-25.3c20.8-7.4 39.9-16.9 54.8-28.6V432c0 44.2-100.3 80-224 80S0 476.2 0 432V346.1z"/></svg>: RDBMS use query planning and optimization, indexing to circumvent the cross product bottleneck (when possible)
+
+--
+
+- <svg aria-hidden="true" role="img" viewBox="0 0 581 512" style="height:1em;width:1.13em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M581 226.6C581 119.1 450.9 32 290.5 32S0 119.1 0 226.6C0 322.4 103.3 402 239.4 418.1V480h99.1v-61.5c24.3-2.7 47.6-7.4 69.4-13.9L448 480h112l-67.4-113.7c54.5-35.4 88.4-84.9 88.4-139.7zm-466.8 14.5c0-73.5 98.9-133 220.8-133s211.9 40.7 211.9 133c0 50.1-26.5 85-70.3 106.4-2.4-1.6-4.7-2.9-6.4-3.7-10.2-5.2-27.8-10.5-27.8-10.5s86.6-6.4 86.6-92.7-90.6-87.9-90.6-87.9h-199V361c-74.1-21.5-125.2-67.1-125.2-119.9zm225.1 38.3v-55.6c57.8 0 87.8-6.8 87.8 27.3 0 36.5-38.2 28.3-87.8 28.3zm-.9 72.5H365c10.8 0 18.9 11.7 24 19.2-16.1 1.9-33 2.8-50.6 2.9v-22.1z"/></svg>: if we need to perform a `\(\theta\)`-join
+  + outsource it to a RDBMS, or
+  + design an ad hoc pipeline
+
+
+
+.fr[
+[About conditional join](https://www.r-bloggers.com/2018/02/in-between-a-rock-and-a-conditional-join/)
+]
+
+
+---
+
+### A conditional join between `flights` and `weather`
+
+- The natural join between `flights` and `weather` we implemented can be regarded as an ad hoc conditional join between normalized versions of `weather` and `flights` <svg aria-hidden="true" role="img" viewBox="0 0 384 512" style="height:1em;width:0.75em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M297.2 248.9C311.6 228.3 320 203.2 320 176c0-70.7-57.3-128-128-128S64 105.3 64 176c0 27.2 8.4 52.3 22.8 72.9c3.7 5.3 8.1 11.3 12.8 17.7l0 0c12.9 17.7 28.3 38.9 39.8 59.8c10.4 19 15.7 38.8 18.3 57.5H109c-2.2-12-5.9-23.7-11.8-34.5c-9.9-18-22.2-34.9-34.5-51.8l0 0 0 0c-5.2-7.1-10.4-14.2-15.4-21.4C27.6 247.9 16 213.3 16 176C16 78.8 94.8 0 192 0s176 78.8 176 176c0 37.3-11.6 71.9-31.4 100.3c-5 7.2-10.2 14.3-15.4 21.4l0 0 0 0c-12.3 16.8-24.6 33.7-34.5 51.8c-5.9 10.8-9.6 22.5-11.8 34.5H226.4c2.6-18.7 7.9-38.6 18.3-57.5c11.5-20.9 26.9-42.1 39.8-59.8l0 0 0 0 0 0c4.7-6.4 9-12.4 12.7-17.7zM192 128c-26.5 0-48 21.5-48 48c0 8.8-7.2 16-16 16s-16-7.2-16-16c0-44.2 35.8-80 80-80c8.8 0 16 7.2 16 16s-7.2 16-16 16zm0 384c-44.2 0-80-35.8-80-80V416H272v16c0 44.2-35.8 80-80 80z"/></svg>
+
+
+- Table `flights` and `weather` are redundant: `year`, `month`, `day`, `hour` can be computed from `time_hour`
+
+
+- Assume `flights` and `weather` are trimmed so as to become irredundant
+
+
+
+- The conditional join is then based on _truncations_ of variables `time_hour`
+
+
+``` sql
+SELECT *
+FROM flights AS f, weather AS w
+WHERE date_trunc('hour', f.time_hour) = date_trunc('hour', w.time_hour)
+```
+
+- Adding redundant columns to `flights` and `weather` allows us to transform
+a tricky conditional join into a simple natural join <svg aria-hidden="true" role="img" viewBox="0 0 640 512" style="height:1em;width:1.25em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M155.6 17.3C163 3 179.9-3.6 195 1.9L320 47.5l125-45.6c15.1-5.5 32 1.1 39.4 15.4l78.8 152.9c28.8 55.8 10.3 122.3-38.5 156.6L556.1 413l41-15c16.6-6 35 2.5 41 19.1s-2.5 35-19.1 41l-71.1 25.9L476.8 510c-16.6 6.1-35-2.5-41-19.1s2.5-35 19.1-41l41-15-31.3-86.2c-59.4 5.2-116.2-34-130-95.2L320 188.8l-14.6 64.7c-13.8 61.3-70.6 100.4-130 95.2l-31.3 86.2 41 15c16.6 6 25.2 24.4 19.1 41s-24.4 25.2-41 19.1L92.2 484.1 21.1 458.2c-16.6-6.1-25.2-24.4-19.1-41s24.4-25.2 41-19.1l41 15 31.3-86.2C66.5 292.5 48.1 226 76.9 170.2L155.6 17.3zm44 54.4l-27.2 52.8L261.6 157l13.1-57.9L199.6 71.7zm240.9 0L365.4 99.1 378.5 157l89.2-32.5L440.5 71.7z"/></svg>
+
+
+.fr[
+[PostgreSQL documentation](https://www.postgresql.org/docs/14/index.html)
+]
+
+
+---
+class: inverse, left, middle
+name: beyonddplyr
+
+## Creating new columns
+
+---
+
+Creation of new columns may happen
+
+- on the fly
+
+- when altering (enriching) the schema of a table
+
+In databases, creation of new columns may be the result of a query or be the result of altering a table schema with `ALTER TABLE ADD COLUMN ...`
+
+In `tidyverse()` we use verbs `mutate`  or `add_column` to add columns to the input table
+
+---
+
+### `mutate`
+
+.fl.w-50.pa2[
+
+
+``` r
+*mutate(
+  .data,
+* new_col= expression,
+* ...,
+  .keep = c("all", "used", "unused", "none"),
+  .before = NULL,
+  .after = NULL
+)
+```
+
+]
+
+
+.fl.w-50.pa2[
+
+`.data`: the input data frame
+
+`new_col= expression`:
+
+-  `new_col` is the name of a new column
+
+-  `expression` is evaluated on each row of `.data` or it is a vector of length `1`
+
+- `all` is the default behavior, retains all columns from `.data`
+
+
+]
+
+
+
+---
+
+### Creating a categorical column to spot large delays
+
+.fl.w-50.pa2[
+
+
+``` r
+breaks_delay &lt;- with(flights,
+  c(min(arr_delay, na.rm=TRUE),
+    0, 30,
+    max(arr_delay, na.rm=TRUE)))
+
+level_delay &lt;- c("None",
+                 "Moderate",
+                 "Large")
+
+flights |&gt;
+* mutate(large_delay = cut(arr_delay,
+*   breaks=breaks_delay,
+*   labels=level_delay,
+*   ordered_result=TRUE)) |&gt;
+  select(large_delay, arr_delay) |&gt;
+  sample_n(5)
+```
+
+]
+
+
+.fl.w-50.pa2[
+
+
+```
+## # A tibble: 5 × 2
+##   large_delay arr_delay
+##   &lt;ord&gt;           &lt;dbl&gt;
+## 1 Large             219
+## 2 Moderate           18
+## 3 None              -19
+## 4 None              -16
+## 5 None               -1
+```
+]
+
+
+???
+
+
+``` r
+flights |&gt;
+* mutate(foo = if_else(arr_time &gt; sched_arr_time,
+                              arr_time - sched_arr_time,
+                              0L,
+                              missing = NA_integer_)) |&gt;
+  group_by( (foo &gt;0) &amp; abs(foo - arr_delay)  &gt; 100) |&gt;
+  summarise(N=n())
+```
+
+```
+## # A tibble: 3 × 2
+##   `(foo &gt; 0) &amp; abs(foo - arr_delay) &gt; 100`      N
+##   &lt;lgl&gt;                                     &lt;int&gt;
+## 1 FALSE                                    322281
+## 2 TRUE                                       5157
+## 3 NA                                         9338
+```
+
+
+---
+
+### Changing the class of a column
+
+
+.fl.w-50.pa2[
+
+
+``` r
+flights |&gt;
+* mutate(large_delay = cut(arr_delay,
+    breaks=breaks_delay,
+    labels=level_delay,
+    ordered_result=TRUE),
+*   origin = as.factor(origin),
+*   dest = as.factor(dest)
+  ) |&gt;
+  select(large_delay,
+    arr_delay,
+    origin,
+    dest) |&gt;
+  sample_n(5)
+```
+
+]
+
+
+.fl.w-50.pa2[
+
+
+```
+## # A tibble: 5 × 4
+##   large_delay arr_delay origin dest 
+##   &lt;ord&gt;           &lt;dbl&gt; &lt;fct&gt;  &lt;fct&gt;
+## 1 None              -44 LGA    CVG  
+## 2 None              -15 EWR    DAY  
+## 3 Large             136 EWR    DEN  
+## 4 None               -9 EWR    TPA  
+## 5 Moderate           14 LGA    TPA
+```
+]
+
+---
+class: inverse, left, middle
+name: tidytables
+
+## Tidy tables
+
+
+---
+
+Tidying tables is part of data cleaning
+
+&gt; A (tidy) dataset is a collection of values, usually either numbers (if quantitative) or strings (if qualitative)
+
+&gt; Values are organised in two ways
+
+&gt; Every value belongs to a _variable_ and an _observation_
+
+&gt; A _variable_ contains all values that measure the same underlying attribute (like height, temperature, duration) across _units_
+
+&gt; An _observation_ contains all values measured on the same _unit_ (like a person, or a day, or a race) across attributes
+
+&gt; The principles of tidy data are tied to those of relational databases and Codd's relational algebra
+
+
+.fr[[<svg aria-hidden="true" role="img" viewBox="0 0 448 512" style="height:1em;width:0.88em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M96 0C43 0 0 43 0 96V416c0 53 43 96 96 96H384h32c17.7 0 32-14.3 32-32s-14.3-32-32-32V384c17.7 0 32-14.3 32-32V32c0-17.7-14.3-32-32-32H384 96zm0 384H352v64H96c-17.7 0-32-14.3-32-32s14.3-32 32-32zm32-240c0-8.8 7.2-16 16-16H336c8.8 0 16 7.2 16 16s-7.2 16-16 16H144c-8.8 0-16-7.2-16-16zm16 48H336c8.8 0 16 7.2 16 16s-7.2 16-16 16H144c-8.8 0-16-7.2-16-16s7.2-16 16-16z"/></svg> The tidy data paper](https://vita.had.co.nz/papers/tidy-data.html)]
+
+---
+
+
+
+### Codd's Twelve Principles of Relational Databases:
+
+.f6[
+
+1. Information is represented logically in *tables*
+2. Data must be *logically accessible* by table, primary key, and column.
+3. *Null* values must be uniformly treated as “missing information,” not as empty strings, blanks, or zeros.
+4. Metadata (data about the database) must be stored in the database just as regular data is
+5. A single language must be able to define data, views, integrity
+constraints, *authorization*, *transactions*, and data manipulation
+6. *Views* must show the updates of their *base tables* and vice versa
+7. A single operation must be available to do each of the following
+operations: retrieve data, insert data, update data, or delete data
+8. Batch and end-user operations are *logically separate* from physical
+storage and access methods
+9. Batch and end-user operations can change the database schema without having to recreate it or the applications built upon it
+10. *Integrity* constraints must be available and stored in the metadata, not in
+an application program
+11. The data manipulation language of the relational system should not care
+where or how the physical data is distributed and should not require
+alteration if the physical data is centralized or distributed
+12. Any *row processing* done in the system must obey the same *integrity rules* and *constraints* that set-processing operations do
+
+]
+
+
+
+---
+
+### <svg aria-hidden="true" role="img" viewBox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M480 32c0-12.9-7.8-24.6-19.8-29.6s-25.7-2.2-34.9 6.9L381.7 53c-48 48-113.1 75-181 75H192 160 64c-35.3 0-64 28.7-64 64v96c0 35.3 28.7 64 64 64l0 128c0 17.7 14.3 32 32 32h64c17.7 0 32-14.3 32-32V352l8.7 0c67.9 0 133 27 181 75l43.6 43.6c9.2 9.2 22.9 11.9 34.9 6.9s19.8-16.6 19.8-29.6V300.4c18.6-8.8 32-32.5 32-60.4s-13.4-51.6-32-60.4V32zm-64 76.7V240 371.3C357.2 317.8 280.5 288 200.7 288H192V192h8.7c79.8 0 156.5-29.8 215.3-83.3z"/></svg>
+
+<svg aria-hidden="true" role="img" viewBox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M448 128l-177.6 0c1 5.2 1.6 10.5 1.6 16l0 16 32 0 144 0c8.8 0 16-7.2 16-16s-7.2-16-16-16zM224 144c0-17.7-14.3-32-32-32c0 0 0 0 0 0l-24 0c-66.3 0-120 53.7-120 120l0 48c0 52.5 33.7 97.1 80.7 113.4c-.5-3.1-.7-6.2-.7-9.4c0-20 9.2-37.9 23.6-49.7c-4.9-9-7.6-19.4-7.6-30.3c0-15.1 5.3-29 14-40c-8.8-11-14-24.9-14-40l0-40c0-13.3 10.7-24 24-24s24 10.7 24 24l0 40c0 8.8 7.2 16 16 16s16-7.2 16-16l0-40 0-40zM192 64s0 0 0 0c18 0 34.6 6 48 16l208 0c35.3 0 64 28.7 64 64s-28.7 64-64 64l-82 0c1.3 5.1 2 10.5 2 16c0 25.3-14.7 47.2-36 57.6c2.6 7 4 14.5 4 22.4c0 20-9.2 37.9-23.6 49.7c4.9 9 7.6 19.4 7.6 30.3c0 35.3-28.7 64-64 64l-64 0-24 0C75.2 448 0 372.8 0 280l0-48C0 139.2 75.2 64 168 64l24 0zm64 336c8.8 0 16-7.2 16-16s-7.2-16-16-16l-48 0-16 0c-8.8 0-16 7.2-16 16s7.2 16 16 16l64 0zm16-176c0 5.5-.7 10.9-2 16l2 0 32 0c8.8 0 16-7.2 16-16s-7.2-16-16-16l-32 0 0 16zm-24 64l-40 0c-8.8 0-16 7.2-16 16s7.2 16 16 16l48 0 16 0c8.8 0 16-7.2 16-16s-7.2-16-16-16l-24 0z"/></svg> `dplyr` functions expect and return _tidy_ tables
+
+In a _tidy_ table
+
+- Each variable is a column
+
+- Each observation is a row
+
+- Every cell is a single value
+
+.fr[[<svg aria-hidden="true" role="img" viewBox="0 0 448 512" style="height:1em;width:0.88em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M96 0C43 0 0 43 0 96V416c0 53 43 96 96 96H384h32c17.7 0 32-14.3 32-32s-14.3-32-32-32V384c17.7 0 32-14.3 32-32V32c0-17.7-14.3-32-32-32H384 96zm0 384H352v64H96c-17.7 0-32-14.3-32-32s14.3-32 32-32zm32-240c0-8.8 7.2-16 16-16H336c8.8 0 16 7.2 16 16s-7.2 16-16 16H144c-8.8 0-16-7.2-16-16zm16 48H336c8.8 0 16 7.2 16 16s-7.2 16-16 16H144c-8.8 0-16-7.2-16-16s7.2-16 16-16z"/></svg> The tidy data paper](https://vita.had.co.nz/papers/tidy-data.html)]
+
+???
+
+<svg aria-hidden="true" role="img" viewBox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M448 128l-177.6 0c1 5.2 1.6 10.5 1.6 16l0 16 32 0 144 0c8.8 0 16-7.2 16-16s-7.2-16-16-16zM224 144c0-17.7-14.3-32-32-32c0 0 0 0 0 0l-24 0c-66.3 0-120 53.7-120 120l0 48c0 52.5 33.7 97.1 80.7 113.4c-.5-3.1-.7-6.2-.7-9.4c0-20 9.2-37.9 23.6-49.7c-4.9-9-7.6-19.4-7.6-30.3c0-15.1 5.3-29 14-40c-8.8-11-14-24.9-14-40l0-40c0-13.3 10.7-24 24-24s24 10.7 24 24l0 40c0 8.8 7.2 16 16 16s16-7.2 16-16l0-40 0-40zM192 64s0 0 0 0c18 0 34.6 6 48 16l208 0c35.3 0 64 28.7 64 64s-28.7 64-64 64l-82 0c1.3 5.1 2 10.5 2 16c0 25.3-14.7 47.2-36 57.6c2.6 7 4 14.5 4 22.4c0 20-9.2 37.9-23.6 49.7c4.9 9 7.6 19.4 7.6 30.3c0 35.3-28.7 64-64 64l-64 0-24 0C75.2 448 0 372.8 0 280l0-48C0 139.2 75.2 64 168 64l24 0zm64 336c8.8 0 16-7.2 16-16s-7.2-16-16-16l-48 0-16 0c-8.8 0-16 7.2-16 16s7.2 16 16 16l64 0zm16-176c0 5.5-.7 10.9-2 16l2 0 32 0c8.8 0 16-7.2 16-16s-7.2-16-16-16l-32 0 0 16zm-24 64l-40 0c-8.8 0-16 7.2-16 16s7.2 16 16 16l48 0 16 0c8.8 0 16-7.2 16-16s-7.2-16-16-16l-24 0z"/></svg> In order to tell whether a table is tidy, we need to know what is the _population_ under investigation,
+what are the observations/individuals, which measures are performed on each individual, ...
+
+---
+
+### Untidy data
+
+&gt; Column headers are values, not variable names.
+
+&gt; Multiple variables are stored in one column.
+
+&gt; Variables are stored in both rows and columns.
+
+&gt; Multiple types of observational units are stored in the same table.
+
+&gt; A single observational unit is stored in multiple tables.
+
+&gt; ...
+
+
+.fr[ <svg aria-hidden="true" role="img" viewBox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M78.6 5C69.1-2.4 55.6-1.5 47 7L7 47c-8.5 8.5-9.4 22-2.1 31.6l80 104c4.5 5.9 11.6 9.4 19 9.4h54.1l109 109c-14.7 29-10 65.4 14.3 89.6l112 112c12.5 12.5 32.8 12.5 45.3 0l64-64c12.5-12.5 12.5-32.8 0-45.3l-112-112c-24.2-24.2-60.6-29-89.6-14.3l-109-109V104c0-7.5-3.5-14.5-9.4-19L78.6 5zM19.9 396.1C7.2 408.8 0 426.1 0 444.1C0 481.6 30.4 512 67.9 512c18 0 35.3-7.2 48-19.9L233.7 374.3c-7.8-20.9-9-43.6-3.6-65.1l-61.7-61.7L19.9 396.1zM512 144c0-10.5-1.1-20.7-3.2-30.5c-2.4-11.2-16.1-14.1-24.2-6l-63.9 63.9c-3 3-7.1 4.7-11.3 4.7H352c-8.8 0-16-7.2-16-16V102.6c0-4.2 1.7-8.3 4.7-11.3l63.9-63.9c8.1-8.1 5.2-21.8-6-24.2C388.7 1.1 378.5 0 368 0C288.5 0 224 64.5 224 144l0 .8 85.3 85.3c36-9.1 75.8 .5 104 28.7L429 274.5c49-23 83-72.8 83-130.5zM56 432a24 24 0 1 1 48 0 24 24 0 1 1 -48 0z"/></svg> ]
+
+???
+
+Source of untidyness
+
+Anyway we have to cope with untidy data 
+
+---
+
+### Functions from `tidyr::...`
+
+- `pivot_wider` and `pivot_longer`
+
+- `separate` and  `unite`
+
+- Handling missing values with `complete`, `fill`, ...
+
+- ...
+
+[`tidyr` website](https://tidyr.tidyverse.org)
+
+
+---
+
+### Pivot longer
+
+.fl.w-50.pa2[
+
+&gt; `pivot_longer()` is commonly needed to tidy wild-caught datasets as they often optimise for ease of data entry or ease of comparison rather than ease of analysis.
+
+
+
+|row |  a|  b|  c|
+|:---|--:|--:|--:|
+|A   |  1|  4|  7|
+|B   |  2|  5|  8|
+|C   |  3|  6|  9|
+
+]
+
+.fl.w-50.pa2[
+
+
+``` r
+messy |&gt; pivot_longer(
+* cols=c(-row),
+  names_to = "name",
+  values_to = "value",
+)  |&gt; kable()
+```
+
+
+
+|row |name | value|
+|:---|:----|-----:|
+|A   |a    |     1|
+|A   |b    |     4|
+|A   |c    |     7|
+|B   |a    |     2|
+|B   |b    |     5|
+|B   |c    |     8|
+|C   |a    |     3|
+|C   |b    |     6|
+|C   |c    |     9|
+
+]
+
+???
+
+
+&gt; `pivot_longer()` makes datasets longer by increasing the number of rows and decreasing the number of columns. I don’t believe it makes sense to describe a dataset as being in “long form”. Length is a relative term, and you can only say (e.g.) that dataset A is longer than dataset B.
+
+---
+
+### Pivot wider
+
+.fl.w-50.pa2[
+
+
+``` r
+*pivot_wider(
+  data,
+* id_cols = NULL,
+* names_from = name,
+  names_prefix = "",
+* values_from = value,
+  ...
+)
+```
+<svg aria-hidden="true" role="img" viewBox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M448 128l-177.6 0c1 5.2 1.6 10.5 1.6 16l0 16 32 0 144 0c8.8 0 16-7.2 16-16s-7.2-16-16-16zM224 144c0-17.7-14.3-32-32-32c0 0 0 0 0 0l-24 0c-66.3 0-120 53.7-120 120l0 48c0 52.5 33.7 97.1 80.7 113.4c-.5-3.1-.7-6.2-.7-9.4c0-20 9.2-37.9 23.6-49.7c-4.9-9-7.6-19.4-7.6-30.3c0-15.1 5.3-29 14-40c-8.8-11-14-24.9-14-40l0-40c0-13.3 10.7-24 24-24s24 10.7 24 24l0 40c0 8.8 7.2 16 16 16s16-7.2 16-16l0-40 0-40zM192 64s0 0 0 0c18 0 34.6 6 48 16l208 0c35.3 0 64 28.7 64 64s-28.7 64-64 64l-82 0c1.3 5.1 2 10.5 2 16c0 25.3-14.7 47.2-36 57.6c2.6 7 4 14.5 4 22.4c0 20-9.2 37.9-23.6 49.7c4.9 9 7.6 19.4 7.6 30.3c0 35.3-28.7 64-64 64l-64 0-24 0C75.2 448 0 372.8 0 280l0-48C0 139.2 75.2 64 168 64l24 0zm64 336c8.8 0 16-7.2 16-16s-7.2-16-16-16l-48 0-16 0c-8.8 0-16 7.2-16 16s7.2 16 16 16l64 0zm16-176c0 5.5-.7 10.9-2 16l2 0 32 0c8.8 0 16-7.2 16-16s-7.2-16-16-16l-32 0 0 16zm-24 64l-40 0c-8.8 0-16 7.2-16 16s7.2 16 16 16l48 0 16 0c8.8 0 16-7.2 16-16s-7.2-16-16-16l-24 0z"/></svg> some optional arguments are missing
+
+]
+
+.fl.w-50.pa2[
+When reporting, we often use `pivot_wider` (explicitely or implicitely)
+to make results more readable, possibly to conform to a tradition
+
+- Life tables in demography and actuarial science
+- Longitudinal data
+- See slide [How many flights per day of week per departure airport?](#aggregate-pivot-wider)
+]
+
+
+
+
+---
+class: inverse, left, middle
+name: aggregation
+
+## Aggregations
+
+---
+
+### How many flights per carrier?
+
+.fl.w-50.pa2[
+
+
+``` r
+flights |&gt;
+* group_by(carrier) |&gt;
+* summarise(count=n()) |&gt;
+  arrange(desc(count))
+```
+
+
+``` sql
+SELECT carrier, COUNT(*) AS n
+FROM flights
+GROUP BY carrier
+ORDER BY n DESCENDING
+```
+]
+
+.fl.w-50.pa2[
+
+
+```
+## # A tibble: 16 × 2
+##    carrier count
+##    &lt;chr&gt;   &lt;int&gt;
+##  1 UA      58665
+##  2 B6      54635
+##  3 EV      54173
+##  4 DL      48110
+##  5 AA      32729
+##  6 MQ      26397
+##  7 US      20536
+##  8 9E      18460
+##  9 WN      12275
+## 10 VX       5162
+## 11 FL       3260
+## 12 AS        714
+## 13 F9        685
+## 14 YV        601
+## 15 HA        342
+## 16 OO         32
+```
+
+]
+
+???
+
+&gt; `group_by`
+
+&gt; `summarise`
+
+&gt; `arrange`
+
+---
+name: aggregate-pivot-wider
+
+### How many flights per day of week per departure airport?
+
+.f6[
+
+
+``` r
+flights |&gt;
+* group_by(origin,  wday(time_hour, abbr=T, label=T)) |&gt;
+* summarise(count=n(), .groups="drop") |&gt;
+  rename(day_of_week=`wday(time_hour, abbr = T, label = T)`) |&gt;
+* pivot_wider(
+*   id_cols="origin",
+*   names_from="day_of_week",
+*   values_from="count") |&gt;
+  kable(caption="Departures per day")
+```
+
+]
+
+.plot-callout.f6[
+
+
+
+]
+
+
+---
+name: windows
+class: middle, left, inverse
+
+## Window queries 
+
+---
+
+### Window queries 
+
+TODO
+
+---
+
+### Partitionning and Ordering
+
+
+TODO
+
+---
+
+### Sliding windows and package `slider`
+
+TODO
+
+
+---
+name: pivots
+class: middle, left, inverse
+
+## Pivoting
+
+---
+
+### Pivoting in wide form 
+
+Package `tidyr`
+
+TBA
+
+
+---
+
+### Pivoting in long form
+
+TBA 
+
+---
+name: pipe
+class: middle, left, inverse
+
+## Pipelines/chaining operations
+
+---
+
+### `|&gt;`, `%&gt;%` and other pipes
+
+&gt; All `dplyr` functions take a table as the first argument
+
+&gt; Rather than forcing the user to either save intermediate objects or nest functions, `dplyr` provides the `|&gt;` operator from `magrittr`
+
+&gt; `x |&gt; f(y)` turns into `f(x, y)`
+
+&gt; The result from one step is  _piped_ into the next step
+
+&gt; Use `|&gt;`  to rewrite multiple operations that you can read left-to-right/top-to-bottom
+
+
+``` r
+g(f(x, y), z)
+
+x |&gt;
+  f(y) |&gt;
+  g(z)
+```
+
+.fr[From [dplyr vignette](https://dplyr.tidyverse.org/articles/dplyr.html)]
+
+---
+exclude: true
+
+### Unix pipe `|`
+
+
+---
+
+### Magrittr `%&gt;%`
+
+.fl.w-50.pa2[
+
+- `%&gt;%` is not tied to `dplyr`
+- `%&gt;%` can be used with packages from `tidyverse`
+- `%&gt;%` can be used outside `tidyverse` that is with functions which take a table (or something else) as a second, third or keyword argument
+
+<svg aria-hidden="true" role="img" viewBox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M14.1 463.3c-18.7-18.7-18.7-49.1 0-67.9L395.4 14.1c18.7-18.7 49.1-18.7 67.9 0l34.6 34.6c18.7 18.7 18.7 49.1 0 67.9L116.5 497.9c-18.7 18.7-49.1 18.7-67.9 0L14.1 463.3zM347.6 187.6l105-105L429.4 59.3l-105 105 23.3 23.3z"/></svg> Use pronoun `.` to denote the LHS of the pipe expression
+
+]
+
+
+.fl.w-50.pa2[
+
+Second argument of `g` has the same type as the result of `f`
+
+
+``` r
+g(z, f(x, y))
+
+x %&gt;%
+  f(y) %&gt;%
+* g(z, .)
+```
+
+`x %&gt;% f(y)` is a shorthand for `x %&gt;% f(., y)`
+]
+
+
+---
+
+### Standard pipe `|&gt;` (version &gt; 4.)
+
+As of version 4.1 (2021), base <svg aria-hidden="true" role="img" viewBox="0 0 581 512" style="height:1em;width:1.13em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M581 226.6C581 119.1 450.9 32 290.5 32S0 119.1 0 226.6C0 322.4 103.3 402 239.4 418.1V480h99.1v-61.5c24.3-2.7 47.6-7.4 69.4-13.9L448 480h112l-67.4-113.7c54.5-35.4 88.4-84.9 88.4-139.7zm-466.8 14.5c0-73.5 98.9-133 220.8-133s211.9 40.7 211.9 133c0 50.1-26.5 85-70.3 106.4-2.4-1.6-4.7-2.9-6.4-3.7-10.2-5.2-27.8-10.5-27.8-10.5s86.6-6.4 86.6-92.7-90.6-87.9-90.6-87.9h-199V361c-74.1-21.5-125.2-67.1-125.2-119.9zm225.1 38.3v-55.6c57.8 0 87.8-6.8 87.8 27.3 0 36.5-38.2 28.3-87.8 28.3zm-.9 72.5H365c10.8 0 18.9 11.7 24 19.2-16.1 1.9-33 2.8-50.6 2.9v-22.1z"/></svg> offers a pipe operator denoted by `|&gt;`
+
+.fl.w-50.pa2[
+
+`x |&gt; f(y)` turns into `f(x, y)`
+
+
+
+``` r
+g(f(x, y), z)
+
+x |&gt;
+  f(y) |&gt;
+  g(z)
+```
+
+]
+
+.fl.w-50.pa2[
+
+<svg aria-hidden="true" role="img" viewBox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M448 128l-177.6 0c1 5.2 1.6 10.5 1.6 16l0 16 32 0 144 0c8.8 0 16-7.2 16-16s-7.2-16-16-16zM224 144c0-17.7-14.3-32-32-32c0 0 0 0 0 0l-24 0c-66.3 0-120 53.7-120 120l0 48c0 52.5 33.7 97.1 80.7 113.4c-.5-3.1-.7-6.2-.7-9.4c0-20 9.2-37.9 23.6-49.7c-4.9-9-7.6-19.4-7.6-30.3c0-15.1 5.3-29 14-40c-8.8-11-14-24.9-14-40l0-40c0-13.3 10.7-24 24-24s24 10.7 24 24l0 40c0 8.8 7.2 16 16 16s16-7.2 16-16l0-40 0-40zM192 64s0 0 0 0c18 0 34.6 6 48 16l208 0c35.3 0 64 28.7 64 64s-28.7 64-64 64l-82 0c1.3 5.1 2 10.5 2 16c0 25.3-14.7 47.2-36 57.6c2.6 7 4 14.5 4 22.4c0 20-9.2 37.9-23.6 49.7c4.9 9 7.6 19.4 7.6 30.3c0 35.3-28.7 64-64 64l-64 0-24 0C75.2 448 0 372.8 0 280l0-48C0 139.2 75.2 64 168 64l24 0zm64 336c8.8 0 16-7.2 16-16s-7.2-16-16-16l-48 0-16 0c-8.8 0-16 7.2-16 16s7.2 16 16 16l64 0zm16-176c0 5.5-.7 10.9-2 16l2 0 32 0c8.8 0 16-7.2 16-16s-7.2-16-16-16l-32 0 0 16zm-24 64l-40 0c-8.8 0-16 7.2-16 16s7.2 16 16 16l48 0 16 0c8.8 0 16-7.2 16-16s-7.2-16-16-16l-24 0z"/></svg> the standard pipe `|&gt;` has no pronoun/placeholder to denote the LHS of the pipe expression
+
+The roundabout consists in using another new construct `\(x)`
+
+
+``` r
+g(z, w)
+
+x |&gt;
+  (\(x) g(z, w=x))()
+```
+
+
+``` r
+"une" |&gt;
+  (\(x) str_c("ceci n'est pas", x, sep=" "))() |&gt;
+  str_c("pipe", sep=" ") |&gt;
+  cat()
+```
+
+```
+## ceci n'est pas une pipe
+```
+]
+
+.fr[See [Blog on the new standard pipe](https://www.r-bloggers.com/2021/05/the-new-r-pipe/)]
+
+---
+
+### Other pipes
+
+`Magrittr` offers several variants of `|&gt;`
+
+- Tee operator `%T&gt;%`
+- Assignement pipe `%&lt;&gt;%`
+- Exposition operator `%$%`
+- ...  
+
+.fr[See [pipes for beginners](https://www.r-bloggers.com/2017/12/pipes-in-r-tutorial-for-beginners/)]
+
+
+<svg aria-hidden="true" role="img" viewBox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M256 32c14.2 0 27.3 7.5 34.5 19.8l216 368c7.3 12.4 7.3 27.7 .2 40.1S486.3 480 472 480H40c-14.3 0-27.6-7.7-34.7-20.1s-7-27.8 .2-40.1l216-368C228.7 39.5 241.8 32 256 32zm0 128c-13.3 0-24 10.7-24 24V296c0 13.3 10.7 24 24 24s24-10.7 24-24V184c0-13.3-10.7-24-24-24zm32 224a32 32 0 1 0 -64 0 32 32 0 1 0 64 0z"/></svg> Base <svg aria-hidden="true" role="img" viewBox="0 0 581 512" style="height:1em;width:1.13em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M581 226.6C581 119.1 450.9 32 290.5 32S0 119.1 0 226.6C0 322.4 103.3 402 239.4 418.1V480h99.1v-61.5c24.3-2.7 47.6-7.4 69.4-13.9L448 480h112l-67.4-113.7c54.5-35.4 88.4-84.9 88.4-139.7zm-466.8 14.5c0-73.5 98.9-133 220.8-133s211.9 40.7 211.9 133c0 50.1-26.5 85-70.3 106.4-2.4-1.6-4.7-2.9-6.4-3.7-10.2-5.2-27.8-10.5-27.8-10.5s86.6-6.4 86.6-92.7-90.6-87.9-90.6-87.9h-199V361c-74.1-21.5-125.2-67.1-125.2-119.9zm225.1 38.3v-55.6c57.8 0 87.8-6.8 87.8 27.3 0 36.5-38.2 28.3-87.8 28.3zm-.9 72.5H365c10.8 0 18.9 11.7 24 19.2-16.1 1.9-33 2.8-50.6 2.9v-22.1z"/></svg>  has a `pipe()` function 
+ to manipulate connections (Files, URLs, ...)
+
+---
+class: inverse, left, middle
+
+### <svg aria-hidden="true" role="img" viewBox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M160 96a96 96 0 1 1 192 0A96 96 0 1 1 160 96zm80 152V512l-48.4-24.2c-20.9-10.4-43.5-17-66.8-19.3l-96-9.6C12.5 457.2 0 443.5 0 427V224c0-17.7 14.3-32 32-32H62.3c63.6 0 125.6 19.6 177.7 56zm32 264V248c52.1-36.4 114.1-56 177.7-56H480c17.7 0 32 14.3 32 32V427c0 16.4-12.5 30.2-28.8 31.8l-96 9.6c-23.2 2.3-45.9 8.9-66.8 19.3L272 512z"/></svg> References
+
+- [R for Data Science](https://r4ds.had.co.nz)
+  + [Data transformation](https://r4ds.had.co.nz/transform.html)
+- Rstudio cheat sheets
+  + [dplyr](https://www.rstudio.com/resources/cheatsheets/)
+  + [tidyr](https://www.rstudio.com/resources/cheatsheets/)
+  + [datatable](https://www.rstudio.com/resources/cheatsheets/)
+  + [readr](https://www.rstudio.com/resources/cheatsheets/)
+
+
+---
+exclude: true
+
+
+``` r
+family &lt;- tibble::tribble(
+  ~family,  ~dob_child1,  ~dob_child2, ~gender_child1, ~gender_child2,
+       1L, "1998-11-26", "2000-01-29",             1L,             2L,
+       2L, "1996-06-22",           NA,             2L,             NA,
+       3L, "2002-07-11", "2004-04-05",             2L,             2L,
+       4L, "2004-10-10", "2009-08-27",             1L,             1L,
+       5L, "2000-12-05", "2005-02-28",             2L,             1L,
+)
+
+family |&gt;
+  mutate(across(starts_with("dob"),  readr::parse_date)) |&gt;
+  pivot_longer(
+   !family,
+   names_to = c(".value", "child"),
+   names_pattern = "([a-z]*)_child(.)",
+   values_drop_na = TRUE
+ )
+```
+
+```
+## # A tibble: 9 × 4
+##   family child dob        gender
+##    &lt;int&gt; &lt;chr&gt; &lt;date&gt;      &lt;int&gt;
+## 1      1 1     1998-11-26      1
+## 2      1 2     2000-01-29      2
+## 3      2 1     1996-06-22      2
+## 4      3 1     2002-07-11      2
+## 5      3 2     2004-04-05      2
+## 6      4 1     2004-10-10      1
+## 7      4 2     2009-08-27      1
+## 8      5 1     2000-12-05      2
+## 9      5 2     2005-02-28      1
+```
+
+``` r
+pivot_longer_spec
+```
+
+```
+## function (data, spec, ..., cols_vary = "fastest", names_repair = "check_unique", 
+##     values_drop_na = FALSE, values_ptypes = NULL, values_transform = NULL, 
+##     error_call = current_env()) 
+## {
+##     check_dots_empty0(...)
+##     spec &lt;- check_pivot_spec(spec, call = error_call)
+##     spec &lt;- deduplicate_spec(spec, data)
+##     cols_vary &lt;- arg_match0(arg = cols_vary, values = c("fastest", 
+##         "slowest"), error_call = error_call)
+##     v_fct &lt;- factor(spec$.value, levels = unique(spec$.value))
+##     values &lt;- split(spec$.name, v_fct)
+##     value_names &lt;- names(values)
+##     value_keys &lt;- split(spec[-(1:2)], v_fct)
+##     keys &lt;- vec_unique(spec[-(1:2)])
+##     values_ptypes &lt;- check_list_of_ptypes(values_ptypes, value_names, 
+##         call = error_call)
+##     values_transform &lt;- check_list_of_functions(values_transform, 
+##         value_names, call = error_call)
+##     vals &lt;- set_names(vec_init(list(), length(values)), value_names)
+##     for (value in value_names) {
+##         cols &lt;- values[[value]]
+##         col_id &lt;- vec_match(value_keys[[value]], keys)
+##         n_val_cols &lt;- nrow(keys)
+##         val_cols &lt;- vec_init(list(), n_val_cols)
+##         val_cols[col_id] &lt;- unname(as.list(data[cols]))
+##         val_cols[-col_id] &lt;- list(rep(NA, nrow(data)))
+##         if (has_name(values_transform, value)) {
+##             val_cols &lt;- map(val_cols, values_transform[[value]])
+##         }
+##         names &lt;- vec_rep("", times = n_val_cols)
+##         names[col_id] &lt;- cols
+##         names(val_cols) &lt;- names
+##         val_type &lt;- vec_ptype_common(!!!val_cols[col_id], .ptype = values_ptypes[[value]], 
+##             .call = error_call)
+##         val_cols &lt;- vec_cast_common(!!!val_cols, .to = val_type, 
+##             .call = error_call)
+##         val_cols &lt;- unname(val_cols)
+##         if (cols_vary == "slowest") {
+##             vals[[value]] &lt;- list_unchop(val_cols, ptype = val_type)
+##         }
+##         else if (cols_vary == "fastest") {
+##             vals[[value]] &lt;- vec_interleave(!!!val_cols, .ptype = val_type)
+##         }
+##         else {
+##             cli::cli_abort("Unknown {.arg cols_vary} value.", 
+##                 .internal = TRUE)
+##         }
+##     }
+##     vals &lt;- as_tibble(vals)
+##     data_cols &lt;- drop_cols(as_tibble(data, .name_repair = "minimal"), 
+##         spec$.name)
+##     times_keys &lt;- vec_size(data_cols)
+##     times_data_cols &lt;- vec_size(keys)
+##     if (cols_vary == "slowest") {
+##         data_cols &lt;- vec_rep(data_cols, times_data_cols)
+##         keys &lt;- vec_rep_each(keys, times_keys)
+##     }
+##     else if (cols_vary == "fastest") {
+##         data_cols &lt;- vec_rep_each(data_cols, times_data_cols)
+##         keys &lt;- vec_rep(keys, times_keys)
+##     }
+##     else {
+##         cli::cli_abort("Unknown {.arg cols_vary} value.", .internal = TRUE)
+##     }
+##     out &lt;- wrap_error_names(vec_cbind(data_cols, keys, vals, 
+##         .name_repair = names_repair, .error_call = error_call))
+##     if (values_drop_na &amp;&amp; vec_any_missing(vals)) {
+##         out &lt;- vec_slice(out, !vec_detect_missing(vals))
+##     }
+##     out$.seq &lt;- NULL
+##     reconstruct_tibble(data, out)
+## }
+## &lt;bytecode: 0x5f1d2d038ea8&gt;
+## &lt;environment: namespace:tidyr&gt;
+```
+
+``` r
+#&gt; # A tibble: 5 × 5
+#&gt;   family dob_child1 dob_child2 gender_child1 gender_child2
+#&gt;    &lt;int&gt; &lt;date&gt;     &lt;date&gt;             &lt;int&gt;         &lt;int&gt;
+#&gt; 1      1 1998-11-26 2000-01-29             1             2
+#&gt; 2      2 1996-06-22 NA                     2            NA
+#&gt; 3      3 2002-07-11 2004-04-05             2             2
+#&gt; 4      4 2004-10-10 2009-08-27             1             1
+#&gt; 5      5 2000-12-05 2005-02-28             2             1
+```
+
+
+
+---
+class: inverse, center, middle
+
+
+
+# The End 
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"nature": null,
+"slideNumberFormat": "<div class=\"progress-bar-container\">\n  <div class=\"progress-bar\" style=\"width: calc(%current% / %total% * 100%);\">\n  </div>\n</div>\n",
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
