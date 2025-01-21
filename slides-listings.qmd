@@ -2,8 +2,7 @@
 title: "Slides"
 listing:
   id: "slides-list"
-  contents: 
-    - slides-listings.yml
+  contents: /core/slides/*.qmd 
   type: table  
   table-striped: true
   table-hover: true
@@ -12,26 +11,28 @@ listing:
   field-display-names: 
     title: "Title"
     categories: "Tags"
-resources:
-    - /core/slides/*css
+
+engine: knitr
 ---
 
 Slides summarize the lectures. Feel free to watch them before and after the lectures.
 
 
-Icon {{< fa person-chalkboard >}} point to material to be developped on blackboard. 
-
-
+{{< fa person-chalkboard >}} point to material to be developped on blackboard. 
 
 
 ::: {#slides-list}
+
+
 :::
 
 
 ::: {.callout-note}
+
+
 ### Mode d'emploi
 
-Slides use library [`revealjs`](https://revealjs.com) or [`remark`]() from {{< fa brands js >}}. They are displayed in your browser. 
+Slides use libraries [`revealjs`](https://revealjs.com) or [`remark`](https://remarkjs.com) from {{< fa brands js >}}. They are displayed in your browser. 
 
 To get help, press  {{< fa question >}}
 

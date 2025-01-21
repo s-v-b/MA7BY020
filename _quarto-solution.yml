@@ -1,7 +1,7 @@
 project:
   render:
-    - core/labs-solutions/
-    # - exams/
+    - "core/labs-solutions/*qmd"
+
 
 
 

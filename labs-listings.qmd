@@ -13,9 +13,9 @@ listing:
   #   table-hover: true
   #   sort: date
   - id: "dir-content"
-    contents: "labs/*qmd"
+    contents: /core/labs/*qmd
     type: table
-    fields: [title, categories]
+    fields: [title, categories, date]
     sort: title
     table-striped: true
     table-hover: true

@@ -1,4 +1,4 @@
 project:
   render:
-    - core/slides/
+    - "core/slides/"
 
