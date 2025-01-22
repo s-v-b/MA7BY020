@@ -1,6 +1,6 @@
 project:
   render:
-    - "core/labs-solutions/*qmd"
+    - "core/labs-solutions/"
 
 
 
