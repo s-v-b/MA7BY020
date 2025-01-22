@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.6.39">
+<meta name="generator" content="quarto-1.6.40">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -38,8 +38,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-d166b450ba5a8e9f7a0ab969bf6592c1.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-8ea72dc5fed832574809a9c94082fbbb.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap-4cf44c2e7312d438843028ebcb362926.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
@@ -81,7 +81,7 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-title','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
+      valueNames: ['listing-title','listing-categories','listing-date',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
       
       searchColumns: ["listing-date","listing-title","listing-author"],
     };
@@ -349,6 +349,12 @@ Note
      <select id="listing-dir-content-sort" class="form-select" aria-label="Order By" onchange="window['quarto-listings']['listing-dir-content'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
        <option value="" disabled="" selected="" hidden="">Order By</option>
        <option value="index" data-direction="asc">Default</option>
+         <option value="listing-date-sort" data-direction="asc">
+          Date - Oldest
+        </option>
+         <option value="listing-date-sort" data-direction="desc">
+          Date - Newest
+        </option>
          <option value="listing-title-sort" data-direction="asc">
           Title
         </option>
@@ -368,6 +374,9 @@ Note
 <th>
 Categories
 </th>
+<th>
+<a class="sort" data-sort="listing-date-sort" onclick="if (this.classList.contains('sort-asc')) { this.classList.add('sort-desc'); this.classList.remove('sort-asc') } else { this.classList.add('sort-asc'); this.classList.remove('sort-desc')} return false;">Date</a>
+</th>
 </tr>
 </thead>
 <tbody class="list">
@@ -379,14 +388,20 @@ Categories
 <td>
 <span class="listing-categories">Bivariate analysis, Boxplots, Pairplots</span>
 </td>
+<td>
+<span class="listing-date">Invalid Date</span>
+</td>
 </tr>
-<tr data-index="1" data-categories="VmlzdWFsaXphdGlvbiUyQ1Jvc2xpbmclMkNnYXBtaW5kZXIlMkNnZ3Bsb3QyJTJDR3JhbW1hciUyMG9mJTIwR3JhcGhpY3M=" data-listing-date-sort="NaN" data-listing-file-modified-sort="1737411078412" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="19" data-listing-word-count-sort="3759" data-listing-title-sort="Data visualization" data-listing-filename-sort="lab-gapminder.qmd" onclick="href = this.querySelector('a').getAttribute('href');
+<tr data-index="1" data-categories="VmlzdWFsaXphdGlvbiUyQ1Jvc2xpbmclMkNnYXBtaW5kZXIlMkNnZ3Bsb3QyJTJDR3JhbW1hciUyMG9mJTIwR3JhcGhpY3M=" data-listing-date-sort="NaN" data-listing-file-modified-sort="1737459948893" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="19" data-listing-word-count-sort="3759" data-listing-title-sort="Data visualization" data-listing-filename-sort="lab-gapminder.qmd" onclick="href = this.querySelector('a').getAttribute('href');
  if (href) { window.location=href ; return false; }">
 <td>
 <a href="./core/labs/lab-gapminder.html" class="title listing-title">Data visualization</a>
 </td>
 <td>
 <span class="listing-categories">Visualization, Rosling, gapminder, ggplot2, Grammar of Graphics</span>
+</td>
+<td>
+<span class="listing-date">Invalid Date</span>
 </td>
 </tr>
 <tr data-index="2" data-categories="UiUyQ1ZlY3RvcnMlMkNMaXN0cyUyQ0FycmF5cyUyQ0RhdGEuZnJhbWVzJTJDRnVuY3Rpb25z" data-listing-date-sort="NaN" data-listing-file-modified-sort="1736801382181" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="35" data-listing-word-count-sort="6865" data-listing-title-sort="R language: a tour" data-listing-filename-sort="lab-R-introd.qmd" onclick="href = this.querySelector('a').getAttribute('href');
@@ -397,6 +412,9 @@ Categories
 <td>
 <span class="listing-categories">R, Vectors, Lists, Arrays, Data.frames, Functions</span>
 </td>
+<td>
+<span class="listing-date">Invalid Date</span>
+</td>
 </tr>
 <tr data-index="3" data-categories="VGFibGVzJTJDdGliYmxlcyUyQ2RwbHlyJTJDU1FMJTJDUmVsYXRpb25hbCUyMEFsZ2VicmElMkNueWNmbGlnaHRzMTM=" data-listing-file-modified-sort="1734899304549" data-listing-reading-time-sort="20" data-listing-word-count-sort="3928" data-listing-title-sort="Tables manipulation II" data-listing-filename-sort="lab-tables.qmd" onclick="href = this.querySelector('a').getAttribute('href');
  if (href) { window.location=href ; return false; }">
@@ -405,6 +423,9 @@ Categories
 </td>
 <td>
 <span class="listing-categories">Tables, tibbles, dplyr, SQL, Relational Algebra, nycflights13</span>
+</td>
+<td>
+<span class="listing-date">&nbsp;</span>
 </td>
 </tr>
 </tbody>

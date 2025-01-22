@@ -18,6 +18,8 @@
   },
   {
     "listing": "/slides-listings.html",
-    "items": []
+    "items": [
+      "/core/slides/slides-dplyr.html"
+    ]
   }
 ]

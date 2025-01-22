@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.6.39">
+<meta name="generator" content="quarto-1.6.40">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -38,8 +38,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-d166b450ba5a8e9f7a0ab969bf6592c1.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-8ea72dc5fed832574809a9c94082fbbb.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap-4cf44c2e7312d438843028ebcb362926.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
@@ -83,9 +83,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-date','listing-title','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-title-sort'] },{ data: ['listing-date-sort'] }],
+      valueNames: ['listing-date','listing-title','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
       
-      searchColumns: ["listing-title","listing-description","listing-categories","listing-date"],
+      searchColumns: ["listing-date","listing-title","listing-author"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -333,7 +333,7 @@ window.Quarto = {
 
 
 <p>Slides summarize the lectures. Feel free to watch them before and after the lectures.</p>
-<p>Icon <i class="fa-solid fa-person-chalkboard" aria-label="person-chalkboard"></i> point to material to be developped on blackboard.</p>
+<p><i class="fa-solid fa-person-chalkboard" aria-label="person-chalkboard"></i> point to material to be developped on blackboard.</p>
 <div id="listing-slides-list" class="quarto-listing quarto-listing-container-table">
 <div class="listing-actions-group">
    <div class="input-group input-group-sm quarto-listing-sort">
@@ -341,17 +341,14 @@ window.Quarto = {
      <select id="listing-slides-list-sort" class="form-select" aria-label="Order By" onchange="window['quarto-listings']['listing-slides-list'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
        <option value="" disabled="" selected="" hidden="">Order By</option>
        <option value="index" data-direction="asc">Default</option>
-         <option value="listing-title-sort" data-direction="asc">
-          Title
-        </option>
-         <option value="listing-categories" data-direction="asc">
-          Tags
-        </option>
          <option value="listing-date-sort" data-direction="asc">
           Date - Oldest
         </option>
          <option value="listing-date-sort" data-direction="desc">
           Date - Newest
+        </option>
+         <option value="listing-title-sort" data-direction="asc">
+          Title
         </option>
      </select>
   </div>
@@ -370,21 +367,21 @@ window.Quarto = {
 <a class="sort" data-sort="listing-title-sort" onclick="if (this.classList.contains('sort-asc')) { this.classList.add('sort-desc'); this.classList.remove('sort-asc') } else { this.classList.add('sort-asc'); this.classList.remove('sort-desc')} return false;">Title</a>
 </th>
 <th>
-<a class="sort" data-sort="listing-categories" onclick="if (this.classList.contains('sort-asc')) { this.classList.add('sort-desc'); this.classList.remove('sort-asc') } else { this.classList.add('sort-asc'); this.classList.remove('sort-desc')} return false;">Tags</a>
+Tags
 </th>
 </tr>
 </thead>
 <tbody class="list">
-<tr data-index="0" data-categories="U1FMJTJDVGFibGVzJTJDUmVsYXRpb25hbCUyMEFsZ2VicmElMkN0aWR5dmVyc2U=" data-listing-date-sort="1737500400000" data-listing-title-sort="Handling tables with dplyr" onclick="href = this.querySelector('a').getAttribute('href');
+<tr data-index="0" data-categories="ZHBseXIlMkNTUUwlMkN0YWJsZXM=" data-listing-date-sort="1640041200000" data-listing-file-modified-sort="1737530231840" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="25" data-listing-word-count-sort="4884" data-listing-title-sort="Tables manipulation with dplyr" data-listing-filename-sort="slides-dplyr.qmd" onclick="href = this.querySelector('a').getAttribute('href');
  if (href) { window.location=href ; return false; }">
 <td>
-<span class="listing-date">Jan 22, 2025</span>
+<span class="listing-date">Dec 21, 2021</span>
 </td>
 <td>
-<a href="core/slides/_slides-dplyr.html" class="title listing-title">Handling tables with dplyr</a>
+<a href="./core/slides/slides-dplyr.html" class="title listing-title">Tables manipulation with dplyr</a>
 </td>
 <td>
-<span class="listing-categories">SQL, Tables, Relational Algebra, tidyverse</span>
+<span class="listing-categories">dplyr, SQL, tables</span>
 </td>
 </tr>
 </tbody>
@@ -403,7 +400,7 @@ Mode d’emploi
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Slides use library <a href="https://revealjs.com"><code>revealjs</code></a> or <a href=""><code>remark</code></a> from <i class="fa-brands fa-js" aria-label="js"></i>. They are displayed in your browser.</p>
+<p>Slides use libraries <a href="https://revealjs.com"><code>revealjs</code></a> or <a href="https://remarkjs.com"><code>remark</code></a> from <i class="fa-brands fa-js" aria-label="js"></i>. They are displayed in your browser.</p>
 <p>To get help, press <i class="fa-solid fa-question" aria-label="question"></i></p>
 </div>
 </div>
