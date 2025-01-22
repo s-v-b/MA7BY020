@@ -1,0 +1,15 @@
+{
+  "hash": "bda1a5756661efabc1628b147ad4c694",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Slides\"\nlisting:\n  id: \"slides-list\"\n  contents: /core/slides/*.qmd \n  type: table  \n  table-striped: true\n  table-hover: true\n  sort: date\n  fields: [date, title, categories] \n  field-display-names: \n    title: \"Title\"\n    categories: \"Tags\"\n\nengine: knitr\n---\n\n\n\nSlides summarize the lectures. Feel free to watch them before and after the lectures.\n\n\n{{< fa person-chalkboard >}} point to material to be developped on blackboard. \n\n\n::: {#slides-list}\n\n\n:::\n\n\n::: {.callout-note}\n\n\n### Mode d'emploi\n\nSlides use libraries [`revealjs`](https://revealjs.com) or [`remark`](https://remarkjs.com) from {{< fa brands js >}}. They are displayed in your browser. \n\nTo get help, press  {{< fa question >}}\n\n:::",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}
