@@ -590,18 +590,17 @@ $ time_hour      &lt;dttm&gt; 2013-01-01 05:00:00, 201…</code></pre>
 <p>The result is a new data frame (table)</p>
 </blockquote>
 </div><div class="column">
-
+<div class="cell">
+<iframe src="https://dplyr.tidyverse.org" width="960" height="400px" data-external="1">
+</iframe>
+</div>
 </div></div>
 </section><section id="dplyrselect-as-a-projection-operator-π" class="slide level2 center"><h2>
 <code>dplyr::select()</code> as a projection operator (π)</h2>
 <p><span class="math inline">\(\pi(R, \underbrace{A_1, \ldots, A_3}_{\text{column names}})\)</span></p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a><span class="fu">select</span>(R, A1, A3) <span class="co">#&lt;&lt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a><span class="fu">select</span>(R, A1, A3) <span class="co">#&lt;&lt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>or, equivalently</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a>R <span class="sc">|&gt;</span> <span class="fu">select</span>(A1, A3) <span class="co">#&lt;&lt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a>R <span class="sc">|&gt;</span> <span class="fu">select</span>(A1, A3) <span class="co">#&lt;&lt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><i class="fa-solid fa-hand-point-right" aria-label="hand-point-right"></i> <code>|&gt;</code> is the pipe operator</p>
 <p><i class="fa-solid fa-hat-wizard" aria-label="hat-wizard"></i> <code>x |&gt; f(y, z)</code> is translated to <code>f(x, y, z)</code> and then evaluated</p>
 </section><section id="dplyrselect" class="slide level2 center"><h2><code>dplyr::select()</code></h2>
@@ -833,17 +832,13 @@ $ time_hour      &lt;dttm&gt; 2013-01-01 05:00:00, 201…</code></pre>
 </div>
 </div></div>
 <p>A more readable equivalent of</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a><span class="fu">head</span>(<span class="fu">select</span>(flights,</span>
-<span id="cb15-2"><a></a>            origin,</span>
-<span id="cb15-3"><a></a>            dest),</span>
-<span id="cb15-4"><a></a>     <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a><span class="fu">head</span>(<span class="fu">select</span>(flights, origin, dest), <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>or</p>
 <div class="sourceCode" id="cb16"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb16-1"><a></a><span class="kw">SELECT</span> </span>
 <span id="cb16-2"><a></a>  origin, dest</span>
 <span id="cb16-3"><a></a><span class="kw">FROM</span> </span>
 <span id="cb16-4"><a></a>  flights</span>
-<span id="cb16-5"><a></a><span class="kw">LIMIT</span> <span class="dv">10</span>;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb16-5"><a></a><span class="kw">LIMIT</span> <span class="dv">6</span>;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section><section id="sigmar-textcondition" class="slide level2 center"><h2><span class="math inline">\(\sigma(R, \text{condition})\)</span></h2>
 <ul>
 <li><p>A selection/filtering operation is defined by a condition that can be checked on the rows of tables with convenient schema</p></li>
@@ -934,7 +929,7 @@ $ time_hour      &lt;dttm&gt; 2013-01-01 05:00:00, 201…</code></pre>
 <p>[1] NA</p>
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a></a><span class="cn">NA</span> <span class="sc">|</span> <span class="cn">TRUE</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>[1] TRUE</p>
-</section><section id="truth-tables-for-three-valued-logic" class="slide level2 center"><h2>Truth tables for three-valued logic</h2>
+</section><section id="truth-tables-for-three-valued-logic" class="slide level2 smaller center"><h2>Truth tables for three-valued logic</h2>
 <div class="columns">
 <div class="column">
 <p><i class="fa-solid fa-exclamation-triangle" aria-label="exclamation-triangle"></i> <i class="fa-brands fa-r-project" aria-label="r-project"></i> uses <em>three-valued logic</em></p>
@@ -951,99 +946,206 @@ $ time_hour      &lt;dttm&gt; 2013-01-01 05:00:00, 201…</code></pre>
 <span id="cb26-9"><a></a>}</span>
 <span id="cb26-10"><a></a></span>
 <span id="cb26-11"><a></a><span class="fu">names</span>(list_tt) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">'&amp; AND'</span>,</span>
-<span id="cb26-12"><a></a>                    <span class="st">'| OR'</span>,</span>
+<span id="cb26-12"><a></a>                    <span class="st">'OR'</span>,</span>
 <span id="cb26-13"><a></a>                    <span class="st">'XOR'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</div><div class="column">
+</div><div class="column" style="width:10%;">
 
+</div><div class="column" style="width:40%;">
+<table class=" lightable-minimal" style="font-family: &quot;Trebuchet MS&quot;, verdana, sans-serif; width: auto !important; ">
+<caption>
+&amp; AND
+</caption>
+<thead><tr>
+<th style="text-align:left;font-weight: bold;background-color: lightgray !important;">
+</th>
+<th style="text-align:left;font-weight: bold;background-color: lightgray !important;">
+TRUE
+</th>
+<th style="text-align:left;font-weight: bold;background-color: lightgray !important;">
+FALSE
+</th>
+<th style="text-align:left;font-weight: bold;background-color: lightgray !important;">
+NA
+</th>
+</tr></thead>
+<tbody>
+<tr>
+<td style="text-align:left;font-weight: bold;background-color: lightgray !important;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;background-color: lightgray !important;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;background-color: lightgray !important;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<!-- -->
+<table class=" lightable-minimal" style="font-family: &quot;Trebuchet MS&quot;, verdana, sans-serif; width: auto !important; ">
+<caption>
+OR
+</caption>
+<thead><tr>
+<th style="text-align:left;font-weight: bold;background-color: lightgray !important;">
+</th>
+<th style="text-align:left;font-weight: bold;background-color: lightgray !important;">
+TRUE
+</th>
+<th style="text-align:left;font-weight: bold;background-color: lightgray !important;">
+FALSE
+</th>
+<th style="text-align:left;font-weight: bold;background-color: lightgray !important;">
+NA
+</th>
+</tr></thead>
+<tbody>
+<tr>
+<td style="text-align:left;font-weight: bold;background-color: lightgray !important;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;background-color: lightgray !important;">
+FALSE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;background-color: lightgray !important;">
+NA
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<!-- -->
+<table class=" lightable-minimal" style="font-family: &quot;Trebuchet MS&quot;, verdana, sans-serif; width: auto !important; ">
+<caption>
+XOR
+</caption>
+<thead><tr>
+<th style="text-align:left;font-weight: bold;background-color: lightgray !important;">
+</th>
+<th style="text-align:left;font-weight: bold;background-color: lightgray !important;">
+TRUE
+</th>
+<th style="text-align:left;font-weight: bold;background-color: lightgray !important;">
+FALSE
+</th>
+<th style="text-align:left;font-weight: bold;background-color: lightgray !important;">
+NA
+</th>
+</tr></thead>
+<tbody>
+<tr>
+<td style="text-align:left;font-weight: bold;background-color: lightgray !important;">
+TRUE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;background-color: lightgray !important;">
+FALSE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;background-color: lightgray !important;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<!-- -->
 </div></div>
-</section><section id="truth-tables" class="slide level2 center"><h2>Truth tables</h2>
-<table class="caption-top">
-<colgroup>
-<col style="width: 25%">
-<col style="width: 25%">
-<col style="width: 25%">
-<col style="width: 25%">
-</colgroup>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><strong><code>TRUE</code></strong></td>
-<td style="text-align: left;">TRUE</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: left;">NA</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong><code>FALSE</code></strong></td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: left;">FALSE</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"><strong><code>NA</code></strong></td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: left;">NA</td>
-</tr>
-</tbody>
-</table>
-<p><br></p>
-<table class="caption-top">
-<colgroup>
-<col style="width: 30%">
-<col style="width: 20%">
-<col style="width: 30%">
-<col style="width: 20%">
-</colgroup>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><strong><code>TRUE</code></strong></td>
-<td style="text-align: left;">TRUE</td>
-<td style="text-align: left;">TRUE</td>
-<td style="text-align: left;">TRUE</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong><code>FALSE</code></strong></td>
-<td style="text-align: left;">TRUE</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: left;">NA</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"><strong><code>NA</code></strong></td>
-<td style="text-align: left;">TRUE</td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: left;">NA</td>
-</tr>
-</tbody>
-</table>
-<p><br></p>
-<table class="caption-top">
-<colgroup>
-<col style="width: 25%">
-<col style="width: 25%">
-<col style="width: 25%">
-<col style="width: 25%">
-</colgroup>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><strong><code>TRUE</code></strong></td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: left;">TRUE</td>
-<td style="text-align: left;">NA</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong><code>FALSE</code></strong></td>
-<td style="text-align: left;">TRUE</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: left;">NA</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"><strong><code>NA</code></strong></td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: left;">NA</td>
-</tr>
-</tbody>
-</table></section><section id="slice-choosing-rows-based-on-location" class="slide level2 center"><h2>
+</section><section id="slice-choosing-rows-based-on-location" class="slide level2 center"><h2>
 <code>slice()</code>: choosing rows based on location</h2>
 <div class="columns">
 <div class="column">
@@ -1055,6 +1157,16 @@ $ time_hour      &lt;dttm&gt; 2013-01-01 05:00:00, 201…</code></pre>
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a></a>flights <span class="sc">|&gt;</span></span>
 <span id="cb27-2"><a></a>  <span class="fu">slice</span>(<span class="dv">5001</span><span class="sc">:</span><span class="dv">5005</span>) <span class="sc">|&gt;</span>  <span class="co">#&lt;&lt;</span></span>
 <span id="cb27-3"><a></a>  <span class="fu">select</span>(<span class="fu">seq</span>(<span class="dv">1</span>, <span class="dv">19</span>, <span class="at">by=</span><span class="dv">5</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 5 × 4
+   year dep_delay flight distance
+  &lt;int&gt;     &lt;dbl&gt;  &lt;int&gt;    &lt;dbl&gt;
+1  2013         3   4437      602
+2  2013        43   1016      187
+3  2013        -2   2190     1089
+4  2013        -1     91     2576
+5  2013         5   2131      502</code></pre>
+</div>
 </div>
 </div></div>
 <p><i class="fa-solid fa-hand-point-right" aria-label="hand-point-right"></i> combined with aggregation (<code>group_by()</code>) variants of <code>slice_</code> may be used to perform <em>windowing</em> operations</p>
@@ -1123,8 +1235,8 @@ $ time_hour      &lt;dttm&gt; 2013-01-01 05:00:00, 201…</code></pre>
 <i class="fa-solid fa-wind" aria-label="wind"></i> weather conditions</h2>
 <div class="cell columns column-output-location">
 <div class="column">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a></a>weather <span class="sc">|&gt;</span></span>
-<span id="cb28-2"><a></a>  <span class="fu">glimpse</span>(<span class="at">width =</span> <span class="dv">50</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a></a>weather <span class="sc">|&gt;</span></span>
+<span id="cb29-2"><a></a>  <span class="fu">glimpse</span>(<span class="at">width =</span> <span class="dv">50</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output cell-output-stdout">
 <pre><code>Rows: 26,115
@@ -1168,14 +1280,14 @@ $ time_hour  &lt;dttm&gt; 2013-01-01 01:00:00, 2013-01…</code></pre>
 <code>inner_join</code>: natural join</h2>
 <div class="cell columns column-output-location">
 <div class="column">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a></a>f_w <span class="ot">&lt;-</span> flights <span class="sc">|&gt;</span></span>
-<span id="cb30-2"><a></a>  <span class="fu">inner_join</span>(weather) <span class="co">#&lt;&lt;</span></span>
-<span id="cb30-3"><a></a></span>
-<span id="cb30-4"><a></a>f_w <span class="sc">|&gt;</span> </span>
-<span id="cb30-5"><a></a>  <span class="fu">select</span>(<span class="fu">seq</span>(<span class="dv">1</span>, </span>
-<span id="cb30-6"><a></a>             <span class="fu">ncol</span>(f_w),</span>
-<span id="cb30-7"><a></a>             <span class="at">by=</span><span class="dv">2</span>)) <span class="sc">|&gt;</span> </span>
-<span id="cb30-8"><a></a>  <span class="fu">glimpse</span>(<span class="at">width=</span><span class="dv">50</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a></a>f_w <span class="ot">&lt;-</span> flights <span class="sc">|&gt;</span></span>
+<span id="cb31-2"><a></a>  <span class="fu">inner_join</span>(weather) <span class="co">#&lt;&lt;</span></span>
+<span id="cb31-3"><a></a></span>
+<span id="cb31-4"><a></a>f_w <span class="sc">|&gt;</span> </span>
+<span id="cb31-5"><a></a>  <span class="fu">select</span>(<span class="fu">seq</span>(<span class="dv">1</span>, </span>
+<span id="cb31-6"><a></a>             <span class="fu">ncol</span>(f_w),</span>
+<span id="cb31-7"><a></a>             <span class="at">by=</span><span class="dv">2</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb31-8"><a></a>  <span class="fu">glimpse</span>(<span class="at">width=</span><span class="dv">50</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output cell-output-stdout">
 <pre><code>Rows: 335,220
@@ -1197,6 +1309,40 @@ $ pressure       &lt;dbl&gt; 1011.9, 1011.4, 1012.1, 1…</code></pre>
 </div>
 </div></div>
 </section><section id="join-schema" class="slide level2 center"><h2>Join schema</h2>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 335,220
+Columns: 28
+$ year           &lt;int&gt; 2013, 2013, 2013, 2013, 2…
+$ month          &lt;int&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1…
+$ day            &lt;int&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1…
+$ dep_time       &lt;int&gt; 517, 533, 542, 544, 554, …
+$ sched_dep_time &lt;int&gt; 515, 529, 540, 545, 600, …
+$ dep_delay      &lt;dbl&gt; 2, 4, 2, -1, -6, -4, -5, …
+$ arr_time       &lt;int&gt; 830, 850, 923, 1004, 812,…
+$ sched_arr_time &lt;int&gt; 819, 830, 850, 1022, 837,…
+$ arr_delay      &lt;dbl&gt; 11, 20, 33, -18, -25, 12,…
+$ carrier        &lt;chr&gt; "UA", "UA", "AA", "B6", "…
+$ flight         &lt;int&gt; 1545, 1714, 1141, 725, 46…
+$ tailnum        &lt;chr&gt; "N14228", "N24211", "N619…
+$ origin         &lt;chr&gt; "EWR", "LGA", "JFK", "JFK…
+$ dest           &lt;chr&gt; "IAH", "IAH", "MIA", "BQN…
+$ air_time       &lt;dbl&gt; 227, 227, 160, 183, 116, …
+$ distance       &lt;dbl&gt; 1400, 1416, 1089, 1576, 7…
+$ hour           &lt;dbl&gt; 5, 5, 5, 5, 6, 5, 6, 6, 6…
+$ minute         &lt;dbl&gt; 15, 29, 40, 45, 0, 58, 0,…
+$ time_hour      &lt;dttm&gt; 2013-01-01 05:00:00, 201…
+$ temp           &lt;dbl&gt; 39.02, 39.92, 39.02, 39.0…
+$ dewp           &lt;dbl&gt; 28.04, 24.98, 26.96, 26.9…
+$ humid          &lt;dbl&gt; 64.43, 54.81, 61.63, 61.6…
+$ wind_dir       &lt;dbl&gt; 260, 250, 260, 260, 260, …
+$ wind_speed     &lt;dbl&gt; 12.65858, 14.96014, 14.96…
+$ wind_gust      &lt;dbl&gt; NA, 21.86482, NA, NA, 23.…
+$ precip         &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0…
+$ pressure       &lt;dbl&gt; 1011.9, 1011.4, 1012.1, 1…
+$ visib          &lt;dbl&gt; 10, 10, 10, 10, 10, 10, 1…</code></pre>
+</div>
+</div>
 </section><section id="section-7" class="slide level2 center"><h2></h2>
 <p>The schema of the result is the union of the schemas of the operands</p>
 <p>A tuple from <code>flights</code> matches a tuple from <code>weather</code> if the tuple have the same values in the common columns:</p>
@@ -1217,15 +1363,15 @@ $ pressure       &lt;dbl&gt; 1011.9, 1011.4, 1012.1, 1…</code></pre>
 <li><p><em>manual definition</em>: in many settings, we want to overrule the default behavior. We specify manually which column from <span class="math inline">\(R\)</span> should match which column from <span class="math inline">\(S\)</span></p></li>
 </ul></section><section id="natural-join-of-flights-and-weather" class="slide level2 center"><h2>Natural join of <code>flights</code> and <code>weather</code>:</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a></a>common_names <span class="ot">&lt;-</span> base<span class="sc">::</span><span class="fu">intersect</span>(<span class="fu">names</span>(weather),</span>
-<span id="cb33-2"><a></a>                                <span class="fu">names</span>(flights))</span>
-<span id="cb33-3"><a></a></span>
-<span id="cb33-4"><a></a><span class="fu">setequal</span>(</span>
-<span id="cb33-5"><a></a>  <span class="fu">inner_join</span>(flights, weather),</span>
-<span id="cb33-6"><a></a>  <span class="fu">inner_join</span>(flights,</span>
-<span id="cb33-7"><a></a>             weather,</span>
-<span id="cb33-8"><a></a>             <span class="at">by=</span>common_names)</span>
-<span id="cb33-9"><a></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a></a>common_names <span class="ot">&lt;-</span> base<span class="sc">::</span><span class="fu">intersect</span>(<span class="fu">names</span>(weather),</span>
+<span id="cb35-2"><a></a>                                <span class="fu">names</span>(flights))</span>
+<span id="cb35-3"><a></a></span>
+<span id="cb35-4"><a></a><span class="fu">setequal</span>(</span>
+<span id="cb35-5"><a></a>  <span class="fu">inner_join</span>(flights, weather),</span>
+<span id="cb35-6"><a></a>  <span class="fu">inner_join</span>(flights,</span>
+<span id="cb35-7"><a></a>             weather,</span>
+<span id="cb35-8"><a></a>             <span class="at">by=</span>common_names)</span>
+<span id="cb35-9"><a></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] TRUE</code></pre>
 </div>
@@ -1233,36 +1379,36 @@ $ pressure       &lt;dbl&gt; 1011.9, 1011.4, 1012.1, 1…</code></pre>
 </section><section id="are-you-surprised-by-the-next-chunk" class="slide level2 center"><h2>
 <i class="fa-solid fa-brain" aria-label="brain"></i> Are you surprised by the next chunk?</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a></a>dtu  <span class="ot">&lt;-</span> <span class="fu">inner_join</span>(flights,</span>
-<span id="cb35-2"><a></a>           weather,</span>
-<span id="cb35-3"><a></a>           <span class="at">by=</span><span class="fu">c</span>(<span class="st">"year"</span>, <span class="st">"month"</span>, <span class="st">"day"</span>, <span class="st">"origin"</span>, <span class="st">"hour"</span>))</span>
-<span id="cb35-4"><a></a></span>
-<span id="cb35-5"><a></a>dtv <span class="ot">&lt;-</span> <span class="fu">inner_join</span>(flights,</span>
-<span id="cb35-6"><a></a>           weather,</span>
-<span id="cb35-7"><a></a>           <span class="at">by=</span><span class="fu">c</span>(<span class="st">"origin"</span>, <span class="st">"time_hour"</span>))</span>
-<span id="cb35-8"><a></a></span>
-<span id="cb35-9"><a></a><span class="co"># setequal(dtu, dtv)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a></a>dtu  <span class="ot">&lt;-</span> <span class="fu">inner_join</span>(flights,</span>
+<span id="cb37-2"><a></a>           weather,</span>
+<span id="cb37-3"><a></a>           <span class="at">by=</span><span class="fu">c</span>(<span class="st">"year"</span>, <span class="st">"month"</span>, <span class="st">"day"</span>, <span class="st">"origin"</span>, <span class="st">"hour"</span>))</span>
+<span id="cb37-4"><a></a></span>
+<span id="cb37-5"><a></a>dtv <span class="ot">&lt;-</span> <span class="fu">inner_join</span>(flights,</span>
+<span id="cb37-6"><a></a>           weather,</span>
+<span id="cb37-7"><a></a>           <span class="at">by=</span><span class="fu">c</span>(<span class="st">"origin"</span>, <span class="st">"time_hour"</span>))</span>
+<span id="cb37-8"><a></a></span>
+<span id="cb37-9"><a></a><span class="co"># setequal(dtu, dtv)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Recall that columns <code>year</code>, <code>month</code> <code>day</code> <code>hour</code> can be computed from <code>time_hour</code></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a></a>flights <span class="sc">|&gt;</span></span>
-<span id="cb36-2"><a></a>  <span class="fu">filter</span>(year<span class="sc">!=</span><span class="fu">year</span>(time_hour) <span class="sc">|</span></span>
-<span id="cb36-3"><a></a>         month<span class="sc">!=</span><span class="fu">month</span>(time_hour) <span class="sc">|</span></span>
-<span id="cb36-4"><a></a>         day<span class="sc">!=</span><span class="fu">day</span>(time_hour) <span class="sc">|</span></span>
-<span id="cb36-5"><a></a>         hour<span class="sc">!=</span><span class="fu">hour</span>(time_hour)) <span class="sc">|&gt;</span></span>
-<span id="cb36-6"><a></a>  <span class="fu">nrow</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a></a>flights <span class="sc">|&gt;</span></span>
+<span id="cb38-2"><a></a>  <span class="fu">filter</span>(year<span class="sc">!=</span><span class="fu">year</span>(time_hour) <span class="sc">|</span></span>
+<span id="cb38-3"><a></a>         month<span class="sc">!=</span><span class="fu">month</span>(time_hour) <span class="sc">|</span></span>
+<span id="cb38-4"><a></a>         day<span class="sc">!=</span><span class="fu">day</span>(time_hour) <span class="sc">|</span></span>
+<span id="cb38-5"><a></a>         hour<span class="sc">!=</span><span class="fu">hour</span>(time_hour)) <span class="sc">|&gt;</span></span>
+<span id="cb38-6"><a></a>  <span class="fu">nrow</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0</code></pre>
 </div>
 </div>
 </section><section id="the-two-results-do-not-have-the-same-schema" class="slide level2 center"><h2>The two results do not have the same schema!</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a></a><span class="fu">setdiff</span>(<span class="fu">colnames</span>(dtv), <span class="fu">colnames</span>(dtu))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a></a><span class="fu">setdiff</span>(<span class="fu">colnames</span>(dtv), <span class="fu">colnames</span>(dtu))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "year.x"    "month.x"   "day.x"     "hour.x"    "time_hour" "year.y"   
 [7] "month.y"   "day.y"     "hour.y"   </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a></a><span class="fu">setdiff</span>(<span class="fu">colnames</span>(dtu), <span class="fu">colnames</span>(dtv))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a></a><span class="fu">setdiff</span>(<span class="fu">colnames</span>(dtu), <span class="fu">colnames</span>(dtv))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "year"        "month"       "day"         "hour"        "time_hour.x"
 [6] "time_hour.y"</code></pre>
@@ -1270,19 +1416,19 @@ $ pressure       &lt;dbl&gt; 1011.9, 1011.4, 1012.1, 1…</code></pre>
 </div>
 </section><section id="fixing" class="slide level2 center"><h2>Fixing</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a></a>dtu  <span class="ot">&lt;-</span> <span class="fu">inner_join</span>(flights,</span>
-<span id="cb42-2"><a></a>           weather,</span>
-<span id="cb42-3"><a></a>           <span class="at">by=</span><span class="fu">c</span>(<span class="st">"year"</span>, <span class="st">"month"</span>, <span class="st">"day"</span>, <span class="st">"origin"</span>, <span class="st">"hour"</span>),</span>
-<span id="cb42-4"><a></a>           <span class="at">suffix=</span> <span class="fu">c</span>(<span class="st">""</span>, <span class="st">".y"</span>)) <span class="sc">|&gt;</span>  <span class="co">#&lt;&lt;</span></span>
-<span id="cb42-5"><a></a>           <span class="fu">select</span>(<span class="sc">-</span><span class="fu">ends_with</span>(<span class="st">".y"</span>))  <span class="co">#&lt;&lt;</span></span>
-<span id="cb42-6"><a></a></span>
-<span id="cb42-7"><a></a>dtv <span class="ot">&lt;-</span> <span class="fu">inner_join</span>(flights,</span>
-<span id="cb42-8"><a></a>           weather,</span>
-<span id="cb42-9"><a></a>           <span class="at">by=</span><span class="fu">c</span>(<span class="st">"origin"</span>, <span class="st">"time_hour"</span>),</span>
-<span id="cb42-10"><a></a>           <span class="at">suffix=</span> <span class="fu">c</span>(<span class="st">""</span>, <span class="st">".y"</span>)) <span class="sc">|&gt;</span>  <span class="co">#&lt;&lt;</span></span>
-<span id="cb42-11"><a></a>           <span class="fu">select</span>(<span class="sc">-</span><span class="fu">ends_with</span>(<span class="st">".y"</span>))  <span class="co">#&lt;&lt;</span></span>
-<span id="cb42-12"><a></a></span>
-<span id="cb42-13"><a></a><span class="fu">setequal</span>(dtu, dtv)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a></a>dtu  <span class="ot">&lt;-</span> <span class="fu">inner_join</span>(flights,</span>
+<span id="cb44-2"><a></a>           weather,</span>
+<span id="cb44-3"><a></a>           <span class="at">by=</span><span class="fu">c</span>(<span class="st">"year"</span>, <span class="st">"month"</span>, <span class="st">"day"</span>, <span class="st">"origin"</span>, <span class="st">"hour"</span>),</span>
+<span id="cb44-4"><a></a>           <span class="at">suffix=</span> <span class="fu">c</span>(<span class="st">""</span>, <span class="st">".y"</span>)) <span class="sc">|&gt;</span>  <span class="co">#&lt;&lt;</span></span>
+<span id="cb44-5"><a></a>           <span class="fu">select</span>(<span class="sc">-</span><span class="fu">ends_with</span>(<span class="st">".y"</span>))  <span class="co">#&lt;&lt;</span></span>
+<span id="cb44-6"><a></a></span>
+<span id="cb44-7"><a></a>dtv <span class="ot">&lt;-</span> <span class="fu">inner_join</span>(flights,</span>
+<span id="cb44-8"><a></a>           weather,</span>
+<span id="cb44-9"><a></a>           <span class="at">by=</span><span class="fu">c</span>(<span class="st">"origin"</span>, <span class="st">"time_hour"</span>),</span>
+<span id="cb44-10"><a></a>           <span class="at">suffix=</span> <span class="fu">c</span>(<span class="st">""</span>, <span class="st">".y"</span>)) <span class="sc">|&gt;</span>  <span class="co">#&lt;&lt;</span></span>
+<span id="cb44-11"><a></a>           <span class="fu">select</span>(<span class="sc">-</span><span class="fu">ends_with</span>(<span class="st">".y"</span>))  <span class="co">#&lt;&lt;</span></span>
+<span id="cb44-12"><a></a></span>
+<span id="cb44-13"><a></a><span class="fu">setequal</span>(dtu, dtv)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] TRUE</code></pre>
 </div>
@@ -1291,14 +1437,14 @@ $ pressure       &lt;dbl&gt; 1011.9, 1011.4, 1012.1, 1…</code></pre>
 </h2>
 <div class="columns">
 <div class="column">
-<div class="sourceCode" id="cb44"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a></a><span class="fu">inner_join</span>(</span>
-<span id="cb44-2"><a></a>  x, y,</span>
-<span id="cb44-3"><a></a>  <span class="at">by =</span> <span class="cn">NULL</span>,      <span class="co">#&lt;&lt;</span></span>
-<span id="cb44-4"><a></a>  <span class="at">copy =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb44-5"><a></a>  <span class="at">suffix =</span> <span class="fu">c</span>(<span class="st">".x"</span>, <span class="st">".y"</span>), <span class="co">#&lt;&lt;</span></span>
-<span id="cb44-6"><a></a>  ...,</span>
-<span id="cb44-7"><a></a>  <span class="at">keep =</span> <span class="cn">FALSE</span>,  <span class="co">#&lt;&lt;</span></span>
-<span id="cb44-8"><a></a>  <span class="at">na_matches =</span> <span class="st">"na"</span>)  <span class="co">#&lt;&lt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb46"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a></a><span class="fu">inner_join</span>(</span>
+<span id="cb46-2"><a></a>  x, y,</span>
+<span id="cb46-3"><a></a>  <span class="at">by =</span> <span class="cn">NULL</span>,      <span class="co">#&lt;&lt;</span></span>
+<span id="cb46-4"><a></a>  <span class="at">copy =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb46-5"><a></a>  <span class="at">suffix =</span> <span class="fu">c</span>(<span class="st">".x"</span>, <span class="st">".y"</span>), <span class="co">#&lt;&lt;</span></span>
+<span id="cb46-6"><a></a>  ...,</span>
+<span id="cb46-7"><a></a>  <span class="at">keep =</span> <span class="cn">FALSE</span>,  <span class="co">#&lt;&lt;</span></span>
+<span id="cb46-8"><a></a>  <span class="at">na_matches =</span> <span class="st">"na"</span>)  <span class="co">#&lt;&lt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <ul>
 <li>
@@ -1786,9 +1932,7 @@ $ pressure       &lt;dbl&gt; 1011.9, 1011.4, 1012.1, 1…</code></pre>
 <div class="fragment">
 <p><span class="math display">\[U \leftarrow R \bowtie_{\theta} S\]</span></p>
 <p>reads as</p>
-<p><span class="math display">\[\begin{array}{rl}
-T &amp; \leftarrow R \times S\\
-U &amp; \leftarrow \sigma(T, \theta)\end{array}\]</span></p>
+<p><span class="math display">\[\begin{array}{rl} T &amp; \leftarrow R \times S\\ U &amp; \leftarrow \sigma(T, \theta)\end{array}\]</span></p>
 <p>where</p>
 <ul>
 <li><p><span class="math inline">\(R \times S\)</span> is the <em>cartesian product</em> of <span class="math inline">\(R\)</span> and <span class="math inline">\(S\)</span></p></li>
@@ -1872,12 +2016,12 @@ U &amp; \leftarrow \sigma(T, \theta)\end{array}\]</span></p>
 <li><p>Assume <code>flights</code> and <code>weather</code> are trimmed so as to become irredundant</p></li>
 <li><p>The conditional join is then based on <em>truncations</em> of variables <code>time_hour</code></p></li>
 </ul>
-<div class="sourceCode" id="cb45"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb45-1"><a></a><span class="kw">SELECT</span> </span>
-<span id="cb45-2"><a></a>  <span class="op">*</span></span>
-<span id="cb45-3"><a></a><span class="kw">FROM</span> </span>
-<span id="cb45-4"><a></a>  flights <span class="kw">AS</span> f, weather <span class="kw">AS</span> w</span>
-<span id="cb45-5"><a></a><span class="kw">WHERE</span> </span>
-<span id="cb45-6"><a></a>  date_trunc(<span class="st">'hour'</span>, f.time_hour) <span class="op">=</span> date_trunc(<span class="st">'hour'</span>, w.time_hour)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb47"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb47-1"><a></a><span class="kw">SELECT</span> </span>
+<span id="cb47-2"><a></a>  <span class="op">*</span></span>
+<span id="cb47-3"><a></a><span class="kw">FROM</span> </span>
+<span id="cb47-4"><a></a>  flights <span class="kw">AS</span> f, weather <span class="kw">AS</span> w</span>
+<span id="cb47-5"><a></a><span class="kw">WHERE</span> </span>
+<span id="cb47-6"><a></a>  date_trunc(<span class="st">'hour'</span>, f.time_hour) <span class="op">=</span> date_trunc(<span class="st">'hour'</span>, w.time_hour)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
 <li>Adding redundant columns to <code>flights</code> and <code>weather</code> allows us to transform a tricky conditional join into a simple natural join <i class="fa-solid fa-champagne-glass" aria-label="champagne-glass"></i>
 </li>
@@ -1898,16 +2042,14 @@ U &amp; \leftarrow \sigma(T, \theta)\end{array}\]</span></p>
 </section><section id="mutate" class="slide level2 center"><h2><code>mutate</code></h2>
 <div class="columns">
 <div class="column">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a></a><span class="fu">mutate</span>(   <span class="co">#&lt;&lt;</span></span>
-<span id="cb46-2"><a></a>  .data,</span>
-<span id="cb46-3"><a></a>  <span class="at">new_col=</span> expression, <span class="co">#&lt;&lt;</span></span>
-<span id="cb46-4"><a></a>  ...,   <span class="co">#&lt;&lt;</span></span>
-<span id="cb46-5"><a></a>  <span class="at">.keep =</span> <span class="fu">c</span>(<span class="st">"all"</span>, <span class="st">"used"</span>, <span class="st">"unused"</span>, <span class="st">"none"</span>),</span>
-<span id="cb46-6"><a></a>  <span class="at">.before =</span> <span class="cn">NULL</span>,</span>
-<span id="cb46-7"><a></a>  <span class="at">.after =</span> <span class="cn">NULL</span></span>
-<span id="cb46-8"><a></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
+<div class="sourceCode" id="cb48"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a></a><span class="fu">mutate</span>(   <span class="co">#&lt;&lt;</span></span>
+<span id="cb48-2"><a></a>  .data,</span>
+<span id="cb48-3"><a></a>  <span class="at">new_col=</span> expression, <span class="co">#&lt;&lt;</span></span>
+<span id="cb48-4"><a></a>  ...,   <span class="co">#&lt;&lt;</span></span>
+<span id="cb48-5"><a></a>  <span class="at">.keep =</span> <span class="fu">c</span>(<span class="st">"all"</span>, <span class="st">"used"</span>, <span class="st">"unused"</span>, <span class="st">"none"</span>),</span>
+<span id="cb48-6"><a></a>  <span class="at">.before =</span> <span class="cn">NULL</span>,</span>
+<span id="cb48-7"><a></a>  <span class="at">.after =</span> <span class="cn">NULL</span></span>
+<span id="cb48-8"><a></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <p><code>.data</code>: the input data frame</p>
 <p><code>new_col= expression</code>:</p>
@@ -1920,24 +2062,24 @@ U &amp; \leftarrow \sigma(T, \theta)\end{array}\]</span></p>
 </section><section id="creating-a-categorical-column-to-spot-large-delays" class="slide level2 center"><h2>Creating a categorical column to spot large delays</h2>
 <div class="cell columns column-output-location">
 <div class="column">
-<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a></a>breaks_delay <span class="ot">&lt;-</span> <span class="fu">with</span>(flights,</span>
-<span id="cb47-2"><a></a>  <span class="fu">c</span>(<span class="fu">min</span>(arr_delay, <span class="at">na.rm=</span><span class="cn">TRUE</span>),</span>
-<span id="cb47-3"><a></a>    <span class="dv">0</span>, <span class="dv">30</span>,</span>
-<span id="cb47-4"><a></a>    <span class="fu">max</span>(arr_delay, <span class="at">na.rm=</span><span class="cn">TRUE</span>))</span>
-<span id="cb47-5"><a></a>)</span>
-<span id="cb47-6"><a></a></span>
-<span id="cb47-7"><a></a>level_delay <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"None"</span>,</span>
-<span id="cb47-8"><a></a>                 <span class="st">"Moderate"</span>,</span>
-<span id="cb47-9"><a></a>                 <span class="st">"Large"</span>)</span>
-<span id="cb47-10"><a></a></span>
-<span id="cb47-11"><a></a>flights <span class="sc">|&gt;</span></span>
-<span id="cb47-12"><a></a>  <span class="fu">mutate</span>(<span class="at">large_delay =</span> <span class="fu">cut</span>(</span>
-<span id="cb47-13"><a></a>    arr_delay,  <span class="co">#&lt;&lt;</span></span>
-<span id="cb47-14"><a></a>    <span class="at">breaks=</span>breaks_delay, <span class="co">#&lt;&lt;</span></span>
-<span id="cb47-15"><a></a>    <span class="at">labels=</span>level_delay,  <span class="co">#&lt;&lt;</span></span>
-<span id="cb47-16"><a></a>    <span class="at">ordered_result=</span><span class="cn">TRUE</span>)) <span class="sc">|&gt;</span>   <span class="co">#&lt;&lt;</span></span>
-<span id="cb47-17"><a></a>  <span class="fu">select</span>(large_delay, arr_delay) <span class="sc">|&gt;</span></span>
-<span id="cb47-18"><a></a>  <span class="fu">sample_n</span>(<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a></a>breaks_delay <span class="ot">&lt;-</span> <span class="fu">with</span>(flights,</span>
+<span id="cb49-2"><a></a>  <span class="fu">c</span>(<span class="fu">min</span>(arr_delay, <span class="at">na.rm=</span><span class="cn">TRUE</span>),</span>
+<span id="cb49-3"><a></a>    <span class="dv">0</span>, <span class="dv">30</span>,</span>
+<span id="cb49-4"><a></a>    <span class="fu">max</span>(arr_delay, <span class="at">na.rm=</span><span class="cn">TRUE</span>))</span>
+<span id="cb49-5"><a></a>)</span>
+<span id="cb49-6"><a></a></span>
+<span id="cb49-7"><a></a>level_delay <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"None"</span>,</span>
+<span id="cb49-8"><a></a>                 <span class="st">"Moderate"</span>,</span>
+<span id="cb49-9"><a></a>                 <span class="st">"Large"</span>)</span>
+<span id="cb49-10"><a></a></span>
+<span id="cb49-11"><a></a>flights <span class="sc">|&gt;</span></span>
+<span id="cb49-12"><a></a>  <span class="fu">mutate</span>(<span class="at">large_delay =</span> <span class="fu">cut</span>(</span>
+<span id="cb49-13"><a></a>    arr_delay,  <span class="co">#&lt;&lt;</span></span>
+<span id="cb49-14"><a></a>    <span class="at">breaks=</span>breaks_delay, <span class="co">#&lt;&lt;</span></span>
+<span id="cb49-15"><a></a>    <span class="at">labels=</span>level_delay,  <span class="co">#&lt;&lt;</span></span>
+<span id="cb49-16"><a></a>    <span class="at">ordered_result=</span><span class="cn">TRUE</span>)) <span class="sc">|&gt;</span>   <span class="co">#&lt;&lt;</span></span>
+<span id="cb49-17"><a></a>  <span class="fu">select</span>(large_delay, arr_delay) <span class="sc">|&gt;</span></span>
+<span id="cb49-18"><a></a>  <span class="fu">sample_n</span>(<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 5 × 2
@@ -1953,13 +2095,13 @@ U &amp; \leftarrow \sigma(T, \theta)\end{array}\]</span></p>
 </section><section id="section-9" class="slide level2 center"><h2></h2>
 <div class="cell columns column-output-location">
 <div class="column">
-<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a></a>flights <span class="sc">|&gt;</span></span>
-<span id="cb49-2"><a></a>  <span class="fu">mutate</span>(<span class="at">foo =</span> <span class="fu">if_else</span>(arr_time <span class="sc">&gt;</span> sched_arr_time,        <span class="co">#&lt;&lt;</span></span>
-<span id="cb49-3"><a></a>                              arr_time <span class="sc">-</span> sched_arr_time,</span>
-<span id="cb49-4"><a></a>                              <span class="dv">0</span>L,</span>
-<span id="cb49-5"><a></a>                              <span class="at">missing =</span> <span class="cn">NA_integer_</span>)) <span class="sc">|&gt;</span></span>
-<span id="cb49-6"><a></a>  <span class="fu">group_by</span>( (foo <span class="sc">&gt;</span><span class="dv">0</span>) <span class="sc">&amp;</span> <span class="fu">abs</span>(foo <span class="sc">-</span> arr_delay)  <span class="sc">&gt;</span> <span class="dv">100</span>) <span class="sc">|&gt;</span></span>
-<span id="cb49-7"><a></a>  <span class="fu">summarise</span>(<span class="at">N=</span><span class="fu">n</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a></a>flights <span class="sc">|&gt;</span></span>
+<span id="cb51-2"><a></a>  <span class="fu">mutate</span>(<span class="at">foo =</span> <span class="fu">if_else</span>(arr_time <span class="sc">&gt;</span> sched_arr_time,        <span class="co">#&lt;&lt;</span></span>
+<span id="cb51-3"><a></a>                              arr_time <span class="sc">-</span> sched_arr_time,</span>
+<span id="cb51-4"><a></a>                              <span class="dv">0</span>L,</span>
+<span id="cb51-5"><a></a>                              <span class="at">missing =</span> <span class="cn">NA_integer_</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb51-6"><a></a>  <span class="fu">group_by</span>( (foo <span class="sc">&gt;</span><span class="dv">0</span>) <span class="sc">&amp;</span> <span class="fu">abs</span>(foo <span class="sc">-</span> arr_delay)  <span class="sc">&gt;</span> <span class="dv">100</span>) <span class="sc">|&gt;</span></span>
+<span id="cb51-7"><a></a>  <span class="fu">summarise</span>(<span class="at">N=</span><span class="fu">n</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 3 × 2
@@ -1973,19 +2115,20 @@ U &amp; \leftarrow \sigma(T, \theta)\end{array}\]</span></p>
 </section><section id="changing-the-class-of-a-column" class="slide level2 center"><h2>Changing the class of a column</h2>
 <div class="cell columns column-output-location">
 <div class="column">
-<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a></a>flights <span class="sc">|&gt;</span></span>
-<span id="cb51-2"><a></a>  <span class="fu">mutate</span>(<span class="at">large_delay =</span> <span class="fu">cut</span>(arr_delay,  <span class="co">#&lt;&lt;</span></span>
-<span id="cb51-3"><a></a>    <span class="at">breaks=</span>breaks_delay,</span>
-<span id="cb51-4"><a></a>    <span class="at">labels=</span>level_delay,</span>
-<span id="cb51-5"><a></a>    <span class="at">ordered_result=</span><span class="cn">TRUE</span>),</span>
-<span id="cb51-6"><a></a>    <span class="at">origin =</span> <span class="fu">as.factor</span>(origin), <span class="co">#&lt;&lt;</span></span>
-<span id="cb51-7"><a></a>    <span class="at">dest =</span> <span class="fu">as.factor</span>(dest)    <span class="co">#&lt;&lt;</span></span>
-<span id="cb51-8"><a></a>  ) <span class="sc">|&gt;</span></span>
-<span id="cb51-9"><a></a>  <span class="fu">select</span>(large_delay,</span>
-<span id="cb51-10"><a></a>    arr_delay,</span>
-<span id="cb51-11"><a></a>    origin,</span>
-<span id="cb51-12"><a></a>    dest) <span class="sc">|&gt;</span></span>
-<span id="cb51-13"><a></a>  <span class="fu">sample_n</span>(<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a></a>flights <span class="sc">|&gt;</span></span>
+<span id="cb53-2"><a></a>  <span class="fu">mutate</span>(<span class="at">large_delay =</span> <span class="fu">cut</span>(arr_delay,  <span class="co">#&lt;&lt;</span></span>
+<span id="cb53-3"><a></a>    <span class="at">breaks=</span>breaks_delay,</span>
+<span id="cb53-4"><a></a>    <span class="at">labels=</span>level_delay,</span>
+<span id="cb53-5"><a></a>    <span class="at">ordered_result=</span><span class="cn">TRUE</span>),</span>
+<span id="cb53-6"><a></a>    <span class="at">origin =</span> <span class="fu">as.factor</span>(origin), <span class="co">#&lt;&lt;</span></span>
+<span id="cb53-7"><a></a>    <span class="at">dest =</span> <span class="fu">as.factor</span>(dest)    <span class="co">#&lt;&lt;</span></span>
+<span id="cb53-8"><a></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb53-9"><a></a>  <span class="fu">select</span>(</span>
+<span id="cb53-10"><a></a>    large_delay,</span>
+<span id="cb53-11"><a></a>    arr_delay,</span>
+<span id="cb53-12"><a></a>    origin,</span>
+<span id="cb53-13"><a></a>    dest) <span class="sc">|&gt;</span></span>
+<span id="cb53-14"><a></a>  <span class="fu">sample_n</span>(<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 5 × 4
@@ -2022,17 +2165,7 @@ U &amp; \leftarrow \sigma(T, \theta)\end{array}\]</span></p>
 
 <aside><div>
 <p><a href="https://vita.had.co.nz/papers/tidy-data.html"><i class="fa-solid fa-book" aria-label="book"></i> The tidy data paper</a></p>
-</div></aside></section><section id="section-10" class="slide level2 smaller center scrollable"><h2></h2>
-<div title="Codd's Principles">
-<div class="callout callout-important callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Codd’s Principles</strong></p>
-</div>
-<div class="callout-content">
+</div></aside></section><section id="codds-principles" class="slide level2 smaller center scrollable"><h2>Codd’s principles</h2>
 <ol type="1">
 <li>Information is represented logically in <em>tables</em>
 </li>
@@ -2050,12 +2183,7 @@ U &amp; \leftarrow \sigma(T, \theta)\end{array}\]</span></p>
 <em>Integrity</em> constraints must be available and stored in the metadata, not in an application program</li>
 <li>The data manipulation language of the relational system should not care where or how the physical data is distributed and should not require alteration if the physical data is centralized or distributed</li>
 <li>Any <em>row processing</em> done in the system must obey the same <em>integrity rules</em> and <em>constraints</em> that set-processing operations do</li>
-</ol>
-</div>
-</div>
-</div>
-</div>
-</section><section id="section-11" class="slide level2 center"><h2><i class="fa-solid fa-bullhorn" aria-label="bullhorn"></i></h2>
+</ol></section><section id="section-10" class="slide level2 center"><h2><i class="fa-solid fa-bullhorn" aria-label="bullhorn"></i></h2>
 <p><i class="fa-solid fa-hand-point-right" aria-label="hand-point-right"></i> <code>dplyr</code> functions expect and return <em>tidy</em> tables</p>
 <p>In a <em>tidy</em> table</p>
 <ul>
@@ -2066,7 +2194,7 @@ U &amp; \leftarrow \sigma(T, \theta)\end{array}\]</span></p>
 
 <aside><div>
 <p><a href="https://vita.had.co.nz/papers/tidy-data.html"><i class="fa-solid fa-book" aria-label="book"></i> The tidy data paper</a>]</p>
-</div></aside></section><section id="section-12" class="slide level2 center"><h2></h2>
+</div></aside></section><section id="section-11" class="slide level2 center"><h2></h2>
 <p><i class="fa-solid fa-hand-point-right" aria-label="hand-point-right"></i> In order to tell whether a table is tidy, we need to know what is the <em>population</em> under investigation, what are the observations/individuals, which measures are performed on each individual, …</p>
 </section><section id="untidy-data" class="slide level2 center"><h2>Untidy data</h2>
 <blockquote>
@@ -2097,20 +2225,120 @@ U &amp; \leftarrow \sigma(T, \theta)\end{array}\]</span></p>
 <li><p>…</p></li>
 </ul>
 <p><a href="https://tidyr.tidyverse.org"><code>tidyr</code> website</a></p>
-</section><section id="pivot-longer" class="slide level2 center"><h2>Pivot longer</h2>
+</section><section id="pivot-longer" class="slide level2 smaller center"><h2>Pivot longer</h2>
 <div class="columns">
-<div class="column">
-<blockquote>
+<div class="column" style="width:30%;">
 <p><code>pivot_longer()</code> is commonly needed to tidy wild-caught datasets as they often optimise for ease of data entry or ease of comparison rather than ease of analysis.</p>
-</blockquote>
+</div><div class="column" style="width:70%;">
+<div class="cell columns column-output-location">
+<div class="column">
+<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a></a>messy <span class="ot">&lt;-</span> tibble<span class="sc">::</span><span class="fu">tribble</span>(</span>
+<span id="cb55-2"><a></a>  <span class="sc">~</span>row, <span class="sc">~</span>a, <span class="sc">~</span>b, <span class="sc">~</span>c,</span>
+<span id="cb55-3"><a></a>  <span class="st">"A"</span>, <span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">7</span>,</span>
+<span id="cb55-4"><a></a>  <span class="st">"B"</span>, <span class="dv">2</span>, <span class="dv">5</span>, <span class="dv">8</span>,</span>
+<span id="cb55-5"><a></a>  <span class="st">"C"</span>, <span class="dv">3</span>, <span class="dv">6</span>, <span class="dv">9</span>,</span>
+<span id="cb55-6"><a></a>)</span>
+<span id="cb55-7"><a></a>messy <span class="sc">|&gt;</span> <span class="fu">kable</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a></a>messy <span class="sc">|&gt;</span> <span class="fu">pivot_longer</span>(</span>
-<span id="cb53-2"><a></a>  <span class="at">cols=</span><span class="fu">c</span>(<span class="sc">-</span>row),  <span class="co">#&lt;&lt;</span></span>
-<span id="cb53-3"><a></a>  <span class="at">names_to =</span> <span class="st">"name"</span>,</span>
-<span id="cb53-4"><a></a>  <span class="at">values_to =</span> <span class="st">"value"</span>,</span>
-<span id="cb53-5"><a></a>)  <span class="sc">|&gt;</span> <span class="fu">kable</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="caption-top">
+<thead><tr class="header">
+<th style="text-align: left;">row</th>
+<th style="text-align: right;">a</th>
+<th style="text-align: right;">b</th>
+<th style="text-align: right;">c</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">A</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">7</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">B</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">8</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">C</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">9</td>
+</tr>
+</tbody>
+</table>
 </div>
+</div></div>
+<div class="cell columns column-output-location">
+<div class="column">
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a></a>messy_long <span class="ot">&lt;-</span> messy <span class="sc">|&gt;</span> </span>
+<span id="cb56-2"><a></a>  <span class="fu">pivot_longer</span>(</span>
+<span id="cb56-3"><a></a>    <span class="at">cols=</span><span class="fu">c</span>(<span class="sc">-</span>row),  <span class="co">#&lt;&lt;</span></span>
+<span id="cb56-4"><a></a>    <span class="at">names_to =</span> <span class="st">"name"</span>,</span>
+<span id="cb56-5"><a></a>    <span class="at">values_to =</span> <span class="st">"value"</span>)</span>
+<span id="cb56-6"><a></a>  </span>
+<span id="cb56-7"><a></a>messy_long  <span class="sc">|&gt;</span> </span>
+<span id="cb56-8"><a></a>  <span class="fu">kable</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column">
+<div class="cell-output-display">
+<table class="caption-top">
+<thead><tr class="header">
+<th style="text-align: left;">row</th>
+<th style="text-align: left;">name</th>
+<th style="text-align: right;">value</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">A</td>
+<td style="text-align: left;">a</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">A</td>
+<td style="text-align: left;">b</td>
+<td style="text-align: right;">4</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">A</td>
+<td style="text-align: left;">c</td>
+<td style="text-align: right;">7</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">B</td>
+<td style="text-align: left;">a</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">B</td>
+<td style="text-align: left;">b</td>
+<td style="text-align: right;">5</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">B</td>
+<td style="text-align: left;">c</td>
+<td style="text-align: right;">8</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">C</td>
+<td style="text-align: left;">a</td>
+<td style="text-align: right;">3</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">C</td>
+<td style="text-align: left;">b</td>
+<td style="text-align: right;">6</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">C</td>
+<td style="text-align: left;">c</td>
+<td style="text-align: right;">9</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div></div>
 </div></div>
 
 <aside><div>
@@ -2120,14 +2348,14 @@ U &amp; \leftarrow \sigma(T, \theta)\end{array}\]</span></p>
 </div></aside></section><section id="pivot-wider" class="slide level2 center"><h2>Pivot wider</h2>
 <div class="columns">
 <div class="column">
-<div class="sourceCode" id="cb54"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a></a><span class="fu">pivot_wider</span>(  <span class="co">#&lt;&lt;</span></span>
-<span id="cb54-2"><a></a>  data,</span>
-<span id="cb54-3"><a></a>  <span class="at">id_cols =</span> <span class="cn">NULL</span>, <span class="co">#&lt;&lt;</span></span>
-<span id="cb54-4"><a></a>  <span class="at">names_from =</span> name, <span class="co">#&lt;&lt;</span></span>
-<span id="cb54-5"><a></a>  <span class="at">names_prefix =</span> <span class="st">""</span>,</span>
-<span id="cb54-6"><a></a>  <span class="at">values_from =</span> value, <span class="co">#&lt;&lt;</span></span>
-<span id="cb54-7"><a></a>  ...</span>
-<span id="cb54-8"><a></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb57"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a></a><span class="fu">pivot_wider</span>(  <span class="co">#&lt;&lt;</span></span>
+<span id="cb57-2"><a></a>  data,</span>
+<span id="cb57-3"><a></a>  <span class="at">id_cols =</span> <span class="cn">NULL</span>, <span class="co">#&lt;&lt;</span></span>
+<span id="cb57-4"><a></a>  <span class="at">names_from =</span> name, <span class="co">#&lt;&lt;</span></span>
+<span id="cb57-5"><a></a>  <span class="at">names_prefix =</span> <span class="st">""</span>,</span>
+<span id="cb57-6"><a></a>  <span class="at">values_from =</span> value, <span class="co">#&lt;&lt;</span></span>
+<span id="cb57-7"><a></a>  ...</span>
+<span id="cb57-8"><a></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><i class="fa-solid fa-hand-point-right" aria-label="hand-point-right"></i> some optional arguments are missing</p>
 </div><div class="column">
 <p>When reporting, we often use <code>pivot_wider</code> (explicitely or implicitely) to make results more readable, possibly to conform to a tradition</p>
@@ -2138,15 +2366,36 @@ U &amp; \leftarrow \sigma(T, \theta)\end{array}\]</span></p>
 </li>
 </ul>
 </div></div>
+</section><section id="pivot_wider-in-action" class="slide level2 center"><h2>
+<code>pivot_wider()</code> in action</h2>
+<div class="cell columns column-output-location">
+<div class="column">
+<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a></a>messy_long <span class="sc">|&gt;</span></span>
+<span id="cb58-2"><a></a>  <span class="fu">pivot_wider</span>( </span>
+<span id="cb58-3"><a></a>  <span class="at">id_cols =</span> <span class="fu">c</span>(<span class="st">"row"</span>), <span class="co">#&lt;&lt;</span></span>
+<span id="cb58-4"><a></a>  <span class="at">names_from =</span> name, <span class="co">#&lt;&lt;</span></span>
+<span id="cb58-5"><a></a>  <span class="at">names_prefix =</span> <span class="st">""</span>,</span>
+<span id="cb58-6"><a></a>  <span class="at">values_from =</span> value</span>
+<span id="cb58-7"><a></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 4
+  row       a     b     c
+  &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+1 A         1     4     7
+2 B         2     5     8
+3 C         3     6     9</code></pre>
+</div>
+</div></div>
 </section></section><section><section id="aggregations" class="title-slide slide level1 center" data-background-color="#1c191c"><h1>Aggregations</h1>
 
 </section><section id="how-many-flights-per-carrier" class="slide level2 center"><h2>How many flights per carrier?</h2>
 <div class="cell columns column-output-location">
 <div class="column">
-<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a></a>flights <span class="sc">|&gt;</span></span>
-<span id="cb55-2"><a></a>  <span class="fu">group_by</span>(carrier) <span class="sc">|&gt;</span>  <span class="co">#&lt;&lt;</span></span>
-<span id="cb55-3"><a></a>  <span class="fu">summarise</span>(<span class="at">count=</span><span class="fu">n</span>()) <span class="sc">|&gt;</span>  <span class="co">#&lt;&lt;</span></span>
-<span id="cb55-4"><a></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(count))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a></a>flights <span class="sc">|&gt;</span></span>
+<span id="cb60-2"><a></a>  <span class="fu">group_by</span>(carrier) <span class="sc">|&gt;</span>  <span class="co">#&lt;&lt;</span></span>
+<span id="cb60-3"><a></a>  <span class="fu">summarise</span>(<span class="at">count=</span><span class="fu">n</span>()) <span class="sc">|&gt;</span>  <span class="co">#&lt;&lt;</span></span>
+<span id="cb60-4"><a></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(count))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 16 × 2
@@ -2170,27 +2419,27 @@ U &amp; \leftarrow \sigma(T, \theta)\end{array}\]</span></p>
 16 OO         32</code></pre>
 </div>
 </div></div>
-<div class="sourceCode" id="cb57"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb57-1"><a></a><span class="co">--| eval: false</span></span>
-<span id="cb57-2"><a></a><span class="kw">SELECT</span> </span>
-<span id="cb57-3"><a></a>  carrier, <span class="fu">COUNT</span>(<span class="op">*</span>) <span class="kw">AS</span> n</span>
-<span id="cb57-4"><a></a><span class="kw">FROM</span> </span>
-<span id="cb57-5"><a></a>  flights</span>
-<span id="cb57-6"><a></a><span class="kw">GROUP</span> <span class="kw">BY</span> </span>
-<span id="cb57-7"><a></a>  carrier</span>
-<span id="cb57-8"><a></a><span class="kw">ORDER</span> <span class="kw">BY</span> </span>
-<span id="cb57-9"><a></a>  n DESCENDING</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb62"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb62-1"><a></a><span class="co">--| eval: false</span></span>
+<span id="cb62-2"><a></a><span class="kw">SELECT</span> </span>
+<span id="cb62-3"><a></a>  carrier, <span class="fu">COUNT</span>(<span class="op">*</span>) <span class="kw">AS</span> n</span>
+<span id="cb62-4"><a></a><span class="kw">FROM</span> </span>
+<span id="cb62-5"><a></a>  flights</span>
+<span id="cb62-6"><a></a><span class="kw">GROUP</span> <span class="kw">BY</span> </span>
+<span id="cb62-7"><a></a>  carrier</span>
+<span id="cb62-8"><a></a><span class="kw">ORDER</span> <span class="kw">BY</span> </span>
+<span id="cb62-9"><a></a>  n DESCENDING</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section><section id="how-many-flights-per-day-of-week-per-departure-airport" class="slide level2 smaller center"><h2>How many flights per day of week per departure airport?</h2>
 <div class="cell columns column-output-location">
 <div class="column">
-<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a></a>flights <span class="sc">|&gt;</span></span>
-<span id="cb58-2"><a></a>  <span class="fu">group_by</span>(origin,  <span class="fu">wday</span>(time_hour, <span class="at">abbr=</span>T, <span class="at">label=</span>T)) <span class="sc">|&gt;</span>  <span class="co">#&lt;&lt;</span></span>
-<span id="cb58-3"><a></a>  <span class="fu">summarise</span>(<span class="at">count=</span><span class="fu">n</span>(), <span class="at">.groups=</span><span class="st">"drop"</span>) <span class="sc">|&gt;</span>       <span class="co">#&lt;&lt;</span></span>
-<span id="cb58-4"><a></a>  <span class="fu">rename</span>(<span class="at">day_of_week=</span><span class="st">`</span><span class="at">wday(time_hour, abbr = T, label = T)</span><span class="st">`</span>) <span class="sc">|&gt;</span></span>
-<span id="cb58-5"><a></a>  <span class="fu">pivot_wider</span>(  <span class="co">#&lt;&lt;</span></span>
-<span id="cb58-6"><a></a>    <span class="at">id_cols=</span><span class="st">"origin"</span>,   <span class="co">#&lt;&lt;</span></span>
-<span id="cb58-7"><a></a>    <span class="at">names_from=</span><span class="st">"day_of_week"</span>, <span class="co">#&lt;&lt;</span></span>
-<span id="cb58-8"><a></a>    <span class="at">values_from=</span><span class="st">"count"</span>) <span class="sc">|&gt;</span>  <span class="co">#&lt;&lt;</span></span>
-<span id="cb58-9"><a></a>  <span class="fu">kable</span>(<span class="at">caption=</span><span class="st">"Departures per day"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a></a>flights <span class="sc">|&gt;</span></span>
+<span id="cb63-2"><a></a>  <span class="fu">group_by</span>(origin,  <span class="fu">wday</span>(time_hour, <span class="at">abbr=</span>T, <span class="at">label=</span>T)) <span class="sc">|&gt;</span>  <span class="co">#&lt;&lt;</span></span>
+<span id="cb63-3"><a></a>  <span class="fu">summarise</span>(<span class="at">count=</span><span class="fu">n</span>(), <span class="at">.groups=</span><span class="st">"drop"</span>) <span class="sc">|&gt;</span>       <span class="co">#&lt;&lt;</span></span>
+<span id="cb63-4"><a></a>  <span class="fu">rename</span>(<span class="at">day_of_week=</span><span class="st">`</span><span class="at">wday(time_hour, abbr = T, label = T)</span><span class="st">`</span>) <span class="sc">|&gt;</span></span>
+<span id="cb63-5"><a></a>  <span class="fu">pivot_wider</span>(  <span class="co">#&lt;&lt;</span></span>
+<span id="cb63-6"><a></a>    <span class="at">id_cols=</span><span class="st">"origin"</span>,   <span class="co">#&lt;&lt;</span></span>
+<span id="cb63-7"><a></a>    <span class="at">names_from=</span><span class="st">"day_of_week"</span>, <span class="co">#&lt;&lt;</span></span>
+<span id="cb63-8"><a></a>    <span class="at">values_from=</span><span class="st">"count"</span>) <span class="sc">|&gt;</span>  <span class="co">#&lt;&lt;</span></span>
+<span id="cb63-9"><a></a>  <span class="fu">kable</span>(<span class="at">caption=</span><span class="st">"Departures per day"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
 <table class="caption-top">
@@ -2243,9 +2492,62 @@ U &amp; \leftarrow \sigma(T, \theta)\end{array}\]</span></p>
 </section></section><section><section id="window-queries" class="title-slide slide level1 center" data-background-color="#1c191c"><h1>Window queries</h1>
 
 </section><section id="window-queries-1" class="slide level2 center"><h2>Window queries</h2>
-<p>TODO</p>
-</section><section id="partitionning-and-ordering" class="slide level2 center"><h2>Partitionning and Ordering</h2>
-<p>TODO</p>
+<p>Assume we want to answer the question: for each day of week (Monday, Tuesday, …), what are the five carriers that experience the largest average delay?</p>
+<div class="cell columns column-output-location">
+<div class="column">
+<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a></a>flights <span class="sc">|&gt;</span></span>
+<span id="cb64-2"><a></a>  <span class="fu">group_by</span>(<span class="fu">weekdays</span>(time_hour), carrier) <span class="sc">|&gt;</span></span>
+<span id="cb64-3"><a></a>  <span class="fu">summarise</span>(<span class="at">avg_dep_delay=</span><span class="fu">mean</span>(dep_delay, <span class="at">na.rm=</span>T)) <span class="sc">|&gt;</span></span>
+<span id="cb64-4"><a></a>  <span class="fu">slice_max</span>(<span class="at">n=</span><span class="dv">2</span>, <span class="at">order_by=</span>avg_dep_delay)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 14 × 3
+# Groups:   weekdays(time_hour) [7]
+   `weekdays(time_hour)` carrier avg_dep_delay
+   &lt;chr&gt;                 &lt;chr&gt;           &lt;dbl&gt;
+ 1 dimanche              F9               23.7
+ 2 dimanche              VX               17.4
+ 3 jeudi                 YV               29.7
+ 4 jeudi                 F9               26.5
+ 5 lundi                 FL               24.8
+ 6 lundi                 EV               23.4
+ 7 mardi                 YV               19.1
+ 8 mardi                 FL               17.7
+ 9 mercredi              OO               52  
+10 mercredi              HA               24.5
+11 samedi                OO               41  
+12 samedi                F9               15.8
+13 vendredi              OO               29  
+14 vendredi              F9               25.6</code></pre>
+</div>
+</div></div>
+</section><section id="the-sql-way" class="slide level2 smaller center"><h2>The SQL way</h2>
+<div class="sourceCode" id="cb66"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb66-1"><a></a><span class="kw">WITH</span> R <span class="kw">AS</span> (</span>
+<span id="cb66-2"><a></a>  <span class="kw">SELECT</span> </span>
+<span id="cb66-3"><a></a>    <span class="fu">EXTRACT</span>(dow <span class="kw">FROM</span> time_hour) <span class="kw">AS</span> day_of_week,</span>
+<span id="cb66-4"><a></a>    carrier,</span>
+<span id="cb66-5"><a></a>    <span class="fu">AVG</span>(dep_delay) <span class="kw">AS</span> avg_dep_delay</span>
+<span id="cb66-6"><a></a>  <span class="kw">FROM</span> </span>
+<span id="cb66-7"><a></a>    flights</span>
+<span id="cb66-8"><a></a>  <span class="kw">GROUP</span> <span class="kw">BY</span> </span>
+<span id="cb66-9"><a></a>    <span class="fu">EXTRACT</span>(dow <span class="kw">FROM</span> time_hour), carrier</span>
+<span id="cb66-10"><a></a>), S <span class="kw">AS</span> (</span>
+<span id="cb66-11"><a></a>  <span class="kw">SELECT</span> </span>
+<span id="cb66-12"><a></a>    day_of_week,</span>
+<span id="cb66-13"><a></a>    carrier,</span>
+<span id="cb66-14"><a></a>    <span class="fu">rank</span>() <span class="kw">OVER</span> (<span class="kw">PARTITION</span> <span class="kw">by</span> day_of_week <span class="kw">ORDER</span> <span class="kw">BY</span> avg_dep_delay <span class="kw">DESC</span>) <span class="kw">AS</span> rnk</span>
+<span id="cb66-15"><a></a>  <span class="kw">FROM</span> </span>
+<span id="cb66-16"><a></a>    R</span>
+<span id="cb66-17"><a></a>)</span>
+<span id="cb66-18"><a></a></span>
+<span id="cb66-19"><a></a><span class="kw">SELECT</span> </span>
+<span id="cb66-20"><a></a>  day_of_week, </span>
+<span id="cb66-21"><a></a>  carrier, </span>
+<span id="cb66-22"><a></a>  rnk</span>
+<span id="cb66-23"><a></a><span class="kw">FROM</span> </span>
+<span id="cb66-24"><a></a>  S</span>
+<span id="cb66-25"><a></a><span class="kw">WHERE</span> </span>
+<span id="cb66-26"><a></a>  rnk <span class="op">&lt;=</span> <span class="dv">10</span> ;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section><section id="sliding-windows-and-package-slider" class="slide level2 center"><h2>Sliding windows and package <code>slider</code>
 </h2>
 <p>TODO</p>
@@ -2261,11 +2563,11 @@ U &amp; \leftarrow \sigma(T, \theta)\end{array}\]</span></p>
 <li><p>Use <code>|&gt;</code> to rewrite multiple operations that you can read left-to-right/top-to-bottom</p></li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a></a><span class="fu">g</span>(<span class="fu">f</span>(x, y), z)</span>
-<span id="cb59-2"><a></a></span>
-<span id="cb59-3"><a></a>x <span class="sc">|&gt;</span></span>
-<span id="cb59-4"><a></a>  <span class="fu">f</span>(y) <span class="sc">|&gt;</span></span>
-<span id="cb59-5"><a></a>  <span class="fu">g</span>(z)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb67"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb67-1"><a></a><span class="fu">g</span>(<span class="fu">f</span>(x, y), z)</span>
+<span id="cb67-2"><a></a></span>
+<span id="cb67-3"><a></a>x <span class="sc">|&gt;</span></span>
+<span id="cb67-4"><a></a>  <span class="fu">f</span>(y) <span class="sc">|&gt;</span></span>
+<span id="cb67-5"><a></a>  <span class="fu">g</span>(z)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
 <aside><div>
@@ -2288,11 +2590,11 @@ U &amp; \leftarrow \sigma(T, \theta)\end{array}\]</span></p>
 </div><div class="column">
 <p>Second argument of <code>g</code> has the same type as the result of <code>f</code></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a></a><span class="fu">g</span>(z, <span class="fu">f</span>(x, y))</span>
-<span id="cb60-2"><a></a></span>
-<span id="cb60-3"><a></a>x <span class="sc">%&gt;%</span></span>
-<span id="cb60-4"><a></a>  <span class="fu">f</span>(y) <span class="sc">%&gt;%</span></span>
-<span id="cb60-5"><a></a>  <span class="fu">g</span>(z, .)   <span class="co">#&lt;&lt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a></a><span class="fu">g</span>(z, <span class="fu">f</span>(x, y))</span>
+<span id="cb68-2"><a></a></span>
+<span id="cb68-3"><a></a>x <span class="sc">%&gt;%</span></span>
+<span id="cb68-4"><a></a>  <span class="fu">f</span>(y) <span class="sc">%&gt;%</span></span>
+<span id="cb68-5"><a></a>  <span class="fu">g</span>(z, .)   <span class="co">#&lt;&lt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><code>x %&gt;% f(y)</code> is a shorthand for <code>x %&gt;% f(., y)</code></p>
 </div></div>
@@ -2302,24 +2604,24 @@ U &amp; \leftarrow \sigma(T, \theta)\end{array}\]</span></p>
 <div class="column">
 <p><code>x |&gt; f(y)</code> turns into <code>f(x, y)</code></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a></a><span class="fu">g</span>(<span class="fu">f</span>(x, y), z)</span>
-<span id="cb61-2"><a></a></span>
-<span id="cb61-3"><a></a>x <span class="sc">|&gt;</span></span>
-<span id="cb61-4"><a></a>  <span class="fu">f</span>(y) <span class="sc">|&gt;</span></span>
-<span id="cb61-5"><a></a>  <span class="fu">g</span>(z)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb69"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb69-1"><a></a><span class="fu">g</span>(<span class="fu">f</span>(x, y), z)</span>
+<span id="cb69-2"><a></a></span>
+<span id="cb69-3"><a></a>x <span class="sc">|&gt;</span></span>
+<span id="cb69-4"><a></a>  <span class="fu">f</span>(y) <span class="sc">|&gt;</span></span>
+<span id="cb69-5"><a></a>  <span class="fu">g</span>(z)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div><div class="column">
 <p><i class="fa-solid fa-hand-point-right" aria-label="hand-point-right"></i> the standard pipe <code>|&gt;</code> has no pronoun/placeholder to denote the LHS of the pipe expression</p>
 <p>The roundabout consists in using another new construct <code>\(x)</code></p>
-<div class="sourceCode" id="cb62"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a></a><span class="fu">g</span>(z, w)</span>
-<span id="cb62-2"><a></a></span>
-<span id="cb62-3"><a></a>x <span class="sc">|&gt;</span></span>
-<span id="cb62-4"><a></a>  (\(x) <span class="fu">g</span>(z, <span class="at">w=</span>x))()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb70"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb70-1"><a></a><span class="fu">g</span>(z, w)</span>
+<span id="cb70-2"><a></a></span>
+<span id="cb70-3"><a></a>x <span class="sc">|&gt;</span></span>
+<span id="cb70-4"><a></a>  (\(x) <span class="fu">g</span>(z, <span class="at">w=</span>x))()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a></a><span class="st">"une"</span> <span class="sc">|&gt;</span></span>
-<span id="cb63-2"><a></a>  (\(x) <span class="fu">str_c</span>(<span class="st">"ceci n'est pas"</span>, x, <span class="at">sep=</span><span class="st">" "</span>))() <span class="sc">|&gt;</span></span>
-<span id="cb63-3"><a></a>  <span class="fu">str_c</span>(<span class="st">"pipe"</span>, <span class="at">sep=</span><span class="st">" "</span>) <span class="sc">|&gt;</span></span>
-<span id="cb63-4"><a></a>  <span class="fu">cat</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb71"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb71-1"><a></a><span class="st">"une"</span> <span class="sc">|&gt;</span></span>
+<span id="cb71-2"><a></a>  (\(x) <span class="fu">str_c</span>(<span class="st">"ceci n'est pas"</span>, x, <span class="at">sep=</span><span class="st">" "</span>))() <span class="sc">|&gt;</span></span>
+<span id="cb71-3"><a></a>  <span class="fu">str_c</span>(<span class="st">"pipe"</span>, <span class="at">sep=</span><span class="st">" "</span>) <span class="sc">|&gt;</span></span>
+<span id="cb71-4"><a></a>  <span class="fu">cat</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>ceci n'est pas une pipe</code></pre>
 </div>
