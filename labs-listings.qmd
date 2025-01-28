@@ -1,24 +1,24 @@
 ---
 title: "Labs"
 listing:
-  # - id: "labs"
-  #   contents: 
-  #     - labs-listings.yaml
-  #   fields: [date, title, categories] 
-  #   field-display-names: 
-  #     title: "Title"
-  #     categories: "Tags"
-  #   type: table  
-  #   table-striped: true
-  #   table-hover: true
-  #   sort: date
-  - id: "dir-content"
-    contents: /core/labs/*qmd
-    type: table
-    fields: [title, categories, date]
-    sort: title
+  - id: "labs"
+    contents: 
+      - labs-listings.yaml
+    fields: [date, title, categories] 
+    field-display-names: 
+      title: "Title"
+      categories: "Tags"
+    type: table  
     table-striped: true
     table-hover: true
+    sort: date
+  # - id: "dir-content"
+  #   contents: /core/labs/*qmd
+  #   type: table
+  #   fields: [title, categories, date]
+  #   sort: title
+  #   table-striped: true
+  #   table-hover: true
   
 ---
 
@@ -31,7 +31,7 @@ Sessions are organized around labs. Feel free to look at the lab before sessions
 
 
 
-::: {#dir-content}
+::: {#labs}
 :::
 
 

@@ -8,11 +8,11 @@
   date: "2025-01-15"
   path: "core/labs/lab-r-intro.html"
   categories: [R language, Tidyverse, IDE]
-# - title: "GSS data"
-#   author: "Master I MIDS UParis Cité"
-#   date: "2025-01-22"
-#   path: "labs/lab-gss.html"
-#   categories: [Univariate data, GSS]
+- title: "Univariate categorical data"
+  author: "Master I MIDS UParis Cité"
+  date: "2025-01-29"
+  path: "core/labs/lab-univariate-categorical.html"
+  categories: [Univariate data, GSS]
 - title: "Table wranglig"
   author: "Master I MIDS UParis Cité"
   date: "2025-01-22"

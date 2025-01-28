@@ -13,10 +13,10 @@
   date: "2025-01-22"
   path: "core/labs-solutions/lab-tables.html"
   categories: [R language, dplyr, tabula data]
-- title: "GSS data"
+- title: "Univariate categorical data"
   author: "Master I MIDS UParis Cité"
-  date: "2025-01-22"
-  path: "core/labs-solutions/lab-gss.html"
+  date: "2025-01-29"
+  path: "core/labs-solutions/lab-univariate-categorical.html"
   categories: [Univariate data, GSS]
 # - title: "Bivariate data. GSS"
 #   author: "Master I MIDS UParis Cité"
