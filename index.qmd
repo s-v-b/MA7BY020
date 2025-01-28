@@ -56,6 +56,6 @@ We will use the `quarto` package for reproducible research.
 - [Computing environment](/course-support.qmd)
 - [Slides](/slides-listings.qmd)
 - [Labs](/labs-listings.qmd)
-- [Labs solutions](/labs-solution-listings.qmd)
+- [Labs solutions](/labs-solutions-listings.qmd)
 - [Projects](/projects-listings.qmd)
 - [Class notes](https://s-v-b.github.io/EDA_CLASS_NOTES/)
