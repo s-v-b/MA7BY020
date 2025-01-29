@@ -2419,15 +2419,14 @@ $ visib          &lt;dbl&gt; 10, 10, 10, 10, 10, 10, 1…</code></pre>
 16 OO         32</code></pre>
 </div>
 </div></div>
-<div class="sourceCode" id="cb62"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb62-1"><a></a><span class="co">--| eval: false</span></span>
-<span id="cb62-2"><a></a><span class="kw">SELECT</span> </span>
-<span id="cb62-3"><a></a>  carrier, <span class="fu">COUNT</span>(<span class="op">*</span>) <span class="kw">AS</span> n</span>
-<span id="cb62-4"><a></a><span class="kw">FROM</span> </span>
-<span id="cb62-5"><a></a>  flights</span>
-<span id="cb62-6"><a></a><span class="kw">GROUP</span> <span class="kw">BY</span> </span>
-<span id="cb62-7"><a></a>  carrier</span>
-<span id="cb62-8"><a></a><span class="kw">ORDER</span> <span class="kw">BY</span> </span>
-<span id="cb62-9"><a></a>  n DESCENDING</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb62"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb62-1"><a></a><span class="kw">SELECT</span> </span>
+<span id="cb62-2"><a></a>  carrier, <span class="fu">COUNT</span>(<span class="op">*</span>) <span class="kw">AS</span> n</span>
+<span id="cb62-3"><a></a><span class="kw">FROM</span> </span>
+<span id="cb62-4"><a></a>  flights</span>
+<span id="cb62-5"><a></a><span class="kw">GROUP</span> <span class="kw">BY</span> </span>
+<span id="cb62-6"><a></a>  carrier</span>
+<span id="cb62-7"><a></a><span class="kw">ORDER</span> <span class="kw">BY</span> </span>
+<span id="cb62-8"><a></a>  n DESCENDING</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section><section id="how-many-flights-per-day-of-week-per-departure-airport" class="slide level2 smaller center"><h2>How many flights per day of week per departure airport?</h2>
 <div class="cell columns column-output-location">
 <div class="column">

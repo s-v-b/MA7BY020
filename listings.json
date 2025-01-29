@@ -9,12 +9,7 @@
   },
   {
     "listing": "/labs-listings.html",
-    "items": [
-      "/core/labs/lab-bivariate.html",
-      "/core/labs/lab-gapminder.html",
-      "/core/labs/lab-r-intro.html",
-      "/core/labs/lab-tables.html"
-    ]
+    "items": []
   },
   {
     "listing": "/slides-listings.html",

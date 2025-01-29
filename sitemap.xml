@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://s-v-b.github.io/MA7BY020/weeks/week-3.html</loc>
+    <lastmod>2025-01-29T05:14:56.498Z</lastmod>
+  </url>
+  <url>
     <loc>https://s-v-b.github.io/MA7BY020/weeks/week-1.html</loc>
     <lastmod>2025-01-17T10:24:16.632Z</lastmod>
   </url>
@@ -18,11 +22,15 @@
   </url>
   <url>
     <loc>https://s-v-b.github.io/MA7BY020/index.html</loc>
-    <lastmod>2025-01-14T08:35:58.504Z</lastmod>
+    <lastmod>2025-01-28T07:49:16.061Z</lastmod>
   </url>
   <url>
     <loc>https://s-v-b.github.io/MA7BY020/course-syllabus.html</loc>
-    <lastmod>2025-01-24T09:53:41.407Z</lastmod>
+    <lastmod>2025-01-24T10:02:30.862Z</lastmod>
+  </url>
+  <url>
+    <loc>https://s-v-b.github.io/MA7BY020/core/projects/fake-report.html</loc>
+    <lastmod>2025-01-23T09:37:04.795Z</lastmod>
   </url>
   <url>
     <loc>https://s-v-b.github.io/MA7BY020/core/labs/lab-tables.html</loc>
@@ -45,6 +53,10 @@
     <lastmod>2025-01-21T11:45:48.893Z</lastmod>
   </url>
   <url>
+    <loc>https://s-v-b.github.io/MA7BY020/core/labs/lab-univariate-categorical.html</loc>
+    <lastmod>2025-01-28T21:18:42.130Z</lastmod>
+  </url>
+  <url>
     <loc>https://s-v-b.github.io/MA7BY020/core/projects/hmw_gapminder_oecd.html</loc>
     <lastmod>2025-01-24T09:40:03.939Z</lastmod>
   </url>
@@ -54,7 +66,7 @@
   </url>
   <url>
     <loc>https://s-v-b.github.io/MA7BY020/labs-listings.html</loc>
-    <lastmod>2025-01-21T11:46:40.811Z</lastmod>
+    <lastmod>2025-01-28T21:35:07.970Z</lastmod>
   </url>
   <url>
     <loc>https://s-v-b.github.io/MA7BY020/posit-cloud.html</loc>
@@ -73,16 +85,16 @@
     <lastmod>2025-01-24T07:39:00.456Z</lastmod>
   </url>
   <url>
-    <loc>https://s-v-b.github.io/MA7BY020/core/slides/slides-dplyr.html</loc>
-    <lastmod>2025-01-23T21:20:11.799Z</lastmod>
-  </url>
-  <url>
     <loc>https://s-v-b.github.io/MA7BY020/core/labs-solutions/lab-bivariate.html</loc>
     <lastmod>2024-12-22T20:28:24.548Z</lastmod>
   </url>
   <url>
     <loc>https://s-v-b.github.io/MA7BY020/core/labs-solutions/lab-gapminder.html</loc>
     <lastmod>2025-01-21T11:45:48.893Z</lastmod>
+  </url>
+  <url>
+    <loc>https://s-v-b.github.io/MA7BY020/core/labs-solutions/lab-univariate-categorical.html</loc>
+    <lastmod>2025-01-28T21:18:42.130Z</lastmod>
   </url>
   <url>
     <loc>https://s-v-b.github.io/MA7BY020/core/labs-solutions/lab-r-intro.html</loc>
@@ -93,7 +105,7 @@
     <lastmod>2024-12-22T20:28:24.549Z</lastmod>
   </url>
   <url>
-    <loc>https://s-v-b.github.io/MA7BY020/core/projects/fake-report.html</loc>
-    <lastmod>2025-01-23T09:37:04.795Z</lastmod>
+    <loc>https://s-v-b.github.io/MA7BY020/core/slides/slides-dplyr.html</loc>
+    <lastmod>2025-01-23T21:26:01.290Z</lastmod>
   </url>
 </urlset>

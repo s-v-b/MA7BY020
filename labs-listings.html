@@ -74,20 +74,20 @@ ul.task-list li input[type="checkbox"] {
 <script>
 
   window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-dir-content .list');
+    const listingTargetEl = window.document.querySelector('#listing-labs .list');
     if (!listingTargetEl) {
       // No listing discovered, do not attach.
       return; 
     }
 
     const options = {
-      valueNames: ['listing-title','listing-categories','listing-date',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
+      valueNames: ['listing-date','listing-title','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-title-sort'] },{ data: ['listing-date-sort'] }],
       
-      searchColumns: ["listing-date","listing-title","listing-author"],
+      searchColumns: ["listing-title","listing-author","listing-date","listing-categories"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-dir-content'] = new List('listing-dir-content', options);
+    window['quarto-listings']['listing-labs'] = new List('listing-labs', options);
 
     if (window['quarto-listing-loaded']) {
       window['quarto-listing-loaded']();
@@ -297,6 +297,12 @@ window.Quarto = {
  <span class="menu-text">Week 2</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./weeks/week-3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 3</span></a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
@@ -342,21 +348,24 @@ Note
 <p>Sessions are organized around labs. Feel free to look at the lab before sessions. Do not rush to solutions <a href="./labs-solutions-listings.html">proposed here</a></p>
 </div>
 </div>
-<div id="listing-dir-content" class="quarto-listing quarto-listing-container-table">
+<div id="listing-labs" class="quarto-listing quarto-listing-container-table">
 <div class="listing-actions-group">
    <div class="input-group input-group-sm quarto-listing-sort">
      <span class="input-group-text"><i class="bi bi-sort-down"></i></span>
-     <select id="listing-dir-content-sort" class="form-select" aria-label="Order By" onchange="window['quarto-listings']['listing-dir-content'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
+     <select id="listing-labs-sort" class="form-select" aria-label="Order By" onchange="window['quarto-listings']['listing-labs'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
        <option value="" disabled="" selected="" hidden="">Order By</option>
        <option value="index" data-direction="asc">Default</option>
+         <option value="listing-title-sort" data-direction="asc">
+          Title
+        </option>
          <option value="listing-date-sort" data-direction="asc">
           Date - Oldest
         </option>
          <option value="listing-date-sort" data-direction="desc">
           Date - Newest
         </option>
-         <option value="listing-title-sort" data-direction="asc">
-          Title
+         <option value="listing-categories" data-direction="asc">
+          Tags
         </option>
      </select>
   </div>
@@ -369,63 +378,63 @@ Note
 <thead>
 <tr>
 <th>
+<a class="sort" data-sort="listing-date-sort" onclick="if (this.classList.contains('sort-asc')) { this.classList.add('sort-desc'); this.classList.remove('sort-asc') } else { this.classList.add('sort-asc'); this.classList.remove('sort-desc')} return false;">Date</a>
+</th>
+<th>
 <a class="sort" data-sort="listing-title-sort" onclick="if (this.classList.contains('sort-asc')) { this.classList.add('sort-desc'); this.classList.remove('sort-asc') } else { this.classList.add('sort-asc'); this.classList.remove('sort-desc')} return false;">Title</a>
 </th>
 <th>
-Categories
-</th>
-<th>
-<a class="sort" data-sort="listing-date-sort" onclick="if (this.classList.contains('sort-asc')) { this.classList.add('sort-desc'); this.classList.remove('sort-asc') } else { this.classList.add('sort-asc'); this.classList.remove('sort-desc')} return false;">Date</a>
+<a class="sort" data-sort="listing-categories" onclick="if (this.classList.contains('sort-asc')) { this.classList.add('sort-desc'); this.classList.remove('sort-asc') } else { this.classList.add('sort-asc'); this.classList.remove('sort-desc')} return false;">Tags</a>
 </th>
 </tr>
 </thead>
 <tbody class="list">
-<tr data-index="0" data-categories="Qml2YXJpYXRlJTIwYW5hbHlzaXMlMkNCb3hwbG90cyUyQ1BhaXJwbG90cw==" data-listing-date-sort="NaN" data-listing-file-modified-sort="1734899304548" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1013" data-listing-title-sort="Bivariate analysis" data-listing-filename-sort="lab-bivariate.qmd" onclick="href = this.querySelector('a').getAttribute('href');
+<tr data-index="0" data-categories="VmlzdWFsaXphdGlvbiUyQ1B1YmxpYyUyMFN0YXRpc3RpY3M=" data-listing-date-sort="1736895600000" data-listing-title-sort="Introduction and Visualization" onclick="href = this.querySelector('a').getAttribute('href');
  if (href) { window.location=href ; return false; }">
 <td>
-<a href="./core/labs/lab-bivariate.html" class="title listing-title">Bivariate analysis</a>
+<span class="listing-date">Jan 15, 2025</span>
 </td>
 <td>
-<span class="listing-categories">Bivariate analysis, Boxplots, Pairplots</span>
+<a href="core/labs/lab-gapminder.html" class="title listing-title">Introduction and Visualization</a>
 </td>
 <td>
-<span class="listing-date">Invalid Date</span>
+<span class="listing-categories">Visualization, Public Statistics</span>
 </td>
 </tr>
-<tr data-index="1" data-categories="VmlzdWFsaXphdGlvbiUyQ1Jvc2xpbmclMkNnYXBtaW5kZXIlMkNnZ3Bsb3QyJTJDR3JhbW1hciUyMG9mJTIwR3JhcGhpY3M=" data-listing-date-sort="NaN" data-listing-file-modified-sort="1737459948893" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="19" data-listing-word-count-sort="3759" data-listing-title-sort="Data visualization" data-listing-filename-sort="lab-gapminder.qmd" onclick="href = this.querySelector('a').getAttribute('href');
+<tr data-index="1" data-categories="UiUyMGxhbmd1YWdlJTJDVGlkeXZlcnNlJTJDSURF" data-listing-date-sort="1736895600000" data-listing-title-sort="Brush up your R" onclick="href = this.querySelector('a').getAttribute('href');
  if (href) { window.location=href ; return false; }">
 <td>
-<a href="./core/labs/lab-gapminder.html" class="title listing-title">Data visualization</a>
+<span class="listing-date">Jan 15, 2025</span>
 </td>
 <td>
-<span class="listing-categories">Visualization, Rosling, gapminder, ggplot2, Grammar of Graphics</span>
+<a href="core/labs/lab-r-intro.html" class="title listing-title">Brush up your R</a>
 </td>
 <td>
-<span class="listing-date">Invalid Date</span>
+<span class="listing-categories">R language, Tidyverse, IDE</span>
 </td>
 </tr>
-<tr data-index="2" data-categories="UiUyQ1ZlY3RvcnMlMkNMaXN0cyUyQ0FycmF5cyUyQ0RhdGEuZnJhbWVzJTJDRnVuY3Rpb25z" data-listing-date-sort="NaN" data-listing-file-modified-sort="1736801382181" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="35" data-listing-word-count-sort="6865" data-listing-title-sort="R language: a tour" data-listing-filename-sort="lab-R-introd.qmd" onclick="href = this.querySelector('a').getAttribute('href');
+<tr data-index="2" data-categories="UiUyMGxhbmd1YWdlJTJDZHBseXIlMkN0YWJ1bGElMjBkYXRh" data-listing-date-sort="1737500400000" data-listing-title-sort="Table wranglig" onclick="href = this.querySelector('a').getAttribute('href');
  if (href) { window.location=href ; return false; }">
 <td>
-<a href="./core/labs/lab-r-intro.html" class="title listing-title">R language: a tour</a>
+<span class="listing-date">Jan 22, 2025</span>
 </td>
 <td>
-<span class="listing-categories">R, Vectors, Lists, Arrays, Data.frames, Functions</span>
+<a href="core/labs/lab-tables.html" class="title listing-title">Table wranglig</a>
 </td>
 <td>
-<span class="listing-date">Invalid Date</span>
+<span class="listing-categories">R language, dplyr, tabula data</span>
 </td>
 </tr>
-<tr data-index="3" data-categories="VGFibGVzJTJDdGliYmxlcyUyQ2RwbHlyJTJDU1FMJTJDUmVsYXRpb25hbCUyMEFsZ2VicmElMkNueWNmbGlnaHRzMTM=" data-listing-file-modified-sort="1734899304549" data-listing-reading-time-sort="20" data-listing-word-count-sort="3928" data-listing-title-sort="Tables manipulation II" data-listing-filename-sort="lab-tables.qmd" onclick="href = this.querySelector('a').getAttribute('href');
+<tr data-index="3" data-categories="VW5pdmFyaWF0ZSUyMGRhdGElMkNHU1M=" data-listing-date-sort="1738105200000" data-listing-title-sort="Univariate categorical data" onclick="href = this.querySelector('a').getAttribute('href');
  if (href) { window.location=href ; return false; }">
 <td>
-<a href="./core/labs/lab-tables.html" class="title listing-title">Tables manipulation II</a>
+<span class="listing-date">Jan 29, 2025</span>
 </td>
 <td>
-<span class="listing-categories">Tables, tibbles, dplyr, SQL, Relational Algebra, nycflights13</span>
+<a href="core/labs/lab-univariate-categorical.html" class="title listing-title">Univariate categorical data</a>
 </td>
 <td>
-<span class="listing-date">&nbsp;</span>
+<span class="listing-categories">Univariate data, GSS</span>
 </td>
 </tr>
 </tbody>
