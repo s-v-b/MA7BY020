@@ -18,6 +18,11 @@
   date: "2025-01-29"
   path: "core/labs-solutions/lab-univariate-categorical.html"
   categories: [Univariate data, GSS]
+- title: "Univariate numeric data"
+  author: "Master I MIDS UParis Cité"
+  date: "2025-01-30"
+  path: "core/labs-solutions/lab-univariate-numeric.html"
+  categories: [Univariate data, GSS]
 # - title: "Bivariate data. GSS"
 #   author: "Master I MIDS UParis Cité"
 #   date: "2025-01-29"

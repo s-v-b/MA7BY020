@@ -13,6 +13,11 @@
   date: "2025-01-29"
   path: "core/labs/lab-univariate-categorical.html"
   categories: [Univariate data, GSS]
+- title: "Univariate numeric data"
+  author: "Master I MIDS UParis Cité"
+  date: "2025-01-30"
+  path: "core/labs/lab-univariate-numeric.html"
+  categories: [Univariate data, GSS]
 - title: "Table wranglig"
   author: "Master I MIDS UParis Cité"
   date: "2025-01-22"

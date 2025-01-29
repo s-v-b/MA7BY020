@@ -18,7 +18,7 @@ draft: false
 ## {{< fa flask-vial >}} Labs
 
 - [Lab 4](/core/labs/lab-univariate-categorical.qmd) Univariate categorical variables
-- [Lab 5]() Univariate numeric variables
+- [Lab 5](/core/labs/lab-univariate-numeric.qmd) Univariate numeric variables
   
 We will rely on the previous labs
 
