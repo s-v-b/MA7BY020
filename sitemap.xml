@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://s-v-b.github.io/MA7BY020/weeks/week-3.html</loc>
-    <lastmod>2025-01-29T05:14:56.498Z</lastmod>
+    <lastmod>2025-01-29T22:09:51.469Z</lastmod>
   </url>
   <url>
     <loc>https://s-v-b.github.io/MA7BY020/weeks/week-1.html</loc>
@@ -107,5 +107,13 @@
   <url>
     <loc>https://s-v-b.github.io/MA7BY020/core/slides/slides-dplyr.html</loc>
     <lastmod>2025-01-23T21:26:01.290Z</lastmod>
+  </url>
+  <url>
+    <loc>https://s-v-b.github.io/MA7BY020/core/labs/lab-univariate-numeric.html</loc>
+    <lastmod>2025-01-29T21:39:56.540Z</lastmod>
+  </url>
+  <url>
+    <loc>https://s-v-b.github.io/MA7BY020/core/labs-solutions/lab-univariate-numeric.html</loc>
+    <lastmod>2025-01-29T22:02:29.080Z</lastmod>
   </url>
 </urlset>

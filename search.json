@@ -135,7 +135,7 @@
     "href": "labs-solutions-listings.html",
     "title": "Labs Solutions",
     "section": "",
-    "text": "Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Tags\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\nDate\n\n\nTitle\n\n\nTags\n\n\n\n\n\n\nJan 15, 2025\n\n\nIntroduction and Visualization\n\n\nVisualization, Public Statistics\n\n\n\n\nJan 15, 2025\n\n\nBrush up your R\n\n\nR language, Tidyverse, IDE\n\n\n\n\nJan 22, 2025\n\n\nTable wranglig\n\n\nR language, dplyr, tabula data\n\n\n\n\nJan 29, 2025\n\n\nUnivariate categorical data\n\n\nUnivariate data, GSS\n\n\n\n\n\nNo matching items",
+    "text": "Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Tags\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\nDate\n\n\nTitle\n\n\nTags\n\n\n\n\n\n\nJan 15, 2025\n\n\nIntroduction and Visualization\n\n\nVisualization, Public Statistics\n\n\n\n\nJan 15, 2025\n\n\nBrush up your R\n\n\nR language, Tidyverse, IDE\n\n\n\n\nJan 22, 2025\n\n\nTable wranglig\n\n\nR language, dplyr, tabula data\n\n\n\n\nJan 29, 2025\n\n\nUnivariate categorical data\n\n\nUnivariate data, GSS\n\n\n\n\nJan 30, 2025\n\n\nUnivariate numeric data\n\n\nUnivariate data, GSS\n\n\n\n\n\nNo matching items",
     "crumbs": [
       "Solutions"
     ]
@@ -574,7 +574,7 @@
     "href": "labs-listings.html",
     "title": "Labs",
     "section": "",
-    "text": "Note\n\n\n\nSessions are organized around labs. Feel free to look at the lab before sessions. Do not rush to solutions proposed here\n\n\n\n\n   \n     \n     \n       Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Tags\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\nDate\n\n\nTitle\n\n\nTags\n\n\n\n\n\n\nJan 15, 2025\n\n\nIntroduction and Visualization\n\n\nVisualization, Public Statistics\n\n\n\n\nJan 15, 2025\n\n\nBrush up your R\n\n\nR language, Tidyverse, IDE\n\n\n\n\nJan 22, 2025\n\n\nTable wranglig\n\n\nR language, dplyr, tabula data\n\n\n\n\nJan 29, 2025\n\n\nUnivariate categorical data\n\n\nUnivariate data, GSS\n\n\n\n\n\nNo matching items\n\n\n\n\n\n\n\n\nTip\n\n\n\nBefore working out a lab, make sure the relevant packages are installed in your environment.",
+    "text": "Note\n\n\n\nSessions are organized around labs. Feel free to look at the lab before sessions. Do not rush to solutions proposed here\n\n\n\n\n   \n     \n     \n       Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Tags\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\nDate\n\n\nTitle\n\n\nTags\n\n\n\n\n\n\nJan 15, 2025\n\n\nIntroduction and Visualization\n\n\nVisualization, Public Statistics\n\n\n\n\nJan 15, 2025\n\n\nBrush up your R\n\n\nR language, Tidyverse, IDE\n\n\n\n\nJan 22, 2025\n\n\nTable wranglig\n\n\nR language, dplyr, tabula data\n\n\n\n\nJan 29, 2025\n\n\nUnivariate categorical data\n\n\nUnivariate data, GSS\n\n\n\n\nJan 30, 2025\n\n\nUnivariate numeric data\n\n\nUnivariate data, GSS\n\n\n\n\n\nNo matching items\n\n\n\n\n\n\n\n\nTip\n\n\n\nBefore working out a lab, make sure the relevant packages are installed in your environment.",
     "crumbs": [
       "Labs"
     ]
@@ -1601,5 +1601,89 @@
     "title": "Tables manipulation with dplyr",
     "section": "\n References",
     "text": "References\n\n\nR for Data Science\n\nData transformation\n\n\nRstudio cheat sheets\n\ndplyr\ntidyr\ndatatable\nreadr"
+  },
+  {
+    "objectID": "core/labs/lab-univariate-numeric.html#numerical-summary",
+    "href": "core/labs/lab-univariate-numeric.html#numerical-summary",
+    "title": "LAB: Univariate analysis",
+    "section": "Numerical summary",
+    "text": "Numerical summary\nUse skimr::skim()\n\n\n\n\n\n\nQuestion\n\n\n\nCompare mean and median, sd and IQR.\nAre mean and median systematically related?\n\n\n\n\n\n\n\n\nQuestion\n\n\n\nAre standard deviation and IQR systematically related ?"
+  },
+  {
+    "objectID": "core/labs/lab-univariate-numeric.html#boxplots",
+    "href": "core/labs/lab-univariate-numeric.html#boxplots",
+    "title": "LAB: Univariate analysis",
+    "section": "Boxplots",
+    "text": "Boxplots\n\n\n\n\n\n\nQuestion\n\n\n\nDraw a boxplot of the Age distribution\n\n\n\n\n\n\n\n\nQuestion\n\n\n\nHow would you get rid of the useless ticks on the x-axis?"
+  },
+  {
+    "objectID": "core/labs/lab-univariate-numeric.html#histograms",
+    "href": "core/labs/lab-univariate-numeric.html#histograms",
+    "title": "LAB: Univariate analysis",
+    "section": "Histograms",
+    "text": "Histograms\n\n\n\n\n\n\nQuestion\n\n\n\nPlot a histogram of the empirical distribution of the AGE column\n\n\n\n\n\n\n\n\nQuestion\n\n\n\nTry different values for the bins parameter of geom_histogram()"
+  },
+  {
+    "objectID": "core/labs/lab-univariate-numeric.html#density-estimates",
+    "href": "core/labs/lab-univariate-numeric.html#density-estimates",
+    "title": "LAB: Univariate analysis",
+    "section": "Density estimates",
+    "text": "Density estimates\n\n\n\n\n\n\nQuestion\n\n\n\nPlot a density estimate of the AGE column (use stat_density.\n\n\n\n\n\n\n\n\nQuestion\n\n\n\nPlay with parameters bw, kernel and adjust.\n\n\n\n\n\n\n\n\nQuestion\n\n\n\nOverlay the two plots (histogram and density)."
+  },
+  {
+    "objectID": "core/labs/lab-univariate-numeric.html#ecdf",
+    "href": "core/labs/lab-univariate-numeric.html#ecdf",
+    "title": "LAB: Univariate analysis",
+    "section": "ECDF",
+    "text": "ECDF\n\n\n\n\n\n\nQuestion\n\n\n\nPlot the Empirical CDF of the AGE distribution\n\n\n\n\n\n\n\n\nQuestion\n\n\n\nCan you read the quartiles from the ECDF pplot?"
+  },
+  {
+    "objectID": "core/labs/lab-univariate-numeric.html#quantile-function",
+    "href": "core/labs/lab-univariate-numeric.html#quantile-function",
+    "title": "LAB: Univariate analysis",
+    "section": "Quantile function",
+    "text": "Quantile function\n\n\n\n\n\n\nQuestion\n\n\n\nPlot the quantile function of the AGE distribution."
+  },
+  {
+    "objectID": "core/labs-solutions/lab-univariate-numeric.html#numerical-summary",
+    "href": "core/labs-solutions/lab-univariate-numeric.html#numerical-summary",
+    "title": "LAB: Univariate analysis",
+    "section": "Numerical summary",
+    "text": "Numerical summary\n\n\n\n\n\n\nsolution\n\n\n\n\n\n\nCodedf %&gt;% \n    pull(AGE) %&gt;% \n    summary()\n\n   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. \n  16.00   29.00   42.00   41.85   53.50   80.00 \n\nCodesd(df$AGE) ; IQR(df$AGE) ; mad(df$AGE)\n\n[1] 14.11648\n\n\n[1] 24.5\n\n\n[1] 17.7912\n\n\n\n\n\nUse skimr::skim()\n\n\n\n\n\n\nsolution\n\n\n\n\n\n\nCodedf %&gt;% \n    pull(AGE) %&gt;% \n    skimr::skim()\n\n\nData summary\n\n\nName\nPiped data\n\n\nNumber of rows\n599\n\n\nNumber of columns\n1\n\n\n_______________________\n\n\n\nColumn type frequency:\n\n\n\nnumeric\n1\n\n\n________________________\n\n\n\nGroup variables\nNone\n\n\n\nVariable type: numeric\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nskim_variable\nn_missing\ncomplete_rate\nmean\nsd\np0\np25\np50\np75\np100\nhist\n\n\ndata\n0\n1\n41.85\n14.12\n16\n29\n42\n53.5\n80\n▆▇▇▆▁\n\n\n\n\n\nCodeskm &lt;- df %&gt;% \n  skimr::skim(AGE)\n\nclass(skm)\n\n[1] \"skim_df\"    \"tbl_df\"     \"tbl\"        \"data.frame\"\n\nCodeattributes(skm)\n\n$class\n[1] \"skim_df\"    \"tbl_df\"     \"tbl\"        \"data.frame\"\n\n$row.names\n[1] 1\n\n$names\n [1] \"skim_type\"     \"skim_variable\" \"n_missing\"     \"complete_rate\"\n [5] \"numeric.mean\"  \"numeric.sd\"    \"numeric.p0\"    \"numeric.p25\"  \n [9] \"numeric.p50\"   \"numeric.p75\"   \"numeric.p100\"  \"numeric.hist\" \n\n$data_rows\n[1] 599\n\n$data_cols\n[1] 11\n\n$df_name\n[1] \"`.`\"\n\n$dt_key\n[1] NA\n\n$groups\ncharacter(0)\n\n$base_skimmers\n[1] \"n_missing\"     \"complete_rate\"\n\n$skimmers_used\n$skimmers_used$numeric\n[1] \"mean\" \"sd\"   \"p0\"   \"p25\"  \"p50\"  \"p75\"  \"p100\" \"hist\"\n\nCodetibble::as_tibble(skm)\n\n# A tibble: 1 × 12\n  skim_type skim_variable n_missing complete_rate numeric.mean numeric.sd\n  &lt;chr&gt;     &lt;chr&gt;             &lt;int&gt;         &lt;dbl&gt;        &lt;dbl&gt;      &lt;dbl&gt;\n1 numeric   AGE                   0             1         41.8       14.1\n# ℹ 6 more variables: numeric.p0 &lt;dbl&gt;, numeric.p25 &lt;dbl&gt;, numeric.p50 &lt;dbl&gt;,\n#   numeric.p75 &lt;dbl&gt;, numeric.p100 &lt;dbl&gt;, numeric.hist &lt;chr&gt;\n\n\n\n\n\n\n\n\n\n\n\nQuestion\n\n\n\nCompare mean and median, sd and IQR.\nAre mean and median systematically related?\n\n\n\n\n\n\n\n\nsolution\n\n\n\n\n\nAsk chatgpt.\nThere is at least one relation between median and mean for square-integrable distributoins: \\[|\\text{Median} - \\text{Mean}| \\leq \\text{sd}\\] Lévy’s inequality.\n\n\n\n\n\n\n\n\n\nQuestion\n\n\n\nAre standard deviation and IQR systematically related ?\n\n\n\n\n\n\n\n\nsolution\n\n\n\n\n\nAsk chatgpt.\nYes."
+  },
+  {
+    "objectID": "core/labs-solutions/lab-univariate-numeric.html#boxplots",
+    "href": "core/labs-solutions/lab-univariate-numeric.html#boxplots",
+    "title": "LAB: Univariate analysis",
+    "section": "Boxplots",
+    "text": "Boxplots\n\n\n\n\n\n\nQuestion\n\n\n\nDraw a boxplot of the Age distribution\n\n\n\n\n\n\n\n\nsolution\n\n\n\n\n\n\nCodedf |&gt; \n    ggplot() +\n    aes(x=1L, y=AGE) +\n    geom_boxplot() +\n    labs(\n        title=\"Age distribution\",\n        subtitle = \"Census data\"\n    )\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nQuestion\n\n\n\nHow would you get rid of the useless ticks on the x-axis?\n\n\n\n\n\n\n\n\nsolution\n\n\n\n\n\nAsk chatgpt.\nYes."
+  },
+  {
+    "objectID": "core/labs-solutions/lab-univariate-numeric.html#histograms",
+    "href": "core/labs-solutions/lab-univariate-numeric.html#histograms",
+    "title": "LAB: Univariate analysis",
+    "section": "Histograms",
+    "text": "Histograms\n\n\n\n\n\n\nQuestion\n\n\n\nPlot a histogram of the empirical distribution of the AGE column\n\n\n\n\n\n\n\n\nsolution\n\n\n\n\n\n\nCodep &lt;- df |&gt; \n  ggplot() +\n  aes(x=AGE) +\n  labs(\n    title = \"Age distribution\",\n    subtitle = \"Census data\",\n    x = \"Age (Years)\",\n    y = \"Density\"\n  ) +\n  theme_minimal()\n\np +\n  geom_histogram(aes(y=after_stat(density)),\n                 bins=15,\n                 fill=\"white\",\n                 color=\"black\") +\n  labs(\n    caption = \"Histogram\"\n  )\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nQuestion\n\n\n\nTry different values for the bins parameter of geom_histogram()"
+  },
+  {
+    "objectID": "core/labs-solutions/lab-univariate-numeric.html#density-estimates",
+    "href": "core/labs-solutions/lab-univariate-numeric.html#density-estimates",
+    "title": "LAB: Univariate analysis",
+    "section": "Density estimates",
+    "text": "Density estimates\n\n\n\n\n\n\nQuestion\n\n\n\nPlot a density estimate of the AGE column (use stat_density.\n\n\n\n\n\n\n\n\nsolution\n\n\n\n\n\n\nCodep +\n  stat_density(\n              fill=\"white\",\n              color=\"black\") +\n  labs(\n    caption = \"Kernel Density Estimate\"\n  )\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nQuestion\n\n\n\nPlay with parameters bw, kernel and adjust.\n\n\n\n\n\n\n\n\nQuestion\n\n\n\nOverlay the two plots (histogram and density).\n\n\n\n\n\n\n\n\nsolution\n\n\n\n\n\n\nCodep +\n  stat_density(\n              fill=\"white\",\n              color=\"black\") +\n  geom_histogram(aes(y=after_stat(density)),\n                 bins=15,\n                 fill=\"white\",\n                 color=\"black\",\n                 alpha=.5) +\n  labs(\n    caption = \"Overlayed Density Estimates\"\n  )"
+  },
+  {
+    "objectID": "core/labs-solutions/lab-univariate-numeric.html#ecdf",
+    "href": "core/labs-solutions/lab-univariate-numeric.html#ecdf",
+    "title": "LAB: Univariate analysis",
+    "section": "ECDF",
+    "text": "ECDF\n\n\n\n\n\n\nQuestion\n\n\n\nPlot the Empirical CDF of the AGE distribution\n\n\n\n\n\n\n\n\nsolution\n\n\n\n\n\n\nCodep +\n    stat_ecdf()  +\n    labs(\n        caption = \"Empirical CDF\"\n  )\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nQuestion\n\n\n\nCan you read the quartiles from the ECDF pplot?\n\n\n\n\n\n\n\n\nsolution\n\n\n\n\n\nOf course. Yes, we can."
+  },
+  {
+    "objectID": "core/labs-solutions/lab-univariate-numeric.html#quantile-function",
+    "href": "core/labs-solutions/lab-univariate-numeric.html#quantile-function",
+    "title": "LAB: Univariate analysis",
+    "section": "Quantile function",
+    "text": "Quantile function\n\n\n\n\n\n\nQuestion\n\n\n\nPlot the quantile function of the AGE distribution."
   }
 ]
