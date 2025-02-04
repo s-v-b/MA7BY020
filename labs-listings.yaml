@@ -23,11 +23,11 @@
   date: "2025-01-22"
   path: "core/labs/lab-tables.html"
   categories: [R language, dplyr, tabula data]
-# - title: "Bivariate data. GSS"
-#   author: "Master I MIDS UParis Cité"
-#   date: "2025-01-29"
-#   path: "labs/lab-bivariate.html"
-#   categories: [GSS, bivariate data, mosaicplots, scatterplots, simple linear regression]
+- title: "Bivariate data"
+  author: "Master I MIDS UParis Cité"
+  date: "2025-02-05"
+  path: "core/labs/lab-bivariate.html"
+  categories: [bivariate data, mosaicplots, scatterplots, simple linear regression]
 # - title: "Multiple Linear regression: OLS"
 #   author: "Master I MIDS UParis Cité"
 #   date: "2025-01-29"

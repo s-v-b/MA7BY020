@@ -75,14 +75,14 @@ website:
         text: Projects
       - section: "Journal"
         contents:
-          - href: weeks/week-1.qmd
-            text: "Week 1"
-          - href: weeks/week-2.qmd
-            text: "Week 2"
+          - href: weeks/week-4.qmd
+            text: "Week 4"
           - href: weeks/week-3.qmd
             text: "Week 3"
-          # - href: weeks/week-4.qmd
-          #   text: "Week 4"
+          - href: weeks/week-2.qmd
+            text: "Week 2"
+          - href: weeks/week-1.qmd
+            text: "Week 1"
           # - href: weeks/week-5.qmd
           #   text: "Week 5"
           # - href: weeks/week-6.qmd
@@ -105,8 +105,8 @@ website:
 format:
   html:
     theme:
-      light: [cosmo, theme.scss]
-      dark: [cosmo, theme-dark.scss]
+      light: [cosmo, theme.scss, custom.css]
+      dark: [cosmo, theme-dark.scss, custom.css]
     mainfont: "Atkinson Hyperlegible"
     code-copy: true
     code-overflow: wrap

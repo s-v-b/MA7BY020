@@ -1,0 +1,21 @@
+// adapted from custom-rladies.scss  by
+// 
+/*-- scss:defaults --*/
+// importing fonts
+
+
+
+//code
+$code-color: #1520ec !default;
+$font-family-monospace: 'Ubuntu Mono', monospace  !default;
+$code-block-font-size: .75rem !default ; 
+
+/*-- scss:rules --*/
+
+
+// resizing fonts in callouts 
+// 
+
+.callout.callout-style-default div.callout-body {
+  font-size: 1rem ;
+}
