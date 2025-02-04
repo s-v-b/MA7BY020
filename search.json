@@ -135,7 +135,7 @@
     "href": "labs-solutions-listings.html",
     "title": "Labs Solutions",
     "section": "",
-    "text": "Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Tags\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\nDate\n\n\nTitle\n\n\nTags\n\n\n\n\n\n\nJan 15, 2025\n\n\nIntroduction and Visualization\n\n\nVisualization, Public Statistics\n\n\n\n\nJan 15, 2025\n\n\nBrush up your R\n\n\nR language, Tidyverse, IDE\n\n\n\n\nJan 22, 2025\n\n\nTable wranglig\n\n\nR language, dplyr, tabula data\n\n\n\n\nJan 29, 2025\n\n\nUnivariate categorical data\n\n\nUnivariate data, GSS\n\n\n\n\nJan 30, 2025\n\n\nUnivariate numeric data\n\n\nUnivariate data, GSS\n\n\n\n\n\nNo matching items",
+    "text": "Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Tags\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\nDate\n\n\nTitle\n\n\nTags\n\n\n\n\n\n\nJan 15, 2025\n\n\nIntroduction and Visualization\n\n\nVisualization, Public Statistics\n\n\n\n\nJan 15, 2025\n\n\nBrush up your R\n\n\nR language, Tidyverse, IDE\n\n\n\n\nJan 22, 2025\n\n\nTable wranglig\n\n\nR language, dplyr, tabula data\n\n\n\n\nJan 29, 2025\n\n\nUnivariate categorical data\n\n\nUnivariate data, GSS\n\n\n\n\nJan 30, 2025\n\n\nUnivariate numeric data\n\n\nUnivariate data, GSS\n\n\n\n\nFeb 5, 2025\n\n\nBivariate data\n\n\nbivariate data, mosaicplots, scatterplots, simple linear regression\n\n\n\n\n\nNo matching items",
     "crumbs": [
       "Solutions"
     ]
@@ -244,28 +244,28 @@
     "href": "core/labs/lab-bivariate.html#setup",
     "title": "Bivariate analysis",
     "section": "Setup",
-    "text": "Setup\n\nCodestopifnot(\n  require(tidyverse), \n  require(glue),\n  require(magrittr),\n  require(lobstr),\n  require(arrow),\n  require(ggforce),\n  require(vcd),\n  require(ggmosaic),\n  require(httr),\n  require(patchwork)\n)\n\n\nBivariate techniques depend on the types of columns we are facing.\nFor numerical/numerical samples\n\nScatter plots\nSmoothed lineplots (for example linear regression)\n2-dimensional density plots\n\nFor categorical/categorical samples : mosaicplots and variants\nFor numerical/categorical samples\n\nBoxplots per group\nHistograms per group\nDensity plots per group\nQuantile-Quantile plots"
+    "text": "Setup\n\nCodestopifnot(\n  require(glue),\n  require(magrittr),\n  require(lobstr),\n  require(arrow),\n  require(ggforce),\n  require(vcd),\n  require(ggmosaic),\n  require(httr),\n  require(patchwork),\n  require(corrr),\n  require(gapminder),\n  require(slider),\n  require(tidyverse) \n) \n\n\nBivariate techniques depend on the types of columns we are facing.\nFor numerical/numerical samples\n\nScatter plots\nSmoothed lineplots (for example linear regression)\n2-dimensional density plots\n\nFor categorical/categorical samples : mosaicplots and variants\nFor numerical/categorical samples\n\nBoxplots per group\nHistograms per group\nDensity plots per group"
   },
   {
     "objectID": "core/labs/lab-bivariate.html#chi-square-independenceassociation-test",
     "href": "core/labs/lab-bivariate.html#chi-square-independenceassociation-test",
     "title": "Bivariate analysis",
     "section": "Chi-square independence/association test",
-    "text": "Chi-square independence/association test"
+    "text": "Chi-square independence/association test\nhttps://statsfonda.github.io/site/content/ch4_2.html#test-dindépendance\n\n\n\n\n\n\nQuestion\n\n\n\n\nCompute the chi-square association statistic between CATEGORIE and SEXE.\nDisplay the output of chisq.test() as a table, using broom::tidy()"
   },
   {
     "objectID": "core/labs/lab-bivariate.html#grouped-boxplots",
     "href": "core/labs/lab-bivariate.html#grouped-boxplots",
     "title": "Bivariate analysis",
     "section": "Grouped boxplots",
-    "text": "Grouped boxplots\nPlot boxplots of AGE according to NIV_ETUDES\nDraw density plots of AGE, facet by NIV_ETUDES and SEXE\nCollapse rare levels of NIV_ETUDES and replay."
+    "text": "Grouped boxplots\n\n\n\n\n\n\nQuestion\n\n\n\nPlot boxplots of AGE according to NIV_ETUDES\n\n\n\n\n\n\n\n\nQuestion\n\n\n\nDraw density plots of AGE, facet by NIV_ETUDES and SEXE\n\n\n\n\n\n\n\n\nQuestion\n\n\n\nCollapse rare levels of NIV_ETUDES and replay."
   },
   {
     "objectID": "core/labs/lab-bivariate.html#scatterplots",
     "href": "core/labs/lab-bivariate.html#scatterplots",
     "title": "Bivariate analysis",
     "section": "Scatterplots",
-    "text": "Scatterplots\nMake a scatterplot of SAL_HORwith respect to AGE"
+    "text": "Scatterplots\n\n\n\n\n\n\nQuestion\n\n\n\nMake a scatterplot of SAL_HORwith respect to AGE"
   },
   {
     "objectID": "core/labs/lab-bivariate.html#correlations",
@@ -574,7 +574,7 @@
     "href": "labs-listings.html",
     "title": "Labs",
     "section": "",
-    "text": "Note\n\n\n\nSessions are organized around labs. Feel free to look at the lab before sessions. Do not rush to solutions proposed here\n\n\n\n\n   \n     \n     \n       Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Tags\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\nDate\n\n\nTitle\n\n\nTags\n\n\n\n\n\n\nJan 15, 2025\n\n\nIntroduction and Visualization\n\n\nVisualization, Public Statistics\n\n\n\n\nJan 15, 2025\n\n\nBrush up your R\n\n\nR language, Tidyverse, IDE\n\n\n\n\nJan 22, 2025\n\n\nTable wranglig\n\n\nR language, dplyr, tabula data\n\n\n\n\nJan 29, 2025\n\n\nUnivariate categorical data\n\n\nUnivariate data, GSS\n\n\n\n\nJan 30, 2025\n\n\nUnivariate numeric data\n\n\nUnivariate data, GSS\n\n\n\n\n\nNo matching items\n\n\n\n\n\n\n\n\nTip\n\n\n\nBefore working out a lab, make sure the relevant packages are installed in your environment.",
+    "text": "Note\n\n\n\nSessions are organized around labs. Feel free to look at the lab before sessions. Do not rush to solutions proposed here\n\n\n\n\n   \n     \n     \n       Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Tags\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\nDate\n\n\nTitle\n\n\nTags\n\n\n\n\n\n\nJan 15, 2025\n\n\nIntroduction and Visualization\n\n\nVisualization, Public Statistics\n\n\n\n\nJan 15, 2025\n\n\nBrush up your R\n\n\nR language, Tidyverse, IDE\n\n\n\n\nJan 22, 2025\n\n\nTable wranglig\n\n\nR language, dplyr, tabula data\n\n\n\n\nJan 29, 2025\n\n\nUnivariate categorical data\n\n\nUnivariate data, GSS\n\n\n\n\nJan 30, 2025\n\n\nUnivariate numeric data\n\n\nUnivariate data, GSS\n\n\n\n\nFeb 5, 2025\n\n\nBivariate data\n\n\nbivariate data, mosaicplots, scatterplots, simple linear regression\n\n\n\n\n\nNo matching items\n\n\n\n\n\n\n\n\nTip\n\n\n\nBefore working out a lab, make sure the relevant packages are installed in your environment.",
     "crumbs": [
       "Labs"
     ]
@@ -704,28 +704,28 @@
     "href": "core/labs-solutions/lab-bivariate.html#setup",
     "title": "Bivariate analysis",
     "section": "Setup",
-    "text": "Setup\n\nCodestopifnot(\n  require(tidyverse), \n  require(glue),\n  require(magrittr),\n  require(lobstr),\n  require(arrow),\n  require(ggforce),\n  require(vcd),\n  require(ggmosaic),\n  require(httr),\n  require(patchwork)\n)\n\n\nBivariate techniques depend on the types of columns we are facing.\nFor numerical/numerical samples\n\nScatter plots\nSmoothed lineplots (for example linear regression)\n2-dimensional density plots\n\nFor categorical/categorical samples : mosaicplots and variants\nFor numerical/categorical samples\n\nBoxplots per group\nHistograms per group\nDensity plots per group\nQuantile-Quantile plots"
+    "text": "Setup\n\nCodestopifnot(\n  require(glue),\n  require(magrittr),\n  require(lobstr),\n  require(arrow),\n  require(ggforce),\n  require(vcd),\n  require(ggmosaic),\n  require(httr),\n  require(patchwork),\n  require(corrr),\n  require(gapminder),\n  require(slider),\n  require(tidyverse) \n) \n\n\nBivariate techniques depend on the types of columns we are facing.\nFor numerical/numerical samples\n\nScatter plots\nSmoothed lineplots (for example linear regression)\n2-dimensional density plots\n\nFor categorical/categorical samples : mosaicplots and variants\nFor numerical/categorical samples\n\nBoxplots per group\nHistograms per group\nDensity plots per group"
   },
   {
     "objectID": "core/labs-solutions/lab-bivariate.html#chi-square-independenceassociation-test",
     "href": "core/labs-solutions/lab-bivariate.html#chi-square-independenceassociation-test",
     "title": "Bivariate analysis",
     "section": "Chi-square independence/association test",
-    "text": "Chi-square independence/association test\n\n\n\n\n\n\n\nCodetest_1 &lt;- df |&gt;\n  select(CATEGORIE, SEXE) |&gt;\n  table() |&gt;\n  chisq.test()\n\n# test_1 \n\ntest_1 |&gt;\n  broom::tidy() |&gt;\n  knitr::kable()\n\n\n\nstatistic\np.value\nparameter\nmethod\n\n\n140.6717\n0\n5\nPearson’s Chi-squared test\n\n\n\n\n\n\n\nThe Chi-square statistics can be computed from the contingeny table\n\n\n\n\n\n\n\nCoderowcounts &lt;- apply(tb, MARGIN = 1, FUN = sum)\ncolcounts &lt;- apply(tb, MARGIN = 2, FUN = sum)\n\nexpected &lt;- (rowcounts %*% t(colcounts))/sum(colcounts)\n\n# norm((tb - expected) / sqrt(expected), type = \"F\")^2\n\nexpected |&gt;\n  as_tibble() |&gt;\n  knitr::kable()\n\n\n\nF\nM\n\n\n\n22.80801\n23.19199\n\n\n65.94491\n67.05509\n\n\n61.97830\n63.02170\n\n\n23.79967\n24.20033\n\n\n46.60768\n47.39232\n\n\n75.86144\n77.13856"
+    "text": "Chi-square independence/association test\nhttps://statsfonda.github.io/site/content/ch4_2.html#test-dindépendance\n\n\n\n\n\n\nQuestion\n\n\n\n\nCompute the chi-square association statistic between CATEGORIE and SEXE.\nDisplay the output of chisq.test() as a table, using broom::tidy()\n\n\n\n\n\n\n\n\n\n\n\nCodetest_1 &lt;- df |&gt;\n  select(CATEGORIE, SEXE) |&gt;\n  table() |&gt;\n  chisq.test()\n\n# test_1 \n\ntest_1 |&gt;\n  broom::tidy() |&gt;\n  knitr::kable()\n\n\n\nstatistic\np.value\nparameter\nmethod\n\n\n140.6717\n0\n5\nPearson’s Chi-squared test\n\n\n\n\n\n\n\n\n\n\n\n\n\nQuestion\n\n\n\nCompute the Chi-square statistics from the contingeny table\n\n\n\n\n\n\n\n\n\nCoderowcounts &lt;- apply(tb, MARGIN = 1, FUN = sum)\ncolcounts &lt;- apply(tb, MARGIN = 2, FUN = sum)\n\nexpected &lt;- (rowcounts %*% t(colcounts))/sum(colcounts)\n\n# norm((tb - expected) / sqrt(expected), type = \"F\")^2\n\nexpected |&gt;\n  as_tibble() |&gt;\n  knitr::kable()\n\n\n\nF\nM\n\n\n\n22.80801\n23.19199\n\n\n65.94491\n67.05509\n\n\n61.97830\n63.02170\n\n\n23.79967\n24.20033\n\n\n46.60768\n47.39232\n\n\n75.86144\n77.13856"
   },
   {
     "objectID": "core/labs-solutions/lab-bivariate.html#grouped-boxplots",
     "href": "core/labs-solutions/lab-bivariate.html#grouped-boxplots",
     "title": "Bivariate analysis",
     "section": "Grouped boxplots",
-    "text": "Grouped boxplots\nPlot boxplots of AGE according to NIV_ETUDES\n\n\n\n\n\n\n\nCodedf |&gt;\n  ggplot() +\n  aes(x=NIV_ETUDES, y=AGE) +\n  geom_boxplot() +\n  rot_x_text\n\n\n\n\n\n\n\n\nCodedf |&gt;\n  ggplot() +\n  aes(x=fct_infreq(NIV_ETUDES), y=AGE) +\n  geom_boxplot(varwidth = T) +\n  rot_x_text\n\n\n\n\n\n\n\n\n\n\nDraw density plots of AGE, facet by NIV_ETUDES and SEXE\n\n\n\n\n\n\n\nCodep &lt;- df |&gt; \n  ggplot() +\n  aes(x=AGE) +\n  stat_density(fill=\"white\", color=\"black\") +\n  facet_grid(rows=vars(NIV_ETUDES), \n             cols=vars(SEXE))\n\np\n\nWarning: Groups with fewer than two data points have been dropped.\nGroups with fewer than two data points have been dropped.\n\n\nWarning in max(ids, na.rm = TRUE): no non-missing arguments to max; returning\n-Inf\nWarning in max(ids, na.rm = TRUE): no non-missing arguments to max; returning\n-Inf\n\n\n\n\n\n\n\n\n\n\n\nCollapse rare levels of NIV_ETUDES and replay.\n\n\n\n\n\n\n\nCodep %+% (df |&gt; \n  mutate(NIV_ETUDES = fct_lump_min(NIV_ETUDES, min=30)) )"
+    "text": "Grouped boxplots\n\n\n\n\n\n\nQuestion\n\n\n\nPlot boxplots of AGE according to NIV_ETUDES\n\n\n\n\n\n\n\n\n\nCodedf |&gt;\n  ggplot() +\n  aes(x=NIV_ETUDES, y=AGE) +\n  geom_boxplot() +\n  rot_x_text\n\n\n\n\n\n\n\n\nCodedf |&gt;\n  ggplot() +\n  aes(x=fct_infreq(NIV_ETUDES), y=AGE) +\n  geom_boxplot(varwidth = T) +\n  rot_x_text\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nQuestion\n\n\n\nDraw density plots of AGE, facet by NIV_ETUDES and SEXE\n\n\n\n\n\n\n\n\n\nCodep &lt;- df |&gt; \n  ggplot() +\n  aes(x=AGE) +\n  stat_density(fill=\"white\", color=\"black\") +\n  facet_grid(rows=vars(NIV_ETUDES), \n             cols=vars(SEXE))\n\np\n\nWarning: Groups with fewer than two data points have been dropped.\nGroups with fewer than two data points have been dropped.\n\n\nWarning in max(ids, na.rm = TRUE): no non-missing arguments to max; returning\n-Inf\nWarning in max(ids, na.rm = TRUE): no non-missing arguments to max; returning\n-Inf\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nQuestion\n\n\n\nCollapse rare levels of NIV_ETUDES and replay.\n\n\n\n\n\n\n\n\n\nCodep %+% (\n  df |&gt; \n    mutate(NIV_ETUDES = fct_lump_min(NIV_ETUDES, min=30)) \n)"
   },
   {
     "objectID": "core/labs-solutions/lab-bivariate.html#scatterplots",
     "href": "core/labs-solutions/lab-bivariate.html#scatterplots",
     "title": "Bivariate analysis",
     "section": "Scatterplots",
-    "text": "Scatterplots\nMake a scatterplot of SAL_HORwith respect to AGE\n\n\n\n\n\n\n\nCodedf |&gt; \n  ggplot() +\n  aes(x=AGE, y=SAL_HOR, color=SEXE) +\n  geom_point(alpha=.7)"
+    "text": "Scatterplots\n\n\n\n\n\n\nQuestion\n\n\n\nMake a scatterplot of SAL_HORwith respect to AGE\n\n\n\n\n\n\n\n\n\nCodedf |&gt; \n  ggplot() +\n  aes(x=AGE, y=SAL_HOR, color=SEXE) +\n  geom_point(alpha=.7)"
   },
   {
     "objectID": "core/labs-solutions/lab-bivariate.html#correlations",
@@ -1685,5 +1685,120 @@
     "title": "LAB: Univariate analysis",
     "section": "Quantile function",
     "text": "Quantile function\n\n\n\n\n\n\nQuestion\n\n\n\nPlot the quantile function of the AGE distribution."
+  },
+  {
+    "objectID": "core/labs/lab-bivariate.html#linear-correlation-coefficient",
+    "href": "core/labs/lab-bivariate.html#linear-correlation-coefficient",
+    "title": "Bivariate analysis",
+    "section": "Linear correlation coefficient",
+    "text": "Linear correlation coefficient\n\n\n\n\n\n\nQuestion\n\n\n\nCompute the Pearson, Spearman and Kendall correlation coefficients between AGE and SAL_HOR using function cor() from base R"
+  },
+  {
+    "objectID": "core/labs/lab-bivariate.html#rank-correlation-coefficient-spearman-ρ",
+    "href": "core/labs/lab-bivariate.html#rank-correlation-coefficient-spearman-ρ",
+    "title": "Bivariate analysis",
+    "section": "Rank correlation coefficient (Spearman \\(ρ\\))",
+    "text": "Rank correlation coefficient (Spearman \\(ρ\\))\nSpearman’s rho (𝜌) and Kendall’s tau (𝜏) are both non-parametric correlation coefficients used to measure the strength and direction of a monotonic relationship between two variables. However, they have some key differences:\n1. Definition & Computation\n\n\nSpearman’s rho (𝜌):\n\nBased on rank differences.\nCalculated as the Pearson correlation coefficient between the ranked variables.\nFormula:\\[\n\\rho = 1 - \\frac{6 \\sum d_i^2}{n(n^2 - 1)}\n\\] where \\(d_i\\) is the difference between the ranks of each pair, and \\(n\\) is the number of observations.\n\n\n\nKendall’s tau (𝜏):\n\nBased on concordant and discordant pairs.\nMeasures the proportion of pairs that have the same order in both variables compared to the total number of pairs.\nFormula:\\[  \n\\tau = \\frac{(C - D)}{\\frac{1}{2} n (n - 1)}\n\\] where \\(C\\) is the number of concordant pairs, and \\(D\\) is the number of discordant pairs.\n\n\n\n2. Sensitivity to Data Structure\n\n\nSpearman’s rho is more sensitive to large differences in ranks because it uses squared rank differences.\n\nKendall’s tau is based on counting concordant vs. discordant pairs, making it more robust to small sample sizes and less sensitive to outliers.\n\n3. Interpretation\n\n\nSpearman’s rho ranges from -1 to 1, with values closer to ±1 indicating a stronger monotonic relationship.\n\nKendall’s tau also ranges from -1 to 1, but its values are generally lower than Spearman’s rho for the same dataset.\nKendall’s tau is often preferred when working with small datasets or when ranking reliability is more important.\n\n4. When to Use Which?\n\n\n\n\n\n\n\nFactor\nSpearman’s rho (𝜌)\nKendall’s tau (𝜏)\n\n\n\nLarge differences in ranks\nMore sensitive\nLess sensitive\n\n\nSmall sample sizes\nLess reliable\nMore reliable\n\n\nOutlier resistance\nModerate\nHigh\n\n\nComputational efficiency\nFaster\nSlower (due to pairwise comparisons)\n\n\nInterpretation\nSimilar to Pearson’s correlation\nMore intuitive (proportion of concordance)\n\n\n\nSummary\n\n\nSpearman’s rho is preferred when working with ranked data and when interested in detecting nonlinear relationships.\n\nKendall’s tau is better for small samples and ordinal data where the actual ranking agreement matters more than differences in ranks.\n\nWould you like an example to illustrate the difference? 😊 ## Rank correlation coefficient (Kendall \\(τ\\))"
+  },
+  {
+    "objectID": "core/labs/lab-bivariate.html#chatterjees-correlation-coefficient-chatterjees-ξ",
+    "href": "core/labs/lab-bivariate.html#chatterjees-correlation-coefficient-chatterjees-ξ",
+    "title": "Bivariate analysis",
+    "section": "Chatterjee’s correlation coefficient (Chatterjee’s \\(ξ\\))",
+    "text": "Chatterjee’s correlation coefficient (Chatterjee’s \\(ξ\\))\n\nThe three most popular classical measures of statistical association are Pearson’s correlation coefficient, Spearman’s ρ, and Kendall’s τ . These coefficients are very powerful for detecting linear or monotone associations, and they have well-developed asymptotic theories for calculating P-values. However, the big problem is that they are not effective for detecting associations that are not monotonic, even in the complete absence of noise.\n\n\nLet \\((X, Y)\\) be a pair of random variables, where \\(Y\\) is not a constant. Let \\((X_1 , Y_1 ), \\ldots, (X_n , Y_n )\\) be i.i.d. pairs with the same law as \\((X, Y)\\), where \\(n ≥ 2\\). The new coefficient has a simpler formula if the \\(X_i\\)’s and the \\(Y_i\\) ’s have no ties. This simpler formula is presented first, and then the general case is given. Suppose that the \\(X_i\\)’s and the \\(Y_i\\) ’s have no ties. Rearrange the data as \\((X_{(1)} , Y_{(1)} ), . . . , (X_{(n)} , Y_{(n)} )\\) such that \\(X_{(1)} ≤ · · · ≤ X_{(n)}\\) . Since the \\(X_i\\)’s have no ties, there is a unique way of doing this. Let ri be the rank of \\(Y_{(i)}\\), that is, the number of \\(j\\) such that \\(Y_{(j)} ≤ Y_{(i)}\\). The new correlation coefficient is defined as\n\n\\[ξ_n(X, Y ) := 1 −  3\\sum_{i=1}^{n-1} \\frac{|r_{i+1} − r_i|}{n^2-1}\\]\n\nIn the presence of ties, \\(ξ_n\\) is defined as follows. If there are ties among the \\(X_i\\)’s, then choose an increasing rearrangement as above by breaking ties uniformly at random. Let \\(r_i\\) be as before, and additionally define \\(l_i\\) to be the number of \\(j\\) such that \\(Y_{(j)} ≥ Y_{(i)}\\). Then define\n\n\\[ξ_n(X, Y ) := 1 −  3n\\sum_{i=1}^{n-1} \\frac{|r_{i+1} − r_i|}{2 \\sum_{i=1}^n l_i (n − l_i )}\\]\n\nWhen there are no ties among the \\(Y_i\\) ’s, \\(l_1 , \\ldots , l_n\\) is just a permutation of \\(1, \\ldots , n\\), and so the denominator in the above expression is just \\(n(n^2 − 1)/3\\), which reduces this definition to the earlier expression.\n\nFrom Sourav Chatterjee: A new correlation coefficient\n\n\n\n\n\n\nQuestion\n\n\n\nWrite a dplyr pipeline from computing the \\(ξ\\) correlation coefficient between Y=lifeExp and X=gdpPercap in the gapminder dataset, per year and continent."
+  },
+  {
+    "objectID": "core/labs/lab-bivariate.html#rank-based-methods",
+    "href": "core/labs/lab-bivariate.html#rank-based-methods",
+    "title": "Bivariate analysis",
+    "section": "Rank based methods",
+    "text": "Rank based methods\nSpearman’s rho (𝜌) and Kendall’s tau (𝜏) are both non-parametric correlation coefficients used to measure the strength and direction of a monotonic relationship between two variables.\n\nSpearman’s rho (𝜌)\n\nBased on rank differences. Defined as the Pearson correlation coefficient between the ranked variables.\\[\\rho = 1 - \\frac{6 \\sum d_i^2}{n(n^2 - 1)}\\] where \\(d_i\\) is the difference between the ranks of each pair, and \\(n\\) is the number of observations.\n\nKendall’s tau (𝜏)\n\nBased on concordant and discordant pairs.  Measures the proportion of pairs that have the same order in both variables compared to the total number of pairs. \\[\\tau = \\frac{(C - D)}{\\frac{1}{2} n (n - 1)}\\] where \\(C\\) is the number of concordant pairs, and \\(D\\) is the number of discordant pairs.\n\n\nWhen to Use Which?\n\n\n\n\n\n\n\nFactor\nSpearman’s rho (𝜌)\nKendall’s tau (𝜏)\n\n\n\nLarge differences in ranks\nMore sensitive\nLess sensitive\n\n\nSmall sample sizes\nLess reliable\nMore reliable\n\n\nOutlier resistance\nModerate\nHigh\n\n\nComputational efficiency\nFaster\nSlower (due to pairwise comparisons)\n\n\nInterpretation\nSimilar to Pearson’s correlation\nMore intuitive (proportion of concordance)"
+  },
+  {
+    "objectID": "core/labs-solutions/lab-bivariate.html#linear-correlation-coefficient",
+    "href": "core/labs-solutions/lab-bivariate.html#linear-correlation-coefficient",
+    "title": "Bivariate analysis",
+    "section": "Linear correlation coefficient",
+    "text": "Linear correlation coefficient\n\n\n\n\n\n\nQuestion\n\n\n\nCompute the Pearson, Spearman and Kendall correlation coefficients between AGE and SAL_HOR using function cor() from base R\n\n\n\n\n\n\n\n\nSolution\n\n\n\n\nCodedf |&gt;\n  summarise(\n    pearson=cor(AGE, SAL_HOR), \n    spearman=cor(AGE, SAL_HOR, method = \"spearman\"),\n    kendall=cor(AGE, SAL_HOR, method=\"kendall\")) |&gt; \n  gt::gt() |&gt;\n  gt::fmt_number(decimals=2) |&gt;\n  gt::tab_caption(\n    \"Correlation coefficients between SAL_HOR and AGE\\nRecensement dataset\"\n    )\n\n\n\n\nCorrelation coefficients between SAL_HOR and AGE Recensement dataset\n\npearson\nspearman\nkendall\n\n\n0.25\n0.32\n0.22"
+  },
+  {
+    "objectID": "core/labs-solutions/lab-bivariate.html#rank-based-methods",
+    "href": "core/labs-solutions/lab-bivariate.html#rank-based-methods",
+    "title": "Bivariate analysis",
+    "section": "Rank based methods",
+    "text": "Rank based methods\nSpearman’s rho (𝜌) and Kendall’s tau (𝜏) are both non-parametric correlation coefficients used to measure the strength and direction of a monotonic relationship between two variables.\n\nSpearman’s rho (𝜌)\n\nBased on rank differences. Defined as the Pearson correlation coefficient between the ranked variables.\\[\\rho = 1 - \\frac{6 \\sum d_i^2}{n(n^2 - 1)}\\] where \\(d_i\\) is the difference between the ranks of each pair, and \\(n\\) is the number of observations.\n\nKendall’s tau (𝜏)\n\nBased on concordant and discordant pairs.  Measures the proportion of pairs that have the same order in both variables compared to the total number of pairs. \\[\\tau = \\frac{(C - D)}{\\frac{1}{2} n (n - 1)}\\] where \\(C\\) is the number of concordant pairs, and \\(D\\) is the number of discordant pairs.\n\n\nWhen to Use Which?\n\n\n\n\n\n\n\nFactor\nSpearman’s rho (𝜌)\nKendall’s tau (𝜏)\n\n\n\nLarge differences in ranks\nMore sensitive\nLess sensitive\n\n\nSmall sample sizes\nLess reliable\nMore reliable\n\n\nOutlier resistance\nModerate\nHigh\n\n\nComputational efficiency\nFaster\nSlower (due to pairwise comparisons)\n\n\nInterpretation\nSimilar to Pearson’s correlation\nMore intuitive (proportion of concordance)"
+  },
+  {
+    "objectID": "core/labs-solutions/lab-bivariate.html#chatterjees-correlation-coefficient-chatterjees-ξ",
+    "href": "core/labs-solutions/lab-bivariate.html#chatterjees-correlation-coefficient-chatterjees-ξ",
+    "title": "Bivariate analysis",
+    "section": "Chatterjee’s correlation coefficient (Chatterjee’s \\(ξ\\))",
+    "text": "Chatterjee’s correlation coefficient (Chatterjee’s \\(ξ\\))\n\nThe three most popular classical measures of statistical association are Pearson’s correlation coefficient, Spearman’s ρ, and Kendall’s τ . These coefficients are very powerful for detecting linear or monotone associations, and they have well-developed asymptotic theories for calculating P-values. However, the big problem is that they are not effective for detecting associations that are not monotonic, even in the complete absence of noise.\n\n\nLet \\((X, Y)\\) be a pair of random variables, where \\(Y\\) is not a constant. Let \\((X_1 , Y_1 ), \\ldots, (X_n , Y_n )\\) be i.i.d. pairs with the same law as \\((X, Y)\\), where \\(n ≥ 2\\). The new coefficient has a simpler formula if the \\(X_i\\)’s and the \\(Y_i\\) ’s have no ties. This simpler formula is presented first, and then the general case is given. Suppose that the \\(X_i\\)’s and the \\(Y_i\\) ’s have no ties. Rearrange the data as \\((X_{(1)} , Y_{(1)} ), . . . , (X_{(n)} , Y_{(n)} )\\) such that \\(X_{(1)} ≤ · · · ≤ X_{(n)}\\) . Since the \\(X_i\\)’s have no ties, there is a unique way of doing this. Let ri be the rank of \\(Y_{(i)}\\), that is, the number of \\(j\\) such that \\(Y_{(j)} ≤ Y_{(i)}\\). The new correlation coefficient is defined as\n\n\\[ξ_n(X, Y ) := 1 −  3\\sum_{i=1}^{n-1} \\frac{|r_{i+1} − r_i|}{n^2-1}\\]\n\nIn the presence of ties, \\(ξ_n\\) is defined as follows. If there are ties among the \\(X_i\\)’s, then choose an increasing rearrangement as above by breaking ties uniformly at random. Let \\(r_i\\) be as before, and additionally define \\(l_i\\) to be the number of \\(j\\) such that \\(Y_{(j)} ≥ Y_{(i)}\\). Then define\n\n\\[ξ_n(X, Y ) := 1 −  3n\\sum_{i=1}^{n-1} \\frac{|r_{i+1} − r_i|}{2 \\sum_{i=1}^n l_i (n − l_i )}\\]\n\nWhen there are no ties among the \\(Y_i\\) ’s, \\(l_1 , \\ldots , l_n\\) is just a permutation of \\(1, \\ldots , n\\), and so the denominator in the above expression is just \\(n(n^2 − 1)/3\\), which reduces this definition to the earlier expression.\n\nFrom Sourav Chatterjee: A new correlation coefficient\n\n\n\n\n\n\nQuestion\n\n\n\nWrite a dplyr pipeline from computing the \\(ξ\\) correlation coefficient between Y=lifeExp and X=gdpPercap in the gapminder dataset, per year and continent.\n\n\n\n\n\n\n\n\nSolution\n\n\n\n\nCodetab_xi &lt;- gapminder::gapminder |&gt;  \n  group_by(year, continent) |&gt; \n  arrange(gdpPercap) |&gt; \n  mutate(rnk= row_number(lifeExp), \n         lnk=rank(desc(lifeExp), ties.method = \"max\"), \n         N=n()) |&gt; \n  mutate(fol=lead(rnk), dd=abs(fol-rnk)) |&gt; \n  summarise(Xi=1-n()*sum(dd, na.rm = T)/(2*sum(lnk*(N-lnk), na.rm = T))) \n\n`summarise()` has grouped output by 'year'. You can override using the\n`.groups` argument.\n\nCodetab_xi  |&gt; \n  print(n=10)  \n\n# A tibble: 60 × 3\n# Groups:   year [12]\n    year continent     Xi\n   &lt;int&gt; &lt;fct&gt;      &lt;dbl&gt;\n 1  1952 Africa    0.0377\n 2  1952 Americas  0.135 \n 3  1952 Asia      0.244 \n 4  1952 Europe    0.610 \n 5  1952 Oceania   0     \n 6  1957 Africa    0.0466\n 7  1957 Americas  0.240 \n 8  1957 Asia      0.330 \n 9  1957 Europe    0.516 \n10  1957 Oceania   0     \n# ℹ 50 more rows\n\n\n\nCodetab_xi |&gt;\n  pivot_wider(\n    id_cols=continent, \n    names_from=year,\n    values_from=Xi\n    ) |&gt;\n  gt::gt() |&gt;\n  gt::fmt_number(decimals=2)\n\n\n\n\n\ncontinent\n1952\n1957\n1962\n1967\n1972\n1977\n1982\n1987\n1992\n1997\n2002\n2007\n\n\n\nAfrica\n0.04\n0.05\n−0.01\n0.05\n0.24\n0.27\n0.38\n0.27\n0.36\n0.31\n0.13\n0.17\n\n\nAmericas\n0.13\n0.24\n0.35\n0.17\n0.19\n0.13\n0.30\n0.43\n0.52\n0.33\n0.29\n0.23\n\n\nAsia\n0.24\n0.33\n0.38\n0.27\n0.32\n0.26\n0.29\n0.30\n0.43\n0.50\n0.50\n0.46\n\n\nEurope\n0.61\n0.52\n0.40\n0.38\n0.32\n0.38\n0.06\n0.29\n0.39\n0.51\n0.48\n0.51\n\n\nOceania\n0.00\n0.00\n0.00\n0.00\n0.00\n0.00\n0.00\n0.00\n0.00\n0.00\n0.00\n0.00"
+  },
+  {
+    "objectID": "weeks/week-4.html",
+    "href": "weeks/week-4.html",
+    "title": "Week 4",
+    "section": "",
+    "text": "Important\n\n\n\n\nSession I Buffon (RH10A) Wednesday 13h30-15h\nSession II Sophie Germain (2012) Friday 9h00-10h30\n Calendar",
+    "crumbs": [
+      "Journal",
+      "Week 4"
+    ]
+  },
+  {
+    "objectID": "weeks/week-4.html#blackboard",
+    "href": "weeks/week-4.html#blackboard",
+    "title": "Week 4",
+    "section": " Blackboard",
+    "text": "Blackboard\n\nCategorical samples\n\n2-ways Contingency tables\nChi-square statistics\n\nNumeric samples\n\nCovariance\nCorrelation(s)",
+    "crumbs": [
+      "Journal",
+      "Week 4"
+    ]
+  },
+  {
+    "objectID": "weeks/week-4.html#labs",
+    "href": "weeks/week-4.html#labs",
+    "title": "Week 4",
+    "section": " Labs",
+    "text": "Labs\n\nLab 6 - Introduction to bivariate analysis\n\nWe relied on the previous labs\n\nLab 1 - Introduction to R and RStudio\nLab 2 - Introduction to Data Visualization using Gapminder dataset\nLab 3 - Working with dplyr\nLab 4 Univariate categorical variables\nLab 5 Univariate numeric variables",
+    "crumbs": [
+      "Journal",
+      "Week 4"
+    ]
+  },
+  {
+    "objectID": "weeks/week-4.html#further-work",
+    "href": "weeks/week-4.html#further-work",
+    "title": "Week 4",
+    "section": " Further work",
+    "text": "Further work\n Review the content of the two labs. Work out every part you do not already know. Report an issue if you are unhappy with the proposed solutions/hints.",
+    "crumbs": [
+      "Journal",
+      "Week 4"
+    ]
+  },
+  {
+    "objectID": "weeks/week-4.html#further-reading",
+    "href": "weeks/week-4.html#further-reading",
+    "title": "Week 4",
+    "section": " Further reading",
+    "text": "Further reading\n\nBin Yu and Rebecca Barter, Veridical Data Science\nR for data science\nAdvanced R\nCours de Statistique Fondamentale\n\nChap Tests du chi-deux\n\nSourav Chatterjee: A new correlation coefficient",
+    "crumbs": [
+      "Journal",
+      "Week 4"
+    ]
+  },
+  {
+    "objectID": "weeks/week-4.html#logistics",
+    "href": "weeks/week-4.html#logistics",
+    "title": "Week 4",
+    "section": " Logistics",
+    "text": "Logistics\n : you will work with the R programming language in this course.\nYou need either to install R, RStudio and VS Code on your computer, or to use your posit-cloud account.\n Install Quarto on your computer to render the .qmd files.\nPlease follow the instructions here to install R, RStudio, VS Code, and Quarto or to access posit-cloud.\n Please activate your ENT account (follow the instructions on Moodle). You will be able to access the PostGres server.\n\n\nBack to Agenda ⏎",
+    "crumbs": [
+      "Journal",
+      "Week 4"
+    ]
   }
 ]
