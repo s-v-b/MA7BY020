@@ -28,11 +28,11 @@
   date: "2025-02-05"
   path: "core/labs/lab-bivariate.html"
   categories: [bivariate data, mosaicplots, scatterplots, simple linear regression]
-# - title: "Multiple Linear regression: OLS"
-#   author: "Master I MIDS UParis Cité"
-#   date: "2025-01-29"
-#   path: "labs/lab-lin-reg.html"
-#   categories: [Linear regression, OLS, lm]
+- title: "Linear Regression I"
+  author: "Master I MIDS UParis Cité"
+  date: "2025-02-19"
+  path: "core/labs/lab-linear-regression-whiteside.html"
+  categories: [Linear regression, OLS, lm]
 # - title: "Multiple Linear Regression: diagnostics, `broom`"
 #   author: "Master I MIDS UParis Cité"
 #   date: "2025-02-05"
