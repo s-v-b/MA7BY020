@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://s-v-b.github.io/MA7BY020/weeks/week-7.html</loc>
+    <lastmod>2025-03-04T22:34:43.327Z</lastmod>
+  </url>
+  <url>
     <loc>https://s-v-b.github.io/MA7BY020/weeks/week-3.html</loc>
     <lastmod>2025-01-31T09:57:44.145Z</lastmod>
   </url>
@@ -38,7 +42,7 @@
   </url>
   <url>
     <loc>https://s-v-b.github.io/MA7BY020/core/labs/lab-linear-regression-whiteside.html</loc>
-    <lastmod>2025-02-23T21:10:16.155Z</lastmod>
+    <lastmod>2025-03-04T22:18:12.379Z</lastmod>
   </url>
   <url>
     <loc>https://s-v-b.github.io/MA7BY020/core/labs/lab-bivariate.html</loc>
@@ -98,7 +102,7 @@
   </url>
   <url>
     <loc>https://s-v-b.github.io/MA7BY020/weeks/week-6.html</loc>
-    <lastmod>2025-02-22T22:06:37.858Z</lastmod>
+    <lastmod>2025-03-04T12:40:20.068Z</lastmod>
   </url>
   <url>
     <loc>https://s-v-b.github.io/MA7BY020/core/slides/slides-dplyr.html</loc>
@@ -126,7 +130,7 @@
   </url>
   <url>
     <loc>https://s-v-b.github.io/MA7BY020/core/labs-solutions/lab-linear-regression-whiteside.html</loc>
-    <lastmod>2025-02-23T21:10:16.155Z</lastmod>
+    <lastmod>2025-03-04T22:18:12.379Z</lastmod>
   </url>
   <url>
     <loc>https://s-v-b.github.io/MA7BY020/core/labs-solutions/lab-univariate-numeric.html</loc>
