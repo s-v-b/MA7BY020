@@ -73,21 +73,22 @@ website:
         text: Solutions  
       - href: projects-listings.qmd
         text: Projects
-      - section: "Journal"
-        contents:
-          - href: weeks/week-7.qmd
-            text: "Week 7"
-          - href: weeks/week-6.qmd
-            text: "Week 6"
-          - href: weeks/week-4.qmd
-            text: "Week 4"
-          - href: weeks/week-3.qmd
-            text: "Week 3"
-          - href: weeks/week-2.qmd
-            text: "Week 2"
-          - href: weeks/week-1.qmd
-            text: "Week 1"
-          # - href: weeks/week-5.qmd
+      - text: Journal
+        href: weeks-listings.qmd
+        # contents:
+        #   - href: weeks/week-7.qmd
+        #     text: "Week 7"
+        #   - href: weeks/week-6.qmd
+        #     text: "Week 6"
+        #   - href: weeks/week-4.qmd
+        #     text: "Week 4"
+        #   - href: weeks/week-3.qmd
+        #     text: "Week 3"
+        #   - href: weeks/week-2.qmd
+        #     text: "Week 2"
+        #   - href: weeks/week-1.qmd
+        #     text: "Week 1"
+        #   # - href: weeks/week-5.qmd
           #   text: "Week 5"
           # - href: weeks/week-8.qmd
           #   text: "Week 8"

@@ -1,0 +1,35 @@
+- title: "Week 1"
+  author: "Master I MIDS UParis Cité"
+  date: "2025-01-15"
+  path: /weeks/week-1.html
+  categories: [Visualization, Public Statistics, R language, Tidyverse]
+- title: "Week 2"
+  author: "Master I MIDS UParis Cité"
+  date: "2025-01-22"
+  path: /weeks/week-2.html
+  categories: [R language, Tidyverse, Table manipulations]
+- title: "Week 3"
+  author: "Master I MIDS UParis Cité"
+  date: "2025-01-29"
+  path: /weeks/week-3.html
+  categories: [Univariate data]
+- title: "week 4"
+  author: "Master I MIDS UParis Cité"
+  date: "2025-02-05"
+  path: /weeks/week-4.html
+  categories: [Bivariate data]
+- title: "Week 6"
+  author: "Master I MIDS UParis Cité"
+  date: "2025-01-19"
+  path: /weeks/week-6.html
+  categories: [Linear regression, OLS, lm, Model diagnostics]
+- title: "Week 7"
+  author: "Master I MIDS UParis Cité"
+  date: "2025-03-05"
+  path: /weeks/week-7.html
+  categories: [Linear regression, OLS, lm, Model diagnostics]
+- title: "Week 8"
+  author: "Master I MIDS UParis Cité"
+  date: "2025-03-12"
+  path: /weeks/week-8.html
+  categories: [PCA, SVD]
