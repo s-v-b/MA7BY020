@@ -1,10 +1,6 @@
 [
   {
-    "listing": "/projects-listings.html",
-    "items": []
-  },
-  {
-    "listing": "/labs-solutions-listings.html",
+    "listing": "/slides-listings.html",
     "items": []
   },
   {
@@ -12,9 +8,15 @@
     "items": []
   },
   {
-    "listing": "/slides-listings.html",
-    "items": [
-      "/core/slides/slides-dplyr.html"
-    ]
+    "listing": "/labs-solutions-listings.html",
+    "items": []
+  },
+  {
+    "listing": "/projects-listings.html",
+    "items": []
+  },
+  {
+    "listing": "/weeks-listings.html",
+    "items": []
   }
 ]
