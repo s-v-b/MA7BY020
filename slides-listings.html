@@ -76,20 +76,20 @@ ul.task-list li input[type="checkbox"] {
 <script>
 
   window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-slides-list .list');
+    const listingTargetEl = window.document.querySelector('#listing-slides .list');
     if (!listingTargetEl) {
       // No listing discovered, do not attach.
       return; 
     }
 
     const options = {
-      valueNames: ['listing-date','listing-title','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-filename-sort'] },{ data: ['listing-file-modified-sort'] }],
+      valueNames: ['listing-date','listing-title','listing-categories',{ data: ['index'] },{ data: ['categories'] }],
       
-      searchColumns: ["listing-filename","listing-file-modified"],
+      searchColumns: [],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-slides-list'] = new List('listing-slides-list', options);
+    window['quarto-listings']['listing-slides'] = new List('listing-slides', options);
 
     if (window['quarto-listing-loaded']) {
       window['quarto-listing-loaded']();
@@ -317,7 +317,7 @@ window.Quarto = {
 
 <p>Slides summarize the lectures. Feel free to watch them before and after the lectures.</p>
 <p><i class="fa-solid fa-person-chalkboard" aria-label="person-chalkboard"></i> point to material to be developped on blackboard.</p>
-<div id="listing-slides-list" class="quarto-listing quarto-listing-container-table">
+<div id="listing-slides" class="quarto-listing quarto-listing-container-table">
 <div class="listing-actions-group">
     <div class="input-group input-group-sm quarto-listing-filter">
       <span class="input-group-text"><i class="bi bi-search"></i></span>
@@ -339,18 +339,6 @@ Tags
 </tr>
 </thead>
 <tbody class="list">
-<tr data-index="0" data-listing-file-modified-sort="1737667561290" data-listing-filename-sort="slides-dplyr.qmd" onclick="href = this.querySelector('a').getAttribute('href');
- if (href) { window.location=href ; return false; }">
-<td>
-<span class="listing-date">&nbsp;</span>
-</td>
-<td>
-<a href="./core/slides/slides-dplyr.qmd" class="title listing-title">&nbsp;</a>
-</td>
-<td>
-<span class="listing-categories">&nbsp;</span>
-</td>
-</tr>
 </tbody>
 </table>
 <div class="listing-no-matching d-none">
