@@ -36,6 +36,7 @@ We still rely on the previous labs
 - [Lab 5](/core/labs/lab-univariate-numeric.qmd) Univariate numeric variables
 - [Lab 6](/core/labs/lab-linear-regression-whiteside.qmd) - Linear Regression I
 - [Lab 6](/core/labs/lab-linear-regression-whiteside-2.qmd) - Linear Regression II
+- [Lab 7](/core/labs/lab-linear-regression-whiteside-2.qmd) - Linear Regression II
 
 ## {{< fa person-digging >}} Further work
 

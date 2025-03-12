@@ -24,7 +24,7 @@ draft: false
 ## {{< fa flask-vial >}} Labs
 
 - [Lab 6](/core/labs/lab-linear-regression-whiteside.qmd) - Linear Regression I
-<!-- - [Lab 7](/core/labs/lab-linear-regression.qmd) - Linear Regression II  
+- [Lab 7](/core/labs/lab-linear-regression-whiteside-2.qmd) - Linear Regression II  
 <!-- - [Lab 8](/core/labs/lab-prog-R.qmd) - Aspects of Programming with `R` --> -->
 
 We still rely on the previous labs

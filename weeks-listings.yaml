@@ -13,14 +13,14 @@
   date: "2025-01-29"
   path: /weeks/week-3.html
   categories: [Univariate data]
-- title: "week 4"
+- title: "Week 4"
   author: "Master I MIDS UParis Cité"
   date: "2025-02-05"
   path: /weeks/week-4.html
   categories: [Bivariate data]
 - title: "Week 6"
   author: "Master I MIDS UParis Cité"
-  date: "2025-01-19"
+  date: "2025-02-19"
   path: /weeks/week-6.html
   categories: [Linear regression, OLS, lm, Model diagnostics]
 - title: "Week 7"

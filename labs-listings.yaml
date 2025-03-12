@@ -33,6 +33,11 @@
   date: "2025-02-19"
   path: "core/labs/lab-linear-regression-whiteside.html"
   categories: [Linear regression, OLS, lm]
+- title: "Linear regression II"
+  author: "Master I MIDS UParis Cité"
+  date: "2025-03-05"
+  path: "core/labs/lab-linear-regression-whiteside.html"
+  categories: [Linear regression, OLS, lm, diagnostics, variable selection]
 # - title: "Multiple Linear Regression: diagnostics, `broom`"
 #   author: "Master I MIDS UParis Cité"
 #   date: "2025-02-05"
