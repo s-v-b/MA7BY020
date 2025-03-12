@@ -33,6 +33,11 @@
   date: "2025-02-19"
   path: "core/labs-solutions/lab-linear-regression-whiteside.html"
   categories: [Linear regression, OLS, lm]
+- title: "SVD and PCA"
+  author: "Master I MIDS UParis Cité"
+  date: "2025-03-12"
+  path: "core/labs/lab-pca.html"
+  categories: [SVD, PCA]
 # - title: "Multiple Linear Regression: diagnostics, `broom`"
 #   author: "Master I MIDS UParis Cité"
 #   date: "2025-02-05"

@@ -53,11 +53,11 @@
 #   date: "2025-02-12"
 #   path: "labs/lab-babynames.html"
 #   categories: [Temporal data, Time series, Babynames]
-# - title: "SVD"
-#   author: "Master I MIDS UParis Cité"
-#   date: "2025-02-19"
-#   path: "labs/lab-pca.html"
-#   categories: [SVD, PCA, CA, MCA, CCA]
+- title: "SVD and PCA"
+  author: "Master I MIDS UParis Cité"
+  date: "2025-03-12"
+  path: "core/labs/lab-pca.html"
+  categories: [SVD, PCA]
 # - title: "SVD and PCA"
 #   author: "Master I MIDS UParis Cité"
 #   date: "2025-02-19"
