@@ -19,12 +19,13 @@ There exist several Integrated Development Environments (IDEs) for `R`. Here are
 
 - [`rstudio`](https://posit.co/downloads/)
 - [`vs code`](https://code.visualstudio.com)
+- [`vs codium`](https://vscodium.com)
 - [`emacs`](https://www.gnu.org/software/emacs/)
 
 
 [`rstudio`](https://posit.co/downloads/) has been designed to work around `R`. It is free and open-source. It is available for Windows, Mac, and Linux. It works very well `git`. `Quarto` has been designed and developed by the same team. 
 
-[`vs code`](https://code.visualstudio.com) is a general-purpose IDE. It works very well with `git`. It is very versatile and can be used for many programming languages. It is endowed with a large number of extensions for `R`, `Python`, `SQL`, and `Quarto`. It integrates very well with `git`. It is promoted by github just as copilot
+[`vs code`](https://code.visualstudio.com) is a general-purpose IDE. It works very well with `git`. It is very versatile and can be used for many programming languages. It is endowed with a large number of extensions for `R`, `Python`, `SQL`, and `Quarto`. It integrates very well with `git`. It is promoted by github just as copilot. [`vs codium`](https://vscodium.com) is a telemetry-free version of `vs code`.
 
 [`emacs`](https://www.gnu.org/software/emacs/) is a classical and powerful general-purpose editor that can be turned into an  IDE.  It is available for Windows, Mac, and Linux. It also works very well with `git`. Extension ESS (Emacs Speaks Statistics) is available for `R`. 
 
