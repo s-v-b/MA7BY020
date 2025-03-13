@@ -1,19 +1,21 @@
 ---
 title: "Slides"
 listing:
-  id: "slides-list"
-  contents: /core/slides/*.qmd 
-  type: table  
-  table-striped: true
-  table-hover: true
-  sort: date
-  fields: [date, title, categories] 
-  field-display-names: 
-    title: "Title"
-    categories: "Tags"
-
-engine: knitr
+  - id: "slides"
+    contents: 
+      - slides-listings.yml
+    fields: [date, title, categories] 
+    field-display-names: 
+      title: "Title"
+      categories: "Tags"
+    type: table  
+    table-striped: true
+    table-hover: true
+    sort: date
 ---
+
+
+
 
 Slides summarize the lectures. Feel free to watch them before and after the lectures.
 
@@ -21,9 +23,7 @@ Slides summarize the lectures. Feel free to watch them before and after the lect
 {{< fa person-chalkboard >}} point to material to be developped on blackboard. 
 
 
-::: {#slides-list}
-
-
+::: {#slides}
 :::
 
 

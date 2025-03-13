@@ -4,6 +4,7 @@ listing:
   - id: "labs"
     contents: 
       - labs-listings.yaml
+#      - slides-listings.yml
     fields: [date, title, categories] 
     field-display-names: 
       title: "Title"
