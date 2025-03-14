@@ -840,7 +840,7 @@
     "href": "weeks-listings.html",
     "title": "Journal",
     "section": "",
-    "text": "Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Tags\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\nDate\n\n\nTitle\n\n\nTags\n\n\n\n\n\n\nJan 15, 2025\n\n\nWeek 1\n\n\nVisualization, Public Statistics, R language, Tidyverse\n\n\n\n\nJan 22, 2025\n\n\nWeek 2\n\n\nR language, Tidyverse, Table manipulations\n\n\n\n\nJan 29, 2025\n\n\nWeek 3\n\n\nUnivariate data\n\n\n\n\nFeb 5, 2025\n\n\nWeek 4\n\n\nBivariate data\n\n\n\n\nFeb 19, 2025\n\n\nWeek 6\n\n\nLinear regression, OLS, lm, Model diagnostics\n\n\n\n\nMar 5, 2025\n\n\nWeek 7\n\n\nLinear regression, OLS, lm, Model diagnostics\n\n\n\n\nMar 12, 2025\n\n\nWeek 8\n\n\nPCA, SVD\n\n\n\n\n\nNo matching items",
+    "text": "Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Tags\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\nDate\n\n\nTitle\n\n\nTags\n\n\n\n\n\n\nJan 15, 2025\n\n\nWeek 1\n\n\nVisualization, Public Statistics, R language, Tidyverse\n\n\n\n\nJan 22, 2025\n\n\nWeek 2\n\n\nR language, Tidyverse, Table manipulations\n\n\n\n\nJan 29, 2025\n\n\nWeek 3\n\n\nUnivariate data\n\n\n\n\nFeb 5, 2025\n\n\nWeek 4\n\n\nBivariate data\n\n\n\n\nFeb 19, 2025\n\n\nWeek 6\n\n\nLinear regression, OLS, lm, Model diagnostics\n\n\n\n\nMar 5, 2025\n\n\nWeek 7\n\n\nLinear regression, OLS, lm, Model diagnostics\n\n\n\n\nMar 12, 2025\n\n\nWeek 8\n\n\nPCA, SVD\n\n\n\n\nMar 19, 2025\n\n\nWeek 9\n\n\nCA, SVD\n\n\n\n\nMar 26, 2025\n\n\nWeek 10\n\n\nCCA, MCA, SVD\n\n\n\n\n\nNo matching items",
     "crumbs": [
       "Journal"
     ]
@@ -1823,7 +1823,7 @@
     "href": "core/labs-solutions/lab-pca.html",
     "title": "LAB: Principal Component Analysis",
     "section": "",
-    "text": "Code\n# We will use the following packages. \n# If needed, install them : pak::pkg_install(). \nstopifnot(\n  require(\"magrittr\"),\n  require(\"lobstr\"),\n  require(\"ggforce\"),\n  require(\"gt\"),\n  require(\"glue\"),\n  require(\"skimr\"),\n  require(\"corrr\"),\n  require(\"patchwork\"), \n  require(\"tidyverse\")\n  # require(\"autoplotly\")\n)\nCode\nold_theme &lt;- theme_set(theme_minimal())\n\noptions(ggplot2.discrete.colour=\"viridis\")\noptions(ggplot2.discrete.fill=\"viridis\")\noptions(ggplot2.continuous.fill=\"viridis\")\noptions(ggplot2.continuous.colour=\"viridis\")"
+    "text": "Code\n# We will use the following packages. \n# If needed, install them : pak::pkg_install(). \nstopifnot(\n  require(\"corrr\"),\n  require(\"magrittr\"),\n  require(\"lobstr\"),\n  require(\"ggforce\"),\n  require(\"gt\"),\n  require(\"glue\"),\n  require(\"skimr\"),\n  require(\"patchwork\"), \n  require(\"tidyverse\"),\n  require(\"ggfortify\")\n  # require(\"autoplotly\")\n)\nCode\nold_theme &lt;- theme_set(theme_minimal())\n\noptions(ggplot2.discrete.colour=\"viridis\")\noptions(ggplot2.discrete.fill=\"viridis\")\noptions(ggplot2.continuous.fill=\"viridis\")\noptions(ggplot2.continuous.colour=\"viridis\")"
   },
   {
     "objectID": "core/labs-solutions/lab-pca.html#swiss-fertility-data",
@@ -2076,5 +2076,89 @@
     "title": "LAB: Univariate analysis",
     "section": "Quantile function",
     "text": "Quantile function\n\n\n\n\n\n\nQuestion\n\n\n\nPlot the quantile function of the AGE distribution."
+  },
+  {
+    "objectID": "weeks/week-9.html",
+    "href": "weeks/week-9.html",
+    "title": "Week 9",
+    "section": "",
+    "text": "Important\n\n\n\n\nSession I Buffon (103A) Wednesday 13h30-15h\nSession II Sophie Germain (2012) Friday 9h00-10h30\n Calendar"
+  },
+  {
+    "objectID": "weeks/week-9.html#blackboard",
+    "href": "weeks/week-9.html#blackboard",
+    "title": "Week 9",
+    "section": " Blackboard",
+    "text": "Blackboard\n\nExtended SVD"
+  },
+  {
+    "objectID": "weeks/week-9.html#labs",
+    "href": "weeks/week-9.html#labs",
+    "title": "Week 9",
+    "section": " Labs",
+    "text": "Labs\n\nLab 9 Correspondence Analysis as an application of extended SVD\n\nWe still rely on the previous labs\n\nLab 1 - Introduction to R and RStudio\nLab 2 - Introduction to Data Visualization using Gapminder dataset\nLab 3 - Working with dplyr\nLab 4 Univariate categorical variables\nLab 5 Univariate numeric variables\nLab 6 - Linear Regression I\nLab 6 - Linear Regression II\nLab 7 - Linear Regression II\nLab 8 Principal Component Analysis as an application of SVD"
+  },
+  {
+    "objectID": "weeks/week-9.html#further-work",
+    "href": "weeks/week-9.html#further-work",
+    "title": "Week 9",
+    "section": " Further work",
+    "text": "Further work\n Review the content of the two labs. Work out every part you do not already know. Report an issue if you are unhappy with the proposed solutions/hints."
+  },
+  {
+    "objectID": "weeks/week-9.html#further-reading",
+    "href": "weeks/week-9.html#further-reading",
+    "title": "Week 9",
+    "section": " Further reading",
+    "text": "Further reading\n\nBin Yu and Rebecca Barter, Veridical Data Science\nR for data science\nAdvanced R\n\nS3 classes\nS4 classes"
+  },
+  {
+    "objectID": "weeks/week-9.html#logistics",
+    "href": "weeks/week-9.html#logistics",
+    "title": "Week 9",
+    "section": " Logistics",
+    "text": "Logistics\n : you will work with the R programming language in this course.\nYou need either to install R, RStudio and VS Code on your computer, or to use your posit-cloud account.\n Install Quarto on your computer to render the .qmd files.\nPlease follow the instructions here to install R, RStudio, VS Code, and Quarto or to access posit-cloud.\n Please activate your ENT account (follow the instructions on Moodle). You will be able to access the PostGres server.\n\n\nBack to Agenda ⏎"
+  },
+  {
+    "objectID": "weeks/week-10.html",
+    "href": "weeks/week-10.html",
+    "title": "Week 10",
+    "section": "",
+    "text": "Important\n\n\n\n\nSession I Buffon (103A) Wednesday 13h30-15h\nSession II Sophie Germain (2012) Friday 9h00-10h30\nSession II bis Olympe de Gouges (130) Friday 15h45-17h15\n Calendar"
+  },
+  {
+    "objectID": "weeks/week-10.html#labs",
+    "href": "weeks/week-10.html#labs",
+    "title": "Week 10",
+    "section": " Labs",
+    "text": "Labs\n\nLab 10 Multiple Correspondence Analysis and Canonical Correspondence Analysis as applications of extended SVD\n\nWe still rely on the previous labs\n\nLab 1 - Introduction to R and RStudio\nLab 2 - Introduction to Data Visualization using Gapminder dataset\nLab 3 - Working with dplyr\nLab 4 Univariate categorical variables\nLab 5 Univariate numeric variables\nLab 6 - Linear Regression I\nLab 6 - Linear Regression II\nLab 7 - Linear Regression II\nLab 8 Principal Component Analysis as an application of SVD\nLab 9 Correspondence Analysis as an application of extended SVD"
+  },
+  {
+    "objectID": "weeks/week-10.html#further-work",
+    "href": "weeks/week-10.html#further-work",
+    "title": "Week 10",
+    "section": " Further work",
+    "text": "Further work\n Review the content of the two labs. Work out every part you do not already know. Report an issue if you are unhappy with the proposed solutions/hints."
+  },
+  {
+    "objectID": "weeks/week-10.html#further-reading",
+    "href": "weeks/week-10.html#further-reading",
+    "title": "Week 10",
+    "section": " Further reading",
+    "text": "Further reading\n\nBin Yu and Rebecca Barter, Veridical Data Science\nR for data science\nAdvanced R\n\nS3 classes\nS4 classes"
+  },
+  {
+    "objectID": "weeks/week-10.html#logistics",
+    "href": "weeks/week-10.html#logistics",
+    "title": "Week 10",
+    "section": " Logistics",
+    "text": "Logistics\n : you will work with the R programming language in this course.\nYou need either to install R, RStudio and VS Code on your computer, or to use your posit-cloud account.\n Install Quarto on your computer to render the .qmd files.\nPlease follow the instructions here to install R, RStudio, VS Code, and Quarto or to access posit-cloud.\n Please activate your ENT account (follow the instructions on Moodle). You will be able to access the PostGres server.\n\n\nBack to Agenda ⏎"
+  },
+  {
+    "objectID": "core/labs-solutions/lab-pca.html#generics",
+    "href": "core/labs-solutions/lab-pca.html#generics",
+    "title": "LAB: Principal Component Analysis",
+    "section": "Generics",
+    "text": "Generics\nautoplot() is an example of S3 generic function. Let us examine this function using sloop\n\n\n\n\n\n\nUse sloop::s3_dispatch() to compare autoplot(prcomp(swiss)) and autoplot(lm(Fertility ~ ., swiss))\n\n\n\n\n\n\n\n\n\nsolution\n\n\n\n\n\nCode\nsloop::ftype(autoplot)\n\n\n[1] \"S3\"      \"generic\"\n\n\nCode\nsloop::s3_dispatch(autoplot(prcomp(swiss)))\n\n\n=&gt; autoplot.prcomp\n * autoplot.default\n\n\nCode\nsloop::s3_dispatch(autoplot(lm(Fertility ~ ., swiss)))\n\n\n=&gt; autoplot.lm\n * autoplot.default\n\n\n\n\n\n\n\n\n\n\nUse sloop::s3_getmethod() to see the body of autoplot.prcomp\n\n\n\n\n\n\n\n\n\nsolution\n\n\n\n\n\nCode\nsloop::s3_get_method(autoplot.prcomp)\n## function (object, data = NULL, scale = 1, x = 1, y = 2, variance_percentage = TRUE, \n##     ...) \n## {\n##     plot.data &lt;- ggplot2::fortify(object, data = data)\n##     plot.data$rownames &lt;- rownames(plot.data)\n##     if (is_derived_from(object, \"prcomp\")) {\n##         ve &lt;- object$sdev^2/sum(object$sdev^2)\n##         PC &lt;- paste0(\"PC\", c(x, y))\n##         x.column &lt;- PC[1]\n##         y.column &lt;- PC[2]\n##         loadings.column &lt;- \"rotation\"\n##         lam &lt;- object$sdev[c(x, y)]\n##         lam &lt;- lam * sqrt(nrow(plot.data))\n##     }\n##     else if (is_derived_from(object, \"princomp\")) {\n##         ve &lt;- object$sdev^2/sum(object$sdev^2)\n##         PC &lt;- paste0(\"Comp.\", c(x, y))\n##         x.column &lt;- PC[1]\n##         y.column &lt;- PC[2]\n##         loadings.column &lt;- \"loadings\"\n##         lam &lt;- object$sdev[c(x, y)]\n##         lam &lt;- lam * sqrt(nrow(plot.data))\n##     }\n##     else if (is_derived_from(object, \"factanal\")) {\n##         if (is.null(attr(object, \"covariance\"))) {\n##             p &lt;- nrow(object$loading)\n##             ve &lt;- colSums(object$loading^2)/p\n##         }\n##         else ve &lt;- NULL\n##         PC &lt;- paste0(\"Factor\", c(x, y))\n##         x.column &lt;- PC[1]\n##         y.column &lt;- PC[2]\n##         scale &lt;- 0\n##         loadings.column &lt;- \"loadings\"\n##     }\n##     else if (is_derived_from(object, \"lfda\")) {\n##         ve &lt;- NULL\n##         PC &lt;- paste0(\"PC\", c(x, y))\n##         x.column &lt;- PC[1]\n##         y.column &lt;- PC[2]\n##         scale &lt;- 0\n##         loadings.column &lt;- NULL\n##     }\n##     else {\n##         stop(paste0(\"Unsupported class for autoplot.pca_common: \", \n##             class(object)))\n##     }\n##     if (scale != 0) {\n##         lam &lt;- lam^scale\n##         plot.data[, c(x.column, y.column)] &lt;- t(t(plot.data[, \n##             c(x.column, y.column)])/lam)\n##     }\n##     plot.columns &lt;- unique(c(x.column, y.column, colnames(plot.data)))\n##     plot.data &lt;- plot.data[, plot.columns]\n##     if (!is.null(loadings.column)) {\n##         loadings.data &lt;- as.data.frame(object[[loadings.column]][, \n##             ])\n##         loadings.data$rownames &lt;- rownames(loadings.data)\n##         loadings.columns &lt;- unique(c(x.column, y.column, colnames(loadings.data)))\n##         loadings.data &lt;- loadings.data[, loadings.columns]\n##     }\n##     else {\n##         loadings.data &lt;- NULL\n##     }\n##     if (is.null(ve) | !variance_percentage) {\n##         labs &lt;- PC\n##     }\n##     else {\n##         ve &lt;- ve[c(x, y)]\n##         labs &lt;- paste0(PC, \" (\", round(ve * 100, 2), \"%)\")\n##     }\n##     xlab &lt;- labs[1]\n##     ylab &lt;- labs[2]\n##     p &lt;- ggbiplot(plot.data = plot.data, loadings.data = loadings.data, \n##         xlab = xlab, ylab = ylab, ...)\n##     return(p)\n## }\n## &lt;bytecode: 0x5d6019a41598&gt;\n## &lt;environment: namespace:ggfortify&gt;"
   }
 ]
