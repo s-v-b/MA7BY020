@@ -41,7 +41,7 @@
 - title: "SVD and PCA"
   author: "Master I MIDS UParis Cité"
   date: "2025-03-12"
-  path: "core/labs/lab-pca.html"
+  path: "core/labs-solutions/lab-pca.html"
   categories: [SVD, PCA]
 # - title: "Multiple Linear Regression: diagnostics, `broom`"
 #   author: "Master I MIDS UParis Cité"

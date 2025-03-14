@@ -33,3 +33,13 @@
   date: "2025-03-12"
   path: /weeks/week-8.html
   categories: [PCA, SVD]
+- title: "Week 9"
+  author: "Master I MIDS UParis Cité"
+  date: "2025-03-19"
+  path: /weeks/week-9.html
+  categories: [CA, SVD]
+- title: "Week 10"
+  author: "Master I MIDS UParis Cité"
+  date: "2025-03-26"
+  path: /weeks/week-10.html
+  categories: [CCA, MCA, SVD]
