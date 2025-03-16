@@ -43,6 +43,11 @@
   date: "2025-03-12"
   path: "core/labs-solutions/lab-pca.html"
   categories: [SVD, PCA]
+- title: "Correspondence Analysis"
+  author: "Master I MIDS UParis Cité"
+  date: "2025-03-05"
+  path: "core/labs-solutions/lab-ca.html"
+  categories: [SVD, CA, Correspondence Analysis]  
 # - title: "Multiple Linear Regression: diagnostics, `broom`"
 #   author: "Master I MIDS UParis Cité"
 #   date: "2025-02-05"

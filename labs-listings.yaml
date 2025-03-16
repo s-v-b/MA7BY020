@@ -63,21 +63,15 @@
   date: "2025-03-12"
   path: "core/labs/lab-pca.html"
   categories: [SVD, PCA]
-# - title: "SVD and PCA"
 #   author: "Master I MIDS UParis Cité"
 #   date: "2025-02-19"
 #   path: "labs/lab-pca-misc.html"
 #   categories: [SVD, PCA, CA, MCA, CCA]  
-# - title: "SVD and PCA"
-#   author: "Master I MIDS UParis Cité"
-#   date: "2025-02-19"
-#   path: "labs/lab-pca-misc.html"
-#   categories: [SVD, PCA, CA, MCA, CCA]  
-# - title: "PCA, CA, MCA"
-#   author: "Master I MIDS UParis Cité"
-#   date: "2025-03-05"
-#   path: "labs/lab-ca-mortality.html"
-#   categories: [SVD, PCA, CA, MCA, CCA]  
+- title: "Correspondence Analysis"
+  author: "Master I MIDS UParis Cité"
+  date: "2025-03-05"
+  path: "core/labs/lab-ca.html"
+  categories: [SVD, CA, Correspondence Analysis]  
 # - title: "PCA, CA, MCA"
 #   author: "Master I MIDS UParis Cité"
 #   date: "2025-03-05"

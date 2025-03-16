@@ -19,7 +19,7 @@ draft: false
 
 ## {{< fa flask-vial >}} Labs
 
-- [Lab 9](/core/labs/lab-ca.qmd)  Correspondence Analysis as an application of extended SVD
+- [Lab 9](/core/labs/lab-ca.html)  Correspondence Analysis as an application of extended SVD
 
 
 We still rely on the previous labs
