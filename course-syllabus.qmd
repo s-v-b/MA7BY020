@@ -144,7 +144,7 @@ $$.2 \textsf{P}_1 + .3 \textsf{P}_2 + .5 \textsf{P}_3$$
 
 Click [here]() for [U Paris Cite]() Calendar.
 
-Click [here](https://edt.math.univ-paris-diderot.fr/#/parcours/mids/m1) for M1 MIDS Calendar
+Click [here](https://edt.math.univ-paris-diderot.fr/#/parcours/mathinfo/m1) for M1 MIDS Calendar
 
 :::
 

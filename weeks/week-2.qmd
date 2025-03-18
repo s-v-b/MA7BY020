@@ -9,7 +9,7 @@ draft: false
 
 -   Session I Olympe de Gouges (163) Wednesday 13h30-15h
 -   Session II Sophie Germain (2012) Friday 9h00-10h30
--   {{< fa cal >}} [Calendar](https://edt.math.univ-paris-diderot.fr/#/parcours/mids/m1)
+-   {{< fa cal >}} [Calendar](https://edt.math.univ-paris-diderot.fr/#/parcours/mathinfo/m1)
 
 :::
 

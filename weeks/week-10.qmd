@@ -10,7 +10,7 @@ draft: false
 -   Session I Buffon (103A) Wednesday 13h30-15h
 -   Session II Sophie Germain (2012) Friday 9h00-10h30
 -   **Session II bis Olympe de Gouges (130) Friday 15h45-17h15**
--   {{< fa cal >}} [Calendar](https://edt.math.univ-paris-diderot.fr/#/parcours/mids/m1)
+-   {{< fa cal >}} [Calendar](https://edt.math.univ-paris-diderot.fr/#/parcours/mathinfo/m1)
 
 :::
 

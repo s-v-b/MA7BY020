@@ -1,31 +1,25 @@
 ---
-title: "Week 8"
-subtitle: "SVD and Applications"
+title: "Week 11"
+subtitle: "Clustering: kmeans"
 editor: source
 draft: false
 ---
 
 ::: callout-important
 
--   Session I Buffon (103A) Wednesday 13h30-15h
+-   Session I Olympe de Gouges (130) Wednesday 13h30-15h
 -   Session II Sophie Germain (2012) Friday 9h00-10h30
 -   {{< fa cal >}} [Calendar](https://edt.math.univ-paris-diderot.fr/#/parcours/mathinfo/m1)
 
 :::
 
-## {{< fa chalkboard-teacher >}} Blackboard
 
-- SVD
-    - Definition
-    - Existence
-- Matrix norms 
-- SVD and low rank approximations
-    - Eckart-Young-Mirsky theorem  for operator norm
-    - Eckart-Young-Mirsky theorem  for Frobenius-Hilbert-Schmidt norm
+
 
 ## {{< fa flask-vial >}} Labs
 
-- [Lab 8](/core/labs/lab-pca.qmd)  Principal Component Analysis as an application of SVD
+- [Lab 11](/core/labs/lab-kmeans.qmd)  Clustering with $k$-means
+
 
 We still rely on the previous labs
 
@@ -37,6 +31,9 @@ We still rely on the previous labs
 - [Lab 6](/core/labs/lab-linear-regression-whiteside.qmd) - Linear Regression I
 - [Lab 6](/core/labs/lab-linear-regression-whiteside-2.qmd) - Linear Regression II
 - [Lab 7](/core/labs/lab-linear-regression-whiteside-2.qmd) - Linear Regression II
+- [Lab 8](/core/labs/lab-pca.qmd)  Principal Component Analysis as an application of SVD
+- [Lab 9](/core/labs/lab-ca.qmd)  Correspondence Analysis as an application of extended SVD
+- [Lab 10](/core/labs/lab-cca-mca.qmd)  Multiple Correspondence Analysis and Canonical Correspondence Analysis as applications of extended SVD)
 
 ## {{< fa person-digging >}} Further work
 
