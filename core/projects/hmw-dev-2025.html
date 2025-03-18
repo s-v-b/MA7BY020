@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2025-04-16">
+<meta name="dcterms.date" content="2025-03-18">
 
-<title>Hmw II: Regression, Package development – MA7BY020 - Spring 2025</title>
+<title>Hmw II: Regression, Package Development – MA7BY020 - Spring 2025</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -72,7 +72,7 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<meta property="og:title" content="Hmw II: Regression, Package development – MA7BY020 - Spring 2025">
+<meta property="og:title" content="Hmw II: Regression, Package Development – MA7BY020 - Spring 2025">
 <meta property="og:description" content="Homepage for course MA7BY020 - Exploratory Data Analysis, Master MIDS Spring 2025.">
 <meta property="og:site_name" content="MA7BY020 - Spring 2025">
 </head>
@@ -86,7 +86,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Hmw II: Regression, Package development</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Hmw II: Regression, Package Development</li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -235,20 +235,17 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#objectives" id="toc-objectives" class="nav-link active" data-scroll-target="#objectives"><i class="fa-solid fa-map" aria-label="map"></i> Objectives</a></li>
-  <li><a href="#supplementing-the-broom-package" id="toc-supplementing-the-broom-package" class="nav-link" data-scroll-target="#supplementing-the-broom-package">Supplementing the <code>broom</code> package</a></li>
-  <li><a href="#programming-with-dplyr-and-ggplot2" id="toc-programming-with-dplyr-and-ggplot2" class="nav-link" data-scroll-target="#programming-with-dplyr-and-ggplot2">Programming with <code>dplyr</code> and <code>ggplot2</code></a></li>
   <li><a href="#package-development" id="toc-package-development" class="nav-link" data-scroll-target="#package-development">Package development</a></li>
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
-  <li><a href="#grading-criteria" id="toc-grading-criteria" class="nav-link" data-scroll-target="#grading-criteria"><i class="fa-solid fa-graduation-cap" aria-label="graduation-cap"></i> Grading criteria</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/s-v-b/MA7BY020/edit/main/core/projects/hmw-dev.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/s-v-b/MA7BY020/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div><div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="hmw-dev-2025.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/s-v-b/MA7BY020/edit/main/core/projects/hmw-dev-2025.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/s-v-b/MA7BY020/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div><div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="hmw-dev-2025.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Hmw II: Regression, Package development</h1>
+<h1 class="title">Hmw II: Regression, Package Development</h1>
 </div>
 
 
@@ -259,7 +256,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">April 16, 2025</p>
+      <p class="date">March 18, 2025</p>
     </div>
   </div>
   
@@ -282,59 +279,36 @@ Important
 </div>
 <div class="callout-body-container callout-body">
 <ul>
-<li>Due : April 16, 2025</li>
+<li>Due : April 27 2025</li>
 <li>Work in pairs</li>
-<li>Deliver your work as a <code>qmd</code> file through a github <i class="fa-brands fa-github" aria-label="github"></i> repository</li>
-<li>Use the <code>quarto</code> package for reproducible research</li>
-<li>The report should be rendered at least in HTML format, and possibly also in PDF format</li>
+<li><i class="fa-brands fa-github" aria-label="github"></i> Deliver your work through a github repository</li>
+<li><i class="fa-solid fa-desktop" aria-label="desktop"></i> Present your work (10 minutes) on 2025-04-29 between 11:00 and 13:00 (Olympe de Gouges 358)</li>
 </ul>
 </div>
 </div>
 <section id="objectives" class="level3">
 <h3 class="anchored" data-anchor-id="objectives"><i class="fa-solid fa-map" aria-label="map"></i> Objectives</h3>
-<p>This homework is concerned with developping methods for objects produced by factorial methods like Correspondence Analysis, Multiple Correspondence Analysis, Canonical Correlation Analysis, … (<code>R</code>).</p>
-</section>
-<section id="supplementing-the-broom-package" class="level3">
-<h3 class="anchored" data-anchor-id="supplementing-the-broom-package">Supplementing the <code>broom</code> package</h3>
-<p>The <code>broom</code> package offers <code>S3</code> generic functions for building dataframes from the output of a variety of statistical techniques (for example <code>lm</code>, <code>prcomp</code>, or <code>kmeans</code>): <code>augment</code>, <code>tidy</code>, and <code>glance</code>.</p>
-<p>The first goal of this homework is to design and code methods for generic functions <code>augment</code>, <code>tidy</code>, and <code>glance</code> for classes .</p>
-<p>Function <code>autoplot()</code></p>
-</section>
-<section id="programming-with-dplyr-and-ggplot2" class="level3">
-<h3 class="anchored" data-anchor-id="programming-with-dplyr-and-ggplot2">Programming with <code>dplyr</code> and <code>ggplot2</code></h3>
-<p>The second goal of this homework is to design and code functions that take as input the output of <code>augment</code>, <code>tidy</code>, and <code>glance</code> (possibly simultaneously) to build <code>ggplot</code> objects corresponding to the plots associated with <code>gpava</code>.</p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p><code>ggplot2</code> offers a generic function <code>autoplot()</code>. See <a href="https://ggplot2.tidyverse.org/reference/autoplot.html">Tidyverse documentation on <code>autoplot</code></a>, More generally have a look at <a href="https://ggplot2.tidyverse.org/reference/automatic_plotting.html">automatic plotting</a></p>
-</div>
-</div>
-<p>The third goal of this homework is to design and code methods for generic function <code>autoplot()</code> for classes</p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tip
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Have a look at <code>autolayer()</code> generic. Could be useful for implementing symmetric plots (biplots).</p>
-</div>
-</div>
+<p>This homework is about</p>
+<ol type="1">
+<li>developping methods for objects produced by functions like <code>gpava()</code> and <code>activeSet()</code> from package <code>isotone</code> (<code>R</code>)</li>
+<li>applying monotone regression techniques to a dataset.</li>
+</ol>
+<p>I. <strong>Supplementing the <code>broom</code> and the <code>ggfortify</code> packages</strong></p>
+<p>The <a href="https://broom.tidymodels.org"><code>broom</code> package</a> offers <code>S3</code> generic functions for building dataframes from the output of a variety of statistical techniques (for example <code>lm</code>, <code>prcomp</code>, or <code>kmeans</code>): <code>augment()</code>, <code>tidy()</code>, and <code>glance()</code>.</p>
+<p>The first goal of this homework is to design and code methods for generic functions <code>augment</code>, <code>tidy</code>, <code>glance</code>, and <code>autoplot</code> for classes <code>gpava</code> and <code>activeSet</code> defined in the <a href="https://cran.r-project.org/web/packages/isotone/index.html"><code>isotone</code> package (monotone regression)</a>.</p>
+<p>Package <code>ggplot2</code> offers a generic function <code>autoplot()</code>. See <a href="https://ggplot2.tidyverse.org/reference/autoplot.html">Tidyverse documentation on <code>autoplot</code></a>. Package <a href="https://cran.r-project.org/web/packages/ggfortify/index.html">‘ggfortify’</a> offers a large collection of methods for <code>autoplot</code>.</p>
+<p>More generally have a look at <a href="https://ggplot2.tidyverse.org/reference/automatic_plotting.html">automatic plotting</a> Also have a look at <code>autolayer()</code> generic in <code>ggplot2</code>.</p>
+<div style="page-break-after: always;"></div>
+<p>II. <strong>Applying monotone regression methods to real data</strong></p>
+<p>The <code>Abalone</code> dataset can be obtained from <a href="https://archive.ics.uci.edu/ml/datasets/Abalone">UIC Machine learning repository site</a> The usual problem consists in predicting <em>age</em> (<em>rings</em>) as a function of the other variables (this is a regression problem).</p>
+<p>You are expected to conduct exploratory analysis on this dataset. Besides linear regression of the response variable with respect to the others, you shall fit a <em>monotone regression</em> function to the dataset. Use the functions developped in the first part of the homework to discuss your results.</p>
+<p>Use the <code>quarto</code> package for reproducible research to write your report.</p>
+<p>The report should be rendered at least in HTML format, and possibly also in PDF format.</p>
 </section>
 <section id="package-development" class="level3">
 <h3 class="anchored" data-anchor-id="package-development">Package development</h3>
 <p>The function and methods coded in this homework should be delivered as a <code>package</code>.</p>
-<p>Follow the package devlopment guidelines in <a href="https://r-pkgs.org">R Packages (2e)</a>.</p>
+<p>Follow the package development guidelines in <a href="https://r-pkgs.org">R Packages (2e)</a>.</p>
 <ul>
 <li>Define a dedicated rstudio project for this homework</li>
 <li>Don’t forget documentation and testing</li>
@@ -343,17 +317,22 @@ Tip
 <section id="references" class="level3">
 <h3 class="anchored" data-anchor-id="references">References</h3>
 <ul>
-<li><a href="https://adv-r.hadley.nz">Advanced R Programming</a></li>
+<li><a href="https://adv-r.hadley.nz">Advanced R Programming</a>
+<ul>
+<li><a href="https://adv-r.hadley.nz/functionals.html">Functional programming</a></li>
 <li><a href="https://adv-r.hadley.nz/s3.html">S3</a></li>
-<li><a href="https://ggplot2-book.org">Programming with/for <code>ggplot2</code></a></li>
-<li><a href="https://posit.co/resources/cheatsheets/">Cheatsheets</a></li>
+<li><a href="https://adv-r.hadley.nz/metaprogramming.html">Meta programming</a></li>
+</ul></li>
 <li><a href="https://r-pkgs.org">Packages</a></li>
-<li><a href=""><code>isotone</code></a></li>
+<li><a href="https://ggplot2-book.org">Programming with/for <code>ggplot2</code></a></li>
+<li><a href="https://dplyr.tidyverse.org/articles/programming.html">Programming with <code>dplyr</code></a></li>
+<li><a href="https://ggplot2.tidyverse.org/reference/tidyeval.html"><code>tidyeval</code> helpers</a></li>
+<li><a href="https://posit.co/resources/cheatsheets/">Cheatsheets</a></li>
+<li><a href="https://cran.r-project.org/web/packages/isotone/index.html">Package <code>isotone</code> on CRAN</a></li>
 </ul>
-</section>
-<section id="grading-criteria" class="level3">
-<h3 class="anchored" data-anchor-id="grading-criteria"><i class="fa-solid fa-graduation-cap" aria-label="graduation-cap"></i> Grading criteria</h3>
+<div style="page-break-after: always;"></div>
 <table class="caption-top table">
+<caption><i class="fa-solid fa-graduation-cap" aria-label="graduation-cap"></i> Grading criteria</caption>
 <colgroup>
 <col style="width: 37%">
 <col style="width: 31%">
@@ -368,8 +347,8 @@ Tip
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">Documentation</td>
-<td style="text-align: center;">25%</td>
+<td style="text-align: left;">Documentation/Report</td>
+<td style="text-align: center;">40%</td>
 <td style="text-align: left;">English/French <i class="fa-solid fa-pen-fancy" aria-label="pen-fancy"></i></td>
 </tr>
 <tr class="even">
@@ -379,7 +358,7 @@ Tip
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Coding</td>
-<td style="text-align: center;">50%</td>
+<td style="text-align: center;">35%</td>
 <td style="text-align: left;"><p><i class="fa-solid fa-code" aria-label="code"></i></p></td>
 </tr>
 </tbody>
@@ -963,7 +942,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/s-v-b/MA7BY020/edit/main/core/projects/hmw-dev.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/s-v-b/MA7BY020/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/s-v-b/MA7BY020/edit/main/core/projects/hmw-dev-2025.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/s-v-b/MA7BY020/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>This page is built with blood, sweat, tears, and <a href="https://quarto.org/">Quarto</a>.</p>
 </div>

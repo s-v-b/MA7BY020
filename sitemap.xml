@@ -1,44 +1,76 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://s-v-b.github.io/MA7BY020/weeks/week-7.html</loc>
-    <lastmod>2025-03-12T08:27:38.742Z</lastmod>
+    <loc>https://s-v-b.github.io/MA7BY020/core/slides/slides-dplyr.html</loc>
+    <lastmod>2025-01-23T21:26:01.290Z</lastmod>
   </url>
   <url>
-    <loc>https://s-v-b.github.io/MA7BY020/weeks/week-3.html</loc>
-    <lastmod>2025-01-31T09:57:44.145Z</lastmod>
+    <loc>https://s-v-b.github.io/MA7BY020/core/labs-solutions/lab-bivariate.html</loc>
+    <lastmod>2025-02-04T22:16:07.447Z</lastmod>
   </url>
   <url>
-    <loc>https://s-v-b.github.io/MA7BY020/weeks/week-1.html</loc>
-    <lastmod>2025-01-17T10:24:16.632Z</lastmod>
+    <loc>https://s-v-b.github.io/MA7BY020/core/labs-solutions/lab-tables.html</loc>
+    <lastmod>2024-12-22T20:28:24.549Z</lastmod>
   </url>
   <url>
-    <loc>https://s-v-b.github.io/MA7BY020/slides-listings.html</loc>
-    <lastmod>2025-03-12T19:42:03.592Z</lastmod>
+    <loc>https://s-v-b.github.io/MA7BY020/core/labs-solutions/lab-linear-regression-whiteside.html</loc>
+    <lastmod>2025-03-04T22:18:12.379Z</lastmod>
   </url>
   <url>
-    <loc>https://s-v-b.github.io/MA7BY020/quarto-format.html</loc>
-    <lastmod>2024-12-21T13:40:45.721Z</lastmod>
+    <loc>https://s-v-b.github.io/MA7BY020/core/labs-solutions/lab-r-intro.html</loc>
+    <lastmod>2025-01-13T20:49:42.181Z</lastmod>
   </url>
   <url>
-    <loc>https://s-v-b.github.io/MA7BY020/posit-cloud.html</loc>
-    <lastmod>2024-12-21T13:40:45.721Z</lastmod>
+    <loc>https://s-v-b.github.io/MA7BY020/core/labs-solutions/lab-pca.html</loc>
+    <lastmod>2025-03-14T10:21:08.559Z</lastmod>
+  </url>
+  <url>
+    <loc>https://s-v-b.github.io/MA7BY020/core/labs-solutions/lab-univariate-categorical.html</loc>
+    <lastmod>2025-01-28T21:18:42.130Z</lastmod>
+  </url>
+  <url>
+    <loc>https://s-v-b.github.io/MA7BY020/core/labs-solutions/lab-gapminder.html</loc>
+    <lastmod>2025-01-21T11:45:48.893Z</lastmod>
+  </url>
+  <url>
+    <loc>https://s-v-b.github.io/MA7BY020/core/labs-solutions/lab-ca.html</loc>
+    <lastmod>2025-03-16T20:56:59.627Z</lastmod>
+  </url>
+  <url>
+    <loc>https://s-v-b.github.io/MA7BY020/core/labs-solutions/lab-univariate-numeric.html</loc>
+    <lastmod>2025-01-29T22:02:29.080Z</lastmod>
   </url>
   <url>
     <loc>https://s-v-b.github.io/MA7BY020/labs-listings.html</loc>
     <lastmod>2025-03-12T19:39:06.541Z</lastmod>
   </url>
   <url>
-    <loc>https://s-v-b.github.io/MA7BY020/course-team.html</loc>
-    <lastmod>2025-01-11T21:32:08.226Z</lastmod>
+    <loc>https://s-v-b.github.io/MA7BY020/labs-solutions-listings.html</loc>
+    <lastmod>2024-12-21T13:40:45.721Z</lastmod>
   </url>
   <url>
-    <loc>https://s-v-b.github.io/MA7BY020/core/projects/hmw_gapminder_oecd.html</loc>
-    <lastmod>2025-01-24T09:40:03.939Z</lastmod>
+    <loc>https://s-v-b.github.io/MA7BY020/projects-listings.html</loc>
+    <lastmod>2025-01-14T12:58:32.533Z</lastmod>
+  </url>
+  <url>
+    <loc>https://s-v-b.github.io/MA7BY020/slides-listings.html</loc>
+    <lastmod>2025-03-12T19:42:03.592Z</lastmod>
+  </url>
+  <url>
+    <loc>https://s-v-b.github.io/MA7BY020/weeks-listings.html</loc>
+    <lastmod>2025-03-05T18:52:59.763Z</lastmod>
   </url>
   <url>
     <loc>https://s-v-b.github.io/MA7BY020/core/labs/lab-univariate-numeric.html</loc>
-    <lastmod>2025-01-29T22:02:29.080Z</lastmod>
+    <lastmod>2025-03-18T13:52:50.304Z</lastmod>
+  </url>
+  <url>
+    <loc>https://s-v-b.github.io/MA7BY020/core/labs/lab-univariate-categorical.html</loc>
+    <lastmod>2025-03-18T13:54:25.081Z</lastmod>
+  </url>
+  <url>
+    <loc>https://s-v-b.github.io/MA7BY020/core/labs/lab-bivariate.html</loc>
+    <lastmod>2025-02-04T22:16:07.447Z</lastmod>
   </url>
   <url>
     <loc>https://s-v-b.github.io/MA7BY020/core/labs/lab-tables.html</loc>
@@ -57,12 +89,8 @@
     <lastmod>2025-01-13T20:49:42.181Z</lastmod>
   </url>
   <url>
-    <loc>https://s-v-b.github.io/MA7BY020/computing-access.html</loc>
-    <lastmod>2025-02-09T17:36:31.375Z</lastmod>
-  </url>
-  <url>
-    <loc>https://s-v-b.github.io/MA7BY020/core/labs/lab-bivariate.html</loc>
-    <lastmod>2025-02-04T22:16:07.447Z</lastmod>
+    <loc>https://s-v-b.github.io/MA7BY020/core/labs/lab-ca.html</loc>
+    <lastmod>2025-03-16T20:56:59.627Z</lastmod>
   </url>
   <url>
     <loc>https://s-v-b.github.io/MA7BY020/core/labs/lab-linear-regression-whiteside-2.html</loc>
@@ -70,110 +98,54 @@
   </url>
   <url>
     <loc>https://s-v-b.github.io/MA7BY020/core/labs/lab-pca.html</loc>
-    <lastmod>2025-03-13T12:24:49.737Z</lastmod>
-  </url>
-  <url>
-    <loc>https://s-v-b.github.io/MA7BY020/core/labs/lab-univariate-categorical.html</loc>
-    <lastmod>2025-01-28T21:18:42.130Z</lastmod>
-  </url>
-  <url>
-    <loc>https://s-v-b.github.io/MA7BY020/core/projects/fake-report.html</loc>
-    <lastmod>2025-01-23T09:37:04.795Z</lastmod>
-  </url>
-  <url>
-    <loc>https://s-v-b.github.io/MA7BY020/course-syllabus.html</loc>
-    <lastmod>2025-01-24T10:02:30.862Z</lastmod>
-  </url>
-  <url>
-    <loc>https://s-v-b.github.io/MA7BY020/index.html</loc>
-    <lastmod>2025-01-28T07:49:16.061Z</lastmod>
-  </url>
-  <url>
-    <loc>https://s-v-b.github.io/MA7BY020/labs-solutions-listings.html</loc>
-    <lastmod>2024-12-21T13:40:45.721Z</lastmod>
-  </url>
-  <url>
-    <loc>https://s-v-b.github.io/MA7BY020/projects-listings.html</loc>
-    <lastmod>2025-01-14T12:58:32.533Z</lastmod>
-  </url>
-  <url>
-    <loc>https://s-v-b.github.io/MA7BY020/rstudio-client.html</loc>
-    <lastmod>2025-01-14T13:59:20.772Z</lastmod>
-  </url>
-  <url>
-    <loc>https://s-v-b.github.io/MA7BY020/weeks-listings.html</loc>
-    <lastmod>2025-03-05T18:52:59.763Z</lastmod>
-  </url>
-  <url>
-    <loc>https://s-v-b.github.io/MA7BY020/weeks/week-2.html</loc>
-    <lastmod>2025-01-24T07:39:00.456Z</lastmod>
-  </url>
-  <url>
-    <loc>https://s-v-b.github.io/MA7BY020/weeks/week-4.html</loc>
-    <lastmod>2025-02-04T13:46:25.667Z</lastmod>
-  </url>
-  <url>
-    <loc>https://s-v-b.github.io/MA7BY020/weeks/week-6.html</loc>
-    <lastmod>2025-03-04T12:40:20.068Z</lastmod>
-  </url>
-  <url>
-    <loc>https://s-v-b.github.io/MA7BY020/weeks/week-8.html</loc>
-    <lastmod>2025-03-12T08:28:12.600Z</lastmod>
-  </url>
-  <url>
-    <loc>https://s-v-b.github.io/MA7BY020/core/slides/slides-dplyr.html</loc>
-    <lastmod>2025-01-23T21:26:01.290Z</lastmod>
-  </url>
-  <url>
-    <loc>https://s-v-b.github.io/MA7BY020/core/labs-solutions/lab-bivariate.html</loc>
-    <lastmod>2025-02-04T22:16:07.447Z</lastmod>
-  </url>
-  <url>
-    <loc>https://s-v-b.github.io/MA7BY020/core/labs-solutions/lab-tables.html</loc>
-    <lastmod>2024-12-22T20:28:24.549Z</lastmod>
-  </url>
-  <url>
-    <loc>https://s-v-b.github.io/MA7BY020/core/labs-solutions/lab-gapminder.html</loc>
-    <lastmod>2025-01-21T11:45:48.893Z</lastmod>
-  </url>
-  <url>
-    <loc>https://s-v-b.github.io/MA7BY020/core/labs-solutions/lab-univariate-categorical.html</loc>
-    <lastmod>2025-01-28T21:18:42.130Z</lastmod>
-  </url>
-  <url>
-    <loc>https://s-v-b.github.io/MA7BY020/core/labs-solutions/lab-pca.html</loc>
     <lastmod>2025-03-14T10:21:08.559Z</lastmod>
   </url>
   <url>
-    <loc>https://s-v-b.github.io/MA7BY020/core/labs-solutions/lab-r-intro.html</loc>
-    <lastmod>2025-01-13T20:49:42.181Z</lastmod>
-  </url>
-  <url>
-    <loc>https://s-v-b.github.io/MA7BY020/core/labs-solutions/lab-linear-regression-whiteside.html</loc>
-    <lastmod>2025-03-04T22:18:12.379Z</lastmod>
-  </url>
-  <url>
-    <loc>https://s-v-b.github.io/MA7BY020/core/labs-solutions/lab-univariate-numeric.html</loc>
-    <lastmod>2025-01-29T22:02:29.080Z</lastmod>
-  </url>
-  <url>
     <loc>https://s-v-b.github.io/MA7BY020/weeks/week-9.html</loc>
-    <lastmod>2025-03-16T21:38:18.401Z</lastmod>
+    <lastmod>2025-03-17T09:26:20.042Z</lastmod>
+  </url>
+  <url>
+    <loc>https://s-v-b.github.io/MA7BY020/weeks/week-7.html</loc>
+    <lastmod>2025-03-17T09:26:20.041Z</lastmod>
+  </url>
+  <url>
+    <loc>https://s-v-b.github.io/MA7BY020/weeks/week-3.html</loc>
+    <lastmod>2025-03-17T09:26:20.042Z</lastmod>
+  </url>
+  <url>
+    <loc>https://s-v-b.github.io/MA7BY020/weeks/week-11.html</loc>
+    <lastmod>2025-03-17T09:30:06.946Z</lastmod>
+  </url>
+  <url>
+    <loc>https://s-v-b.github.io/MA7BY020/weeks/week-1.html</loc>
+    <lastmod>2025-03-17T09:26:20.042Z</lastmod>
   </url>
   <url>
     <loc>https://s-v-b.github.io/MA7BY020/weeks/week-10.html</loc>
-    <lastmod>2025-03-14T11:01:08.731Z</lastmod>
+    <lastmod>2025-03-17T09:26:20.040Z</lastmod>
   </url>
   <url>
-    <loc>https://s-v-b.github.io/MA7BY020/core/labs/lab-ca.html</loc>
-    <lastmod>2025-03-16T10:04:16.809Z</lastmod>
+    <loc>https://s-v-b.github.io/MA7BY020/weeks/week-12.html</loc>
+    <lastmod>2025-03-17T09:31:06.948Z</lastmod>
   </url>
   <url>
-    <loc>https://s-v-b.github.io/MA7BY020/core/labs-solutions/lab-ca.html</loc>
-    <lastmod>2025-03-16T20:56:59.627Z</lastmod>
+    <loc>https://s-v-b.github.io/MA7BY020/weeks/week-2.html</loc>
+    <lastmod>2025-03-17T09:26:20.041Z</lastmod>
+  </url>
+  <url>
+    <loc>https://s-v-b.github.io/MA7BY020/weeks/week-4.html</loc>
+    <lastmod>2025-03-17T09:26:20.041Z</lastmod>
+  </url>
+  <url>
+    <loc>https://s-v-b.github.io/MA7BY020/weeks/week-6.html</loc>
+    <lastmod>2025-03-17T09:26:20.042Z</lastmod>
+  </url>
+  <url>
+    <loc>https://s-v-b.github.io/MA7BY020/weeks/week-8.html</loc>
+    <lastmod>2025-03-17T09:26:20.042Z</lastmod>
   </url>
   <url>
     <loc>https://s-v-b.github.io/MA7BY020/core/projects/hmw-dev-2025.html</loc>
-    <lastmod>2025-03-16T22:03:58.974Z</lastmod>
+    <lastmod>2025-03-16T22:09:14.245Z</lastmod>
   </url>
 </urlset>

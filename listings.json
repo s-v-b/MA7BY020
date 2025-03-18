@@ -1,9 +1,5 @@
 [
   {
-    "listing": "/slides-listings.html",
-    "items": []
-  },
-  {
     "listing": "/labs-listings.html",
     "items": []
   },
@@ -13,6 +9,10 @@
   },
   {
     "listing": "/projects-listings.html",
+    "items": []
+  },
+  {
+    "listing": "/slides-listings.html",
     "items": []
   },
   {
