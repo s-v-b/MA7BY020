@@ -51,7 +51,7 @@
 - title: "SVD, MCA, CCA"
   author: "Master I MIDS UParis Cité"
   date: "2025-03-26"
-  path: "core/labs-solutions/lab-mca-cca.html"
+  path: "core/labs-solutions/lab-mca.html"
   categories: [SVD, PCA, CA, MCA, CCA] 
 - title: "Clustering: kmeans"
   author: "Master I MIDS UParis Cité"
