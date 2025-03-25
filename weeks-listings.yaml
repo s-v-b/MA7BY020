@@ -43,3 +43,13 @@
   date: "2025-03-26"
   path: /weeks/week-10.html
   categories: [CCA, MCA, SVD]
+- title: "Week 11"
+  author: "Master I MIDS UParis Cité"
+  date: "2025-04-02"
+  path: /weeks/week-11.html
+  categories: [Clustering, k-means]
+- title: "Week 12"
+  author: "Master I MIDS UParis Cité"
+  date: "2025-04-09"
+  path: /weeks/week-12.html
+  categories: [Clustering, Hierarchical]

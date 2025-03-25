@@ -30,8 +30,8 @@ results from [Homework I](/core/projects/hmw_gapminder_oecd.qmd).
 
 ## {{< fa flask-vial >}} Labs
 
-- [Lab 10](/core/labs/lab-cca-mca.qmd)  Multiple Correspondence Analysis and Canonical Correspondence Analysis as applications of extended SVD
-
+- [Lab 10](/core/labs/lab-mca.qmd)  Multiple Correspondence Analysis  as application of extended SVD
+- [Lab 10 bis](/core/labs/lab-cca.qmd) Canonical Correspondence Analysis
 
 We still rely on the previous labs
 

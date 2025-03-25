@@ -45,19 +45,24 @@
   categories: [SVD, PCA]
 - title: "Correspondence Analysis"
   author: "Master I MIDS UParis Cité"
-  date: "2025-03-05"
+  date: "2025-03-19"
   path: "core/labs-solutions/lab-ca.html"
-  categories: [SVD, CA, Correspondence Analysis]  
-# - title: "Multiple Linear Regression: diagnostics, `broom`"
-#   author: "Master I MIDS UParis Cité"
-#   date: "2025-02-05"
-#   path: "core/labs-solutions/lab-whiteside.html"
-#   categories: [Linear regression, diagnostics, broom]
-# - title: "Linear regression, Variable selection, Transformations"
-#   author: "Master I MIDS UParis Cité"
-#   date: "2025-02-05"
-#   path: "core/labs-solutions/lab-whiteside.html"
-#   categories: [Linear regression, Variable selection, Transformations, Penalized LS]
+  categories: [SVD, CA, Correspondence Analysis] 
+- title: "SVD, MCA, CCA"
+  author: "Master I MIDS UParis Cité"
+  date: "2025-03-26"
+  path: "core/labs-solutions/lab-mca-cca.html"
+  categories: [SVD, PCA, CA, MCA, CCA] 
+- title: "Clustering: kmeans"
+  author: "Master I MIDS UParis Cité"
+  date: "2025-04-02"
+  path: "core/labs-solutions/lab-kmeans.html"
+  categories: [Clustering, k-means]
+- title: "Clustering: Hierarchical"
+  author: "Master I MIDS UParis Cité"
+  date: "2025-04-07"
+  path: "core/labs-solutions/lab-hclust.html"
+  categories: [Clustering, Hierarchical]
 # - title: "Bi and Multivariate categorical data"
 #   author: "Master I MIDS UParis Cité"
 #   date: "2025-02-12"
@@ -67,27 +72,7 @@
 #   author: "Master I MIDS UParis Cité"
 #   date: "2025-02-12"
 #   path: "core/labs-solutions/lab-babynames.html"
-#   categories: [Tmeporal data, Time series, Babynames]
-# - title: "SVD"
-#   author: "Master I MIDS UParis Cité"
-#   date: "2025-02-19"
-#   path: "core/labs-solutions/lab-pca.html"
-#   categories: [SVD, PCA, CA, MCA, CCA]
-# - title: "SVD and PCA"
-#   author: "Master I MIDS UParis Cité"
-#   date: "2025-02-19"
-#   path: "core/labs-solutions/lab-pca-misc.html"
-#   categories: [SVD, PCA, CA, MCA, CCA]  
-# - title: "SVD and PCA"
-#   author: "Master I MIDS UParis Cité"
-#   date: "2025-02-19"
-#   path: "core/labs-solutions/lab-pca-misc.html"
-#   categories: [SVD, PCA, CA, MCA, CCA]  
-# - title: "PCA, CA, MCA"
-#   author: "Master I MIDS UParis Cité"
-#   date: "2025-03-05"
-#   path: "core/labs-solutions/lab-ca-mortality.html"
-#   categories: [SVD, PCA, CA, MCA, CCA]  
+#   categories: [Tmeporal data, Time series, Babynames  
 # - title: "PCA, CA, MCA"
 #   author: "Master I MIDS UParis Cité"
 #   date: "2025-03-05"
@@ -128,16 +113,7 @@
 #   date: "2025-03-26"
 #   path: "core/labs-solutions/lab-vecorization.html"
 #   categories: [Clustering, Hierarchical]
-# - title: "Clustering: kmeans"
-#   author: "Master I MIDS UParis Cité"
-#   date: "2025-04-02"
-#   path: "core/labs-solutions/lab-vctrs.html"
-#   categories: [Clustering, k-means]
-# - title: "Clustering: Hierarchical"
-#   author: "Master I MIDS UParis Cité"
-#   date: "2025-04-02"
-#   path: "core/labs-solutions/lab-vecorization.html"
-#   categories: [Clustering, Hierarchical]
+
 # - title: "Spatial data visualization"
 #   author: "Master I MIDS UParis Cité"
 #   date: "2025-04-09"
