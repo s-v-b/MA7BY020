@@ -42,7 +42,7 @@
   </url>
   <url>
     <loc>https://s-v-b.github.io/MA7BY020/weeks/week-11.html</loc>
-    <lastmod>2025-03-17T09:30:06.946Z</lastmod>
+    <lastmod>2025-03-30T20:15:12.021Z</lastmod>
   </url>
   <url>
     <loc>https://s-v-b.github.io/MA7BY020/weeks/week-1.html</loc>
@@ -54,7 +54,7 @@
   </url>
   <url>
     <loc>https://s-v-b.github.io/MA7BY020/weeks/week-12.html</loc>
-    <lastmod>2025-03-17T09:31:06.948Z</lastmod>
+    <lastmod>2025-03-30T20:14:51.120Z</lastmod>
   </url>
   <url>
     <loc>https://s-v-b.github.io/MA7BY020/weeks/week-2.html</loc>
@@ -79,5 +79,33 @@
   <url>
     <loc>https://s-v-b.github.io/MA7BY020/core/labs/lab-mca.html</loc>
     <lastmod>2025-03-25T21:51:43.512Z</lastmod>
+  </url>
+  <url>
+    <loc>https://s-v-b.github.io/MA7BY020/core/labs/lab-cca.html</loc>
+    <lastmod>2025-03-27T11:51:54.342Z</lastmod>
+  </url>
+  <url>
+    <loc>https://s-v-b.github.io/MA7BY020/core/labs-solutions/lab-cca.html</loc>
+    <lastmod>2025-03-27T16:56:01.093Z</lastmod>
+  </url>
+  <url>
+    <loc>https://s-v-b.github.io/MA7BY020/core/labs/lab-kmeans.html</loc>
+    <lastmod>2025-03-30T19:40:14.194Z</lastmod>
+  </url>
+  <url>
+    <loc>https://s-v-b.github.io/MA7BY020/core/labs-solutions/lab-kmeans.html</loc>
+    <lastmod>2025-03-30T19:29:20.317Z</lastmod>
+  </url>
+  <url>
+    <loc>https://s-v-b.github.io/MA7BY020/core/labs/lab-hclust.html</loc>
+    <lastmod>2025-03-30T19:47:25.847Z</lastmod>
+  </url>
+  <url>
+    <loc>https://s-v-b.github.io/MA7BY020/core/labs-solutions/lab-hclust.html</loc>
+    <lastmod>2025-03-30T19:47:25.847Z</lastmod>
+  </url>
+  <url>
+    <loc>https://s-v-b.github.io/MA7BY020/core/slides/slides-kmeans.html</loc>
+    <lastmod>2025-04-01T21:04:16.152Z</lastmod>
   </url>
 </urlset>

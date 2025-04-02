@@ -590,7 +590,7 @@
     "href": "weeks-listings.html",
     "title": "Journal",
     "section": "",
-    "text": "Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Tags\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\nDate\n\n\nTitle\n\n\nTags\n\n\n\n\n\n\nJan 15, 2025\n\n\nWeek 1\n\n\nVisualization, Public Statistics, R language, Tidyverse\n\n\n\n\nJan 22, 2025\n\n\nWeek 2\n\n\nR language, Tidyverse, Table manipulations\n\n\n\n\nJan 29, 2025\n\n\nWeek 3\n\n\nUnivariate data\n\n\n\n\nFeb 5, 2025\n\n\nWeek 4\n\n\nBivariate data\n\n\n\n\nFeb 19, 2025\n\n\nWeek 6\n\n\nLinear regression, OLS, lm, Model diagnostics\n\n\n\n\nMar 5, 2025\n\n\nWeek 7\n\n\nLinear regression, OLS, lm, Model diagnostics\n\n\n\n\nMar 12, 2025\n\n\nWeek 8\n\n\nPCA, SVD\n\n\n\n\nMar 19, 2025\n\n\nWeek 9\n\n\nCA, SVD\n\n\n\n\nMar 26, 2025\n\n\nWeek 10\n\n\nCCA, MCA, SVD\n\n\n\n\nApr 2, 2025\n\n\nWeek 11\n\n\nClustering, k-means\n\n\n\n\nApr 9, 2025\n\n\nWeek 12\n\n\nClustering, Hierarchical\n\n\n\n\n\nNo matching items",
+    "text": "Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Tags\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\nDate\n\n\nTitle\n\n\nTags\n\n\n\n\n\n\nJan 15, 2025\n\n\nWeek 1\n\n\nVisualization, Public Statistics, R language, Tidyverse\n\n\n\n\nJan 22, 2025\n\n\nWeek 2\n\n\nR language, Tidyverse, Table manipulations\n\n\n\n\nJan 29, 2025\n\n\nWeek 3\n\n\nUnivariate data\n\n\n\n\nFeb 5, 2025\n\n\nWeek 4\n\n\nBivariate data\n\n\n\n\nFeb 19, 2025\n\n\nWeek 6\n\n\nLinear regression, OLS, lm, Model diagnostics\n\n\n\n\nMar 5, 2025\n\n\nWeek 7\n\n\nLinear regression, OLS, lm, Model diagnostics\n\n\n\n\nMar 12, 2025\n\n\nWeek 8\n\n\nPCA, SVD\n\n\n\n\nMar 19, 2025\n\n\nWeek 9\n\n\nCA, SVD\n\n\n\n\nMar 26, 2025\n\n\nWeek 10\n\n\nCCA, MCA, SVD\n\n\n\n\nApr 2, 2025\n\n\nWeek 11\n\n\nClusterings\n\n\n\n\nApr 9, 2025\n\n\nWeek 12\n\n\nClusterings\n\n\n\n\n\nNo matching items",
     "crumbs": [
       "Journal"
     ]
@@ -810,7 +810,7 @@
     "href": "weeks/week-11.html#labs",
     "title": "Week 11",
     "section": " Labs",
-    "text": "Labs\n\nLab 11 Clustering with \\(k\\)-means\n\nWe still rely on the previous labs\n\nLab 1 - Introduction to R and RStudio\nLab 2 - Introduction to Data Visualization using Gapminder dataset\nLab 3 - Working with dplyr\nLab 4 Univariate categorical variables\nLab 5 Univariate numeric variables\nLab 6 - Linear Regression I\nLab 6 - Linear Regression II\nLab 7 - Linear Regression II\nLab 8 Principal Component Analysis as an application of SVD\nLab 9 Correspondence Analysis as an application of extended SVD\nLab 10 Multiple Correspondence Analysis and Canonical Correspondence Analysis as applications of extended SVD)"
+    "text": "Labs\n\nLab 11 Clustering with \\(k\\)-means\nLab 12 Hierarchical clustering\n\nWe still rely on the previous labs\n\nLab 1 - Introduction to R and RStudio\nLab 2 - Introduction to Data Visualization using Gapminder dataset\nLab 3 - Working with dplyr\nLab 4 Univariate categorical variables\nLab 5 Univariate numeric variables\nLab 6 - Linear Regression I\nLab 6 - Linear Regression II\nLab 7 - Linear Regression II\nLab 8 Principal Component Analysis as an application of SVD\nLab 9 Correspondence Analysis as an application of extended SVD\nLab 10 Multiple Correspondence Analysis and Canonical Correspondence Analysis as applications of extended SVD)"
   },
   {
     "objectID": "weeks/week-11.html#further-work",
@@ -906,35 +906,35 @@
   {
     "objectID": "weeks/week-12.html",
     "href": "weeks/week-12.html",
-    "title": "Week 10",
+    "title": "Week 12",
     "section": "",
     "text": "Important\n\n\n\n\nSession I Sophie Germain (2032) Wednesday 13h30-15h\nSession II Sophie Germain (2012) Friday 9h00-10h30\n Calendar"
   },
   {
     "objectID": "weeks/week-12.html#labs",
     "href": "weeks/week-12.html#labs",
-    "title": "Week 10",
+    "title": "Week 12",
     "section": " Labs",
-    "text": "Labs\n\nLab 12 Hierarchical clustering\n\nWe still rely on the previous labs\n\nLab 1 - Introduction to R and RStudio\nLab 2 - Introduction to Data Visualization using Gapminder dataset\nLab 3 - Working with dplyr\nLab 4 Univariate categorical variables\nLab 5 Univariate numeric variables\nLab 6 - Linear Regression I\nLab 6 - Linear Regression II\nLab 7 - Linear Regression II\nLab 8 Principal Component Analysis as an application of SVD\nLab 9 Correspondence Analysis as an application of extended SVD\nLab 10 Multiple Correspondence Analysis and Canonical Correspondence Analysis as applications of extended SVD\nLab 11 Clustering with \\(k\\)-means"
+    "text": "Labs\nWe still rely on the previous labs\n\nLab 1 - Introduction to R and RStudio\nLab 2 - Introduction to Data Visualization using Gapminder dataset\nLab 3 - Working with dplyr\nLab 4 Univariate categorical variables\nLab 5 Univariate numeric variables\nLab 6 - Linear Regression I\nLab 6 - Linear Regression II\nLab 7 - Linear Regression II\nLab 8 Principal Component Analysis as an application of SVD\nLab 9 Correspondence Analysis as an application of extended SVD\nLab 10 Multiple Correspondence Analysis and Canonical Correspondence Analysis as applications of extended SVD\nLab 11 Clustering with \\(k\\)-means\nLab 12 Hierarchical clustering"
   },
   {
     "objectID": "weeks/week-12.html#further-work",
     "href": "weeks/week-12.html#further-work",
-    "title": "Week 10",
+    "title": "Week 12",
     "section": " Further work",
     "text": "Further work\n Review the content of the two labs. Work out every part you do not already know. Report an issue if you are unhappy with the proposed solutions/hints."
   },
   {
     "objectID": "weeks/week-12.html#further-reading",
     "href": "weeks/week-12.html#further-reading",
-    "title": "Week 10",
+    "title": "Week 12",
     "section": " Further reading",
     "text": "Further reading\n\nBin Yu and Rebecca Barter, Veridical Data Science\nR for data science\nAdvanced R\n\nS3 classes\nS4 classes"
   },
   {
     "objectID": "weeks/week-12.html#logistics",
     "href": "weeks/week-12.html#logistics",
-    "title": "Week 10",
+    "title": "Week 12",
     "section": " Logistics",
     "text": "Logistics\n : you will work with the R programming language in this course.\nYou need either to install R, RStudio and VS Code on your computer, or to use your posit-cloud account.\n Install Quarto on your computer to render the .qmd files.\nPlease follow the instructions here to install R, RStudio, VS Code, and Quarto or to access posit-cloud.\n Please activate your ENT account (follow the instructions on Moodle). You will be able to access the PostGres server.\n\n\nBack to Agenda ⏎"
   },
@@ -1322,5 +1322,747 @@
     "title": "LAB: Multiple Correspondence Analysis (MCA)",
     "section": "Further references",
     "text": "Further references\nBarth, Alice and Schmitz, Andreas. 2018. Response quality and ideological dispositions: an integrative approach using geometric and classifying techniques. Quality & Quantity\n\nWhen analyzing survey data, response quality has consequential implications for substantial conclusions. Differences in response quality are usually explained by personality, or socio-demographic or cognitive characteristics. Little, however, is known about how respondents’ political attitudes, values, and opinions impact on quality aspects. This is a striking analytical omission, as potential associations between political values and various forms of response biases and artefacts call into question surveys’ ability to represent ‘public opinion’. In this contribution, response quality is traced back to respondents’ political and ideological dispositions. For this purpose, a relational understanding of response quality is applied that takes into account different aspects of response behaviors, as well as the interrelations between these indicators. Using data from the US General Social Survey (2010–2014), an empirical typology of response quality is created via finite mixture analysis. The resulting classes are then related to positions in the US field of ideological dispositions constructed via multiple correspondence analysis. The analyses reveal that there are (1) different combinations of response patterns and thus different empirical response types, and (2) that these types of response quality systematically vary with regard to the respondents’ political and ideological (dis)positions. Implications of the findings for public opinion surveys are discussed."
+  },
+  {
+    "objectID": "core/labs/lab-cca.html#canonical-correlation-analysis",
+    "href": "core/labs/lab-cca.html#canonical-correlation-analysis",
+    "title": "Lab: Canonical Correlation Analysis",
+    "section": "Canonical Correlation Analysis",
+    "text": "Canonical Correlation Analysis\n\\[C(X,Y) = \\mathbb{E}\\left[X Y^\\top\\right]\\]\n\\[\\begin{bmatrix} C_{xx} & C_{xy} \\\\ C_{xy}^{\\top} & C_{yy}\\end{bmatrix}\\]\n\nCode\\begin{bmatrix} C_{xx} & C_{xy} \\\\ C_{xy}^{\\top} & C_{yy}\\end{bmatrix}\n\n\nThe first canonical components are the solution of the next problem\n\n\n\n\n\n\nOptimization problem\n\n\n\n\\[\\begin{array}{lll}\\text{Maximize} & & u^\\top C_{xy}  v \\\\\\text{subject to} & & u^\\top C_{xx} uv=1 =v^\\top C_{yy} v     \\end{array}\\]\n\n\n\n\n\n\n\n\nProposition\n\n\n\nLet\n\\[U \\times D \\times V^\\top\\]\nbe a SVD of\n\\[C_{xx}^{-1/2} \\times C_{xy} \\times C_{yy}^{-1/2}\\]\nThe solution to the optimization problem above is\n\\[a = C_{xx}^{-1/2} u_1 \\qquad \\text{and} \\qquad b= S_{yy}^{-1/2} v_1\\]\nwhere \\(u_1\\) and \\(v_1\\) are the leading left and right singular vectors of \\(C_{xx}^{-1/2} \\times C_{xy} \\times C_{yy}^{-1/2}\\), that is the first column vectors of \\(U\\) and \\(V\\).\n\n\n\nProof: \n\n\n\n\n\n\nProposition\n\n\n\nA sequence of canonical components of \\(C_{xy}\\) can be obtained from the sequence of (extended) left and right singular vectors of \\(C_{xy}\\) with respect to \\(C_{xx}\\) and \\(C_{yy}\\)\n\n\nProof:"
+  },
+  {
+    "objectID": "core/labs/lab-cca.html#applications",
+    "href": "core/labs/lab-cca.html#applications",
+    "title": "Lab: Canonical Correlation Analysis",
+    "section": "Applications",
+    "text": "Applications"
+  },
+  {
+    "objectID": "core/labs/lab-cca.html#references",
+    "href": "core/labs/lab-cca.html#references",
+    "title": "Lab: Canonical Correlation Analysis",
+    "section": "References",
+    "text": "References"
+  },
+  {
+    "objectID": "core/labs/lab-cca.html#canonical-correlation-analysis-cca-in-r",
+    "href": "core/labs/lab-cca.html#canonical-correlation-analysis-cca-in-r",
+    "title": "Lab: Canonical Correlation Analysis",
+    "section": "Canonical Correlation Analysis (CCA) in R\n",
+    "text": "Canonical Correlation Analysis (CCA) in R\n\n\ncancor() from base package R\n\n/usr/lib/R/library/stats/help/cancor\nCode?LifeCycleSavings\n\nCodeLifeCycleSavings |&gt;\n  slice_sample(n=5)\n\n\n\nCodepairs(LifeCycleSavings, \n      panel = panel.smooth,\n      main = \"LifeCycleSavings data\")\n\n\n\nCodefm1 &lt;- lm(sr ~ pop15 + pop75 + dpi + ddpi, data = LifeCycleSavings)\n \nsummary(fm1)\n\n\n\nCodepop &lt;- LifeCycleSavings |&gt; \n  select(starts_with('pop'))\noec &lt;- LifeCycleSavings |&gt; \n  select(-starts_with('pop'))\n  \nres.cca &lt;- cancor(pop, oec)\n\n\n\n\n\n\n\n\nQuestion\n\n\n\nCheck that the different components of the output of cancor() satisfy all properties they should satisfy.\n\n\n\n\n\n\n\n\nQuestion\n\n\n\nDesign a suite of tests (using testthat) that any contender of the implementation provided by package stats should pass.\n\n\nPackage CCA"
+  },
+  {
+    "objectID": "core/labs-solutions/lab-cca.html#canonical-correlation-analysis",
+    "href": "core/labs-solutions/lab-cca.html#canonical-correlation-analysis",
+    "title": "Lab: Canonical Correlation Analysis",
+    "section": "Canonical Correlation Analysis",
+    "text": "Canonical Correlation Analysis\n\\[C(X,Y) = \\mathbb{E}\\left[X Y^\\top\\right]\\]\n\\[\\begin{bmatrix} C_{xx} & C_{xy} \\\\ C_{xy}^{\\top} & C_{yy}\\end{bmatrix}\\]\nThe first canonical components are the solution of the next problem\n\n\n\n\n\n\nOptimization problem\n\n\n\n\\[\\begin{array}{lll}\\text{Maximize} & & u^\\top C_{xy}  v \\\\\\text{subject to} & & u^\\top C_{xx} uv=1 =v^\\top C_{yy} v     \\end{array}\\]\n\n\n\n\n\n\n\n\nProposition\n\n\n\nLet\n\\[U \\times D \\times V^\\top\\]\nbe a SVD of\n\\[C_{xx}^{-1/2} \\times C_{xy} \\times C_{yy}^{-1/2}\\]\nThe solution to the optimization problem above is\n\\[a = C_{xx}^{-1/2} u_1 \\qquad \\text{and} \\qquad b= S_{yy}^{-1/2} v_1\\]\nwhere \\(u_1\\) and \\(v_1\\) are the leading left and right singular vectors of \\(C_{xx}^{-1/2} \\times C_{xy} \\times C_{yy}^{-1/2}\\), that is the first column vectors of \\(U\\) and \\(V\\).\n\n\n\nProof: \n\n\n\n\n\n\nProposition\n\n\n\nA sequence of canonical components of \\(C_{xy}\\) can be obtained from the sequence of (extended) left and right singular vectors of \\(C_{xy}\\) with respect to \\(C_{xx}\\) and \\(C_{yy}\\)\n\n\nProof: \n\n\n\n\n\n\nProposition\n\n\n\nLet \\(H_X\\) (resp. \\(H_Y\\)) be orthorgonal projection matrix on the linear space spanned by the columns of \\(X\\) (resp. \\(Y\\)).\nCanonical correlations \\(ρ_1 \\geq \\ldots \\geq \\rho_s, \\ldots\\) are the positive square roots of the eigenvalues \\(\\lambda_1, \\ldots \\geq \\lambda_s, \\ldots\\) of \\(H_X \\times H_Y\\) (which are the same as \\(H_Y \\times H_X\\)): \\(ρ_s = λ_s\\)  Vectors \\(U^1, \\ldots, U^{p_1}\\) are the standardized eigenvectors corresponding to the decreasing eigenvalues \\(λ_1 \\geq \\ldots \\geq \\lambda_{p_1}\\) of \\(H_X  \\times H_Y\\)\nVectors \\(V^1, \\ldots, V^{p_2}\\) are the standardized eigenvectors corresponding to the decreasing eigenvalues \\(λ_1 \\geq \\ldots \\geq \\lambda_{p_2}\\) of \\(H_X  \\times H_Y\\)"
+  },
+  {
+    "objectID": "core/labs-solutions/lab-cca.html#canonical-correlation-analysis-cca-in-r",
+    "href": "core/labs-solutions/lab-cca.html#canonical-correlation-analysis-cca-in-r",
+    "title": "Lab: Canonical Correlation Analysis",
+    "section": "Canonical Correlation Analysis (CCA) in R\n",
+    "text": "Canonical Correlation Analysis (CCA) in R\n\n\ncancor() from base package R\n\nFunction cancor(x, y, xcenter=T, ycenter=T) computes the canonical correlations between two data matrices x and y. Henceforth we assume that the columns of x and y are centered. Matrices x and y have the same number \\(n\\) of rows. x (resp. y) has p1 (resp. p2) columns.\n\nThe canonical correlation analysis seeks linear combinations of the y variables which are well explained by linear combinations of the x variables. The relationship is symmetric as well explained is measured by correlations.\n\nThe result is a list of five components\n\n\ncor correlations.\n\nxcoef estimated coefficients for the x variables.\n\nycoef estimated coefficients for the y variables.\n\nOur assumption above allows us to assume xcenter and ycenter are zeros.\nThe next example is taken from the documentation. Use ?LiveCycleSavings to get more information on the dataset.\n\nCodeLifeCycleSavings |&gt; \n  as_tibble() |&gt;\n  slice_sample(n=5)\n\n# A tibble: 5 × 5\n     sr pop15 pop75   dpi  ddpi\n  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n1  12.1  23.3  4.41 1508.  3.93\n2  12.9  42.2  0.83  728.  4.56\n3  18.6  45.2  0.56  138.  5.14\n4  12.8  46.3  1.12  152.  2   \n5  13.2  23.8  4.43 2108.  3.82\n\n\n\nCodefm1 &lt;- lm(sr ~ pop15 + pop75 + dpi + ddpi, data = LifeCycleSavings)\n \nsummary(fm1)\n\n\nCall:\nlm(formula = sr ~ pop15 + pop75 + dpi + ddpi, data = LifeCycleSavings)\n\nResiduals:\n    Min      1Q  Median      3Q     Max \n-8.2422 -2.6857 -0.2488  2.4280  9.7509 \n\nCoefficients:\n              Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept) 28.5660865  7.3545161   3.884 0.000334 ***\npop15       -0.4611931  0.1446422  -3.189 0.002603 ** \npop75       -1.6914977  1.0835989  -1.561 0.125530    \ndpi         -0.0003369  0.0009311  -0.362 0.719173    \nddpi         0.4096949  0.1961971   2.088 0.042471 *  \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 3.803 on 45 degrees of freedom\nMultiple R-squared:  0.3385,    Adjusted R-squared:  0.2797 \nF-statistic: 5.756 on 4 and 45 DF,  p-value: 0.0007904\n\n\n\nCodepop &lt;- LifeCycleSavings |&gt; \n  dplyr::select(starts_with('pop'))\noec &lt;- LifeCycleSavings |&gt; \n  dplyr::select(-starts_with('pop'))\n  \nres.cca &lt;- cancor(pop, oec)\n\nres.cca$cor\n\n[1] 0.8247966 0.3652762\n\n\nThis tells us that highest possible linear correlation beween a linear combination of pop15, pop75 and a linear combination of sr, dpi, ddpi is res.cca$cor[1]. The coefficients of the corresponding linear combinations can be found on the rows of components xcoef and ycoef\n\n\n\n\n\n\nQuestion\n\n\n\nCheck that the different components of the output of cancor() satisfy all properties they should satisfy.\n\n\n\n\n\n\n\n\nSolution\n\n\n\n\nCodecc &lt;- cor(\n  as.matrix(pop) %*% as.matrix(res.cca$xcoef), \n  as.matrix(oec) %*% as.matrix(res.cca$ycoef)\n  )\n\ndiag(cc) - res.cca$cor\n\n[1]  2.220446e-16 -5.551115e-17\n\n\n\n\n\n\n\n\n\n\nQuestion\n\n\n\nDesign a suite of tests (using testthat) that any contender of the implementation provided by package stats should pass.\n\n\n\n\n\n\n\n\nSolution\n\n\n\nTODO\n\n\nPackage CCA\n\nAbstract of CCA: An R Package to Extend Canonical Correlation Analysis\n\nCanonical correlations analysis (CCA) is an exploratory statistical method to highlight correlations between two data sets acquired on the same experimental units. The cancor() function in R (R Development Core Team 2007) performs the core of computations but further work was required to provide the user with additional tools to facilitate the interpretation of the results.\n\nAs in PCA, CA, MCA, several kinds of graphical representations can be displayed from the results of CCA:\n\na barplot of the squared canonical correlations (which tells us about the low rank approximations of \\(H_X \\times H_Y\\))\nscatter plots for the initial variables \\(X^j\\) and \\(Y^k\\) (ako correlation circles)\nscatter plots for the individuals (rows)\nbiplots"
+  },
+  {
+    "objectID": "core/labs-solutions/lab-cca.html#applications",
+    "href": "core/labs-solutions/lab-cca.html#applications",
+    "title": "Lab: Canonical Correlation Analysis",
+    "section": "Applications",
+    "text": "Applications\n\n\n\n\n\n\nQuestion\n\n\n\n\nLoad nutrimouse dataset from CCA.\nInsert the 4 elements of list nutrimouse in the global environment (see list2env())\n\n\n\n\n\n\n\n\n\nSolution\n\n\n\n\nCodestopifnot(\n  require(CCA)\n)\n\ndata(\"nutrimouse\")\n\ne &lt;- list2env(nutrimouse, .GlobalEnv)\n\n\n\n\n\n\n\n\n\n\nQuestion\n\n\n\n\nCompute the cross correlation matrix between gene and lipid\n\nVisualize the cross correlation matrix\n\n\n\n\n\n\n\n\n\nSolution\n\n\n\n\nCodeY &lt;- as.matrix(gene)   # 40 x 120\nX &lt;- as.matrix(lipid)  # 40 x 20\n\n\n\nCodec_XY = corrr::correlate(cbind(X, Y))\n\nCorrelation computed with\n• Method: 'pearson'\n• Missing treated using: 'pairwise.complete.obs'\n\n\n\nCodec_XY_long &lt;- c_XY |&gt;\n  tidyr::pivot_longer(cols=-c(term), names_to=\"term2\", values_to=\"cor\")  \n\n\n\nCodep  &lt;- c_XY_long |&gt;\n  dplyr::filter(\n    term %in% names(gene),\n    term2 %in% names(lipid)\n  ) |&gt;\n  ggplot() +\n  aes(x=term2, y=term, fill=abs(cor)) +\n  geom_tile() +\n  scale_fill_viridis_c() +\n  xlab(\"diet\") +\n  ylab(\"gene\")\n\np |&gt; plotly::ggplotly()\n\n\n\n\n\n\n\n\n\n\n\n\n\nQuestion\n\n\n\n\nCompute the canonical correlations between gene and lipid, save the result in res.cca\n\nCheck the canonical correlations.\nComment\n\n\n\n\n\n\n\n\n\nSolution\n\n\n\n\nCoderes.cca &lt;- cancor(as.matrix(gene), as.matrix(lipid))\n\n\n\nCodesum(res.cca$cor)\n\n[1] 21\n\n\n\\(H_X\\times H_Y\\) has 21 eigenvalues equal to \\(1\\). As the subspaces defined by the columns in gene and lipid have dimensions at most 21 and 40, \\(H_X\\times H_Y\\) equals the projection of \\(\\mathbb{R}^{40}\\) over the smallest subspace.\n\n\n\n\n\n\n\n\nQuestion\n\n\n\nSample 10 columns from gene and lipid and repeat the operation\n\n\n\n\n\n\n\n\nSolution\n\n\n\n\nCodeset.seed(42)\nn &lt;- 10\n\nss_gene &lt;- gene |&gt;\n  dplyr::select(sample(names(gene),  n)) |&gt;\n  scale()\n\nss_lipid&lt;- lipid |&gt;\n  dplyr::select(sample(names(lipid),  n)) |&gt;\n  scale()\n\nres.cca &lt;- cancor(as.matrix(ss_gene), as.matrix(ss_lipid)) \n\nres.cc &lt;- cc(X=as.matrix(ss_gene), Y=as.matrix(ss_lipid))\n\n\n\n\n\n\n\n\n\n\nQuestion\n\n\n\nScreeplot\n\n\n\n\n\n\n\n\nSolution\n\n\n\n\nCoderes.cca$cor |&gt; \n  as_tibble() |&gt;\n  gt::gt() |&gt;\n  gt::fmt_scientific() |&gt;\n  gt::tab_caption(\"Canonical correlations between `gene` columns of nutrimouse and  `lipid` columns\")\n\n\n\n\nCanonical correlations between `gene` columns of nutrimouse and `lipid` columns\n\nvalue\n\n\n\n9.62 × 10−1\n\n\n\n8.82 × 10−1\n\n\n\n7.90 × 10−1\n\n\n\n7.35 × 10−1\n\n\n\n6.96 × 10−1\n\n\n\n5.66 × 10−1\n\n\n\n5.09 × 10−1\n\n\n\n2.67 × 10−1\n\n\n\n1.58 × 10−1\n\n\n\n6.62 × 10−2\n\n\n\n\n\n\n\n\nCoderes.cca$cor |&gt; \n  as_tibble() |&gt;\n  mutate(PC=as.factor(1:n), eig=value^2, percent=eig, cumulative=cumsum(eig)) |&gt;\n  ggplot() +\n    aes(x=PC, y=eig, label=eig) +\n    geom_col(fill=\"white\", color=\"black\") +\n    theme_minimal() +\n    labs(\n      title=\"Squared Canonical Correlations\",\n      subtitle=\"sample of 10 genes and 10 lipids\", \n      caption=\"nutrimouse data\"\n    )\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nQuestion\n\n\n\nBuild a correlation circle\n\n\n\n\n\n\n\n\nSolution\n\n\n\nWe use function plt.cc from CCA.\n\nCodeCCA::plt.cc(\n  res.cc, \n  var.label=T,\n  ind.names = str_c(genotype, diet, sep=\"-\")\n)"
+  },
+  {
+    "objectID": "core/labs-solutions/lab-cca.html#references",
+    "href": "core/labs-solutions/lab-cca.html#references",
+    "title": "Lab: Canonical Correlation Analysis",
+    "section": "References",
+    "text": "References\nhttps://www.jstatsoft.org/article/view/v023i12"
+  },
+  {
+    "objectID": "core/labs-solutions/lab-cca.html",
+    "href": "core/labs-solutions/lab-cca.html",
+    "title": "Lab: Canonical Correlation Analysis",
+    "section": "",
+    "text": "Loading required package: testthat\n\n\nLoading required package: corrr\n\n\nLoading required package: magrittr\n\n\n\nAttaching package: 'magrittr'\n\n\nThe following objects are masked from 'package:testthat':\n\n    equals, is_less_than, not\n\n\nLoading required package: lobstr\n\n\nLoading required package: sloop\n\n\nLoading required package: ggforce\n\n\nLoading required package: ggplot2\n\n\nLoading required package: gt\n\n\n\nAttaching package: 'gt'\n\n\nThe following object is masked from 'package:testthat':\n\n    matches\n\n\nLoading required package: glue\n\n\nLoading required package: skimr\n\n\n\nAttaching package: 'skimr'\n\n\nThe following object is masked from 'package:corrr':\n\n    focus\n\n\nThe following object is masked from 'package:testthat':\n\n    matches\n\n\nLoading required package: patchwork\n\n\nLoading required package: tidyverse\n\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.5\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ lubridate 1.9.3     ✔ tibble    3.2.1\n✔ purrr     1.0.4     ✔ tidyr     1.3.1\n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ readr::edition_get()     masks testthat::edition_get()\n✖ magrittr::equals()       masks testthat::equals()\n✖ tidyr::extract()         masks magrittr::extract()\n✖ dplyr::filter()          masks stats::filter()\n✖ magrittr::is_less_than() masks testthat::is_less_than()\n✖ purrr::is_null()         masks testthat::is_null()\n✖ dplyr::lag()             masks stats::lag()\n✖ readr::local_edition()   masks testthat::local_edition()\n✖ dplyr::matches()         masks tidyr::matches(), skimr::matches(), gt::matches(), testthat::matches()\n✖ magrittr::not()          masks testthat::not()\n✖ purrr::set_names()       masks magrittr::set_names()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\nLoading required package: ggfortify\n\nLoading required package: viridisLite"
+  },
+  {
+    "objectID": "core/labs/lab-kmeans.html",
+    "href": "core/labs/lab-kmeans.html",
+    "title": "Lab: Clustering k-means",
+    "section": "",
+    "text": "Codestopifnot(\n  require(gt),\n  require(sloop),\n  require(lobstr), \n  require(skimr),\n  require(GGally),\n  require(patchwork),\n  require(ggforce),\n  require(glue),\n  require(ggfortify),\n  require(ggvoronoi),\n  require(magrittr),\n  require(broom),\n  require(tidyclust),\n  require(tidyverse)\n)\n\ntidymodels::tidymodels_prefer(quiet = TRUE)\n\nold_theme &lt;-theme_set(\n  theme_minimal(base_size=9, \n                base_family = \"Helvetica\")\n)\nCodeknitr::opts_chunk$set(\n  message = FALSE,\n  warning = FALSE,\n  comment=NA,\n  prompt=FALSE,\n  cache=FALSE,\n  echo=TRUE,\n  results='asis'\n)\nCodegc &lt;- options(ggplot2.discrete.colour=\"viridis\")\ngc &lt;- options(ggplot2.discrete.fill=\"viridis\")\ngc &lt;- options(ggplot2.continuous.fill=\"viridis\")\ngc &lt;- options(ggplot2.continuous.colour=\"viridis\")"
+  },
+  {
+    "objectID": "core/labs/lab-kmeans.html#foreword",
+    "href": "core/labs/lab-kmeans.html#foreword",
+    "title": "Lab: Clustering k-means",
+    "section": "Foreword",
+    "text": "Foreword\nThis lab is dedicated to the k-means clustering method. In words, k-means takes as input a collection of points in \\(\\mathbb{R}^d\\) (a numerical dataset) and a positive integer \\(k\\). It returns a collection of \\(k\\) points (the centers) from \\(\\mathbb{R}^d\\). The centers define a Voronoï tesselation/partition/diagran of \\(\\mathbb{R}^d\\). The Voronoï cells define a clustering of the original dataset."
+  },
+  {
+    "objectID": "core/labs/lab-kmeans.html#voronoi-tesselationpartitiondiagram",
+    "href": "core/labs/lab-kmeans.html#voronoi-tesselationpartitiondiagram",
+    "title": "Lab: Clustering k-means",
+    "section": "Voronoi tesselation/partition/diagram",
+    "text": "Voronoi tesselation/partition/diagram\nWikipedia on Voronoï diagrams\nIn the next chunk, we generate a Voronoï diagram on \\(\\mathbb{R}^2\\) with \\(100\\) cells defined from \\(100\\) random points drawn from the uniform distribution on a square. Function stat_voronoi() comes from ggvoronoi\n\nCodeset.seed(45056)\n\npoints &lt;- tibble(\n  x=runif(100, 0, 1),\n  y=runif(100, 0, 1),\n  distance = sqrt((x-100)^2 + (y-100)^2)\n) \n\np &lt;- ggplot(points) +\n    aes(x=x, y=y) +\n    geom_point(size=.2) +\n    coord_fixed() +\n    xlim(c(-.25, 2.25)) +\n    ylim(c(-.25, 2.25)) \n\np + (p + stat_voronoi(geom=\"path\")) +\n  patchwork::plot_annotation(\n    title=\"Voronoi tesselation\",\n    subtitle = \"Left: 100 random points\\nRight: Voronoï diagram\")\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTwo adjacent Voronoï cells are separated by a (possibly semi-infinite) line segment\nLet the so-called centers be denoted by \\(c_1, \\ldots, c_n\\). They form the codebook \\(\\mathcal{C}\\).\n\nThe Voronoï cell with center \\(c_i\\) is defined by \\[\\left\\{x : x \\in \\mathbb{R}^d, \\qquad \\| x- c_i \\|_2 = \\min_{j \\leq n} \\|x -c_j\\|_2\\right\\}\\]\n\nThe center of a Voronoï cell is usually not its barycenter"
+  },
+  {
+    "objectID": "core/labs/lab-kmeans.html#k-means-objective-function",
+    "href": "core/labs/lab-kmeans.html#k-means-objective-function",
+    "title": "Lab: Clustering k-means",
+    "section": "\nk-means objective function",
+    "text": "k-means objective function\n\n\n\n\n\n\nDefinition\n\n\n\nThe \\(k\\)-means algorithm aims at building a codebook \\(\\mathcal{C}\\) that minimizes\n\\[\\mathcal{C} \\mapsto \\sum_{i=1}^n \\min_{c \\in \\mathcal{C}}  \\Vert X_i - c\\Vert_2^2\\]\nover all codebooks with given cardinality\nIf \\(c \\in \\mathcal{C}\\) is the closest centroid to \\(X \\in \\mathbb{R}^p\\),\n\\[\\|c - X\\|^2\\]\nis the quantization/reconstruction error suffered when using codebook \\(\\mathcal{C}\\) to approximate \\(X\\)\n\n\n\n\n\n\n\n\n If there are no restrictions on the dimension of the input space, on the number of centroids, or on sample size, computing an optimal codebook is a \\(\\mathsf{NP}\\) -hard problem"
+  },
+  {
+    "objectID": "core/labs/lab-kmeans.html#the-kmeans-function",
+    "href": "core/labs/lab-kmeans.html#the-kmeans-function",
+    "title": "Lab: Clustering k-means",
+    "section": "The kmeans() function",
+    "text": "The kmeans() function\nkmeans() is a wrapper for a collection of Algorithms that look like the Lloyd algorithm\n\nInitialize\n\nChoose \\(k\\) centroids\n\n\nIterations: Two phases\n\nMovement\n\nAssign each sample point to the closest centroid (Assign each sample point to a class in the Voronoi partition defined by the centroids)\n\nUpdate\n\nFor each class in the current Voronoi partition, update the centroid so as to minimize the Within Cluster Sum of Squared distances.\n\n\n No guarantee to converge to a global optimum!\nProceeed by trial and error.\nRepeat the algorithm and keep the best result."
+  },
+  {
+    "objectID": "core/labs/lab-kmeans.html#iris-data",
+    "href": "core/labs/lab-kmeans.html#iris-data",
+    "title": "Lab: Clustering k-means",
+    "section": "Iris data",
+    "text": "Iris data\n\n\n\n\n\n\nQuestion\n\n\n\nRun kmeans() on the projection of the Iris dataset (data(iris)) on the Petal plane.\nCheck ?iris and https://en.wikipedia.org/wiki/Iris_flower_data_set for more on this (historical) dataset.\n\n\n\n\n\n\n\n\nQuestion\n\n\n\n\nCheck the attributes of object kms\n\nUnclass the object and check the attributes again."
+  },
+  {
+    "objectID": "core/labs/lab-kmeans.html#summarizing-a-clustering",
+    "href": "core/labs/lab-kmeans.html#summarizing-a-clustering",
+    "title": "Lab: Clustering k-means",
+    "section": "Summarizing a clustering",
+    "text": "Summarizing a clustering\n\n\n\n\n\n\nQuestion\n\n\n\nCheck the structure of objects of class kmeans and use broom::tidy() to get a summary.\nCompare with summary() from base R"
+  },
+  {
+    "objectID": "core/labs/lab-kmeans.html#visualizing-a-clustering",
+    "href": "core/labs/lab-kmeans.html#visualizing-a-clustering",
+    "title": "Lab: Clustering k-means",
+    "section": "Visualizing a clustering",
+    "text": "Visualizing a clustering\n\n\n\n\n\n\nQuestion\n\n\n\nUse broom::augment() and broom::tidy() to prepare two dataframes that will allow you to overlay a scatterplot of the dataset and a Voronoï diagram defined by the centers output by kmeans().\nCompare the result with plot()\n\n\n\n\n\n\n\n\nQuestion\n\n\n\nRedo the same operations but choose the Sepal.xxx dimension.\nDesign a function to avoid repetitive coding."
+  },
+  {
+    "objectID": "core/labs/lab-kmeans.html#playing-with-k",
+    "href": "core/labs/lab-kmeans.html#playing-with-k",
+    "title": "Lab: Clustering k-means",
+    "section": "Playing with \\(k\\)\n",
+    "text": "Playing with \\(k\\)\n\nThe number of cells/clusters may not be given a priori. Conducting clustering using a method like kmeans requires picking a reasonable choice for k.\n\n\n\n\n\n\nQuestion\n\n\n\nPerform kmeans clustering with \\(k=2\\). Use glance, tidy, augment to discuss the result.\n\n\n\n\n\n\n\n\nQuestion\n\n\n\nPerform k-means for \\(k=2, ... 10\\), plot within sum of squares as function of \\(k\\). Comment."
+  },
+  {
+    "objectID": "core/labs/lab-kmeans.html#lloyds-iterations",
+    "href": "core/labs/lab-kmeans.html#lloyds-iterations",
+    "title": "Lab: Clustering k-means",
+    "section": "Lloyd’s iterations",
+    "text": "Lloyd’s iterations\nThe kmeans function does not minimize the kmeans cost. It offers a collection of iterative algorithms that aim at approximately minimizing the cost.\n\n\n\n\n\n\n\nInitialize\n\nChoose \\(k\\) centroids\n\n\nIterations: Two phases\n\nMovement\n\nAssign each sample point to the closest centroid (Assign each sample point to a class in the Voronoi partition defined by the centroids)\n\nUpdate\n\nFor each class in the current Voronoi partition, update the centroid so as to minimize the Within Cluster Sum of Squared distances."
+  },
+  {
+    "objectID": "core/labs/lab-kmeans.html#revisiting-the-swiss-fertility-data",
+    "href": "core/labs/lab-kmeans.html#revisiting-the-swiss-fertility-data",
+    "title": "Lab: Clustering k-means",
+    "section": "Revisiting the swiss fertility data",
+    "text": "Revisiting the swiss fertility data\n\n\n\n\n\n\nQuestion\n\n\n\nRecall the dataset used in Lab PCA\nPerform kmeans clustering in original coordinates and kmeans clustering in the first principal coordinates plane\nCompare the results"
+  },
+  {
+    "objectID": "core/labs/lab-kmeans.html#revisiting-the-mortality-dataset",
+    "href": "core/labs/lab-kmeans.html#revisiting-the-mortality-dataset",
+    "title": "Lab: Clustering k-means",
+    "section": "Revisiting the mortality dataset",
+    "text": "Revisiting the mortality dataset\n\n\n\n\n\n\nQuestion\n\n\n\nRecall the dataset used in Lab CA\nPerform kmeans clustering of categories in the row principal coordinates and the column principal coordinates"
+  },
+  {
+    "objectID": "core/labs/lab-kmeans.html#references",
+    "href": "core/labs/lab-kmeans.html#references",
+    "title": "Lab: Clustering k-means",
+    "section": "References",
+    "text": "References\nVignette k_means from tidyclust"
+  },
+  {
+    "objectID": "core/labs-solutions/lab-kmeans.html",
+    "href": "core/labs-solutions/lab-kmeans.html",
+    "title": "Lab: Clustering k-means",
+    "section": "",
+    "text": "Codestopifnot(\n  require(gt),\n  require(sloop),\n  require(lobstr), \n  require(skimr),\n  require(GGally),\n  require(patchwork),\n  require(ggforce),\n  require(glue),\n  require(ggfortify),\n  require(ggvoronoi),\n  require(magrittr),\n  require(broom),\n  require(tidyclust),\n  require(tidyverse)\n)\n\ntidymodels::tidymodels_prefer(quiet = TRUE)\n\nold_theme &lt;-theme_set(\n  theme_minimal(base_size=9, \n                base_family = \"Helvetica\")\n)\nCodeknitr::opts_chunk$set(\n  message = FALSE,\n  warning = FALSE,\n  comment=NA,\n  prompt=FALSE,\n  cache=FALSE,\n  echo=TRUE,\n  results='asis'\n)\nCodegc &lt;- options(ggplot2.discrete.colour=\"viridis\")\ngc &lt;- options(ggplot2.discrete.fill=\"viridis\")\ngc &lt;- options(ggplot2.continuous.fill=\"viridis\")\ngc &lt;- options(ggplot2.continuous.colour=\"viridis\")"
+  },
+  {
+    "objectID": "core/labs-solutions/lab-kmeans.html#foreword",
+    "href": "core/labs-solutions/lab-kmeans.html#foreword",
+    "title": "Lab: Clustering k-means",
+    "section": "Foreword",
+    "text": "Foreword\nThis lab is dedicated to the k-means clustering method. In words, k-means takes as input a collection of points in \\(\\mathbb{R}^d\\) (a numerical dataset) and a positive integer \\(k\\). It returns a collection of \\(k\\) points (the centers) from \\(\\mathbb{R}^d\\). The centers define a Voronoï tesselation/partition/diagran of \\(\\mathbb{R}^d\\). The Voronoï cells define a clustering of the original dataset."
+  },
+  {
+    "objectID": "core/labs-solutions/lab-kmeans.html#voronoi-tesselationpartitiondiagram",
+    "href": "core/labs-solutions/lab-kmeans.html#voronoi-tesselationpartitiondiagram",
+    "title": "Lab: Clustering k-means",
+    "section": "Voronoi tesselation/partition/diagram",
+    "text": "Voronoi tesselation/partition/diagram\nWikipedia on Voronoï diagrams\nIn the next chunk, we generate a Voronoï diagram on \\(\\mathbb{R}^2\\) with \\(100\\) cells defined from \\(100\\) random points drawn from the uniform distribution on a square. Function stat_voronoi() comes from ggvoronoi\n\nCodeset.seed(45056)\n\npoints &lt;- tibble(\n  x=runif(100, 0, 1),\n  y=runif(100, 0, 1),\n  distance = sqrt((x-100)^2 + (y-100)^2)\n) \n\np &lt;- ggplot(points) +\n    aes(x=x, y=y) +\n    geom_point(size=.2) +\n    coord_fixed() +\n    xlim(c(-.25, 2.25)) +\n    ylim(c(-.25, 2.25)) \n\np + (p + stat_voronoi(geom=\"path\")) +\n  patchwork::plot_annotation(\n    title=\"Voronoi tesselation\",\n    subtitle = \"Left: 100 random points\\nRight: Voronoï diagram\")\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTwo adjacent Voronoï cells are separated by a (possibly semi-infinite) line segment\nLet the so-called centers be denoted by \\(c_1, \\ldots, c_n\\). They form the codebook \\(\\mathcal{C}\\).\n\nThe Voronoï cell with center \\(c_i\\) is defined by \\[\\left\\{x : x \\in \\mathbb{R}^d, \\qquad \\| x- c_i \\|_2 = \\min_{j \\leq n} \\|x -c_j\\|_2\\right\\}\\]\n\nThe center of a Voronoï cell is usually not its barycenter"
+  },
+  {
+    "objectID": "core/labs-solutions/lab-kmeans.html#k-means-objective-function",
+    "href": "core/labs-solutions/lab-kmeans.html#k-means-objective-function",
+    "title": "Lab: Clustering k-means",
+    "section": "\nk-means objective function",
+    "text": "k-means objective function\n\n\n\n\n\n\nDefinition\n\n\n\nThe \\(k\\)-means algorithm aims at building a codebook \\(\\mathcal{C}\\) that minimizes\n\\[\\mathcal{C} \\mapsto \\sum_{i=1}^n \\min_{c \\in \\mathcal{C}}  \\Vert X_i - c\\Vert_2^2\\]\nover all codebooks with given cardinality\nIf \\(c \\in \\mathcal{C}\\) is the closest centroid to \\(X \\in \\mathbb{R}^p\\),\n\\[\\|c - X\\|^2\\]\nis the quantization/reconstruction error suffered when using codebook \\(\\mathcal{C}\\) to approximate \\(X\\)\n\n\n\n\n\n\n\n\n If there are no restrictions on the dimension of the input space, on the number of centroids, or on sample size, computing an optimal codebook is a \\(\\mathsf{NP}\\) -hard problem"
+  },
+  {
+    "objectID": "core/labs-solutions/lab-kmeans.html#the-kmeans-function",
+    "href": "core/labs-solutions/lab-kmeans.html#the-kmeans-function",
+    "title": "Lab: Clustering k-means",
+    "section": "The kmeans() function",
+    "text": "The kmeans() function\nkmeans() is a wrapper for a collection of Algorithms that look like the Lloyd algorithm\n\nInitialize\n\nChoose \\(k\\) centroids\n\n\nIterations: Two phases\n\nMovement\n\nAssign each sample point to the closest centroid (Assign each sample point to a class in the Voronoi partition defined by the centroids)\n\nUpdate\n\nFor each class in the current Voronoi partition, update the centroid so as to minimize the Within Cluster Sum of Squared distances.\n\n\n No guarantee to converge to a global optimum!\nProceeed by trial and error.\nRepeat the algorithm and keep the best result."
+  },
+  {
+    "objectID": "core/labs-solutions/lab-kmeans.html#iris-data",
+    "href": "core/labs-solutions/lab-kmeans.html#iris-data",
+    "title": "Lab: Clustering k-means",
+    "section": "Iris data",
+    "text": "Iris data\n\n\n\n\n\n\nQuestion\n\n\n\nRun kmeans() on the projection of the Iris dataset (data(iris)) on the Petal plane.\nCheck ?iris and https://en.wikipedia.org/wiki/Iris_flower_data_set for more on this (historical) dataset.\n\n\n\n\n\n\n\n\nSolution\n\n\n\nWe look for a partition into three cells.\n\nCodedata(iris)\n\nkms &lt;- iris |&gt; \n  select(starts_with(\"Petal\")) |&gt;\n  kmeans(3)\n\nclass(kms)\n\n[1] \"kmeans\"\n\nCodesloop::otype(kms)\n\n[1] \"S3\"\n\n\nThe result is an object of class kmeans. The class is equiped with broom methods.\n\n\n\n\n\n\n\n\nQuestion\n\n\n\n\nCheck the attributes of object kms\n\nUnclass the object and check the attributes again.\n\n\n\n\n\n\n\n\n\nSolution\n\n\n\n\nCodeattributes(kms)\n\n$names\n[1] \"cluster\"      \"centers\"      \"totss\"        \"withinss\"     \"tot.withinss\"\n[6] \"betweenss\"    \"size\"         \"iter\"         \"ifault\"      \n\n$class\n[1] \"kmeans\"\n\nCodeukms &lt;- unclass(kms)\nattributes(ukms)\n\n$names\n[1] \"cluster\"      \"centers\"      \"totss\"        \"withinss\"     \"tot.withinss\"\n[6] \"betweenss\"    \"size\"         \"iter\"         \"ifault\"      \n\nCodeclass(kms)\n\n[1] \"kmeans\"\n\nCodekms_bornagain &lt;- structure(\n  ukms, \n  class=\"kmeans\")\n\nsloop::otype(kms_bornagain)\n\n[1] \"S3\"\n\nCodeclass(kms_bornagain)\n\n[1] \"kmeans\"\n\n\nObjects of class kmeans have two attributes names and class. Because of the class attribute, objects of class kmeans are not just lists with named elements."
+  },
+  {
+    "objectID": "core/labs-solutions/lab-kmeans.html#summarizing-a-clustering",
+    "href": "core/labs-solutions/lab-kmeans.html#summarizing-a-clustering",
+    "title": "Lab: Clustering k-means",
+    "section": "Summarizing a clustering",
+    "text": "Summarizing a clustering\n\n\n\n\n\n\nQuestion\n\n\n\nCheck the structure of objects of class kmeans and use broom::tidy() to get a summary.\nCompare with summary() from base R\n\n\n\n\n\n\n\n\nSolution\n\n\n\n\nCodedf_centers &lt;- select(iris, starts_with(\"Petal\")) |&gt;\n  kmeans(centers = 3) |&gt; \n  broom::tidy() \n\ndf_centers |&gt;  \n  gt::gt() |&gt;\n  gt::fmt_number(decimals = 2) |&gt;\n  gt::tab_caption(\"Iris clustering in the Petal plane, kmeans with 3 clusters\")\n\n\n\n\nIris clustering in the Petal plane, kmeans with 3 clusters\n\nPetal.Length\nPetal.Width\nsize\nwithinss\ncluster\n\n\n\n4.27\n1.34\n52.00\n13.06\n1\n\n\n1.46\n0.25\n50.00\n2.02\n2\n\n\n5.60\n2.04\n48.00\n16.29\n3\n\n\n\n\n\n\n\nHow are the rows related to clusters?\nWhat are the coordinates good for?\nWhat does the size column mean?\n\nwithinss stands for Within Sum of Squares. How is it computed? Why is it useful?"
+  },
+  {
+    "objectID": "core/labs-solutions/lab-kmeans.html#visualizing-a-clustering",
+    "href": "core/labs-solutions/lab-kmeans.html#visualizing-a-clustering",
+    "title": "Lab: Clustering k-means",
+    "section": "Visualizing a clustering",
+    "text": "Visualizing a clustering\n\n\n\n\n\n\nQuestion\n\n\n\nUse broom::augment() and broom::tidy() to prepare two dataframes that will allow you to overlay a scatterplot of the dataset and a Voronoï diagram defined by the centers output by kmeans().\nCompare the result with plot()\n\n\n\n\n\n\n\n\nSolution\n\n\n\n\nCodeq &lt;- kms |&gt; \n  augment(iris) |&gt;\n  ggplot() +\n  aes(x=Petal.Length, \n      y=Petal.Width\n      ) +\n  geom_point(aes(shape=Species), size=1, show.legend = F) +\n  coord_fixed()\n\nqq &lt;-  (q + geom_point(aes(shape=Species, \n                           colour=.cluster), \n                       size=1))+\n  stat_voronoi(data = df_centers,   #&lt;&lt;\n               geom=\"path\",\n               outline=data.frame(x=c(0, 7, 7, 0), \n                                  y=c(0, 0, 3, 3))\n               ) +\n  geom_point(data = df_centers,   #&lt;&lt;\n             colour = \"black\",\n             shape=\"+\",\n             size=5)  \n\nq / qq +\n  plot_annotation(title = \"Kmeans over Iris dataset, k=3\")\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSolution\n\n\n\n\nCodegeom_sugar &lt;- list(\n    stat_voronoi(data = df_centers,\n                 geom=\"path\",\n                 alpha=.5,\n                 outline = tribble(~x, ~y,\n                                   0., 0.,\n                                   7., 0.,\n                                   7., 3,\n                                   0., 3) \n                 ),\n    geom_point(data = df_centers,   \n               colour = \"black\",\n               shape=\"+\",\n               size=5),\n    coord_fixed(),\n    labs(col=\"Voronoï cells\")\n)\n\n\n\nCodebroom::augment(kms, iris) |&gt;\n  ggplot(aes(x=Petal.Length, y=Petal.Width)) +\n  geom_point(aes(shape=Species, color=.cluster)) +\n  geom_sugar \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSolution\n\n\n\n\nCodekms |&gt; \n  autoplot(data=iris)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nQuestion\n\n\n\nRedo the same operations but choose the Sepal.xxx dimension.\nDesign a function to avoid repetitive coding.\n\n\n\n\n\n\n\n\nSolution\n\n\n\n\nCodeplot_km_centroids &lt;- function(augmented_km, centroids, col1, col2){\n\n  outline &lt;- augmented_km |&gt;\n    dplyr::select({{col1}}, {{col2}}) |&gt;\n    dplyr::rename(x={{col1}}, y={{col2}}) |&gt; \n    summarise(across(everything(), .fns=list(\"min\"= min, \"max\"=max), .names=\"{.col}_{.fn}\"))\n\n  tb_outline &lt;- tibble(\n    x = with(outline, c(x_min-1.0, x_max+1.0, x_max+1.0, x_min-1.0)),\n    y = with(outline, rep(c(y_min-1, y_max+1), each=2)),\n    group=rep(1, 4)\n  )\n\n  p &lt;- augmented_km |&gt; \n  ggplot() +\n  aes(\n    x={{col1}}, \n    y={{col2}}) +\n  geom_point(aes(colour=.cluster))  +\n  stat_voronoi(data = centroids,\n               geom=\"path\",\n               outline= tb_outline\n  ) +\n  geom_point(data = centroids,\n             colour = \"black\",\n             shape=\"+\",\n             size=5) +\n  coord_fixed() +\n  theme_minimal()\n\n  if (has_rownames(augmented_km)) {\n    p &lt;- p +\n      ggrepel::geom_label_repel(\n        aes(colour=.cluster, \n            label=`.rownames`))\n  }\n\n  return(p)\n}\n\n\n\n\n\nCodekms &lt;- kmeans(select(iris, Sepal.Length, Sepal.Width), 3)\n\n\nplot_km_centroids(\n  augment(kms, iris), \n  tidy(kms), \n  Sepal.Length, \n  Sepal.Width\n)"
+  },
+  {
+    "objectID": "core/labs-solutions/lab-kmeans.html#playing-with-k",
+    "href": "core/labs-solutions/lab-kmeans.html#playing-with-k",
+    "title": "Lab: Clustering k-means",
+    "section": "Playing with \\(k\\)\n",
+    "text": "Playing with \\(k\\)\n\nThe number of cells/clusters may not be given a priori. Conducting clustering using a method like kmeans requires picking a reasonable choice for k.\n\n\n\n\n\n\nQuestion\n\n\n\nPerform kmeans clustering with \\(k=2\\). Use glance, tidy, augment to discuss the result.\n\n\n\n\n\n\n\n\nSolution\n\n\n\n\nCodedf &lt;- select(iris, \n             starts_with(\"Sepal\"))\n\nkms &lt;- kmeans(df, 2)\n\n\n\nCodeplot_km_centroids(\n  augment(kms, iris),\n  tidy(kms),\n  Sepal.Length,\n  Sepal.Width\n)\n\n\n\n\n\n\n\nWe can compare the spread between inner and outer sum of squares for clusterings with \\(k \\in 2, 3\\).\n\nCodebind_rows(glance(kms),\n          glance(kmeans(df, centers=3,\n              nstart = 32L))) |&gt; \n  mutate(k=c(2, 3))  |&gt;\n  gt::gt()\n\n\n\n\n\ntotss\ntot.withinss\nbetweenss\niter\nk\n\n\n\n130.4753\n58.2150\n72.26027\n1\n2\n\n\n130.4753\n37.0507\n93.42456\n3\n3\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nQuestion\n\n\n\nPerform k-means for \\(k=2, ... 10\\), plot within sum of squares as function of \\(k\\). Comment.\n\n\n\nCodetmp &lt;-map_dfr(2:10, ~ glance(kmeans(df, \n                                   centers=.,\n                                   nstart = 32L))) |&gt; \n  rowid_to_column(var=\"k\") |&gt; \n  mutate(k=k+1, across(where(is.numeric), ~ signif(.x, 3))) \n\n\n\nCodetmp |&gt;\n  ggplot(aes(x=forcats::as_factor(k), y=tot.withinss/totss)) +\n  geom_col(width=.25) +\n  ggtitle(\"Iris data\", \"WithinSS/Total Sum of Squares as a function of k\") +\n  xlab(\"k\") +\n  ylab(\"Within Clusters Sum of Squares (relative)\") +\n  scale_x_discrete(breaks=as.character(2:10), labels=as.character(2:10))\n\n\n\n\n\n\n\n\nCodekms &lt;- kmeans(df, 4)\niris4 &lt;- broom::augment(kms, iris)\n\n\nplot_km_centroids(\n  augment(kms, iris),\n  tidy(kms),\n  Sepal.Length,\n  Sepal.Width\n)  +\n ggtitle(label=\"Kmeans Iris data\",\n         subtitle=\"k=4\") +\n labs(col=\"Clusters\")\n\n\n\n\n\n\n\n\nCodebroom::tidy(kmeans(df, 4)) |&gt;\n  gt::gt() |&gt;\n  gt::fmt_number(decimals = 2)\n\n\n\n\n\nSepal.Length\nSepal.Width\nsize\nwithinss\ncluster\n\n\n\n5.52\n2.61\n33.00\n5.97\n1\n\n\n5.02\n3.45\n49.00\n11.57\n2\n\n\n6.27\n2.91\n41.00\n4.85\n3\n\n\n7.10\n3.11\n27.00\n6.02\n4"
+  },
+  {
+    "objectID": "core/labs-solutions/lab-kmeans.html#lloyds-iterations",
+    "href": "core/labs-solutions/lab-kmeans.html#lloyds-iterations",
+    "title": "Lab: Clustering k-means",
+    "section": "Lloyd’s iterations",
+    "text": "Lloyd’s iterations\nThe kmeans function does not minimize the kmeans cost. It offers a collection of iterative algorithms that aim at approximately minimizing the cost.\n\n\n\n\n\n\n\nInitialize\n\nChoose \\(k\\) centroids\n\n\nIterations: Two phases\n\nMovement\n\nAssign each sample point to the closest centroid (Assign each sample point to a class in the Voronoi partition defined by the centroids)\n\nUpdate\n\nFor each class in the current Voronoi partition, update the centroid so as to minimize the Within Cluster Sum of Squared distances.\n\n\n\n\n\n\n\n\n\n\n\nSolution\n\n\n\n\nCodekm &lt;- list(centers=df[1:3, ]) # stupid initialization\n\nsequence &lt;- list()\n\nfor (i in 1:20) {\n  km &lt;- kmeans(df,\n               km$centers,\n               algorithm = \"Lloyd\",\n               iter.max = 1)\n  sequence[[length(sequence)+1]] &lt;- force(km)\n}\n\n\n\nCodeadd_voronoi &lt;- function(p, kmscenters, marker){\n  p +\n    geom_point(data=data.frame(kmscenters),         #&lt;&lt;\n               mapping=aes(x=Sepal.Length, y=Sepal.Width),\n               shape=marker,\n               col=\"black\",\n               size=5) +\n    stat_voronoi(data = as.data.frame(kmscenters),  #&lt;&lt;\n                 aes(x=Sepal.Length,y=Sepal.Width),\n                 geom=\"path\",\n                 outline=data.frame(x=c(4, 8, 8, 4),\n                                    y=c(2, 2, 4.5, 4.5)))\n}\n\n\n\n\n\n\n\n\n\n\nSolution\n\n\n\n\nCodei &lt;- 2\n\np &lt;- broom::augment(sequence[[i]], iris) |&gt;\n  ggplot() +\n  coord_fixed(ratio=1) +\n  geom_point(aes(x=Sepal.Length, y=Sepal.Width, shape=Species, col=.cluster)) +\n  ggtitle(\"Kmeans Lloyd's algorithm\", \"Iris data\")\n\np |&gt;\n  add_voronoi(sequence[[i]]$centers, marker=\"o\") +   #&lt;&lt;\n  labs(colour=paste(\"Cluster, step \", i- 1))\n\n\n\n\n\n\n\n\nCodei &lt;- 2\n\n(p %+%\n  broom::augment(sequence[[i]], iris)) |&gt;\n  add_voronoi(sequence[[i]]$centers, marker='+') +   #&lt;&lt;\n  geom_point(data=data.frame(sequence[[2]]$centers),   #&lt;&lt;\n             mapping=aes(x=Sepal.Length, y=Sepal.Width),\n             shape=\"o\", col=\"black\", size=5) +\n  labs(colour=paste(\"Cluster, step \", i- 1))\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSolution\n\n\n\n\nCodei &lt;- 3\n\n(p %+%\n  broom::augment(sequence[[i]], iris)) |&gt;\n  add_voronoi(sequence[[i]]$centers, marker='+') +   #&lt;&lt;\n  geom_point(data=data.frame(sequence[[2]]$centers),   #&lt;&lt;\n             mapping=aes(x=Sepal.Length, y=Sepal.Width),\n             shape=\"o\", col=\"black\", size=5) +\n  labs(colour=paste(\"Cluster, step \", i- 1))\n\n\n\n\n\n\n\n\nCodei &lt;- 5\n\n(p %+%\n  broom::augment(sequence[[i]], iris)) |&gt;\n  add_voronoi(sequence[[i]]$centers, marker='*') +   #&lt;&lt;\n  geom_point(data=data.frame(sequence[[2]]$centers),   #&lt;&lt;\n             mapping=aes(x=Sepal.Length, y=Sepal.Width),\n             shape=\"o\", col=\"black\",size=5) +\n  labs(colour=paste(\"Cluster, step \", i- 1))"
+  },
+  {
+    "objectID": "core/labs-solutions/lab-kmeans.html#revisiting-the-swiss-fertility-data",
+    "href": "core/labs-solutions/lab-kmeans.html#revisiting-the-swiss-fertility-data",
+    "title": "Lab: Clustering k-means",
+    "section": "Revisiting the swiss fertility data",
+    "text": "Revisiting the swiss fertility data\n\n\n\n\n\n\nQuestion\n\n\n\nRecall the dataset used in Lab PCA\nPerform kmeans clustering in original coordinates and kmeans clustering in the first principal coordinates plane\nCompare the results\n\n\n\n\n\n\n\n\nsolution\n\n\n\n\nCodedata(swiss)\n\nswiss_scaled &lt;- swiss |&gt;  \n  select(-Fertility) |&gt; \n  scale() \n\nkm.2.swiss &lt;- swiss_scaled |&gt; \n  kmeans(centers = 2,  nstart = 10L)\n\ndf_centers.2 &lt;- broom::tidy(km.2.swiss)\n\n\n\n\n\n\n\n\n\n\nsolution\n\n\n\n\nCodekm.2.swiss.pca &lt;-  swiss_scaled |&gt;\n  prcomp() |&gt; \n  augment(data=swiss)|&gt; \n  dplyr::select(starts_with(\".fittedPC\")) |&gt; \n  kmeans(centers=2, nstart = 10L)\n\ndf_centers.2.pca &lt;- tidy(km.2.swiss.pca)\n\n\n\n\n\n\n\n\n\n\nSolution\n\n\n\n\n\n\nCodedf_centers.2 |&gt;\n  gt::gt() |&gt; \n  gt::fmt_number(decimals = 2)\n\n\n\n\n\nAgriculture\nExamination\nEducation\nCatholic\nInfant.Mortality\nsize\nwithinss\ncluster\n\n\n\n−0.46\n0.57\n0.36\n−0.67\n−0.17\n28.00\n101.66\n1\n\n\n0.68\n−0.83\n−0.53\n0.99\n0.25\n19.00\n49.26\n2\n\n\n\n\n\n\n\nCodekm.2.swiss |&gt; \n  broom::glance() |&gt;\n  gt::gt() |&gt; \n  gt::fmt_number(decimals = 2)\n\n\n\n\n\ntotss\ntot.withinss\nbetweenss\niter\n\n\n230.00\n150.91\n79.09\n1.00\n\n\n\n\n\n\n\nCodedf_centers.2.pca |&gt;\n  gt::gt() |&gt; \n  gt::fmt_number(decimals = 2)\n\n\n\n\n\n.fittedPC1\n.fittedPC2\n.fittedPC3\n.fittedPC4\n.fittedPC5\nsize\nwithinss\ncluster\n\n\n\n1.50\n0.32\n−0.36\n−0.02\n−0.07\n19.00\n49.26\n1\n\n\n−1.02\n−0.21\n0.25\n0.02\n0.05\n28.00\n101.66\n2\n\n\n\n\n\n\n\nCodekm.2.swiss.pca |&gt; \n  broom::glance() |&gt;\n  gt::gt() |&gt; \n  gt::fmt_number(decimals = 2)\n\n\n\n\n\ntotss\ntot.withinss\nbetweenss\niter\n\n\n230.00\n150.91\n79.09\n1.00\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nsolution\n\n\n\n\nCodeplot_km_centroids(\n  broom::augment(km.2.swiss, scale(swiss)),\n  broom::tidy(km.2.swiss), \n  Education, \n  Infant.Mortality\n) +\n  labs(\n    title= \"Kmeans over Swiss dataset, k=2\"\n  ) \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSolution\n\n\n\n\nCodeplot_km_centroids(\n  augment(km.2.swiss.pca,\n         broom::augment(prcomp(swiss_scaled), data=swiss)),\n  tidy(km.2.swiss.pca),\n  .fittedPC1,\n  .fittedPC2\n) + labs(\n      title=\"Kmeans over Swiss dataset, k=2\",\n      subtitle=\"Clustering over the Principal components\"\n  ) \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSolution\n\n\n\n\nCodekm.4.swiss.pca &lt;-  swiss_scaled |&gt;\n  prcomp() |&gt; \n  broom::augment(data=swiss)|&gt; \n  dplyr::select(starts_with(\".fittedPC\")) |&gt; \n  kmeans(centers=4, nstart = 10L)\n\ndf_centers.4.pca &lt;- broom::tidy(km.4.swiss.pca)\n\n\n\nCodeplot_km_centroids(\n  augment(km.4.swiss.pca,\n         broom::augment(prcomp(swiss_scaled), data=swiss)),\n  tidy(km.4.swiss.pca),\n  .fittedPC1,\n  .fittedPC2\n) + labs(\n      title=\"Kmeans over Swiss dataset, k=4\",\n      subtitle=\"Clustering over the Principal components\"\n  )"
+  },
+  {
+    "objectID": "core/labs-solutions/lab-kmeans.html#revisiting-the-mortality-dataset",
+    "href": "core/labs-solutions/lab-kmeans.html#revisiting-the-mortality-dataset",
+    "title": "Lab: Clustering k-means",
+    "section": "Revisiting the mortality dataset",
+    "text": "Revisiting the mortality dataset\n\n\n\n\n\n\nQuestion\n\n\n\nRecall the dataset used in Lab CA\nPerform kmeans clustering of categories in the row principal coordinates and the column principal coordinates"
+  },
+  {
+    "objectID": "core/labs-solutions/lab-kmeans.html#references",
+    "href": "core/labs-solutions/lab-kmeans.html#references",
+    "title": "Lab: Clustering k-means",
+    "section": "References",
+    "text": "References\nVignette k_means from tidyclust"
+  },
+  {
+    "objectID": "core/labs/lab-hclust.html",
+    "href": "core/labs/lab-hclust.html",
+    "title": "Lab: Hierarchical Clustering",
+    "section": "",
+    "text": "Codestopifnot(\n  require(gt),\n  require(skimr),\n  require(GGally),\n  require(patchwork),\n  require(ggforce),\n  require(glue),\n  require(ggfortify),\n  require(ggvoronoi),\n  require(magrittr),\n  require(broom),\n  require(ggdendro),\n  require(dendextend),\n  require(plotly),\n  require(tidyverse)\n)\n\ntidymodels::tidymodels_prefer(quiet = TRUE)\n\nold_theme &lt;-theme_set(\n  theme_minimal(base_size=9, \n                base_family = \"Helvetica\")\n)\nCodeknitr::opts_chunk$set(\n  message = FALSE,\n  warning = FALSE,\n  comment=NA,\n  prompt=FALSE,\n  cache=FALSE,\n  echo=TRUE,\n  results='asis'\n)"
+  },
+  {
+    "objectID": "core/labs/lab-hclust.html#preamble",
+    "href": "core/labs/lab-hclust.html#preamble",
+    "title": "Lab: Hierarchical Clustering",
+    "section": "Preamble",
+    "text": "Preamble\nHierarchical clustering builds dendrograms\nExplore the data structure: dendrograms (objects of class dendrogram) are represented by lists of lists with attributes (not by tibbles).\nThe dendrograms created from objects of class hclust represent planar binary trees.\n\n\n\n\n\n\nQuestion\n\n\n\n\nHow do you define abstractly planar binary trees?\nIn dendrograms created from objects of class hclust, what do the leaf nodes represent?\nIn dendrograms created from objects of class hclust, what do the internal nodes represent ?\n\n\n\n\n\n\n\n\n\nKeep an eye on Introduction to dendextend by the package author Tal Galili."
+  },
+  {
+    "objectID": "core/labs/lab-hclust.html#playing-with-a-toy-dendrogram",
+    "href": "core/labs/lab-hclust.html#playing-with-a-toy-dendrogram",
+    "title": "Lab: Hierarchical Clustering",
+    "section": "Playing with a toy dendrogram",
+    "text": "Playing with a toy dendrogram\nCodedend &lt;- 1:5 %&gt;% \n  dist %&gt;% \n  hclust(method=\"ward.D2\") %&gt;% \n  as.dendrogram\nNodes are identified by their prefix order index (note that this depend on the chosen rotation).\nCodedend %&gt;%  \n  rotate(c(1,2,4,5,3)) %&gt;% \n  get_nodes_attr(\"members\", \n                 id = c(1, 2, 5, 7)) \n[1] 5 2 3 1\nCodecophenetic(rotate(dend, c(1,2,4,5,3)))\n     1        2        3        4\n2 1.000000\n3 3.872983 3.872983\n4 3.872983 3.872983 1.000000\n5 3.872983 3.872983 1.732051 1.732051\nCodecophenetic(dend)\n     1        2        5        3\n2 1.000000\n5 3.872983 3.872983\n3 3.872983 3.872983 1.732051\n4 3.872983 3.872983 1.732051 1.000000\nCodedend %&gt;% \n  rotate(c(1,2,4,5,3)) %&gt;% \n  get_nodes_attr(\"height\") \n[1] 3.872983 1.000000 0.000000 0.000000 1.732051 1.000000 0.000000 0.000000 [9] 0.000000\nCodeas.ggdend(rev(dend))\n\nCode# kmeans(tibble(x=1:5), centers = 2)\nCode# Get various attributes\ndend %&gt;% \n  get_nodes_attr(\"height\") # node's height\n[1] 3.872983 1.000000 0.000000 0.000000 1.732051 0.000000 1.000000 0.000000 [9] 0.000000\nHow is attributed height computed? What is its purpose?\nWhat kind of tree traversal is used by get_nodes_... helpers?\nCodedend %&gt;% \n  get_nodes_attr(\"members\")\n[1] 5 2 1 1 3 1 2 1 1"
+  },
+  {
+    "objectID": "core/labs/lab-hclust.html#tweaking-a-dendrogram",
+    "href": "core/labs/lab-hclust.html#tweaking-a-dendrogram",
+    "title": "Lab: Hierarchical Clustering",
+    "section": "Tweaking a dendrogram",
+    "text": "Tweaking a dendrogram\nWhy should we do that?\nHow should we do that?"
+  },
+  {
+    "objectID": "core/labs/lab-hclust.html#usarrests",
+    "href": "core/labs/lab-hclust.html#usarrests",
+    "title": "Lab: Hierarchical Clustering",
+    "section": "USArrests",
+    "text": "USArrests\nWe work on USArrests dataset. We want to classify the 50 (united) states on the basis of the arrests profile and the urbanization rate. We rely on hierarchical, bottom-up classification.\nCodedata(\"USArrests\")\n\nUSArrests &lt;- USArrests %&gt;% \n    tibble::rownames_to_column(var=\"region\")\n\nUSArrests &lt;- USArrests %&gt;%\n    mutate(region = tolower(region))\n\nrownames(USArrests) &lt;- USArrests$region\n\nglimpse(USArrests)\nRows: 50 Columns: 5 $ region  “alabama”, “alaska”, “arizona”, “arkansas”, “california”, “co… $ Murder  13.2, 10.0, 8.1, 8.8, 9.0, 7.9, 3.3, 5.9, 15.4, 17.4, 5.3, 2.… $ Assault  236, 263, 294, 190, 276, 204, 110, 238, 335, 211, 46, 120, 24… $ UrbanPop  58, 48, 80, 50, 91, 78, 77, 72, 80, 60, 83, 54, 83, 65, 57, 6… $ Rape  21.2, 44.5, 31.0, 19.5, 40.6, 38.7, 11.1, 15.8, 31.9, 25.8, 2…\nCodesource(\"./UTILS/make_biotiful.R\")\nCodemake_biotifoul(USArrests, .f=is.numeric)\n\nThe function dist is used to calculate pairwise distances between individuals.\n\n\n\n\n\n\nQuestion\n\n\n\nCompute pairwise distances between rows of USArrests (with and without scaling)\n\n\n\n\n\n\n\n\nQuestion\n\n\n\nPerform hierarchical clustering on unscaled and scaled dataset.\n\n\n\n\n\n\n\n\nQuestion\n\n\n\n\n\n\nCodemutate(USArrests, \n       .cluster = factor(cutree(hcl.1, 5))) %&gt;% \n  inner_join(map_data(\"state\"), by = \"region\") %&gt;%\n  ggplot() +\n  aes(x=long, y=lat, group=region, fill=.cluster) +\n  geom_polygon() +\n  scale_fill_viridis_d() +\n  ggtitle(\"Components of arrest data\") +\n  theme(legend.position = \"none\")"
+  },
+  {
+    "objectID": "core/labs/lab-hclust.html#the-dendrogram-class",
+    "href": "core/labs/lab-hclust.html#the-dendrogram-class",
+    "title": "Lab: Hierarchical Clustering",
+    "section": "The dendrogram class",
+    "text": "The dendrogram class\n\n\n\n\n\n\nQuestion\n\n\n\nExploration of results of hierarchical clustering (objects of class hclust) is facilitated by converting to class dendrogram.\n\n\n\n\n\n\n\n\nQuestion"
+  },
+  {
+    "objectID": "core/labs/lab-hclust.html#ward-method",
+    "href": "core/labs/lab-hclust.html#ward-method",
+    "title": "Lab: Hierarchical Clustering",
+    "section": "Ward method",
+    "text": "Ward method\nThe meth=ward.D2 option allows you to aggregate individuals according to the method of Ward, that is, according to the variance.\n\n\n\n\n\n\nQuestion\n\n\n\nWhat is the distance used? Describe the method of classification by variance?\n\n\n\n\n\n\n\n\nQuestion\n\n\n\n\nHow many groups are there at step 0? at the last step?\nHow many iterations are there?\nRecall the definition of inter-class variance.\nWhat is the inter-class variance at step 0? at the last step? How is it going according to the number of groups (or according to the number of iterations)?\nBy comparing the total inertia and the `clas$height’ output, find the coefficient of proportionality between the loss of inter-class variance and height of jumps."
+  },
+  {
+    "objectID": "core/labs/lab-hclust.html#choice-of-the-number-of-classes",
+    "href": "core/labs/lab-hclust.html#choice-of-the-number-of-classes",
+    "title": "Lab: Hierarchical Clustering",
+    "section": "Choice of the number of classes",
+    "text": "Choice of the number of classes\n\n\n\n\n\n\nQuestion\n\n\n\n\nPlot the curve corresponding to the loss of variance inter in as a function of the number of iterations :\nSelect the “optimal” number of classes.\nVerify that, for the number of classes chosen, the number by class is sufficient (we can use the cutree function).\nThese classes can be represented using a dendrogram\nYou can also colour the leaves of the tree corresponding to a class. To do this, install and load the package `dendextend’."
+  },
+  {
+    "objectID": "core/labs/lab-hclust.html#link-with-pca",
+    "href": "core/labs/lab-hclust.html#link-with-pca",
+    "title": "Lab: Hierarchical Clustering",
+    "section": "Link with PCA",
+    "text": "Link with PCA\nWe will represent the classes obtained in the factorial design(s) obtained by the PCA. This will make it possible to represent the classes and describe them according to the variables initials.\n\n\n\n\n\n\nQuestion\n\n\n\nRepresent the coordinates of the individuals in each group in the first factorial plane (with one color for each class). The vector generated by `cutree’ can be used to form a color vector. Interpretation.\n\n\nCodemutate(USArrests, \n       .cluster = factor(cutree(hcl.1, 10))) %&gt;% \n  inner_join(map_data(\"state\"), by = \"region\") %&gt;%\n  ggplot() +\n  aes(x=long, y=lat, group=region, fill=.cluster) +\n  geom_polygon() +\n  scale_fill_viridis_d() +\n  ggtitle(\"Components of arrest data\") +\n  theme(legend.position = \"none\")\n\nCode#data(france)\nCode(map_data(\"state\") %&gt;%\n  ggplot() +\n  aes(x=long, \n      y=lat, \n      label=factor(region), \n      fill = factor(region)) +\n  geom_polygon() +\n  scale_fill_viridis_d() +\n  ggtitle(\"USA\") +\n  theme(legend.position = \"none\")) |&gt; \n    ggplotly()"
+  },
+  {
+    "objectID": "core/labs/lab-hclust.html#cophenetic-distance",
+    "href": "core/labs/lab-hclust.html#cophenetic-distance",
+    "title": "Lab: Hierarchical Clustering",
+    "section": "Cophenetic distance",
+    "text": "Cophenetic distance\n\n\n\n\n\n\nQuestion"
+  },
+  {
+    "objectID": "core/labs/lab-hclust.html#cophenetic-distance-between-dendrograms",
+    "href": "core/labs/lab-hclust.html#cophenetic-distance-between-dendrograms",
+    "title": "Lab: Hierarchical Clustering",
+    "section": "Cophenetic distance between dendrograms",
+    "text": "Cophenetic distance between dendrograms"
+  },
+  {
+    "objectID": "core/labs/lab-hclust.html#references",
+    "href": "core/labs/lab-hclust.html#references",
+    "title": "Lab: Hierarchical Clustering",
+    "section": "References",
+    "text": "References\nggdendro\ndendroextra\nhier_clust, tidyclust"
+  },
+  {
+    "objectID": "core/labs-solutions/lab-hclust.html",
+    "href": "core/labs-solutions/lab-hclust.html",
+    "title": "Lab: Hierarchical Clustering",
+    "section": "",
+    "text": "Codestopifnot(\n  require(gt),\n  require(skimr),\n  require(GGally),\n  require(patchwork),\n  require(ggforce),\n  require(glue),\n  require(ggfortify),\n  require(ggvoronoi),\n  require(magrittr),\n  require(broom),\n  require(ggdendro),\n  require(dendextend),\n  require(plotly),\n  require(tidyverse)\n)\n\ntidymodels::tidymodels_prefer(quiet = TRUE)\n\nold_theme &lt;-theme_set(\n  theme_minimal(base_size=9, \n                base_family = \"Helvetica\")\n)\nCodeknitr::opts_chunk$set(\n  message = FALSE,\n  warning = FALSE,\n  comment=NA,\n  prompt=FALSE,\n  cache=FALSE,\n  echo=TRUE,\n  results='asis'\n)"
+  },
+  {
+    "objectID": "core/labs-solutions/lab-hclust.html#preamble",
+    "href": "core/labs-solutions/lab-hclust.html#preamble",
+    "title": "Lab: Hierarchical Clustering",
+    "section": "Preamble",
+    "text": "Preamble\nHierarchical clustering builds dendrograms\nExplore the data structure: dendrograms (objects of class dendrogram) are represented by lists of lists with attributes (not by tibbles).\nThe dendrograms created from objects of class hclust represent planar binary trees.\n\n\n\n\n\n\nQuestion\n\n\n\n\nHow do you define abstractly planar binary trees?\nIn dendrograms created from objects of class hclust, what do the leaf nodes represent?\nIn dendrograms created from objects of class hclust, what do the internal nodes represent ?\n\n\n\n\n\n\n\n\n\nKeep an eye on Introduction to dendextend by the package author Tal Galili."
+  },
+  {
+    "objectID": "core/labs-solutions/lab-hclust.html#playing-with-a-toy-dendrogram",
+    "href": "core/labs-solutions/lab-hclust.html#playing-with-a-toy-dendrogram",
+    "title": "Lab: Hierarchical Clustering",
+    "section": "Playing with a toy dendrogram",
+    "text": "Playing with a toy dendrogram\nCodedend &lt;- 1:5 %&gt;% \n  dist %&gt;% \n  hclust(method=\"ward.D2\") %&gt;% \n  as.dendrogram\nNodes are identified by their prefix order index (note that this depend on the chosen rotation).\nCodedend %&gt;%  \n  rotate(c(1,2,4,5,3)) %&gt;% \n  get_nodes_attr(\"members\", \n                 id = c(1, 2, 5, 7)) \n[1] 5 2 3 1\nCodecophenetic(rotate(dend, c(1,2,4,5,3)))\n     1        2        3        4\n2 1.000000\n3 3.872983 3.872983\n4 3.872983 3.872983 1.000000\n5 3.872983 3.872983 1.732051 1.732051\nCodecophenetic(dend)\n     1        2        5        3\n2 1.000000\n5 3.872983 3.872983\n3 3.872983 3.872983 1.732051\n4 3.872983 3.872983 1.732051 1.000000\nCodedend %&gt;% \n  rotate(c(1,2,4,5,3)) %&gt;% \n  get_nodes_attr(\"height\") \n[1] 3.872983 1.000000 0.000000 0.000000 1.732051 1.000000 0.000000 0.000000 [9] 0.000000\nCodeas.ggdend(rev(dend))\n\nCode# kmeans(tibble(x=1:5), centers = 2)\nCode# Get various attributes\ndend %&gt;% \n  get_nodes_attr(\"height\") # node's height\n[1] 3.872983 1.000000 0.000000 0.000000 1.732051 0.000000 1.000000 0.000000 [9] 0.000000\nHow is attributed height computed? What is its purpose?\nWhat kind of tree traversal is used by get_nodes_... helpers?\nCodedend %&gt;% \n  get_nodes_attr(\"members\")\n[1] 5 2 1 1 3 1 2 1 1"
+  },
+  {
+    "objectID": "core/labs-solutions/lab-hclust.html#tweaking-a-dendrogram",
+    "href": "core/labs-solutions/lab-hclust.html#tweaking-a-dendrogram",
+    "title": "Lab: Hierarchical Clustering",
+    "section": "Tweaking a dendrogram",
+    "text": "Tweaking a dendrogram\nWhy should we do that?\nHow should we do that?"
+  },
+  {
+    "objectID": "core/labs-solutions/lab-hclust.html#usarrests",
+    "href": "core/labs-solutions/lab-hclust.html#usarrests",
+    "title": "Lab: Hierarchical Clustering",
+    "section": "USArrests",
+    "text": "USArrests\nWe work on USArrests dataset. We want to classify the 50 (united) states on the basis of the arrests profile and the urbanization rate. We rely on hierarchical, bottom-up classification.\nCodedata(\"USArrests\")\n\nUSArrests &lt;- USArrests %&gt;% \n    tibble::rownames_to_column(var=\"region\")\n\nUSArrests &lt;- USArrests %&gt;%\n    mutate(region = tolower(region))\n\nrownames(USArrests) &lt;- USArrests$region\n\nglimpse(USArrests)\nRows: 50 Columns: 5 $ region  “alabama”, “alaska”, “arizona”, “arkansas”, “california”, “co… $ Murder  13.2, 10.0, 8.1, 8.8, 9.0, 7.9, 3.3, 5.9, 15.4, 17.4, 5.3, 2.… $ Assault  236, 263, 294, 190, 276, 204, 110, 238, 335, 211, 46, 120, 24… $ UrbanPop  58, 48, 80, 50, 91, 78, 77, 72, 80, 60, 83, 54, 83, 65, 57, 6… $ Rape  21.2, 44.5, 31.0, 19.5, 40.6, 38.7, 11.1, 15.8, 31.9, 25.8, 2…\nCodesource(\"./UTILS/make_biotiful.R\")\nCodemake_biotifoul(USArrests, .f=is.numeric)\n\nThe function dist is used to calculate pairwise distances between individuals.\n\n\n\n\n\n\nQuestion\n\n\n\nCompute pairwise distances between rows of USArrests (with and without scaling)\n\n\nCodedist.1 &lt;-  USArrests %&gt;% \n    select(where(is.numeric)) %&gt;% \n    dist()\nCodedist.2 &lt;- USArrests %&gt;% \n    select(where(is.numeric)) %&gt;% \n    scale %&gt;% \n    dist()\n\n\n\n\n\n\nQuestion\n\n\n\nPerform hierarchical clustering on unscaled and scaled dataset.\n\n\nCodehcl.1 &lt;- hclust(dist.1, method = \"ward.D2\")\nhcl.2 &lt;- hclust(dist.2, method = \"ward.D2\") # scaled\n\n\n\n\n\n\nQuestion\n\n\n\n\n\n\nCodemutate(USArrests, \n       .cluster = factor(cutree(hcl.1, 5))) %&gt;% \n  inner_join(map_data(\"state\"), by = \"region\") %&gt;%\n  ggplot() +\n  aes(x=long, y=lat, group=region, fill=.cluster) +\n  geom_polygon() +\n  scale_fill_viridis_d() +\n  ggtitle(\"Components of arrest data\") +\n  theme(legend.position = \"none\")"
+  },
+  {
+    "objectID": "core/labs-solutions/lab-hclust.html#the-dendrogram-class",
+    "href": "core/labs-solutions/lab-hclust.html#the-dendrogram-class",
+    "title": "Lab: Hierarchical Clustering",
+    "section": "The dendrogram class",
+    "text": "The dendrogram class\n\n\n\n\n\n\nQuestion\n\n\n\nExploration of results of hierarchical clustering (objects of class hclust) is facilitated by converting to class dendrogram.\n\n\nCodedend.1 &lt;- hcl.1 %&gt;% \n  as.dendrogram()\n\nlength(dend.1[[1]][[2]])\n[1] 2\nCodeclass(dend.1)\n[1] “dendrogram”\nCodeclass(unclass(dend.1))\n[1] “list”\nCodemethods(class=class(dend.1)) %&gt;% head()\n[1] “[[.dendrogram” “all.equal.dendrogram”\n[3] “as.dendrogram.dendrogram” “as.ggdend.dendrogram”\n[5] “as.hclust.dendrogram” “click_rotate.dendrogram”\nCodedend.1 %&gt;% head()\n–[dendrogram w/ 2 branches and 50 members at h = 701] |–[dendrogram w/ 2 branches and 16 members at h = 141] | |–[dendrogram w/ 2 branches and 10 members at h = 69.3] | | |–[dendrogram w/ 2 branches and 3 members at h = 30.1] .. | | --[dendrogram w/ 2 branches and 7 members at h = 43.4] ..   |–[dendrogram w/ 2 branches and 6 members at h = 82.3] | |–[dendrogram w/ 2 branches and 4 members at h = 33.4] .. | --[dendrogram w/ 2 branches and 2 members at h = 38.5] ..–[dendrogram w/ 2 branches and 34 members at h = 353] |–[dendrogram w/ 2 branches and 14 members at h = 106] | |–[dendrogram w/ 2 branches and 6 members at h = 42.5] .. | --[dendrogram w/ 2 branches and 8 members at h = 44.8] ..–[dendrogram w/ 2 branches and 20 members at h = 163] |–[dendrogram w/ 2 branches and 10 members at h = 38.5] .. `–[dendrogram w/ 2 branches and 10 members at h = 66] .. etc…\nCodedend.1 %&gt;% \n  ggdendrogram(rotate = TRUE,labels = T) +\n  ggtitle(\"Dendrogram for USArrests\") +\n  ggdendro::theme_dendro() +\n  scale_y_reverse(expand = c(0.2, 0))\n\n\n\n\n\n\n\nQuestion\n\n\n\n\n\n\nCode# label(dend.1)\n\ndend.2 &lt;-  as.dendrogram(hcl.1)\n# order it the closest we can to the order of the observations:\ndend.2 &lt;- rotate(dend.2, 1:50)\n# Color the branches based on the clusters:\ndend.2 &lt;- color_branches(dend.2, k=3) #, groupLabels=iris_species)\n# Manually match the labels, as much as possible, to the real classification of the flowers:\n# labels_colors(dend.2) &lt;-\n#    rainbow_hcl(3)[sort_levels_values(\n#       as.numeric(iris[,5])[order.dendrogram(dend.2)]\n#    )]"
+  },
+  {
+    "objectID": "core/labs-solutions/lab-hclust.html#ward-method",
+    "href": "core/labs-solutions/lab-hclust.html#ward-method",
+    "title": "Lab: Hierarchical Clustering",
+    "section": "Ward method",
+    "text": "Ward method\nThe meth=ward.D2 option allows you to aggregate individuals according to the method of Ward, that is, according to the variance.\n\n\n\n\n\n\nQuestion\n\n\n\nWhat is the distance used? Describe the method of classification by variance?\n\n\nThe output clas$height gives the jump height of the dendrogram to each new iteration. In the case of Ward’s method, she is proportional to the loss of inter-class variance.\n\n\n\n\n\n\nQuestion\n\n\n\n\nHow many groups are there at step 0? at the last step?\nHow many iterations are there?\nRecall the definition of inter-class variance.\nWhat is the inter-class variance at step 0? at the last step? How is it going according to the number of groups (or according to the number of iterations)?\nBy comparing the total inertia and the `clas$height’ output, find the coefficient of proportionality between the loss of inter-class variance and height of jumps."
+  },
+  {
+    "objectID": "core/labs-solutions/lab-hclust.html#choice-of-the-number-of-classes",
+    "href": "core/labs-solutions/lab-hclust.html#choice-of-the-number-of-classes",
+    "title": "Lab: Hierarchical Clustering",
+    "section": "Choice of the number of classes",
+    "text": "Choice of the number of classes\n\n\n\n\n\n\nQuestion\n\n\n\n\nPlot the curve corresponding to the loss of variance inter in as a function of the number of iterations :\nSelect the “optimal” number of classes.\nVerify that, for the number of classes chosen, the number by class is sufficient (we can use the cutree function).\nThese classes can be represented using a dendrogram\nYou can also colour the leaves of the tree corresponding to a class. To do this, install and load the package `dendextend’."
+  },
+  {
+    "objectID": "core/labs-solutions/lab-hclust.html#link-with-pca",
+    "href": "core/labs-solutions/lab-hclust.html#link-with-pca",
+    "title": "Lab: Hierarchical Clustering",
+    "section": "Link with PCA",
+    "text": "Link with PCA\nWe will represent the classes obtained in the factorial design(s) obtained by the PCA. This will make it possible to represent the classes and describe them according to the variables initials.\n\n\n\n\n\n\nQuestion\n\n\n\nRepresent the coordinates of the individuals in each group in the first factorial plane (with one color for each class). The vector generated by `cutree’ can be used to form a color vector. Interpretation.\n\n\nCodemutate(USArrests, \n       .cluster = factor(cutree(hcl.1, 10))) %&gt;% \n  inner_join(map_data(\"state\"), by = \"region\") %&gt;%\n  ggplot() +\n  aes(x=long, y=lat, group=region, fill=.cluster) +\n  geom_polygon() +\n  scale_fill_viridis_d() +\n  ggtitle(\"Components of arrest data\") +\n  theme(legend.position = \"none\")\n\nCode#data(france)\nCode(map_data(\"state\") %&gt;%\n  ggplot() +\n  aes(x=long, \n      y=lat, \n      label=factor(region), \n      fill = factor(region)) +\n  geom_polygon() +\n  scale_fill_viridis_d() +\n  ggtitle(\"USA\") +\n  theme(legend.position = \"none\")) |&gt; \n    ggplotly()"
+  },
+  {
+    "objectID": "core/labs-solutions/lab-hclust.html#cophenetic-distance",
+    "href": "core/labs-solutions/lab-hclust.html#cophenetic-distance",
+    "title": "Lab: Hierarchical Clustering",
+    "section": "Cophenetic distance",
+    "text": "Cophenetic distance\n\n\n\n\n\n\nQuestion\n\n\n\n\n\n\nCodedist.coph.1 &lt;- cophenetic(dend.1)"
+  },
+  {
+    "objectID": "core/labs-solutions/lab-hclust.html#cophenetic-distance-between-dendrograms",
+    "href": "core/labs-solutions/lab-hclust.html#cophenetic-distance-between-dendrograms",
+    "title": "Lab: Hierarchical Clustering",
+    "section": "Cophenetic distance between dendrograms",
+    "text": "Cophenetic distance between dendrograms\nCodedata(\"iris\")\n\nhcl.iris &lt;- iris %&gt;% \n  select(where(is.numeric)) %&gt;% \n  scale() %&gt;% \n  dist() %&gt;% \n  hclust(meth=\"ward.D2\")\n\ndend.iris &lt;-  dendro_data(hcl.iris)\n\ndend.iris %$% (\n  ggplot() +\n  geom_segment(data = segments,\n               aes(x = x, y = y,\n                   xend = xend, yend = yend)\n  ) +\n  geom_text(data = labels,\n            aes(x = x, y = y,\n                label = label, hjust = 0),\n            size = 3\n  ) +\n  coord_flip() +\n  scale_y_reverse(expand = c(0.2, 0))\n)"
+  },
+  {
+    "objectID": "core/labs-solutions/lab-hclust.html#references",
+    "href": "core/labs-solutions/lab-hclust.html#references",
+    "title": "Lab: Hierarchical Clustering",
+    "section": "References",
+    "text": "References\nggdendro\ndendroextra\nhier_clust, tidyclust"
+  },
+  {
+    "objectID": "core/slides/slides-kmeans.html#in-words",
+    "href": "core/slides/slides-kmeans.html#in-words",
+    "title": "Clustering and k-means",
+    "section": "In words",
+    "text": "In words\nClustering consists in partitioning points collections from some metric space\nin such a way that\n\npoints within the same group are close enough\n\nwhile\n\npoints from different groups are distant\n\nIn the background: some notion of distance/similarity"
+  },
+  {
+    "objectID": "core/slides/slides-kmeans.html#clustering-in-ml-applications",
+    "href": "core/slides/slides-kmeans.html#clustering-in-ml-applications",
+    "title": "Clustering and k-means",
+    "section": "Clustering in ML applications",
+    "text": "Clustering in ML applications\nClustering shows up in many Machine Learning applications, for example:\n\n Marketing: finding groups of customers with similar behavior given a large database of customer data containing their properties and past buying records\n Biology: classification of plants and animals given their features\n Bookshops: book ordering (recommendation)\n Insurance: identifying groups of motor insurance policy holders with a high average claim cost; identifying frauds\n City-planning: identifying groups of houses according to their type, value and geographical location\n Internet: document classification; clustering weblog data to discover groups of similar access patterns; topic modeling\n\nMany distinct goals: clustering is often just one step in a data analysis pipeline\nFor recommendation systems, marketing, objects that fit into the same group call for the same action\nSome clustering should be hierarchical (toxonomy in life sciences) others can just be flat"
+  },
+  {
+    "objectID": "core/slides/slides-kmeans.html#section",
+    "href": "core/slides/slides-kmeans.html#section",
+    "title": "Clustering and k-means",
+    "section": "",
+    "text": "A clustering application relies on the elaboration of a metric/dissimilarity over some input space\nThis tasks is entangled with feature engineering\nFocus on one specific context: market segmentation \n\n Data: Base of customer data containing their properties and past buying records\n Goal: Use the customers similarities to find groups\n\nPossible directions:\n\nDimension reduction (PCA, CA, MCA, …)\nClustering \\(\\approx\\) non-supervised classification\n\n\n\nAre the directions complementary? or not?\nClustering may be done before dimension reduction or the other way"
+  },
+  {
+    "objectID": "core/slides/slides-kmeans.html#dimension-reduction",
+    "href": "core/slides/slides-kmeans.html#dimension-reduction",
+    "title": "Clustering and k-means",
+    "section": "\n Dimension reduction",
+    "text": "Dimension reduction\nDimension reduction technologies start form:\n\nTraining data \\(\\mathcal{D}=\\{\\vec{X}_1,\\ldots,\\vec{X}_n\\} \\in \\mathcal{X}^n\\) (i.i.d. \\(\\sim \\Pr\\))\nSpace \\(\\mathcal{X}\\) of possibly high dimension.\n\nand elaborate a Dimension Reduction Map\nDimension reduction technologies construct a map \\(\\Phi\\) from the space \\(\\mathcal{X}\\) into a space \\(\\mathcal{X}'\\) of smaller dimension"
+  },
+  {
+    "objectID": "core/slides/slides-kmeans.html#clustering-techniques",
+    "href": "core/slides/slides-kmeans.html#clustering-techniques",
+    "title": "Clustering and k-means",
+    "section": "\n Clustering techniques",
+    "text": "Clustering techniques\nClustering techniques start from training data:\n\\[\\mathcal{D}=\\{\\vec{X}_1,\\ldots,\\vec{X}_n\\} \\in \\mathcal{X}^n\\]\nassuming \\(\\vec{X}_i \\sim_{\\text{i.i.d.}} \\Pr\\), and partition the data into (latent?) groups,\nClustering techniques construct a map \\(f\\) from \\(\\mathcal{D}\\) to \\(\\{1,\\ldots,K\\}\\) where \\(K\\) is a number of classes to be fixed: \\(f: \\quad \\vec{X}_i \\mapsto k_i\\)"
+  },
+  {
+    "objectID": "core/slides/slides-kmeans.html#dimension-reduction-and-clustering-may-be-combined",
+    "href": "core/slides/slides-kmeans.html#dimension-reduction-and-clustering-may-be-combined",
+    "title": "Clustering and k-means",
+    "section": "Dimension reduction and clustering may be combined",
+    "text": "Dimension reduction and clustering may be combined\nFor example, it is commonplace to first perform PCA, project the data on the leading principal components and then perform \\(k\\)-means clustering on the projected data\nClustering tasks may be motivated along different directions:\n\nThe search for an interpretation of groups\nUse of groups in further processing (prediction, …)\n\nThis is especially true as many clustering approaches suffer from the curse of dimensionality"
+  },
+  {
+    "objectID": "core/slides/slides-kmeans.html#good-clustering",
+    "href": "core/slides/slides-kmeans.html#good-clustering",
+    "title": "Clustering and k-means",
+    "section": "Good clustering",
+    "text": "Good clustering\nWe need to define the quality of a cluster \nUnfortunately, no obvious quality measure exists! \nClustering quality may be assessed by scrutinizing\n\nInner homogeneity: samples in the same group should be similar\nOuter inhomogeneity: samples in two different groups should be different."
+  },
+  {
+    "objectID": "core/slides/slides-kmeans.html#shades-of-similarity",
+    "href": "core/slides/slides-kmeans.html#shades-of-similarity",
+    "title": "Clustering and k-means",
+    "section": "Shades of similarity",
+    "text": "Shades of similarity\nThere are many possible definitions of similar and different\nOften, they are based on the distance between the samples\nExamples based on the (squared) Euclidean distance:\n\nInner homogeneity \\(\\approx\\) intra class variance/inertia,\nOuter inhomogeneity \\(\\approx\\) inter class variance/inertia.\n\nRemember that, in flat clustering, the choice of the number \\(K\\) of clusters is often delicate"
+  },
+  {
+    "objectID": "core/slides/slides-kmeans.html#section-1",
+    "href": "core/slides/slides-kmeans.html#section-1",
+    "title": "Clustering and k-means",
+    "section": "",
+    "text": "Clustering is not a single method\nClustering methods address a large range of problems.\n\nTurning this informal statement into a formal definition proves challenging."
+  },
+  {
+    "objectID": "core/slides/slides-kmeans.html#definition-clustering-function",
+    "href": "core/slides/slides-kmeans.html#definition-clustering-function",
+    "title": "Clustering and k-means",
+    "section": "Definition Clustering function",
+    "text": "Definition Clustering function\nDefine a clustering function \\(F\\) as a function that\n\ntakes as input any finite domain \\(\\mathcal{X}\\) with a dissimilarity function \\(d\\) over its pairs\n\nand\n\nreturns a partition of \\(\\mathcal{X}\\)"
+  },
+  {
+    "objectID": "core/slides/slides-kmeans.html#desirable-properties",
+    "href": "core/slides/slides-kmeans.html#desirable-properties",
+    "title": "Clustering and k-means",
+    "section": "Desirable properties",
+    "text": "Desirable properties\nA clustering function should ideally satisfy the next three properties\n\nScale Invariance. For any domain set \\(\\mathcal{X}\\), dissimilarity function \\(d\\), and any \\(\\alpha&gt;0\\), the following should hold: \\(F(\\mathcal{X},d) = F(\\mathcal{X},\\alpha d)\\).\nRichness For any finite \\(\\mathcal{X}\\) and every partition \\(C = (C_1,\\ldots,C_k)\\) of \\(\\mathcal{X}\\) (into nonempty subsets) there exists some dissimilarity function \\(d\\) over \\(\\mathcal{X}\\) such that \\(F(\\mathcal{X},d)=C\\).\n\nConsistency If \\(d\\) and \\(d'\\) are dissimilarity functions over \\(\\mathcal{X}\\), such that for all \\(x, y \\in \\mathcal{X}\\),\n\nif \\(x,y\\) belong to the same cluster in \\(F(\\mathcal{X},d)\\) then \\(d'(x,y) \\leq d(x,y)\\),\nif \\(x,y\\) belong to different clusters in \\(F(\\mathcal{X},d)\\) then \\(d'(x,y) \\geq d(x,y)\\),\n\n\n\nthen \\(F(\\mathcal{X},d) = F(\\mathcal{X},d')\\).\n Designing clustering functions meeting simultaneously any two of the three properties is doable\nbut\n The three reasonable goals are conflicting"
+  },
+  {
+    "objectID": "core/slides/slides-kmeans.html#kleinbergs-impossibility-theorem",
+    "href": "core/slides/slides-kmeans.html#kleinbergs-impossibility-theorem",
+    "title": "Clustering and k-means",
+    "section": "Kleinberg’s impossibility theorem",
+    "text": "Kleinberg’s impossibility theorem\n\n\n\n\n\n\n\nTheorem\n\n\nNo clustering function \\(F\\) satisfies simultaneously all three properties:\n\nScale Invariance,\nRichness, and\nConsistency"
+  },
+  {
+    "objectID": "core/slides/slides-kmeans.html#flathierarchical-and",
+    "href": "core/slides/slides-kmeans.html#flathierarchical-and",
+    "title": "Clustering and k-means",
+    "section": "Flat/Hierarchical and …",
+    "text": "Flat/Hierarchical and …\nA wide variety of clustering methods have been used in Statistics and Machine Learning.\n\n\nFlat clustering (for example \\(k\\)-means) partitions sample into a fixed number of classes (usually denoted by \\(k\\)). The partition is determined by some algorithm\n\n.f6[The ultimate objective is to optimize some cost function. Whether the objective is achieved or even approximately achieved using a reasonable amount of computational resources is not settled]\n\n\nModel based clustering is based on a generative model: data are assumed to be sampled from a specific model (usually finite mixtures of Gaussians, the model may or may not be parametric)\n\n.f6[Clustering consists in fitting such a mixture model and then assigning sample points to mixture components]\n\n\nHierarchical clustering is the topic of next lesson"
+  },
+  {
+    "objectID": "core/slides/slides-kmeans.html#carte-du-tendre",
+    "href": "core/slides/slides-kmeans.html#carte-du-tendre",
+    "title": "Clustering and k-means",
+    "section": "Carte du tendre",
+    "text": "Carte du tendre\n\n\nIn Machine Learning, \\(k\\)-means and hierarchical clustering belong to a range of tasks called non-supervised learning\nThis contrasts with regression which belongs to the realm of supervised learning"
+  },
+  {
+    "objectID": "core/slides/slides-kmeans.html#section-2",
+    "href": "core/slides/slides-kmeans.html#section-2",
+    "title": "Clustering and k-means",
+    "section": "",
+    "text": "The \\(k\\)-means algorithm is an iterative method that constructs a sequence of Voronoï partitions\nA Voronoï diagram draws the nearest neighbor regions around a set of points."
+  },
+  {
+    "objectID": "core/slides/slides-kmeans.html#definition-voronoï-partitions",
+    "href": "core/slides/slides-kmeans.html#definition-voronoï-partitions",
+    "title": "Clustering and k-means",
+    "section": "Definition: Voronoï partitions",
+    "text": "Definition: Voronoï partitions\nAssume:\n\nsample \\(X_1, \\ldots, X_n\\) from \\(\\mathbb{R}^p\\)\n\n\n\\(\\mathbb{R}^p\\) is endowed with a metric \\(d\\), usually \\(\\ell_2\\), sometimes a weighted \\(\\ell_2\\) distance or \\(\\ell_1\\)\n\n\nEach cluster is defined by a centroid\nThe collection of centroids is (sometimes) called the codebook \\(\\mathcal{C}=c_1, \\ldots, c_k\\)\nEach centroid \\(c_j\\) defines a class:\n\\[C_j = \\bigg\\{ X_i : d(X_i, c_j) = \\min_{j' \\leq k} d(X_i, c_{j'})\\bigg\\}\\]\nand more generally a Voronoï cell in \\(\\mathbb{R}^p\\)\n\\[C_j = \\bigg\\{ x :  x \\in \\mathbb{R}^p, d(x, c_j) = \\min_{j' \\leq k} d(x, c_{j'})\\bigg\\}\\]"
+  },
+  {
+    "objectID": "core/slides/slides-kmeans.html#a-voronoï-tesselation",
+    "href": "core/slides/slides-kmeans.html#a-voronoï-tesselation",
+    "title": "Clustering and k-means",
+    "section": "A Voronoï tesselation",
+    "text": "A Voronoï tesselation\n\n\n\n\n\n\n\n\n\n\n\n\nEuclidean distance, dimension 2\nA voronoi tesselation generated by \\(100\\) points picked at random on the gred \\(\\{1,\\ldots, 200\\}^2\\)\nNote that cell boundaries are line segments\nNote that centroids may lie close to boundaries\nThe position of the centroid of a Voronoi cell depends on the positions of the centroids of the neighboring cells\n\nSee ggforce"
+  },
+  {
+    "objectID": "core/slides/slides-kmeans.html#a-voronoi-partition-for-projected-iris-dataset",
+    "href": "core/slides/slides-kmeans.html#a-voronoi-partition-for-projected-iris-dataset",
+    "title": "Clustering and k-means",
+    "section": "A Voronoi partition for projected Iris dataset",
+    "text": "A Voronoi partition for projected Iris dataset\n\n\nThe black points marked with a cross define three centroids.\nThe straight lines delimit the Voronoï cells defined by the three centroids.\nThe colored points come from the Iris dataset: each point is colored according to the the cell it belongs to."
+  },
+  {
+    "objectID": "core/slides/slides-kmeans.html#k-means-objective-function",
+    "href": "core/slides/slides-kmeans.html#k-means-objective-function",
+    "title": "Clustering and k-means",
+    "section": "\nk-means objective function",
+    "text": "k-means objective function\nThe \\(k\\)-means algorithm aims at building a codebook \\(\\mathcal{C}\\) that minimizes\n\\(\\mathcal{C} \\mapsto \\sum_{i=1}^n \\min_{c \\in \\mathcal{C}}  \\norm X_i - c \\norm_2^2\\)\nover all codebooks with given cardinality\nIf \\(c \\in \\mathcal{C}\\) is the closest centroid to \\(X \\in \\mathbb{R}^p\\),\n\\[\\|c - X\\|^2\\]\nis the quantization/reconstruction error suffered when using codebook \\(\\mathcal{C}\\) to approximate \\(X\\)\n If there are no restrictions on the dimension of the input space, on the number of centroids, or on sample size, computing an optimal codebook is a \\(\\text{NP}\\) -hard problem"
+  },
+  {
+    "objectID": "core/slides/slides-kmeans.html#k-means-at-work",
+    "href": "core/slides/slides-kmeans.html#k-means-at-work",
+    "title": "Clustering and k-means",
+    "section": "\n\\(k\\)-means at work",
+    "text": "\\(k\\)-means at work\n\n\nWe may figure out what an optimized Voronoï partition looks like on the Iris dataset\nkmeans with \\(k=3\\) on the Iris dataset\nFunction kmeans is run with default arguments\nWe chose the Sepal plane for clustering and visualization\nThis is arbitrary. We could have chosen a Petal plane, a Width plane, or a plane defined by principal axes."
+  },
+  {
+    "objectID": "core/slides/slides-kmeans.html#a-k-means-clustering-is-completely-characterized-by-the-k-centroids",
+    "href": "core/slides/slides-kmeans.html#a-k-means-clustering-is-completely-characterized-by-the-k-centroids",
+    "title": "Clustering and k-means",
+    "section": "A \\(k\\)-means clustering is completely characterized by the \\(k\\) centroids",
+    "text": "A \\(k\\)-means clustering is completely characterized by the \\(k\\) centroids\nOnce centroids are known, clusters can be recovered by searching the closest centroid for each sample point (that is by delimiting the Voronoï cells).\n\nHow can we assess the quality of a \\(k\\)-means clustering?\nCan we compare the clusterings achieved by picking different values of \\(k\\)?\n\nThere is no obvious assessment criterion!"
+  },
+  {
+    "objectID": "core/slides/slides-kmeans.html#caveat",
+    "href": "core/slides/slides-kmeans.html#caveat",
+    "title": "Clustering and k-means",
+    "section": "Caveat",
+    "text": "Caveat\nWhen visualizing \\(k\\)-means clustering on Iris data, we are cheating. \nWe have a gold standard classification delivered by botanists\nThe botanists classification can be challenged\nWe can compare classification originating from phenotypes (appearance) and classification based on phylogeny (comparing DNAs)"
+  },
+  {
+    "objectID": "core/slides/slides-kmeans.html#summarising-a-k-means-clustering",
+    "href": "core/slides/slides-kmeans.html#summarising-a-k-means-clustering",
+    "title": "Clustering and k-means",
+    "section": "Summarising a \\(k\\)-means clustering",
+    "text": "Summarising a \\(k\\)-means clustering\n\n\nA clustering can be summarized and illustrated.\nIn  A meaningful summary is provided by the generic function summary(), or a tidy summary is providede by broom::tidy(...)\n\n\n\n\n\n\n\nSepal.Length\nSepal.Width\nsize\nwithinss\ncluster\n\n\n\n6.81\n3.07\n47.00\n12.62\n1\n\n\n5.01\n3.43\n50.00\n13.13\n2\n\n\n5.77\n2.69\n53.00\n11.30\n3\n\n\n\n\n\n\nThe concise summary tells us the number of points that are assigned to each cluster, and the Within Sum of Squares (WNSS). It says something about inner homogeneity and (apparently) nothing about outer homogeneity"
+  },
+  {
+    "objectID": "core/slides/slides-kmeans.html#k-means-with-k2",
+    "href": "core/slides/slides-kmeans.html#k-means-with-k2",
+    "title": "Clustering and k-means",
+    "section": "\n\\(k\\)-means with \\(k=2\\)\n",
+    "text": "\\(k\\)-means with \\(k=2\\)\n\n\n\nWe pursue the exploration of kmeans by building another clustering for Iris dataset.\nThis times with \\(k=2\\).\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSepal.Length\nSepal.Width\nsize\nwithinss\ncluster\n\n\n\n5.22\n3.13\n83.00\n35.09\n1\n\n\n6.61\n2.97\n67.00\n23.11\n2"
+  },
+  {
+    "objectID": "core/slides/slides-kmeans.html#how-should-we-pick-k",
+    "href": "core/slides/slides-kmeans.html#how-should-we-pick-k",
+    "title": "Clustering and k-means",
+    "section": "\n How should we pick \\(k\\)?",
+    "text": "How should we pick \\(k\\)?\n\n\nEven if we could compute a provably optimal codebook for each \\(k\\), choosing \\(k\\) would not be obvious\nA common recipe consists of plotting within clusters sum of squares (WNSS) against \\(k\\)\nWithin clusters sum of squares (WNSS) decreases sharply between \\(k=2\\) and \\(k=3\\)\nFor larger values of \\(k\\), the decay is much smaller.\nThe elbow rule of thumb suggests to choose \\(k=3\\).\n\nWe have run kmeans over the Iris dataset, for \\(k\\) in range \\(2, \\ldots, 10\\). For each value of \\(k\\), we performed \\(32\\) randomized initializations, and chose the partition that minimizes within clusters sum of squares"
+  },
+  {
+    "objectID": "core/slides/slides-kmeans.html#incentive-to-choose-k4",
+    "href": "core/slides/slides-kmeans.html#incentive-to-choose-k4",
+    "title": "Clustering and k-means",
+    "section": "Incentive to choose \\(k=4\\)?",
+    "text": "Incentive to choose \\(k=4\\)?\n\n\nDepending on initialization, taking \\(k=4\\) creates a cluster at the boundary between versicolor and virginica or it may split the setosa cluster\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSepal.Length\nSepal.Width\nsize\nwithinss\ncluster\n\n\n\n5.518182\n2.606061\n33\n5.967879\n1\n\n\n5.016327\n3.451020\n49\n11.569388\n2\n\n\n7.283333\n3.133333\n18\n3.905000\n3\n\n\n6.350000\n2.942000\n50\n6.786800\n4"
+  },
+  {
+    "objectID": "core/slides/slides-kmeans.html#initialization-matters",
+    "href": "core/slides/slides-kmeans.html#initialization-matters",
+    "title": "Clustering and k-means",
+    "section": "Initialization matters!",
+    "text": "Initialization matters!\n\n\n\nInitialize by samples.\nk-Mean++ try to take them as separated as possible.\nNo guarantee to converge to a global optimum!\nTrial and error.\nRepeat and keep the best result.\n\n\n\nkmeans(x,       # data\n       centers, # initial centroids or number of clusters\n       iter.max = 10,\n       nstart = 1,  # number of trials\n       algorithm = c(\"Hartigan-Wong\", # default\n                     \"Lloyd\",         #&lt;&lt; old one\n                     \"Forgy\",\n                     \"MacQueen\"),\n       trace=FALSE)"
+  },
+  {
+    "objectID": "core/slides/slides-kmeans.html#lloyds-algorithm-detailed-for-fixed-k-naive-k-means",
+    "href": "core/slides/slides-kmeans.html#lloyds-algorithm-detailed-for-fixed-k-naive-k-means",
+    "title": "Clustering and k-means",
+    "section": "Lloyd’s Algorithm (detailed) for fixed k (naive k-means)",
+    "text": "Lloyd’s Algorithm (detailed) for fixed k (naive k-means)\n\nInitialize Choose \\(k\\) centroids\nIterations: Two phases\n(Movement) Assign each sample point to the closest centroid Assign each sample point to a class in the Voronoi partition defined by the centroids\n(Update) For each class in the current Voronoi partition, update the centroid so as to minimize the Within Cluster Sum of Squared distances."
+  },
+  {
+    "objectID": "core/slides/slides-kmeans.html#lloyds-iterations",
+    "href": "core/slides/slides-kmeans.html#lloyds-iterations",
+    "title": "Clustering and k-means",
+    "section": "Lloyd’s iterations",
+    "text": "Lloyd’s iterations"
+  },
+  {
+    "objectID": "core/slides/slides-kmeans.html#lloyds-iterations-continued",
+    "href": "core/slides/slides-kmeans.html#lloyds-iterations-continued",
+    "title": "Clustering and k-means",
+    "section": "Lloyd’s iterations (continued)",
+    "text": "Lloyd’s iterations (continued)"
+  },
+  {
+    "objectID": "core/slides/slides-kmeans.html#lloyds-iterations-continued-1",
+    "href": "core/slides/slides-kmeans.html#lloyds-iterations-continued-1",
+    "title": "Clustering and k-means",
+    "section": "Lloyd’s iterations (continued)",
+    "text": "Lloyd’s iterations (continued)"
+  },
+  {
+    "objectID": "core/slides/slides-kmeans.html#analysis",
+    "href": "core/slides/slides-kmeans.html#analysis",
+    "title": "Clustering and k-means",
+    "section": "Analysis",
+    "text": "Analysis\nGiven\n\ncodebook \\(\\mathcal{C} =\\big\\{c_1, \\ldots, c_k\\big\\}\\) and\nclusters \\(C_1, \\ldots C_k\\),\n\nthe within-clusters sum of squares is defined as\n\\(\\sum_{j=1}^k  \\sum_{i: X_i \\in C_j} \\bigg\\Vert c_j - X_i \\bigg\\Vert^2\\)\n This is also the kmeans cost"
+  },
+  {
+    "objectID": "core/slides/slides-kmeans.html#section-4",
+    "href": "core/slides/slides-kmeans.html#section-4",
+    "title": "Clustering and k-means",
+    "section": "",
+    "text": "Lemma\n\n\nAt each stage, the within clusters sums of squares does not increase"
+  },
+  {
+    "objectID": "core/slides/slides-kmeans.html#proof",
+    "href": "core/slides/slides-kmeans.html#proof",
+    "title": "Clustering and k-means",
+    "section": "Proof",
+    "text": "Proof\nLet \\(\\mathcal{C}^{(t)} =\\big\\{ c^{(t)}_1, \\ldots, c_k^{(t)}\\big\\}\\) be the codebook after \\(t\\) steps\nLet \\(\\big({C}^{(t)}_j\\big)_{j \\leq k}\\) be the clusters after \\(t\\) steps\n\nCentroids at step \\(t+1\\) are the barycenters of clusters \\(\\big({C}^{(t)}_j\\big)_{j \\leq k}\\)\n\n\n\\(c^{(t+1)}_j = \\frac{1}{|C_j^{(t)}|} \\sum_{X_i \\in C^{(t)}_j} X_i\\)\n\nClusters \\(C^{(t+1)}_j\\) are defined by\n\n\\(C^{(t+1)}_j = \\bigg\\{ X_i : \\Vert X_i -  c^{(t+1)}_j\\Vert = \\min_{c \\in \\mathcal{C}^{(t+1)}} \\Vert X_i -  c\\Vert \\bigg\\}\\)\nEach sample point is assigned to the closest centroid"
+  },
+  {
+    "objectID": "core/slides/slides-kmeans.html#proof-continued",
+    "href": "core/slides/slides-kmeans.html#proof-continued",
+    "title": "Clustering and k-means",
+    "section": "Proof (continued)",
+    "text": "Proof (continued)\n\\[\\sum_{j=1}^k \\sum_{X_i \\in C^{(t)}_j} \\bigg\\Vert c^{(t)}_j  - X_i\\bigg\\Vert^2  \\geq \\sum_{j=1}^k \\sum_{X_i \\in C^{(t)}_j} \\bigg\\Vert c^{(t+1)}_j  - X_i\\bigg\\Vert^2\\]\nsince for each \\(j\\), the mean \\(c^{(t+1)}_j\\) minimizes the average square distance to points in \\(C^{(t)}_j\\)\n\\[\\sum_{j=1}^k \\sum_{X_i \\in C^{(t)}_j} \\bigg\\Vert c^{(t+1)}_j  - X_i\\bigg\\Vert^2 \\geq \\sum_{j=1}^k \\sum_{X_i \\in C^{(t)}_j} \\min_{c \\in \\mathcal{C}^{(t+1)}}\\bigg\\Vert c  - X_i\\bigg\\Vert^2\\]\n\\[\\sum_{j=1}^k \\sum_{X_i \\in C^{(t)}_j} \\min_{c \\in \\mathcal{C}^{(t+1)}}\\bigg\\Vert c  - X_i\\bigg\\Vert^2 = \\sum_{j=1}^k \\sum_{X_i \\in C^{(t+1)}_j} \\bigg\\Vert c^{(t+1)}_j  - X_i\\bigg\\Vert^2\\]"
+  },
+  {
+    "objectID": "core/slides/slides-kmeans.html#variants-of-k-means",
+    "href": "core/slides/slides-kmeans.html#variants-of-k-means",
+    "title": "Clustering and k-means",
+    "section": "\n Variants of k-means",
+    "text": "Variants of k-means\nImplementations of \\(k\\)-means vary with respect to\n\nInitialization\n\nk-means++\nForgy : pick initial centroids at random from the dataset\nRandom partition : pick a random partition of the dataset and initialize centroids by computing means in each class\n…\n\n\nMovement/assignment\n\nNaive \\(k\\) means uses brute-force search for closest centroid. Each step requires \\(\\Omega(n \\times k)\\) operations\nElkan (used by  scikit-learn)\nHartigan-Wong  default\n…\n\n\n\n\nLloyd’s algorithm is the standard approach for this problem. However, it spends a lot of processing time computing the distances between each of the k cluster centers and the n data points. Since points usually stay in the same clusters after a few iterations, much of this work is unnecessary, making the naïve implementation very inefficient. Some implementations use caching and the triangle inequality in order to create bounds and accelerate Lloyd’s algorithm. .fr.f6[Wikipedia]\n\nIn base , kmeans is a wrapper for different but related algorithms.\nLloyd’s algorithm is the first and simplest versions of a series of heuristic methods designed to minimize the k-means cost\n\nMacQueen modify the mean each time a sample is assigned to a new cluster\nHartigan-Wong is the default method. It modifies the mean by removing the considered sample point, assign it to the nearby center and recompute the new mean after assignment.\nForgy"
+  },
+  {
+    "objectID": "core/slides/slides-kmeans.html#section-5",
+    "href": "core/slides/slides-kmeans.html#section-5",
+    "title": "Clustering and k-means",
+    "section": "",
+    "text": "The result of a clustering procedure like kmeans can be visualized by projecting the dataset on a pair of native variables and using some aesthetics to emphasize the clusters\nThis is not always the best way.\nFirst choosing a pair of native variables may not be straightforward. The projected pairwise distances may not faithfully reflect the pairwise distances that serve for clustering.\nIt makes sense to project the dataset of the \\(2\\)-dimensional subspace that maximizes the projected inertia, that is on the space generated by the first two principal components"
+  },
+  {
+    "objectID": "core/slides/slides-kmeans.html#pca-projection-k-means",
+    "href": "core/slides/slides-kmeans.html#pca-projection-k-means",
+    "title": "Clustering and k-means",
+    "section": "PCA, projection, \\(k\\)-means",
+    "text": "PCA, projection, \\(k\\)-means\n\n\nThe kmeans clustering of the Iris dataset is projected on the first two principal components: prcomp is used to perform PCA with neither centering nor scaling\nkmeans is applied to the rotated data\n\n\n\n\n\n\n\n\n\n The straight lines are the not the projections of the boundaries of the (4-dimensional) Voronoï cells defined by the clusters centroids, but the boundaries of the 2-dimensional Voronoï celles defined by the projections of the cluster centroids"
+  },
+  {
+    "objectID": "core/slides/slides-kmeans.html#questions-around-k-means",
+    "href": "core/slides/slides-kmeans.html#questions-around-k-means",
+    "title": "Clustering and k-means",
+    "section": "\n Questions around k-means",
+    "text": "Questions around k-means\n\nChoosing \\(k\\)\nAssessing clustering quality\nScaling or not scaling ?\nChoosing a distance\nInitialization methods\nMovement/assignment update\nStopping rules"
+  },
+  {
+    "objectID": "core/slides/slides-kmeans.html#conclusion",
+    "href": "core/slides/slides-kmeans.html#conclusion",
+    "title": "Clustering and k-means",
+    "section": "\n Conclusion",
+    "text": "Conclusion\n\nEuclidean distance is used as a metric and inertia is used as a measure of cluster scatter\nThe number of clusters \\(k\\) is an input parameter\nConvergence to a local minimum may produce counterintuitive (“wrong”) results"
+  },
+  {
+    "objectID": "core/slides/slides-kmeans.html#adding-centroids",
+    "href": "core/slides/slides-kmeans.html#adding-centroids",
+    "title": "Clustering and k-means",
+    "section": "Adding centroids",
+    "text": "Adding centroids"
+  },
+  {
+    "objectID": "core/slides/slides-kmeans.html#k--means-at-work",
+    "href": "core/slides/slides-kmeans.html#k--means-at-work",
+    "title": "Clustering and k-means",
+    "section": "\n\\(k\\) -means at work",
+    "text": "\\(k\\) -means at work\n\n\nWe may figure out what an optimized Voronoï partition looks like on the Iris dataset\nkmeans with \\(k=3\\) on the Iris dataset\nFunction kmeans is run with default arguments\n\n\n\n\n\n\n\n\n\nWe chose the Sepal plane for clustering and visualization\nThis is arbitrary. We could have chosen a Petal plane, a Width plane, or a plane defined by principal axes."
+  },
+  {
+    "objectID": "core/slides/slides-kmeans.html#after-1-step",
+    "href": "core/slides/slides-kmeans.html#after-1-step",
+    "title": "Clustering and k-means",
+    "section": "After 1 step",
+    "text": "After 1 step"
+  },
+  {
+    "objectID": "core/slides/slides-kmeans.html#lloyds-iterations-after-2-steps-continued",
+    "href": "core/slides/slides-kmeans.html#lloyds-iterations-after-2-steps-continued",
+    "title": "Clustering and k-means",
+    "section": "Lloyd’s iterations after 2 steps (continued)",
+    "text": "Lloyd’s iterations after 2 steps (continued)"
+  },
+  {
+    "objectID": "core/slides/slides-kmeans.html#section-3",
+    "href": "core/slides/slides-kmeans.html#section-3",
+    "title": "Clustering and k-means",
+    "section": "",
+    "text": "The quality of a clustering can be appreciated according to a wide variety of performance indicators\n\nDistortion: this is the \\(k\\)-means cost\nShape of clusters\nRelevance of clusters\nStability: does clustering depend on few points?"
+  },
+  {
+    "objectID": "core/slides/slides-kmeans.html#lloyds-iterations-after-2-steps",
+    "href": "core/slides/slides-kmeans.html#lloyds-iterations-after-2-steps",
+    "title": "Clustering and k-means",
+    "section": "Lloyd’s iterations after 2 steps",
+    "text": "Lloyd’s iterations after 2 steps"
+  },
+  {
+    "objectID": "core/slides/slides-kmeans.html#lloyds-iterations-after-4-steps",
+    "href": "core/slides/slides-kmeans.html#lloyds-iterations-after-4-steps",
+    "title": "Clustering and k-means",
+    "section": "Lloyd’s iterations after 4 steps",
+    "text": "Lloyd’s iterations after 4 steps"
   }
 ]
