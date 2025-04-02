@@ -75,17 +75,17 @@
 - title: "SVD, MCA, CCA"
   author: "Master I MIDS UParis Cité"
   date: "2025-03-26"
-  path: "core/labs-solutions/lab-mca.html"
+  path: "core/labs/lab-mca.html"
   categories: [SVD, PCA, CA, MCA, CCA] 
 - title: "Clustering: kmeans"
   author: "Master I MIDS UParis Cité"
   date: "2025-04-02"
-  path: "core/labs-solutions/lab-kmeans.html"
+  path: "core/labs/lab-kmeans.html"
   categories: [Clustering, k-means]
 - title: "Clustering: Hierarchical"
   author: "Master I MIDS UParis Cité"
   date: "2025-04-07"
-  path: "core/labs-solutions/lab-hclust.html"
+  path: "core/labs/lab-hclust.html"
   categories: [Clustering, Hierarchical]
 # - title: "PCA, CA, MCA"
 #   author: "Master I MIDS UParis Cité"
@@ -117,16 +117,6 @@
 #   date: "2025-03-19"
 #   path: "labs/lab-vectorization.html"
 #   categories: [R programming, Vectorization]
-# - title: "Clustering: kmeans"
-#   author: "Master I MIDS UParis Cité"
-#   date: "2025-03-26"
-#   path: "labs/lab-kmeans.html"
-#   categories: [Clustering, k-means]
-# - title: "Clustering: Hierarchical"
-#   author: "Master I MIDS UParis Cité"
-#   date: "2025-03-26"
-#   path: "labs/lab-hclust.html"
-#   categories: [Clustering, Hierarchical]
 # - title: "R programming: dashboards"
 #   author: "Master I MIDS UParis Cité"
 #   date: "2025-04-02"

@@ -1,6 +1,6 @@
 ---
 title: "Week 11"
-subtitle: "Clustering: kmeans"
+subtitle: "Clustering"
 editor: source
 draft: false
 ---
@@ -18,7 +18,8 @@ draft: false
 
 ## {{< fa flask-vial >}} Labs
 
-- [Lab 11](/core/labs/lab-kmeans.qmd)  Clustering with $k$-means
+- [Lab 11](/core/labs/lab-kmeans.qmd) Clustering with $k$-means
+- [Lab 12](/core/labs/lab-hclust.qmd) Hierarchical clustering  
 
 
 We still rely on the previous labs

@@ -1,6 +1,6 @@
 ---
-title: "Week 10"
-subtitle: "SVD and Applications: MCA and CCA"
+title: "Week 12"
+subtitle: "TBA"
 editor: source
 draft: false
 ---
@@ -14,22 +14,11 @@ draft: false
 :::
 
 
-::: {.callout-important}
 
-### Very important 
-
-During session II bis (Friday afternoon), each pair will have *5 minutes* to present their 
-results from [Homework I](/core/projects/hmw_gapminder_oecd.qmd). 
-
-{{< fa hand-point-right >}} Each pair will have to prepare one or two slides and ashort pitch commenting the pictures. 
-
-## {{< fa display >}} {{< fa person-chalkboard >}}
-
-:::
 
 ## {{< fa flask-vial >}} Labs
 
-- [Lab 12](/core/labs/lab-hclust.qmd) Hierarchical clustering  
+
 
 We still rely on the previous labs
 
@@ -45,6 +34,7 @@ We still rely on the previous labs
 - [Lab 9](/core/labs/lab-ca.qmd)  Correspondence Analysis as an application of extended SVD
 - [Lab 10](/core/labs/lab-cca-mca.qmd)  Multiple Correspondence Analysis and Canonical Correspondence Analysis as applications of extended SVD
 - [Lab 11](/core/labs/lab-kmeans.qmd)  Clustering with $k$-means
+- [Lab 12](/core/labs/lab-hclust.qmd) Hierarchical clustering  
 
 ## {{< fa person-digging >}} Further work
 
