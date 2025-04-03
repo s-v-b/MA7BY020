@@ -580,7 +580,7 @@
     "href": "slides-listings.html",
     "title": "Slides",
     "section": "",
-    "text": "Slides summarize the lectures. Feel free to watch them before and after the lectures.\n point to material to be developped on blackboard.\n\n\n   \n     \n     \n       Order By\n       Default\n         \n          Title\n        \n         \n          Tags\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\nDate\n\n\nTitle\n\n\nTags\n\n\n\n\n\n\nJan 22, 2025\n\n\nHandling tables with dplyr\n\n\nSQL Tables, Relational Algebra, tidyverse\n\n\n\n\n\nNo matching items\n\n\n\n\n\n\n\n\nMode d’emploi\n\n\n\nSlides use libraries revealjs or remark from . They are displayed in your browser.\nTo get help, press",
+    "text": "Slides summarize the lectures. Feel free to watch them before and after the lectures.\n point to material to be developped on blackboard.\n\n\n   \n     \n     \n       Order By\n       Default\n         \n          Title\n        \n         \n          Tags\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\nDate\n\n\nTitle\n\n\nTags\n\n\n\n\n\n\nJan 22, 2025\n\n\nHandling tables with dplyr\n\n\nSQL Tables, Relational Algebra, tidyverse\n\n\n\n\nApr 2, 2025\n\n\nClustering kmeans\n\n\nkmeans, clustering\n\n\n\n\nApr 4, 2025\n\n\nHierarchical clustering\n\n\nDendrogram, Hierarchical clustering\n\n\n\n\n\nNo matching items\n\n\n\n\n\n\n\n\nMode d’emploi\n\n\n\nSlides use libraries revealjs or remark from . They are displayed in your browser.\nTo get help, press",
     "crumbs": [
       "Slides"
     ]
@@ -2064,5 +2064,369 @@
     "title": "Clustering and k-means",
     "section": "Lloyd’s iterations after 4 steps",
     "text": "Lloyd’s iterations after 4 steps"
+  },
+  {
+    "objectID": "core/slides/slides-hclust.html#section",
+    "href": "core/slides/slides-hclust.html#section",
+    "title": "Hierarchical Clustering",
+    "section": "",
+    "text": "Hierarchical clustering […] is a method of cluster analysis which seeks to build a hierarchy of clusters\nfrom Wikipedia\n\n\nRecall that a clustering is a partition of some dataset\nA partition \\(D\\) of \\(\\mathcal{X}\\) is a refinement of another partition \\(D'\\) if every class in \\(D\\) is a subset of a class in \\(D'\\). Partitions \\(D\\) and \\(D'\\) are said to be nested\n\n\nA hierarchical clustering of \\(\\mathcal{X}\\) is a sequence of \\(|\\mathcal{X}|\\) nested partitions of \\(\\mathcal{X}\\), starting from the trivial partition into \\(|\\mathcal{X}|\\) singletons and ending into the trivial partition in \\(1\\) subset ( \\(\\mathcal{X}\\) itself)\nA hierarchical clustering consists of \\(|\\mathcal{X}|\\) nested flat clusterings\nWe will explore agglomerative or bottom-up methods to build hierarchical clusterings"
+  },
+  {
+    "objectID": "core/slides/slides-hclust.html#hierchical-clustering-and-dendrograms",
+    "href": "core/slides/slides-hclust.html#hierchical-clustering-and-dendrograms",
+    "title": "Hierarchical Clustering",
+    "section": "Hierchical clustering and dendrograms",
+    "text": "Hierchical clustering and dendrograms\n\n\nThe result of hierarchical clustering is a tree where leafs are labelled by sample points and internal nodes correspond to merging operations\nThe tree conveys more information: if the tree is properly decorated, it is possible to reconstruct the different merging steps and to know which rule was applied when some merging operation was performed\nThe tree is called a dendrogram"
+  },
+  {
+    "objectID": "core/slides/slides-hclust.html#section-1",
+    "href": "core/slides/slides-hclust.html#section-1",
+    "title": "Hierarchical Clustering",
+    "section": "",
+    "text": "Dendrogram and trees show up in several areas.\nClassification and Regression trees play an important role in Machine Learning.\nggdendro and dendextend may also be used to manipulate regression trees"
+  },
+  {
+    "objectID": "core/slides/slides-hclust.html#cutting-a-dendrogram-iris-illustration",
+    "href": "core/slides/slides-hclust.html#cutting-a-dendrogram-iris-illustration",
+    "title": "Hierarchical Clustering",
+    "section": "Cutting a dendrogram: Iris illustration",
+    "text": "Cutting a dendrogram: Iris illustration\n\nThe famous (Fisher’s or Anderson’s) iris data set gives the measurements in centimeters of the variables sepal length and width and petal length and width, respectively, for 50 flowers from each of 3 species of iris. The species are Iris setosa, versicolor, and virginica.\n\n\nThe Iris flower data set is fun for learning supervised classification algorithms, and is known as a difficult case for unsupervised learning.\n\n\nThe Setosa species are distinctly different from Versicolor and Virginica (they have lower petal length and width). But Versicolor and Virginica cannot easily be separated based on measurements of their sepal and petal width/length."
+  },
+  {
+    "objectID": "core/slides/slides-hclust.html#section-2",
+    "href": "core/slides/slides-hclust.html#section-2",
+    "title": "Hierarchical Clustering",
+    "section": "",
+    "text": "Cutting a dendrogram: getting a flat clustering\nBuilding a dendrogram: inside hclust\nDisplaying, reporting dendrograms"
+  },
+  {
+    "objectID": "core/slides/slides-hclust.html#hclust-pipeline",
+    "href": "core/slides/slides-hclust.html#hclust-pipeline",
+    "title": "Hierarchical Clustering",
+    "section": "\nhclust pipeline",
+    "text": "hclust pipeline\n\ndendro_iris &lt;- iris |&gt; \n  select(where(is.numeric)) |&gt;  \n  dist() |&gt; \n  hclust() |&gt; \n  dendro_data() \n\n\nmydendro &lt;- . %$% {  #&lt;&lt;\n  ggplot() + \n    geom_segment(\n      data = segments,   #&lt;&lt;\n      aes(\n        x = x, y = y, \n        xend = xend, \n        yend = yend)\n  ) +\n  geom_text(\n    data = labels, #&lt;&lt;\n    aes(\n      x = x, y = y, \n      label = label, hjust = 0),\n    size = 2\n  ) +\n  coord_flip() +\n  scale_y_reverse(expand = c(0.2, 0)) +\n  theme_dendro()  \n}"
+  },
+  {
+    "objectID": "core/slides/slides-hclust.html#section-3",
+    "href": "core/slides/slides-hclust.html#section-3",
+    "title": "Hierarchical Clustering",
+    "section": "",
+    "text": "&lt;ScaleContinuousPosition&gt;\n Range:  \n Limits:    0 --    1"
+  },
+  {
+    "objectID": "core/slides/slides-hclust.html#inside-ggdendro",
+    "href": "core/slides/slides-hclust.html#inside-ggdendro",
+    "title": "Hierarchical Clustering",
+    "section": "Inside ggdendro",
+    "text": "Inside ggdendro"
+  },
+  {
+    "objectID": "core/slides/slides-hclust.html#section-5",
+    "href": "core/slides/slides-hclust.html#section-5",
+    "title": "Hierarchical Clustering",
+    "section": "",
+    "text": "mydendro(dendro_iris)"
+  },
+  {
+    "objectID": "core/slides/slides-hclust.html#cutting-a-dendrogram-iris-illustration-continued",
+    "href": "core/slides/slides-hclust.html#cutting-a-dendrogram-iris-illustration-continued",
+    "title": "Hierarchical Clustering",
+    "section": "Cutting a dendrogram:  Iris illustration (continued)",
+    "text": "Cutting a dendrogram:  Iris illustration (continued)\n\np &lt;- iris %&gt;%\n  ggplot() +\n  aes(x=Petal.Length, y=Petal.Width)\n\np +\n  geom_point(\n    aes(\n      shape=Species, \n      colour=Species)\n  ) +\n# labs(shape= \"Species\") +\n  ggtitle(\n    label= \"Iris data\",\n    subtitle = \"Species in Petal plane\"\n  )"
+  },
+  {
+    "objectID": "core/slides/slides-hclust.html#cutting-a-dendrogram-iris-illustration-continued-1",
+    "href": "core/slides/slides-hclust.html#cutting-a-dendrogram-iris-illustration-continued-1",
+    "title": "Hierarchical Clustering",
+    "section": "Cutting a dendrogram: Iris illustration (continued)",
+    "text": "Cutting a dendrogram: Iris illustration (continued)"
+  },
+  {
+    "objectID": "core/slides/slides-hclust.html#cutting-a-dendrogram-iris-illustration-continued-2",
+    "href": "core/slides/slides-hclust.html#cutting-a-dendrogram-iris-illustration-continued-2",
+    "title": "Hierarchical Clustering",
+    "section": "Cutting a dendrogram: Iris illustration (continued)",
+    "text": "Cutting a dendrogram: Iris illustration (continued)"
+  },
+  {
+    "objectID": "core/slides/slides-hclust.html#cutting-a-dendrogram-iris-illustration-continued-3",
+    "href": "core/slides/slides-hclust.html#cutting-a-dendrogram-iris-illustration-continued-3",
+    "title": "Hierarchical Clustering",
+    "section": "Cutting a dendrogram: Iris illustration (continued)",
+    "text": "Cutting a dendrogram: Iris illustration (continued)"
+  },
+  {
+    "objectID": "core/slides/slides-hclust.html#cutting-a-dendrogram-iris-illustration-continued-4",
+    "href": "core/slides/slides-hclust.html#cutting-a-dendrogram-iris-illustration-continued-4",
+    "title": "Hierarchical Clustering",
+    "section": "Cutting a dendrogram: Iris illustration (continued)",
+    "text": "Cutting a dendrogram: Iris illustration (continued)"
+  },
+  {
+    "objectID": "core/slides/slides-hclust.html#cutting-a-dendrogram-better-iris-illustration-continued",
+    "href": "core/slides/slides-hclust.html#cutting-a-dendrogram-better-iris-illustration-continued",
+    "title": "Hierarchical Clustering",
+    "section": "Cutting a dendrogram: better Iris illustration (continued)",
+    "text": "Cutting a dendrogram: better Iris illustration (continued)\nThe dendextend package offers a set of functions for extending dendrogram objects in , letting you\n\nvisualize and\ncompare trees of hierarchical clusterings,\n\nFeatures:\n\nAdjust a tree’s graphical parameters - the color, size, type, etc, of its branches, nodes and labels\nVisually and statistically compare different dendrograms to one another"
+  },
+  {
+    "objectID": "core/slides/slides-hclust.html#about-class-hclust",
+    "href": "core/slides/slides-hclust.html#about-class-hclust",
+    "title": "Hierarchical Clustering",
+    "section": "About class hclust\n",
+    "text": "About class hclust\n\nResults from function hclust() are objects of class hclust :\niris_hclust is an object of class hclust\nFunction cutree() returns a flat clustering of the dataset\nWhat does height stand for?\nWhat does merge stand for?\nWhat does order stand for?\nHow different are the different method?"
+  },
+  {
+    "objectID": "core/slides/slides-hclust.html#hierarchical-clustering-of-usarrests",
+    "href": "core/slides/slides-hclust.html#hierarchical-clustering-of-usarrests",
+    "title": "Hierarchical Clustering",
+    "section": "Hierarchical clustering of USArrests\n",
+    "text": "Hierarchical clustering of USArrests\n\n\n\nRows: 50\nColumns: 4\n$ Murder   &lt;dbl&gt; 13.2, 10.0, 8.1, 8.8, 9.0, 7.9, 3.3, 5.9, 15.4, 17.4, 5.3, 2.…\n$ Assault  &lt;int&gt; 236, 263, 294, 190, 276, 204, 110, 238, 335, 211, 46, 120, 24…\n$ UrbanPop &lt;int&gt; 58, 48, 80, 50, 91, 78, 77, 72, 80, 60, 83, 54, 83, 65, 57, 6…\n$ Rape     &lt;dbl&gt; 21.2, 44.5, 31.0, 19.5, 40.6, 38.7, 11.1, 15.8, 31.9, 25.8, 2…"
+  },
+  {
+    "objectID": "core/slides/slides-hclust.html#about-dendrograms-output-dendro_data",
+    "href": "core/slides/slides-hclust.html#about-dendrograms-output-dendro_data",
+    "title": "Hierarchical Clustering",
+    "section": "About dendrograms (output dendro_data())",
+    "text": "About dendrograms (output dendro_data())\nAn object of class dendro is a list of 4 objects:\n\nsegments\nlabels\nleaf_labels\nclass"
+  },
+  {
+    "objectID": "core/slides/slides-hclust.html#questions",
+    "href": "core/slides/slides-hclust.html#questions",
+    "title": "Hierarchical Clustering",
+    "section": "Questions",
+    "text": "Questions\n\nHow to build the dendrogram?\nHow to choose the cut?"
+  },
+  {
+    "objectID": "core/slides/slides-hclust.html#bird-eye-view-at-hierarchical-agglomerative-clustering-methods",
+    "href": "core/slides/slides-hclust.html#bird-eye-view-at-hierarchical-agglomerative-clustering-methods",
+    "title": "Hierarchical Clustering",
+    "section": "Bird-eye view at hierarchical agglomerative clustering methods",
+    "text": "Bird-eye view at hierarchical agglomerative clustering methods\nAll hierarchical agglomerative clustering methods (HACMs) can be described by the following general algorithm.\n\nAt each stage distances between clusters are recomputed by the Lance-Williams dissimilarity update formula according to the particular clustering method being used.\nIdentify the 2 closest points and combine them into a cluster (treating existing clusters as points too)\nIf more than one cluster remains, return to step 1."
+  },
+  {
+    "objectID": "core/slides/slides-hclust.html#greed-is-good",
+    "href": "core/slides/slides-hclust.html#greed-is-good",
+    "title": "Hierarchical Clustering",
+    "section": "Greed is good!",
+    "text": "Greed is good!\n\nHierarchical agglomerative clustering methods are examples of greedy algorithms\n\nGreedy algorithms sometimes compute optimal solutions\n\nHuffmann coding (Information Theory)\nMinimum spanning tree (Graph algorithms)\n\n\n\nGreedy algorithms sometimes compute sub-optimal solutions\n\nSet cover (NP-hard problem)\n…\n\n\n\nEfficient greedy algorithms rely on ad hoc data structures\n\nPriority queues\nUnion-Find"
+  },
+  {
+    "objectID": "core/slides/slides-hclust.html#algorithm-detailed",
+    "href": "core/slides/slides-hclust.html#algorithm-detailed",
+    "title": "Hierarchical Clustering",
+    "section": "\n Algorithm (detailed)",
+    "text": "Algorithm (detailed)\n\nStart with \\((\\mathcal{C}_{i}^{(0)})= (\\{ \\vec{X}_i \\})\\) the collection of all singletons.\n\nAt step \\(s\\), we have \\(n-s\\) clusters \\((\\mathcal{C}_{i}^{(s)})\\):\n\nFind the two most similar clusters according to a criterion \\(\\Delta\\): \\[(i,i') = \\operatorname{argmin}_{(j,j')} \\Delta(\\mathcal{C}_{j}^{(s)},\\mathcal{C}_{j'}^{(s)})\\]\nMerge \\(\\mathcal{C}_{i}^{(s)}\\) and \\(\\mathcal{C}_{i'}^{(s)}\\) into \\(\\mathcal{C}_{i}^{(s+1)}\\)\nKeep the \\(n-s-2\\) other clusters \\(\\mathcal{C}_{i''}^{(s+1)} = \\mathcal{C}_{i''}^{(s)}\\)\n\n\nRepeat until there is only one cluster left"
+  },
+  {
+    "objectID": "core/slides/slides-hclust.html#analysis",
+    "href": "core/slides/slides-hclust.html#analysis",
+    "title": "Hierarchical Clustering",
+    "section": "Analysis",
+    "text": "Analysis\n\nComplexity: \\(O(n^3)\\) in general.\n\nCan be reduced to \\(O(n^2)\\) (sometimes to \\(O(n \\log n)\\))\n\nif the number of possible mergers for a given cluster is bounded.\nfor the most classical distances by maintaining a nearest neighbors list."
+  },
+  {
+    "objectID": "core/slides/slides-hclust.html#merging-criterion-based-on-the-distance-between-points",
+    "href": "core/slides/slides-hclust.html#merging-criterion-based-on-the-distance-between-points",
+    "title": "Hierarchical Clustering",
+    "section": "Merging criterion based on the distance between points",
+    "text": "Merging criterion based on the distance between points\nMinimum linkage:\n\\[\\Delta(\\mathcal{C}_i, \\mathcal{C}_j) =\\min_{\\vec{X}_i \\in \\mathcal{C}_i} \\min_{\\vec{X}_j \\in    \\mathcal{C}_j} d(\\vec{X}_i, \\vec{X}_j)\\]\nMaximum linkage:\n\\[\\Delta(\\mathcal{C}_i, \\mathcal{C}_j) = \\max_{\\vec{X}_i \\in \\mathcal{C}_i} \\max_{\\vec{X}_j \\in    \\mathcal{C}_j} d(\\vec{X}_i, \\vec{X}_j)\\]\nAverage linkage:\n\\[\\Delta(\\mathcal{C}_i, \\mathcal{C}_j) =\\frac{1}{|\\mathcal{C}_i||\\mathcal{C}_j|} \\sum_{\\vec{X}_i \\in    \\mathcal{C}_i}\\sum_{\\vec{X}_j \\in \\mathcal{C}_j} d(\\vec{X}_i, \\vec{X}_j)\\]"
+  },
+  {
+    "objectID": "core/slides/slides-hclust.html#wards-criterion-minimum-varianceinertia-criterion",
+    "href": "core/slides/slides-hclust.html#wards-criterion-minimum-varianceinertia-criterion",
+    "title": "Hierarchical Clustering",
+    "section": "Ward’s criterion : minimum variance/inertia criterion",
+    "text": "Ward’s criterion : minimum variance/inertia criterion\n\\(\\Delta(\\mathcal{C}_i, \\mathcal{C}_j) = \\sum_{\\vec{X}_i \\in \\mathcal{C}_i} \\left( d^2(\\vec{X}_i, \\mu_{\\mathcal{C}_i \\cup \\mathcal{C}_j} ) - d^2(\\vec{X}_i, \\mu_{\\mathcal{C}_i}) \\right) +\\)\n\\(\\qquad\\qquad \\qquad \\sum_{\\vec{X}_j \\in \\mathcal{C}_j} \\left( d^2(\\vec{X}_j, \\mu_{\\mathcal{C}_i \\cup \\mathcal{C}_j} ) - d^2(\\vec{X}_j, \\mu_{\\mathcal{C}_j}) \\right)\\)\nIf \\(d\\) is the euclidean distance\n\\[\\Delta(\\mathcal{C}_i, \\mathcal{C}_j) = \\frac{ |\\mathcal{C}_i||\\mathcal{C}_j|}{|\\mathcal{C}_i|+ |\\mathcal{C}_j|} d^2(\\mu_{\\mathcal{C}_i}, \\mu_{\\mathcal{C}_j})\\]"
+  },
+  {
+    "objectID": "core/slides/slides-hclust.html#lance-williams-update-formulae",
+    "href": "core/slides/slides-hclust.html#lance-williams-update-formulae",
+    "title": "Hierarchical Clustering",
+    "section": "Lance-Williams update formulae",
+    "text": "Lance-Williams update formulae\nSuppose that clusters \\(C_{i}\\) and \\(C_{j}\\) were next to be merged\nAt this point, all of the current pairwise cluster distances are known\nThe recursive update formula gives the updated cluster distances following the pending merge of clusters \\(C_{i}\\) and \\(C_{j}\\)\nLet\n\n\\(d_{ij}, d_{ik}\\), and \\(d_{jk}\\) be shortands for the pairwise distances between clusters \\(C_{i}, C_{j}\\) and \\(C_{k}\\)\n\\(d_{{(ij)k}}\\) be shortand for the distance between the new cluster \\(C_{i}\\cup C_{j}\\) and \\(C_{k}\\) ( \\(k\\not\\in \\{i,j\\}\\) )"
+  },
+  {
+    "objectID": "core/slides/slides-hclust.html#lance-williams-update-formulae-continued",
+    "href": "core/slides/slides-hclust.html#lance-williams-update-formulae-continued",
+    "title": "Hierarchical Clustering",
+    "section": "Lance-Williams update formulae (continued)",
+    "text": "Lance-Williams update formulae (continued)\nAn algorithm belongs to the Lance-Williams family if the updated cluster distance \\(d_{{(ij)k}}\\) can be computed recursively by\n\\[d_{(ij)k} = \\alpha _{i}d_{ik}+ \\alpha _{j}d_{jk}+ \\beta d_{ij}+ \\gamma |d_{ik}-d_{jk}|\\]\nwhere \\(\\alpha_{i},\\alpha _{j},\\beta\\) , and \\(\\gamma\\) are parameters, which may depend on cluster sizes, that together with the cluster distance function \\(d_{ij}\\) determine the clustering algorithm.\nClustering algorithms such as\n\nsingle linkage,\ncomplete linkage, and\ngroup average\n\nmethod have a recursive formula of the above type"
+  },
+  {
+    "objectID": "core/slides/slides-hclust.html#lance-williams-update-formula-for-wards-criterion",
+    "href": "core/slides/slides-hclust.html#lance-williams-update-formula-for-wards-criterion",
+    "title": "Hierarchical Clustering",
+    "section": "Lance-Williams update formula for Ward’s criterion",
+    "text": "Lance-Williams update formula for Ward’s criterion\n\\[\\begin{array}{rl}d\\left(C_i \\cup C_j, C_k\\right) & = \\frac{n_i+n_k}{n_i+n_j+n_k}d\\left(C_i, C_k\\right)  +\\frac{n_j+n_k}{n_i+n_j+n_k}d\\left(C_j, C_k\\right) \\\\ & \\phantom{==}- \\frac{n_k}{n_i+n_j+n_k} d\\left(C_i, C_j\\right)\\end{array}\\]\n\\[\\alpha_i = \\frac{n_i+n_k}{n_i+n_j+n_k} \\qquad \\alpha_j = \\frac{n_j+n_k}{n_i+n_j+n_k}\\qquad \\beta = \\frac{- n_k}{n_i+n_j+n_k}\\]"
+  },
+  {
+    "objectID": "core/slides/slides-hclust.html#an-unfair-quotation",
+    "href": "core/slides/slides-hclust.html#an-unfair-quotation",
+    "title": "Hierarchical Clustering",
+    "section": "An unfair quotation",
+    "text": "An unfair quotation\n\nWard’s minimum variance criterion minimizes the total within-cluster variance .fr[Wikipedia]\n\n\nIs that correct?\nIf corrected, what does it mean?\n\nIf we understand the statement as:\n\nfor any \\(k\\), the flat clustering obtained by cutting the dendrogram so as to obtain a \\(k\\)-clusters partition minimizes the total within-cluster variance/inertia amongst all \\(k\\)-clusterings\n\nthen, the statement is not proved. If it were proved, it would imply \\(\\mathsf{P}=\\mathsf{NP}\\)\nThe total within-cluster variance/inertia is the objective function in the \\(k\\)-means problem.\nThe statement is misleading"
+  },
+  {
+    "objectID": "core/slides/slides-hclust.html#what-happens-in-wards-method",
+    "href": "core/slides/slides-hclust.html#what-happens-in-wards-method",
+    "title": "Hierarchical Clustering",
+    "section": "What happens in Ward’s method?",
+    "text": "What happens in Ward’s method?\n\nAt each step find the pair of clusters that leads to minimum increase in total within-cluster variance after merging .fr[Wikipedia]\n\n\nThis increase is a weighted squared distance between cluster centers .fr[Wikipedia]\n\n\nAt the initial step, all clusters are singletons (clusters containing a single point). To apply a recursive algorithm under this objective function, the initial distance between individual objects must be (proportional to) squared Euclidean distance."
+  },
+  {
+    "objectID": "core/slides/slides-hclust.html#views-on-inertia",
+    "href": "core/slides/slides-hclust.html#views-on-inertia",
+    "title": "Hierarchical Clustering",
+    "section": "Views on Inertia:",
+    "text": "Views on Inertia:\n\\[I   = \\frac{1}{n} \\sum_{i=1}^n \\|\\vec{X}_i - \\vec{m} \\|^2\\]\nwhere \\(\\vec{m} = \\sum_{i=1}^n \\frac{1}{n}\\vec{X}_i\\)\n\\[I = \\frac{1}{2n^2} \\sum_{i,j} \\|\\vec{X}_i - \\vec{X}_j\\|^2\\]\nTwice the mean squared distance to the mean equals the mean squared distance between sample points\nRecall that for a real random variable \\(Z\\) with mean \\(\\mu\\)\n\\[\\operatorname{var}(Z) = \\mathbb{E}(Z -m)^2 = \\inf_a \\mathbb{E}(Z -a)^2\\]\nand\n\\[\\operatorname{var}(Z) = \\frac{1}{2} \\mathbb{E}(Z -Z')^2\\]\nwhere \\(Z'\\) is an independent copy of \\(Z\\)\nThe different formulae for inertia is just mirroring the different views at variance\nThe inertia is the trace of an empirical covariance matrix."
+  },
+  {
+    "objectID": "core/slides/slides-hclust.html#decompositions-of-inertia-huyghens-formula",
+    "href": "core/slides/slides-hclust.html#decompositions-of-inertia-huyghens-formula",
+    "title": "Hierarchical Clustering",
+    "section": "Decompositions of inertia (Huyghens formula)",
+    "text": "Decompositions of inertia (Huyghens formula)\n\nSample \\(x_1,\\ldots, x_{n+m}\\) with mean \\(\\bar{X}_{n+m}\\) and variance \\(V\\)\nPartition \\(\\{1,\\ldots,n+m\\} = A \\cup B\\) with \\(|A|=n, |B|=m\\), \\(A \\cap B =\\emptyset\\)\nLet \\(\\bar{X}_n = \\frac{1}{n}\\sum_{i \\in A} X_i\\) and \\(\\bar{X}_m=\\frac{1}{m}\\sum_{i \\in B}X_i\\) \\[\\bar{X}_{n+m} =  \\frac{n}{n+m} \\bar{X}_{n}  +\\frac{m}{n+m} \\bar{X}_{m}\\]\nLet \\(V_A\\) be the variance of \\((x_i)_{i\\in A}\\), \\(V_B\\) be the variance of \\((x_i)_{i\\in B}\\)"
+  },
+  {
+    "objectID": "core/slides/slides-hclust.html#decompositions-of-inertia-huyghens-formula-1",
+    "href": "core/slides/slides-hclust.html#decompositions-of-inertia-huyghens-formula-1",
+    "title": "Hierarchical Clustering",
+    "section": "Decompositions of inertia (Huyghens formula)",
+    "text": "Decompositions of inertia (Huyghens formula)\n\nLet \\(V_{\\text{between}}\\) be the variance of a ghost sample with \\(n\\) copies of \\(\\bar{X}_n\\) and \\(m\\) copies of \\(\\bar{X}_m\\) \\[V_{\\text{between}} =  \\frac{n}{n+m} (\\bar{X}_n -\\bar{X}_{n+m})^2 + \\frac{m}{n+m} (\\bar{X}_m -\\bar{X}_{n+m})^2\\]\nLet \\(V_{\\text{within}}\\) be the weighted mean of variances within classes \\(A\\) and \\(B\\) \\[V_{\\text{within}}  = \\frac{n}{n+m}  V_A + \\frac{m}{n+m} V_B\\]"
+  },
+  {
+    "objectID": "core/slides/slides-hclust.html#decompositions-of-inertia",
+    "href": "core/slides/slides-hclust.html#decompositions-of-inertia",
+    "title": "Hierarchical Clustering",
+    "section": "Decompositions of inertia",
+    "text": "Decompositions of inertia\n\n\n\n\n\n\nProposition: Huyghens formula I\n\n\n\\[V = V_{\\text{within}} +  V_{\\text{between}}\\]"
+  },
+  {
+    "objectID": "core/slides/slides-hclust.html#huyghens-formula-can-be-extended-to-any-number-of-classes",
+    "href": "core/slides/slides-hclust.html#huyghens-formula-can-be-extended-to-any-number-of-classes",
+    "title": "Hierarchical Clustering",
+    "section": "Huyghens formula can be extended to any number of classes",
+    "text": "Huyghens formula can be extended to any number of classes\n\n\n\n\n\n\nProposition: Huyghens (II)\n\n\n\nSample \\(\\vec{x}_1, \\ldots,\\vec{x}_n\\) from \\(\\mathbb{R}^p\\) with mean \\(\\bar{X}_n\\), inertia \\(I\\).\nLet \\(A_1, A_2\\ldots, A_k\\) be a partition of \\(\\{1,\\ldots,n\\}\\).\nLet \\(I_\\ell\\) (resp. \\(\\bar{X}^\\ell\\)) be the inertia (resp. the mean) of sub-sample \\(\\vec{x}_i, i\\in A_\\ell\\)\nLet \\(I_{\\text{between}}\\) be the inertia of the ghost sample, formed by \\(|A_1|\\) copies of \\(\\bar{X}^1\\), \\(|A_2|\\) copies of \\(\\bar{X}^2\\), … \\(|A_k|\\) copies of \\(\\bar{X}^k\\)\nLet \\(I_{\\text{within}} =  \\sum_{\\ell=1}^k \\frac{|A_\\ell|}{n}  I_\\ell\\)\n\n\\[I =   I_{\\text{within}} +  I_{\\text{between}}\\]"
+  },
+  {
+    "objectID": "core/slides/slides-hclust.html#cophenetic-disimilarity",
+    "href": "core/slides/slides-hclust.html#cophenetic-disimilarity",
+    "title": "Hierarchical Clustering",
+    "section": "Cophenetic disimilarity",
+    "text": "Cophenetic disimilarity\nGiven a dendrogram, the cophenetic disimilarity between two sample points \\(x, x'\\) is the intergroup disimilarity at which observations \\(x\\) and \\(x'\\) are first joined.\n\n\n\n\n\n\nProposition\n\n\nA cophenetic disimilarity has the ultrametric property\n\n\n\n\n\nAll triangles are isoceles and the unequal length should be no longer than the length of the two equal sides"
+  },
+  {
+    "objectID": "core/slides/slides-hclust.html#cophenetic-correlation-coefficient",
+    "href": "core/slides/slides-hclust.html#cophenetic-correlation-coefficient",
+    "title": "Hierarchical Clustering",
+    "section": "Cophenetic correlation coefficient",
+    "text": "Cophenetic correlation coefficient\nThe cophenetic correlation coefficient measures how faithfully a dendrogram preserves the pairwise distances between the original unmodeled data points\n\n\nwikipedia]"
+  },
+  {
+    "objectID": "core/slides/slides-hclust.html#computing-cophenetic-correlation-coefficient",
+    "href": "core/slides/slides-hclust.html#computing-cophenetic-correlation-coefficient",
+    "title": "Hierarchical Clustering",
+    "section": "Computing cophenetic correlation coefficient",
+    "text": "Computing cophenetic correlation coefficient\nIn  use the dendextend package\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nsingle\ncomplete\naverage\nmcquitty\nward.D\ncentroid\nmedian\nward.D2\n\n\n0.86\n0.73\n0.88\n0.87\n0.86\n0.87\n0.86\n0.87"
+  },
+  {
+    "objectID": "core/slides/slides-hclust.html#how-to-apply-general-algorithm",
+    "href": "core/slides/slides-hclust.html#how-to-apply-general-algorithm",
+    "title": "Hierarchical Clustering",
+    "section": "How to apply general algorithm?",
+    "text": "How to apply general algorithm?\n\nLance-Williams dissimilarity update formula calculates dissimilarities between a new cluster and existing points, based on the dissimilarities prior to forming the new cluster\nThis formula has 3 parameters\nEach HACM is characterized by its own set of Lance-Williams parameters"
+  },
+  {
+    "objectID": "core/slides/slides-hclust.html#implementations-of-the-general-algorithm",
+    "href": "core/slides/slides-hclust.html#implementations-of-the-general-algorithm",
+    "title": "Hierarchical Clustering",
+    "section": "Implementations of the general algorithm",
+    "text": "Implementations of the general algorithm\nStored matrix approach\nUse matrix, and then apply Lance-Williams to recalculate dissimilarities between cluster centers. Storage \\(O(N^2)\\) and time at least \\(O(N^2)\\), but is \\(\\Theta(N^3)\\) if matrix is scanned linearly\nStored data approach\n\\(O(N)\\) space for data but recompute pairwise dissimilarities, needs \\(\\Theta(N^3)\\) time\nSorted matrix approach\n\\(O(N^2)\\) to calculate dissimilarity matrix, \\(O(N^2 \\log N)\\) to sort it, \\(O(N^2)\\) to construct hierarchy, but one need not store the data set, and the matrix can be processed linearly, which reduces disk accesses"
+  },
+  {
+    "objectID": "core/slides/slides-hclust.html#agglomerative-clustering-heuristic",
+    "href": "core/slides/slides-hclust.html#agglomerative-clustering-heuristic",
+    "title": "Hierarchical Clustering",
+    "section": "Agglomerative Clustering Heuristic",
+    "text": "Agglomerative Clustering Heuristic\n\nStart with very small clusters (a sample point by cluster?)\nMerge iteratively the most similar clusters according to some greedy criterion \\(\\Delta\\).\nGenerates a hierarchy of clusterings instead of a single one.\nNeed to select the number of cluster afterwards.\nSeveral choice for the merging criterion\n\nExamples:\n\nMinimum Linkage: merge the closest cluster in term of the usual distance\nWard’s criterion: merge the two clusters yielding the less inner inertia loss (minimum variance criterion)"
+  },
+  {
+    "objectID": "core/slides/slides-hclust.html#packages",
+    "href": "core/slides/slides-hclust.html#packages",
+    "title": "Hierarchical Clustering",
+    "section": "Packages",
+    "text": "Packages\n\n\n\nggdendro\ndendextend\ndendroextras\n\n\n\n\nscipy\nscikit-learn"
+  },
+  {
+    "objectID": "core/slides/slides-hclust.html#section-4",
+    "href": "core/slides/slides-hclust.html#section-4",
+    "title": "Hierarchical Clustering",
+    "section": "",
+    "text": "as.matrix(dist(iris[,1:4])) returns the matrix of pairwise distances\nDefault distance is Euclidean distance\nWhat about using broom::augment?\nThere is no augment.hclust method: No augment method for objects of class hclust\n\n\n:::"
+  },
+  {
+    "objectID": "core/slides/slides-hclust.html#section-6",
+    "href": "core/slides/slides-hclust.html#section-6",
+    "title": "Hierarchical Clustering",
+    "section": "",
+    "text": "mydendro(dendro_iris)"
+  },
+  {
+    "objectID": "core/slides/slides-hclust.html#section-8",
+    "href": "core/slides/slides-hclust.html#section-8",
+    "title": "Hierarchical Clustering",
+    "section": "",
+    "text": "What is an object of class dendro made of?\nIt a list of four elements:\n\nsegments\nlabels\nleaf_labels\nclass\n\nElement segments is a data frame with four columns. Each row represent a segment that is part of a graphical representation of the hierarchy. There are horizontal and vertical segments\nElement labels is used to label the tree leafs."
+  },
+  {
+    "objectID": "core/slides/slides-hclust.html#section-10",
+    "href": "core/slides/slides-hclust.html#section-10",
+    "title": "Hierarchical Clustering",
+    "section": "",
+    "text": "Does the flat clustering obtained by cutting the dendrogram at some height reflect the partition into species"
+  },
+  {
+    "objectID": "core/slides/slides-hclust.html#section-12",
+    "href": "core/slides/slides-hclust.html#section-12",
+    "title": "Hierarchical Clustering",
+    "section": "",
+    "text": "dendextend\nA dendro gallery\nclass of dend"
+  },
+  {
+    "objectID": "core/slides/slides-hclust.html#hierchical-clustering-and-dendrogram",
+    "href": "core/slides/slides-hclust.html#hierchical-clustering-and-dendrogram",
+    "title": "Hierarchical Clustering",
+    "section": "Hierchical clustering and dendrogram",
+    "text": "Hierchical clustering and dendrogram\n\n\nThe result of hierarchical clustering is a tree where leafs are labelled by sample points and internal nodes correspond to merging operations\nThe tree conveys more information: if the tree is properly decorated, it is possible to reconstruct the different merging steps and to know which rule was applied when some merging operation was performed\nThe tree is called a dendrogram\n\n\n\n\n\n\n\n\n\nViolent Crime Rates by US State\n\nDescription\n\nThis data set contains statistics, in arrests per 100,000 residents for assault, murder, and rape in each of the 50 US states in 1973. Also given is the percent of the population living in urban areas."
+  },
+  {
+    "objectID": "core/slides/slides-hclust.html#section-7",
+    "href": "core/slides/slides-hclust.html#section-7",
+    "title": "Hierarchical Clustering",
+    "section": "",
+    "text": "What is an object of class dendro made of?\nIt a list of four elements:\n\nsegments\nlabels\nleaf_labels\nclass\n\nElement segments is a data frame with four columns. Each row represent a segment that is part of a graphical representation of the hierarchy. There are horizontal and vertical segments\nElement labels is used to label the tree leafs."
+  },
+  {
+    "objectID": "core/slides/slides-hclust.html#section-9",
+    "href": "core/slides/slides-hclust.html#section-9",
+    "title": "Hierarchical Clustering",
+    "section": "",
+    "text": "Does the flat clustering obtained by cutting the dendrogram at some height reflect the partition into species?"
+  },
+  {
+    "objectID": "core/slides/slides-hclust.html#section-11",
+    "href": "core/slides/slides-hclust.html#section-11",
+    "title": "Hierarchical Clustering",
+    "section": "",
+    "text": "dendextend\nA dendro gallery\nclass of dend"
+  },
+  {
+    "objectID": "core/projects/hmw-dev-2025.html",
+    "href": "core/projects/hmw-dev-2025.html",
+    "title": "Hmw II: Regression, Package Development",
+    "section": "",
+    "text": "Important\n\n\n\n\nDue : April 27 2025\nWork in pairs\n Deliver your work through a github repository\n Present your work (10 minutes) on 2025-04-29 between 11:00 and 13:00 (Olympe de Gouges 358)\n\n\n\n\n Objectives\nThis homework is about\n\ndevelopping methods for objects produced by functions like gpava() and activeSet() from package isotone (R)\napplying monotone regression techniques to a dataset.\n\nI. Supplementing the broom and the ggfortify packages\nThe broom package offers S3 generic functions for building dataframes from the output of a variety of statistical techniques (for example lm, prcomp, or kmeans): augment(), tidy(), and glance().\nThe first goal of this homework is to design and code methods for generic functions augment, tidy, glance, and autoplot for classes gpava and activeSet defined in the isotone package (monotone regression).\nPackage ggplot2 offers a generic function autoplot(). See Tidyverse documentation on autoplot. Package ‘ggfortify’ offers a large collection of methods for autoplot.\nMore generally have a look at automatic plotting Also have a look at autolayer() generic in ggplot2.\n\nII. Applying monotone regression methods to real data\nThe Abalone dataset can be obtained from UIC Machine learning repository site The usual problem consists in predicting age (rings) as a function of the other variables (this is a regression problem).\nYou are expected to conduct exploratory analysis on this dataset. Besides linear regression of the response variable with respect to the others, you shall fit a monotone regression function to the dataset. Use the functions developped in the first part of the homework to discuss your results.\nUse the quarto package for reproducible research to write your report.\nThe report should be rendered at least in HTML format, and possibly also in PDF format.\n\n\nPackage development\nThe function and methods coded in this homework should be delivered as a package.\nFollow the package development guidelines in R Packages (2e).\n\nDefine a dedicated rstudio project for this homework\nDon’t forget documentation and testing\n\n\n\nReferences\n\nAdvanced R Programming\n\nFunctional programming\nS3\nMeta programming\n\nPackages\nProgramming with/for ggplot2\nProgramming with dplyr\ntidyeval helpers\nCheatsheets\nPackage isotone on CRAN\n\n\n\n Grading criteria\n\n\n\n\n\n\n\nCriterion\nPoints\nDetails\n\n\n\n\nDocumentation/Report\n40%\nEnglish/French \n\n\nTesting\n25%\n\n\n\nCoding\n35%"
   }
 ]
