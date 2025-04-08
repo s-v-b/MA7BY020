@@ -908,14 +908,14 @@
     "href": "weeks/week-12.html",
     "title": "Week 12",
     "section": "",
-    "text": "Important\n\n\n\n\nSession I Sophie Germain (2032) Wednesday 13h30-15h\nSession II Sophie Germain (2012) Friday 9h00-10h30\n Calendar"
+    "text": "Important\n\n\n\n\nSession I Olympe de Gouges (130) Wednesday 13h30-15h\nSession II Sophie Germain (2012) Friday 9h00-10h30\n Calendar"
   },
   {
     "objectID": "weeks/week-12.html#labs",
     "href": "weeks/week-12.html#labs",
     "title": "Week 12",
     "section": " Labs",
-    "text": "Labs\nWe still rely on the previous labs\n\nLab 1 - Introduction to R and RStudio\nLab 2 - Introduction to Data Visualization using Gapminder dataset\nLab 3 - Working with dplyr\nLab 4 Univariate categorical variables\nLab 5 Univariate numeric variables\nLab 6 - Linear Regression I\nLab 6 - Linear Regression II\nLab 7 - Linear Regression II\nLab 8 Principal Component Analysis as an application of SVD\nLab 9 Correspondence Analysis as an application of extended SVD\nLab 10 Multiple Correspondence Analysis and Canonical Correspondence Analysis as applications of extended SVD\nLab 11 Clustering with \\(k\\)-means\nLab 12 Hierarchical clustering"
+    "text": "Labs\nWe will work on coding and package development, with following goals\n\ndevelopping methods for tidy, glance, methods for S3 classes FactomineR::CA, FactomineR::MCA.\ninvestigate problems posed by output of cancor\ndevelop autoplot methods of FactomineR::CA, FactomineR::MCA\nspecial emphasis on documentation and testing\n\nWe still rely on the previous labs\n\nLab 1 - Introduction to R and RStudio\nLab 2 - Introduction to Data Visualization using Gapminder dataset\nLab 3 - Working with dplyr\nLab 4 Univariate categorical variables\nLab 5 Univariate numeric variables\nLab 6 - Linear Regression I\nLab 6 - Linear Regression II\nLab 7 - Linear Regression II\nLab 8 Principal Component Analysis as an application of SVD\nLab 9 Correspondence Analysis as an application of extended SVD\nLab 10 Multiple Correspondence Analysis and Canonical Correspondence Analysis as applications of extended SVD\nLab 11 Clustering with \\(k\\)-means\nLab 12 Hierarchical clustering"
   },
   {
     "objectID": "weeks/week-12.html#further-work",
