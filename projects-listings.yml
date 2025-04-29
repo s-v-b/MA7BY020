@@ -8,8 +8,8 @@
   categories: ["Regression", "Diagnostics", "Selection", "Quarto", "tidyverse", "isotone", "tidymodels"]
   path: "core/projects/hmw-dev-2025.html"
   date: "April 27 2025"
-- title: "TBA"
-  description: "SVD, Clustering, Regression, Package management"
-  categories: ["Spatial data", "Package", "Tidy evaluation", "Quarto"]
-  path: "core/projects/hmw_2.html"
-  date: "May 16 2025"
+- title: "SVD methods and Voting data"
+  description: "SVD, Clustering,"
+  categories: ["PCA", "Clustering", "Quarto"]
+  path: "core/projects/hmw-votes-2025.html"
+  date: "May 29 2025"
