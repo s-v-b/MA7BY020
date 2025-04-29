@@ -570,7 +570,7 @@
     "href": "projects-listings.html",
     "title": "Projects",
     "section": "",
-    "text": "Note\n\n\n\nCourse evaluation is based on Projects \n\n Find a friend : all work done by pairs of students\n Create a single private GitHub repository for each project and each pair of students.\n Grant me access to these repositories\n All work is transmitted through your private repository and nowhere else\n No emails for project submission\n All projects deliverables consist of Quarto notebooks\n\n\n\n\n\n   \n     \n     \n       Order By\n       Default\n         \n          Title\n        \n         \n          Description\n        \n         \n          Tags\n        \n         \n          Due date - Oldest\n        \n         \n          Due date - Newest\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\nDue date\n\n\nTitle\n\n\nDescription\n\n\nTags\n\n\n\n\n\n\nFeb 7, 2025\n\n\nData wrangling and Visualization\n\n\nData extraction, wrangling, visualization, reproducible data science\n\n\nOECD, Visualization, Quarto, tidyverse, plotly\n\n\n\n\nApr 27, 2025\n\n\nRegression, Package Development\n\n\nStatistical summaries, Regression, Package, Generics, isotone\n\n\nRegression, Diagnostics, Selection, Quarto, tidyverse, isotone, tidymodels\n\n\n\n\nMay 16, 2025\n\n\nTBA\n\n\nSVD, Clustering, Regression, Package management\n\n\nSpatial data, Package, Tidy evaluation, Quarto\n\n\n\n\n\nNo matching items\n\n\n\n\n\n\n\n\nEvaluation guidelines\n\n\n\nGrading criteria are given per project. They involve the following aspects:\n\n\n\nCriterion\nPoints\nDetails\n\n\n\n\nNarrative, spelling and syntax\n\nEnglish/French \n\n\nPlots correction\n\nchoice of aesthetics, geom, scale … \n\n\nPlots style\n\nTitles, legends, labels, breaks … \n\n\nTable wrangling\n\nETL, SQL like manipulations \n\n\nComputing Statistics\n\nAggregations, LR, PCA, CA, … \n\n\nDRY compliance\n\nDRY principle at  Wikipedia\n\n\nReport organization\n\n\n\n\nCode organization",
+    "text": "Note\n\n\n\nCourse evaluation is based on Projects \n\n Find a friend : all work done by pairs of students\n Create a single private GitHub repository for each project and each pair of students.\n Grant me access to these repositories\n All work is transmitted through your private repository and nowhere else\n No emails for project submission\n All projects deliverables consist of Quarto notebooks\n\n\n\n\n\n   \n     \n     \n       Order By\n       Default\n         \n          Title\n        \n         \n          Description\n        \n         \n          Tags\n        \n         \n          Due date - Oldest\n        \n         \n          Due date - Newest\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\nDue date\n\n\nTitle\n\n\nDescription\n\n\nTags\n\n\n\n\n\n\nFeb 7, 2025\n\n\nData wrangling and Visualization\n\n\nData extraction, wrangling, visualization, reproducible data science\n\n\nOECD, Visualization, Quarto, tidyverse, plotly\n\n\n\n\nApr 27, 2025\n\n\nRegression, Package Development\n\n\nStatistical summaries, Regression, Package, Generics, isotone\n\n\nRegression, Diagnostics, Selection, Quarto, tidyverse, isotone, tidymodels\n\n\n\n\nMay 28, 2025\n\n\nSVD methods and Voting data\n\n\nSVD, Clustering,\n\n\nPCA, Clustering, Quarto\n\n\n\n\n\nNo matching items\n\n\n\n\n\n\n\n\nEvaluation guidelines\n\n\n\nGrading criteria are given per project. They involve the following aspects:\n\n\n\nCriterion\nPoints\nDetails\n\n\n\n\nNarrative, spelling and syntax\n\nEnglish/French \n\n\nPlots correction\n\nchoice of aesthetics, geom, scale … \n\n\nPlots style\n\nTitles, legends, labels, breaks … \n\n\nTable wrangling\n\nETL, SQL like manipulations \n\n\nComputing Statistics\n\nAggregations, LR, PCA, CA, … \n\n\nDRY compliance\n\nDRY principle at  Wikipedia\n\n\nReport organization\n\n\n\n\nCode organization",
     "crumbs": [
       "Projects"
     ]
@@ -2428,5 +2428,33 @@
     "title": "Hmw II: Regression, Package Development",
     "section": "",
     "text": "Important\n\n\n\n\nDue : April 27 2025\nWork in pairs\n Deliver your work through a github repository\n Present your work (10 minutes) on 2025-04-29 between 11:00 and 13:00 (Olympe de Gouges 358)\n\n\n\n\n Objectives\nThis homework is about\n\ndevelopping methods for objects produced by functions like gpava() and activeSet() from package isotone (R)\napplying monotone regression techniques to a dataset.\n\nI. Supplementing the broom and the ggfortify packages\nThe broom package offers S3 generic functions for building dataframes from the output of a variety of statistical techniques (for example lm, prcomp, or kmeans): augment(), tidy(), and glance().\nThe first goal of this homework is to design and code methods for generic functions augment, tidy, glance, and autoplot for classes gpava and activeSet defined in the isotone package (monotone regression).\nPackage ggplot2 offers a generic function autoplot(). See Tidyverse documentation on autoplot. Package ‘ggfortify’ offers a large collection of methods for autoplot.\nMore generally have a look at automatic plotting Also have a look at autolayer() generic in ggplot2.\n\nII. Applying monotone regression methods to real data\nThe Abalone dataset can be obtained from UIC Machine learning repository site The usual problem consists in predicting age (rings) as a function of the other variables (this is a regression problem).\nYou are expected to conduct exploratory analysis on this dataset. Besides linear regression of the response variable with respect to the others, you shall fit a monotone regression function to the dataset. Use the functions developped in the first part of the homework to discuss your results.\nUse the quarto package for reproducible research to write your report.\nThe report should be rendered at least in HTML format, and possibly also in PDF format.\n\n\nPackage development\nThe function and methods coded in this homework should be delivered as a package.\nFollow the package development guidelines in R Packages (2e).\n\nDefine a dedicated rstudio project for this homework\nDon’t forget documentation and testing\n\n\n\nReferences\n\nAdvanced R Programming\n\nFunctional programming\nS3\nMeta programming\n\nPackages\nProgramming with/for ggplot2\nProgramming with dplyr\ntidyeval helpers\nCheatsheets\nPackage isotone on CRAN\n\n\n\n Grading criteria\n\n\n\n\n\n\n\nCriterion\nPoints\nDetails\n\n\n\n\nDocumentation/Report\n40%\nEnglish/French \n\n\nTesting\n25%\n\n\n\nCoding\n35%"
+  },
+  {
+    "objectID": "core/projects/hmw-svd-2025.html",
+    "href": "core/projects/hmw-svd-2025.html",
+    "title": "Hmw III: SVD methods",
+    "section": "",
+    "text": "Important\n\n\n\n\nDue : May 29 2025\nWork in pairs\n Deliver your work through a github repository\n Present your work (15 minutes) on 2025-05-30"
+  },
+  {
+    "objectID": "core/projects/hmw-svd-2025.html#references",
+    "href": "core/projects/hmw-svd-2025.html#references",
+    "title": "Hmw III: SVD methods",
+    "section": "References",
+    "text": "References\n\nAdvanced R Programming\n\nFunctional programming\nS3\nMeta programming\n\nPackages\nProgramming with/for ggplot2\nProgramming with dplyr\ntidyeval helpers\nCheatsheets\n\n\n\n Grading criteria\n\n\n\n\n\n\n\nCriterion\nPoints\nDetails\n\n\n\n\nDocumentation/Report\n45%\nEnglish/French \n\n\nPresentation\n40%\n\n\n\nData gathering/cleaning pipelines\n15%"
+  },
+  {
+    "objectID": "core/projects/hmw-votes-2025.html",
+    "href": "core/projects/hmw-votes-2025.html",
+    "title": "Hmw III: SVD methods",
+    "section": "",
+    "text": "Important\n\n\n\n\nDue : May 29 2025\nWork in pairs\n Deliver your work through a github repository\n Present your work (15 minutes) on 2025-05-30"
+  },
+  {
+    "objectID": "core/projects/hmw-votes-2025.html#references",
+    "href": "core/projects/hmw-votes-2025.html#references",
+    "title": "Hmw III: SVD methods",
+    "section": "References",
+    "text": "References\n\nAdvanced R Programming\n\nFunctional programming\nS3\nMeta programming\n\nPackages\nProgramming with/for ggplot2\nProgramming with dplyr\ntidyeval helpers\nCheatsheets\n\n\n\n Grading criteria\n\n\n\n\n\n\n\nCriterion\nPoints\nDetails\n\n\n\n\nDocumentation/Report\n45%\nEnglish/French \n\n\nPresentation\n40%\n\n\n\nData gathering/cleaning pipelines\n15%"
   }
 ]

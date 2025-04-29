@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="dcterms.date" content="2025-05-18">
 
-<title>Projects – MA7BY020 - Spring 2025</title>
+<title>Hmw III: SVD methods – MA7BY020 - Spring 2025</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,29 +24,25 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./weeks-listings.html" rel="next">
-<link href="./labs-solutions-listings.html" rel="prev">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-cb18addcd497bf44453234794b4b5ccd.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-8e880ae5f0fc3196e1076a04502b7b54.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-d79f5b500409cd312c73ef89d8dbad8a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-c81345d3b6dc14e3057d2cedd0b7df22.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
-<link href="site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-cb18addcd497bf44453234794b4b5ccd.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-8e880ae5f0fc3196e1076a04502b7b54.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-d79f5b500409cd312c73ef89d8dbad8a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-c81345d3b6dc14e3057d2cedd0b7df22.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -73,67 +70,10 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
 
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-projects .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
 
-    const options = {
-      valueNames: ['listing-date','listing-title','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-title-sort'] },{ data: ['listing-date-sort'] }],
-      
-      searchColumns: ["listing-title","listing-description","listing-categories","listing-date"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-projects'] = new List('listing-projects', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
-
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
-
-<meta property="og:title" content="Projects – MA7BY020 - Spring 2025">
+<meta property="og:title" content="Hmw III: SVD methods – MA7BY020 - Spring 2025">
+<meta property="og:description" content="Homepage for course MA7BY020 - Exploratory Data Analysis, Master MIDS Spring 2025.">
 <meta property="og:site_name" content="MA7BY020 - Spring 2025">
 </head>
 
@@ -146,7 +86,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./projects-listings.html">Projects</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Hmw III: SVD methods</li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -160,8 +100,8 @@ window.Quarto = {
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-center sidebar-header">
-      <a href="./index.html" class="sidebar-logo-link">
-      <img src="./images/hexlogo_ma7BY020.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      <a href="../../index.html" class="sidebar-logo-link">
+      <img src="../../images/hexlogo_ma7BY020.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
       </a>
       <div class="sidebar-tools-main tools-wide">
     <a href="https://github.com/s-v-b/MA7BY020" title="GitHub organization" class="quarto-navigation-tool px-1" aria-label="GitHub organization"><i class="bi bi-github"></i></a>
@@ -201,19 +141,19 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Glimpse</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./course-syllabus.html" class="sidebar-item-text sidebar-link">
+  <a href="../../course-syllabus.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Syllabus</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./course-team.html" class="sidebar-item-text sidebar-link">
+  <a href="../../course-team.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Team</span></a>
   </div>
 </li>
@@ -230,25 +170,25 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./computing-access.html" class="sidebar-item-text sidebar-link">
+  <a href="../../computing-access.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Computing resources</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./rstudio-client.html" class="sidebar-item-text sidebar-link">
+  <a href="../../rstudio-client.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">rstudio</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./posit-cloud.html" class="sidebar-item-text sidebar-link">
+  <a href="../../posit-cloud.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Posit cloud</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./quarto-format.html" class="sidebar-item-text sidebar-link">
+  <a href="../../quarto-format.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Quarto</span></a>
   </div>
 </li>
@@ -256,31 +196,31 @@ window.Quarto = {
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./slides-listings.html" class="sidebar-item-text sidebar-link">
+  <a href="../../slides-listings.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Slides</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./labs-listings.html" class="sidebar-item-text sidebar-link">
+  <a href="../../labs-listings.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Labs</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./labs-solutions-listings.html" class="sidebar-item-text sidebar-link">
+  <a href="../../labs-solutions-listings.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Solutions</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./projects-listings.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../projects-listings.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Projects</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./weeks-listings.html" class="sidebar-item-text sidebar-link">
+  <a href="../../weeks-listings.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Journal</span></a>
   </div>
 </li>
@@ -289,15 +229,22 @@ window.Quarto = {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#objectives" id="toc-objectives" class="nav-link active" data-scroll-target="#objectives"><i class="fa-solid fa-map" aria-label="map"></i> Objectives</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/s-v-b/MA7BY020/edit/main/core/projects/hmw-votes-2025.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/s-v-b/MA7BY020/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div><div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="hmw-svd-2025.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Projects</h1>
+<h1 class="title">Hmw III: SVD methods</h1>
 </div>
 
 
@@ -305,6 +252,12 @@ window.Quarto = {
 <div class="quarto-title-meta">
 
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">May 18, 2025</p>
+    </div>
+  </div>
   
     
   </div>
@@ -314,6 +267,42 @@ window.Quarto = {
 </header>
 
 
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>Due : May 29 2025</li>
+<li>Work in pairs</li>
+<li><i class="fa-brands fa-github" aria-label="github"></i> Deliver your work through a github repository</li>
+<li><i class="fa-solid fa-desktop" aria-label="desktop"></i> Present your work (15 minutes) on 2025-05-30</li>
+</ul>
+</div>
+</div>
+<section id="objectives" class="level3">
+<h3 class="anchored" data-anchor-id="objectives"><i class="fa-solid fa-map" aria-label="map"></i> Objectives</h3>
+<p>This homework is about</p>
+<ol type="1">
+<li>Using Matrix Factorization methods in Data analysis</li>
+<li>Investigating Voting patterns in Paris</li>
+</ol>
+<p>I. <strong>Voting Data</strong></p>
+<p>Voting data per polling station can be obtained from a variety of websites.</p>
+<ul>
+<li><a href="https://opendata.paris.fr/explore/dataset/elections-legislatives-2024-2emetour/information/">An example</a></li>
+<li><a href="https://data.opendatasoft.com/api/explore/v2.1/catalog/datasets/elections-france-presidentielles-2022-1er-tour-par-bureau-de-vote@public/exports/parquet?lang=en&amp;refine=dep_name%3A%22Paris%22&amp;timezone=Europe%2FParis">Another example</a></li>
+<li><a href="https://data.smartidf.services/api/explore/v2.1/catalog/datasets/elections-europeennes-2024/exports/parquet?lang=en&amp;timezone=Europe%2FBerlin">Yet another one</a></li>
+<li><a href="https://help.opendatasoft.com/apis/ods-explore-v2/explore_v2.1.html">Opendatasoft API</a></li>
+<li><a href="https://opendata.paris.fr">https://opendata.paris.fr</a></li>
+<li><a href="https://data.smartidf.services/pages/data/">https://data.smartidf.services/pages/data/</a></li>
+<li><a href="https://data.opendatasoft.com/explore/?disjunctive.language&amp;disjunctive.source_domain_title&amp;disjunctive.theme&amp;disjunctive.semantic.classes&amp;disjunctive.semantic.properties&amp;sort=explore.popularity_score">https://data.opendatasoft.com</a></li>
+</ul>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -324,127 +313,558 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Course evaluation is based on Projects <i class="fa-solid fa-hands-holding-circle" aria-label="hands-holding-circle"></i></p>
+<p>Many datasets are available in several formats. When possible, use <code>parquet</code>. <code>parquet</code> files can be uploaded using package <code>arrow</code>.</p>
+</div>
+</div>
+<div style="page-break-after: always;"></div>
+<p>Data concerning polling stations can also be gathered from various sources.</p>
 <ul>
-<li><i class="fa-solid fa-hand-holding-hand" aria-label="hand-holding-hand"></i> Find a friend : all work done by <em>pairs of students</em></li>
-<li><i class="fa-brands fa-github" aria-label="github"></i> Create a single <em>private</em> <code>GitHub</code> repository for each project and each pair of students.</li>
-<li><i class="fa-solid fa-unlock-keyhole" aria-label="unlock-keyhole"></i> Grant me access to these repositories</li>
-<li><i class="fa-solid fa-circle-radiation" aria-label="circle-radiation"></i> All work is transmitted through your private repository and nowhere else</li>
-<li><i class="fa-solid fa-paper-plane" aria-label="paper-plane"></i> No emails for project submission</li>
-<li><i class="fa-solid fa-laptop-file" aria-label="laptop-file"></i> All projects deliverables consist of <code>Quarto</code> notebooks</li>
+<li><a href="https://github.com/datagouv/bureau-vote">https://github.com/datagouv/bureau-vote</a></li>
+<li><a href="https://opendata.paris.fr">https://opendata.paris.fr</a></li>
 </ul>
-</div>
-</div>
-<div id="listing-projects" class="quarto-listing quarto-listing-container-table">
-<div class="listing-actions-group">
-   <div class="input-group input-group-sm quarto-listing-sort">
-     <span class="input-group-text"><i class="bi bi-sort-down"></i></span>
-     <select id="listing-projects-sort" class="form-select" aria-label="Order By" onchange="window['quarto-listings']['listing-projects'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
-       <option value="" disabled="" selected="" hidden="">Order By</option>
-       <option value="index" data-direction="asc">Default</option>
-         <option value="listing-title-sort" data-direction="asc">
-          Title
-        </option>
-         <option value="listing-description" data-direction="asc">
-          Description
-        </option>
-         <option value="listing-categories" data-direction="asc">
-          Tags
-        </option>
-         <option value="listing-date-sort" data-direction="asc">
-          Due date - Oldest
-        </option>
-         <option value="listing-date-sort" data-direction="desc">
-          Due date - Newest
-        </option>
-     </select>
-  </div>
-    <div class="input-group input-group-sm quarto-listing-filter">
-      <span class="input-group-text"><i class="bi bi-search"></i></span>
-      <input type="text" class="search form-control" placeholder="Filter">
-    </div>
-</div>
-<table class="quarto-listing-table table table-striped table-hover">
+<p>You first task will be to design an <em>extraction pipeline</em> to obtain the voting data you will analyse. You will gather data corresponding to different types of elections (Municipales, Régionales, Législatives, Européennes, Présidentielles) that took place since Year 2000.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="dknelhbrme" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#dknelhbrme table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#dknelhbrme thead, #dknelhbrme tbody, #dknelhbrme tfoot, #dknelhbrme tr, #dknelhbrme td, #dknelhbrme th {
+  border-style: none;
+}
+
+#dknelhbrme p {
+  margin: 0;
+  padding: 0;
+}
+
+#dknelhbrme .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#dknelhbrme .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#dknelhbrme .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#dknelhbrme .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#dknelhbrme .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#dknelhbrme .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#dknelhbrme .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#dknelhbrme .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#dknelhbrme .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#dknelhbrme .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#dknelhbrme .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#dknelhbrme .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#dknelhbrme .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#dknelhbrme .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#dknelhbrme .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#dknelhbrme .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#dknelhbrme .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#dknelhbrme .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#dknelhbrme .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#dknelhbrme .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#dknelhbrme .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#dknelhbrme .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#dknelhbrme .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#dknelhbrme .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#dknelhbrme .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#dknelhbrme .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#dknelhbrme .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#dknelhbrme .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#dknelhbrme .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#dknelhbrme .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#dknelhbrme .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#dknelhbrme .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#dknelhbrme .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#dknelhbrme .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#dknelhbrme .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#dknelhbrme .gt_left {
+  text-align: left;
+}
+
+#dknelhbrme .gt_center {
+  text-align: center;
+}
+
+#dknelhbrme .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#dknelhbrme .gt_font_normal {
+  font-weight: normal;
+}
+
+#dknelhbrme .gt_font_bold {
+  font-weight: bold;
+}
+
+#dknelhbrme .gt_font_italic {
+  font-style: italic;
+}
+
+#dknelhbrme .gt_super {
+  font-size: 65%;
+}
+
+#dknelhbrme .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#dknelhbrme .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#dknelhbrme .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#dknelhbrme .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#dknelhbrme .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#dknelhbrme .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#dknelhbrme .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#dknelhbrme .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#dknelhbrme div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+
+<table class="gt_table caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
 <thead>
-<tr>
-<th>
-<a class="sort" data-sort="listing-date-sort" onclick="if (this.classList.contains('sort-asc')) { this.classList.add('sort-desc'); this.classList.remove('sort-asc') } else { this.classList.add('sort-asc'); this.classList.remove('sort-desc')} return false;">Due date</a>
-</th>
-<th>
-<a class="sort" data-sort="listing-title-sort" onclick="if (this.classList.contains('sort-asc')) { this.classList.add('sort-desc'); this.classList.remove('sort-asc') } else { this.classList.add('sort-asc'); this.classList.remove('sort-desc')} return false;">Title</a>
-</th>
-<th>
-<a class="sort" data-sort="listing-description" onclick="if (this.classList.contains('sort-asc')) { this.classList.add('sort-desc'); this.classList.remove('sort-asc') } else { this.classList.add('sort-asc'); this.classList.remove('sort-desc')} return false;">Description</a>
-</th>
-<th>
-<a class="sort" data-sort="listing-categories" onclick="if (this.classList.contains('sort-asc')) { this.classList.add('sort-desc'); this.classList.remove('sort-asc') } else { this.classList.add('sort-asc'); this.classList.remove('sort-desc')} return false;">Tags</a>
-</th>
+<tr class="gt_col_headings header">
+<th id="title" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">title</th>
+<th id="rounds" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">rounds</th>
+<th id="year" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">year</th>
 </tr>
 </thead>
-<tbody class="list">
-<tr data-index="0" data-categories="T0VDRCUyQ1Zpc3VhbGl6YXRpb24lMkNRdWFydG8lMkN0aWR5dmVyc2UlMkNwbG90bHk=" data-listing-date-sort="1738882800000" data-listing-title-sort="Data wrangling and Visualization" onclick="href = this.querySelector('a').getAttribute('href');
- if (href) { window.location=href ; return false; }">
-<td>
-<span class="listing-date">Feb 7, 2025</span>
-</td>
-<td>
-<a href="core/projects/hmw_gapminder_oecd.html" class="title listing-title">Data wrangling and Visualization</a>
-</td>
-<td>
-<span class="listing-description">Data extraction, wrangling, visualization, reproducible data science</span>
-</td>
-<td>
-<span class="listing-categories">OECD, Visualization, Quarto, tidyverse, plotly</span>
-</td>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_left" headers="title">Local</td>
+<td class="gt_row gt_right" headers="rounds">2</td>
+<td class="gt_row gt_right" headers="year">2008</td>
 </tr>
-<tr data-index="1" data-categories="UmVncmVzc2lvbiUyQ0RpYWdub3N0aWNzJTJDU2VsZWN0aW9uJTJDUXVhcnRvJTJDdGlkeXZlcnNlJTJDaXNvdG9uZSUyQ3RpZHltb2RlbHM=" data-listing-date-sort="1745704800000" data-listing-title-sort="Regression, Package Development" onclick="href = this.querySelector('a').getAttribute('href');
- if (href) { window.location=href ; return false; }">
-<td>
-<span class="listing-date">Apr 27, 2025</span>
-</td>
-<td>
-<a href="core/projects/hmw-dev-2025.html" class="title listing-title">Regression, Package Development</a>
-</td>
-<td>
-<span class="listing-description">Statistical summaries, Regression, Package, Generics, isotone</span>
-</td>
-<td>
-<span class="listing-categories">Regression, Diagnostics, Selection, Quarto, tidyverse, isotone, tidymodels</span>
-</td>
+<tr class="even">
+<td class="gt_row gt_left" headers="title">Parliament</td>
+<td class="gt_row gt_right" headers="rounds">2</td>
+<td class="gt_row gt_right" headers="year">2012</td>
 </tr>
-<tr data-index="2" data-categories="UENBJTJDQ2x1c3RlcmluZyUyQ1F1YXJ0bw==" data-listing-date-sort="1748383200000" data-listing-title-sort="SVD methods and Voting data" onclick="href = this.querySelector('a').getAttribute('href');
- if (href) { window.location=href ; return false; }">
-<td>
-<span class="listing-date">May 28, 2025</span>
-</td>
-<td>
-<a href="core/projects/hmw-votes-2025.html" class="title listing-title">SVD methods and Voting data</a>
-</td>
-<td>
-<span class="listing-description">SVD, Clustering,</span>
-</td>
-<td>
-<span class="listing-categories">PCA, Clustering, Quarto</span>
-</td>
+<tr class="odd">
+<td class="gt_row gt_left" headers="title">Parliament</td>
+<td class="gt_row gt_right" headers="rounds">2</td>
+<td class="gt_row gt_right" headers="year">2017</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="title">Local</td>
+<td class="gt_row gt_right" headers="rounds">2</td>
+<td class="gt_row gt_right" headers="year">2020</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="title">European P</td>
+<td class="gt_row gt_right" headers="rounds">1</td>
+<td class="gt_row gt_right" headers="year">2024</td>
 </tr>
 </tbody>
 </table>
-<div class="listing-no-matching d-none">
-No matching items
+
 </div>
 </div>
-<div class="callout callout-style-default callout-warning callout-titled">
+</div>
+<p>II. <strong>Data cleaning</strong></p>
+<p>Some data cleaning may be necessary, for example</p>
+<ul>
+<li>Some parties changed their names during the last 25 years. Defining a mapping can facilitate the comparison of results from different elections</li>
+<li>Check that the names of <code>bulletins nuls</code>, <code>bulletins blancs</code>, … are consistent across the different datasets.</li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Evaluation guidelines
+Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Grading criteria are given per project. They involve the following aspects:</p>
+<p>Design a cleaning pipeline. Save the cleaned data.</p>
+</div>
+</div>
+<p>III. <strong>Applying Matrix Factorization Methods (SVD)</strong></p>
+<p>For one election round, the outcome is summarized by a <code>tibble</code> where rows (individuals) are polling stations and variables/columns are the number of votes obtained by the different condidates/parties.</p>
+<p>Perform PCA on different elections. Visualize and describe the result (attention, this is data analysis, not political science).</p>
+<p>You may also perform CCA to compare different elections.</p>
+<p>Feel free to combine different methods.</p>
+<p>IV. <strong>Clustering</strong></p>
+<p>Perform clustering on the outcomes of the Principal Component Analyses.</p>
+</section>
+<section id="references" class="level2">
+<h2 class="anchored" data-anchor-id="references">References</h2>
+<ul>
+<li><a href="https://adv-r.hadley.nz">Advanced R Programming</a>
+<ul>
+<li><a href="https://adv-r.hadley.nz/functionals.html">Functional programming</a></li>
+<li><a href="https://adv-r.hadley.nz/s3.html">S3</a></li>
+<li><a href="https://adv-r.hadley.nz/metaprogramming.html">Meta programming</a></li>
+</ul></li>
+<li><a href="https://r-pkgs.org">Packages</a></li>
+<li><a href="https://ggplot2-book.org">Programming with/for <code>ggplot2</code></a></li>
+<li><a href="https://dplyr.tidyverse.org/articles/programming.html">Programming with <code>dplyr</code></a></li>
+<li><a href="https://ggplot2.tidyverse.org/reference/tidyeval.html"><code>tidyeval</code> helpers</a></li>
+<li><a href="https://posit.co/resources/cheatsheets/">Cheatsheets</a></li>
+</ul>
+<div style="page-break-after: always;"></div>
 <table class="caption-top table">
+<caption><i class="fa-solid fa-graduation-cap" aria-label="graduation-cap"></i> Grading criteria</caption>
+<colgroup>
+<col style="width: 37%">
+<col style="width: 31%">
+<col style="width: 31%">
+</colgroup>
 <thead>
 <tr class="header">
 <th style="text-align: left;">Criterion</th>
@@ -454,52 +874,25 @@ Evaluation guidelines
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">Narrative, spelling and syntax</td>
-<td style="text-align: center;"></td>
+<td style="text-align: left;">Documentation/Report</td>
+<td style="text-align: center;">45%</td>
 <td style="text-align: left;">English/French <i class="fa-solid fa-pen-fancy" aria-label="pen-fancy"></i></td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Plots correction</td>
-<td style="text-align: center;"></td>
-<td style="text-align: left;">choice of <code>aesthetics</code>, <code>geom</code>, <code>scale</code> … <i class="fa-solid fa-chart-area" aria-label="chart-area"></i></td>
+<td style="text-align: left;">Presentation</td>
+<td style="text-align: center;">40%</td>
+<td style="text-align: left;"></td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Plots style</td>
-<td style="text-align: center;"></td>
-<td style="text-align: left;">Titles, legends, labels, breaks … <i class="fa-solid fa-chart-area" aria-label="chart-area"></i></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Table wrangling</td>
-<td style="text-align: center;"></td>
-<td style="text-align: left;">ETL, SQL like manipulations <i class="fa-solid fa-database" aria-label="database"></i></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Computing Statistics</td>
-<td style="text-align: center;"></td>
-<td style="text-align: left;">Aggregations, LR, PCA, CA, … <i class="fa-solid fa-chart-area" aria-label="chart-area"></i></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">DRY compliance</td>
-<td style="text-align: center;"></td>
-<td style="text-align: left;">DRY principle at <i class="fa-brands fa-wikipedia-w" aria-label="wikipedia-w"></i> <a href="https://en.wikipedia.org/wiki/Don%27t_repeat_yourself">Wikipedia</a></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Report organization</td>
-<td style="text-align: center;"></td>
-<td style="text-align: left;"><p><i class="fa-solid fa-pen-to-square" aria-label="pen-to-square"></i></p></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Code organization</td>
-<td style="text-align: center;"></td>
-<td style="text-align: left;"><p><i class="fa-solid fa-code-pull-request" aria-label="code-pull-request"></i></p></td>
+<td style="text-align: left;">Data gathering/cleaning pipelines</td>
+<td style="text-align: center;">15%</td>
+<td style="text-align: left;"></td>
 </tr>
 </tbody>
 </table>
-</div>
-</div>
 
 
-
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -1068,18 +1461,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
-      <a href="./labs-solutions-listings.html" class="pagination-link" aria-label="Solutions">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Solutions</span>
-      </a>          
-  </div>
-  <div class="nav-page nav-page-next">
-      <a href="./weeks-listings.html" class="pagination-link" aria-label="Journal">
-        <span class="nav-page-text">Journal</span> <i class="bi bi-arrow-right-short"></i>
-      </a>
-  </div>
-</nav>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
@@ -1088,7 +1469,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions"><ul><li><a href="https://github.com/s-v-b/MA7BY020/edit/main/projects-listings.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/s-v-b/MA7BY020/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/s-v-b/MA7BY020/edit/main/core/projects/hmw-votes-2025.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/s-v-b/MA7BY020/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>This page is built with blood, sweat, tears, and <a href="https://quarto.org/">Quarto</a>.</p>
 </div>
