@@ -2446,15 +2446,50 @@
   {
     "objectID": "core/projects/hmw-votes-2025.html",
     "href": "core/projects/hmw-votes-2025.html",
-    "title": "Hmw III: SVD methods",
+    "title": "Hmw III: SVD methods and Elections Data",
     "section": "",
-    "text": "Important\n\n\n\n\nDue : May 29 2025\nWork in pairs\n Deliver your work through a github repository\n Present your work (15 minutes) on 2025-05-30"
+    "text": "Important\n\n\n\n\nDue : May 29 2025\nWork in pairs\n Deliver your work through a github repository\n Present your work (15 minutes) on 2025-06-03\nThis homework is about\nI. Voting Data\nVoting data per polling station can be obtained from a variety of websites.\nData concerning polling stations can also be gathered from various sources.\nYou first task will be to design an extraction pipeline to obtain the voting data you will analyse. You will gather data corresponding to different types of elections (Municipales, Régionales, Législatives, Européennes, Présidentielles) that took place since Year 2000.\ntitle\nrounds\nyear\n\n\n\n\nLocal\n2\n2008\n\n\nParliament\n2\n2012\n\n\nParliament\n2\n2017\n\n\nLocal\n2\n2020\n\n\nEuropean P\n1\n2024\nII. Data cleaning\nSome data cleaning may be necessary, for example\nIII. Applying Matrix Factorization Methods (SVD)\nFor one election round, the outcome is summarized by a tibble where rows (individuals) are polling stations and variables/columns are the number of votes obtained by the different condidates/parties.\nPerform PCA on different elections. Visualize and describe the result (attention, this is data analysis, not political science).\nYou may also perform CCA to compare different elections.\nFeel free to combine different methods.\nIV. Clustering\nPerform clustering on the outcomes of the Principal Component Analyses."
   },
   {
     "objectID": "core/projects/hmw-votes-2025.html#references",
     "href": "core/projects/hmw-votes-2025.html#references",
-    "title": "Hmw III: SVD methods",
+    "title": "Hmw III: SVD methods and Elections Data",
     "section": "References",
     "text": "References\n\nAdvanced R Programming\n\nFunctional programming\nS3\nMeta programming\n\nPackages\nProgramming with/for ggplot2\nProgramming with dplyr\ntidyeval helpers\nCheatsheets\n\n\n\n Grading criteria\n\n\n\n\n\n\n\nCriterion\nPoints\nDetails\n\n\n\n\nDocumentation/Report\n45%\nEnglish/French \n\n\nPresentation\n40%\n\n\n\nData gathering/cleaning pipelines\n15%"
+  },
+  {
+    "objectID": "core/projects/hmw-II.html",
+    "href": "core/projects/hmw-II.html",
+    "title": "Hmw II : Tables and visualization",
+    "section": "",
+    "text": "Important\n\n\n\n\nDue : May 29, 2025\nWork in pairs\nDeliver your work as a qmd file through a github  repository\nUse the quarto package for reproducible research\nUse pyspark or sparlyr\nUse spark-nlp for text annotation\nThe report should be rendered at least in HTML format, and possibly also in PDF format"
+  },
+  {
+    "objectID": "core/projects/hmw-II.html#report-organization",
+    "href": "core/projects/hmw-II.html#report-organization",
+    "title": "Hmw II : Tables and visualization",
+    "section": " Report organization",
+    "text": "Report organization\nThe first part (introduction) of the report shall be dedicated to the description of the data to be extracted and to the extraction pipeline (not different from Homework I).\nThe second part of the report shall be dedicated to the description of load/transform pipeline.\nThe third part of the report shall be dedicated to the description of the annotation pipeline\nThe fourth part of the report shall be dedicated to the stylometric analysis: which questions did you pick up (and why?), plots, summary tables and comments. Refrain from overplaying your hand: yours plots are not likely to provide a new literary interpretation of Balzac opera. Comment the data, all the data, and nothing but the data.\nThe fifth part is the appendix. The first four parts should be mostly text and plots. The fifth part should be code only.\nThe appendix shall be dedicated to the details of the pipelines. You shall give the code.\nYou shall also give the code of the graphical pipelines in the appendix.\nYou shall avoid copy-paste coding. Don’t Repeat Yourself. knitr provide the tools to organize the Quarto file so that you can write your code once and use it many times, once for data wrangling and plotting (without echoing), then for listing and explanation.\n\n\n\n\n\n\nOrganizing a report using the jupyter engine"
+  },
+  {
+    "objectID": "core/projects/hmw-II.html#references",
+    "href": "core/projects/hmw-II.html#references",
+    "title": "Hmw II : Tables and visualization",
+    "section": " References",
+    "text": "References\n\nData Humanities with R\nSpacy\nSpark NLP\nWeb scrapping\nscrapy\nstylo\n\npy2r\nComputational stylistics"
+  },
+  {
+    "objectID": "core/projects/hmw-II.html#data-sources",
+    "href": "core/projects/hmw-II.html#data-sources",
+    "title": "Hmw II : Tables and visualization",
+    "section": "Data sources",
+    "text": "Data sources\n\nProject Gutenberg: you can find the La Comédie Humaine using a simple search. All volumes can be downloaded as text files from there."
+  },
+  {
+    "objectID": "core/projects/hmw-II.html#grading-criteria",
+    "href": "core/projects/hmw-II.html#grading-criteria",
+    "title": "Hmw II : Tables and visualization",
+    "section": " Grading criteria",
+    "text": "Grading criteria\n\n\n\nCriterion\nPoints\nDetails\n\n\n\n\nNarrative, spelling and syntax\n20%\nEnglish/French \n\n\nPlots correction\n15%\nchoice of aesthetics, geom, scale … \n\n\nPlot style\n10%\nTitles, legends, labels, breaks … \n\n\nETL\n20%\nETL, SQL like manipulations \n\n\nAnnotation\n10%\nAnnotations \n\n\nComputing Statistics\n5%\n… \n\n\nDRY compliance\n20%\nDRY principle at  Wikipedia"
   }
 ]

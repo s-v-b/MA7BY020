@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2025-05-29">
+<meta name="dcterms.date" content="2025-05-11">
 
-<title>Hmw III: SVD methods and Elections Data – MA7BY020 - Spring 2025</title>
+<title>Hmw II : Tables and visualization – MA7BY020 - Spring 2025</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,6 +20,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -75,7 +110,7 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<meta property="og:title" content="Hmw III: SVD methods and Elections Data – MA7BY020 - Spring 2025">
+<meta property="og:title" content="Hmw II : Tables and visualization – MA7BY020 - Spring 2025">
 <meta property="og:description" content="Homepage for course MA7BY020 - Exploratory Data Analysis, Master MIDS Spring 2025.">
 <meta property="og:site_name" content="MA7BY020 - Spring 2025">
 </head>
@@ -251,7 +286,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Hmw III: SVD methods and Elections Data</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Hmw II : Tables and visualization</li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -399,9 +434,14 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#references" id="toc-references" class="nav-link active" data-scroll-target="#references">References</a></li>
+  <li><a href="#objectives" id="toc-objectives" class="nav-link active" data-scroll-target="#objectives"><i class="fa-solid fa-map" aria-label="map"></i> Objectives</a></li>
+  <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data"><i class="fa-solid fa-database" aria-label="database"></i> Data</a></li>
+  <li><a href="#report-organization" id="toc-report-organization" class="nav-link" data-scroll-target="#report-organization"><i class="fa-solid fa-chart-bar" aria-label="chart-bar"></i> Report organization</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><i class="fa-solid fa-book" aria-label="book"></i> References</a></li>
+  <li><a href="#data-sources" id="toc-data-sources" class="nav-link" data-scroll-target="#data-sources">Data sources</a></li>
+  <li><a href="#grading-criteria" id="toc-grading-criteria" class="nav-link" data-scroll-target="#grading-criteria"><i class="fa-solid fa-graduation-cap" aria-label="graduation-cap"></i> Grading criteria</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/s-v-b/MA7BY020/edit/main/core/projects/hmw-votes-2025.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/s-v-b/MA7BY020/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div><div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="hmw-votes-2025.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/s-v-b/MA7BY020/edit/main/core/projects/hmw_spark_balzac.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/s-v-b/MA7BY020/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div><div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="hmw-II.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -409,7 +449,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Hmw III: SVD methods and Elections Data</h1>
+<h1 class="title">Hmw II : Tables and visualization</h1>
 </div>
 
 
@@ -420,7 +460,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">May 29, 2025</p>
+      <p class="date">May 11, 2025</p>
     </div>
   </div>
   
@@ -443,590 +483,121 @@ Important
 </div>
 <div class="callout-body-container callout-body">
 <ul>
-<li>Due : May 29 2025</li>
+<li>Due : May 29, 2025</li>
 <li>Work in pairs</li>
-<li><i class="fa-brands fa-github" aria-label="github"></i> Deliver your work through a github repository</li>
-<li><i class="fa-solid fa-desktop" aria-label="desktop"></i> Present your work (15 minutes) on <em>2025-06-03</em></li>
+<li>Deliver your work as a <code>qmd</code> file through a github <i class="fa-brands fa-github" aria-label="github"></i> repository</li>
+<li>Use the <code>quarto</code> package for reproducible research</li>
+<li>Use <code>pyspark</code> or <code>sparlyr</code></li>
+<li>Use <code>spark-nlp</code> for text annotation</li>
+<li>The report should be rendered at least in HTML format, and possibly also in PDF format</li>
 </ul>
 </div>
 </div>
-<p>This homework is about</p>
-<ol type="1">
-<li>Using Matrix Factorization methods in Data analysis</li>
-<li>Investigating voting patterns in Paris</li>
-</ol>
-<p>I. <strong>Voting Data</strong></p>
-<p>Voting data per polling station can be obtained from a variety of websites.</p>
+<section id="objectives" class="level3">
+<h3 class="anchored" data-anchor-id="objectives"><i class="fa-solid fa-map" aria-label="map"></i> Objectives</h3>
+<p>This homework is an opportunity to use <code>pyspark</code>/<code>sparlyr</code>/<code>spark-nlp</code>.</p>
 <ul>
-<li><a href="https://opendata.paris.fr/explore/dataset/elections-legislatives-2024-2emetour/information/">An example</a></li>
-<li><a href="https://data.opendatasoft.com/api/explore/v2.1/catalog/datasets/elections-france-presidentielles-2022-1er-tour-par-bureau-de-vote@public/exports/parquet?lang=en&amp;refine=dep_name%3A%22Paris%22&amp;timezone=Europe%2FParis">Another example</a></li>
-<li><a href="https://data.smartidf.services/api/explore/v2.1/catalog/datasets/elections-europeennes-2024/exports/parquet?lang=en&amp;timezone=Europe%2FBerlin">Yet another one</a></li>
-<li><a href="https://help.opendatasoft.com/apis/ods-explore-v2/explore_v2.1.html">Opendatasoft API</a></li>
-<li><a href="https://opendata.paris.fr">https://opendata.paris.fr</a></li>
-<li><a href="https://data.smartidf.services/pages/data/">https://data.smartidf.services/pages/data/</a></li>
-<li><a href="https://data.opendatasoft.com/explore/?disjunctive.language&amp;disjunctive.source_domain_title&amp;disjunctive.theme&amp;disjunctive.semantic.classes&amp;disjunctive.semantic.properties&amp;sort=explore.popularity_score">https://data.opendatasoft.com</a></li>
+<li>Extract/Load/Transform the Balzac corpus</li>
+<li>Annotate the corpus with <code>spark-nlp</code></li>
+<li>Perform Stylometric Analysis and Visualize the results using either <code>plotly</code> or <code>altair</code></li>
+<li>Design a way to store results using <code>parquet</code> files. Motivate your solution.</li>
 </ul>
-<div class="callout callout-style-default callout-note callout-titled">
+<p>Compare annotations from Spark NLP and annotations from Spacy (usability, agreement).</p>
+<p>In Stylometric analysis, you should at least</p>
+<ul>
+<li>Compute Flesch-Kincaid and Kandel-Moles readability indices and design a visualization</li>
+<li>Compute <em>sliding</em> readability indices over sliding windows defined by different window sizes. How stable are readability indices?</li>
+<li>Display Zipf plots for the different documents</li>
+<li>Segment the different texts into <em>dialog</em> and <em>narration</em> parts.</li>
+</ul>
+<p>Tune your spark session so as to minimize shuffles, use multi-core architectures as much as possible.</p>
+<p><i class="fa-solid fa-hand-point-right" aria-label="hand-point-right"></i> Your deliverable shall consist in a <code>qmd</code> file that can be rendered in HTML format.</p>
+<p>You shall describe the downloaded data.</p>
+<p>Plots shall be endowed with titles, legends and captions,</p>
+<p>Data, NLP pipelines and graphical pipelines shall be given in an appendix.</p>
+</section>
+<section id="data" class="level3">
+<h3 class="anchored" data-anchor-id="data"><i class="fa-solid fa-database" aria-label="database"></i> Data</h3>
+<div class="columns">
+<div class="column" style="width:60%;">
+<p>Data can be downloaded/scrapped from different sources</p>
+<ul>
+<li><a href="https://github.com/dh-trier/balzac/tree/master" class="uri">https://github.com/dh-trier/balzac/tree/master</a> (not complete)</li>
+<li><a href="https://www.gutenberg.org/" class="uri">https://www.gutenberg.org/</a> (17 volumes of <em>Comédie humaines</em>)</li>
+<li>…</li>
+</ul>
+</div><div class="column" style="width:5%;">
+
+</div><div class="column" style="width:35%;">
+<p><i class="fa-solid fa-hand-point-right" aria-label="hand-point-right"></i> Table wrangling should be performed using <code>Spark Dataframes</code> Dataframes.</p>
+<p><i class="fa-solid fa-hand-point-right" aria-label="hand-point-right"></i> Your extraction (ELT) pipeline shall be <em>reproducible</em> and shall be given and motivated in an appendix.</p>
+<p>You are not supposed to deliver the text files as a zipped archive.</p>
+<p><i class="fa-solid fa-hand-point-right" aria-label="hand-point-right"></i> Annotate with <a href="https://sparknlp.org"><code>soark-nlp</code></a></p>
+<p><i class="fa-solid fa-hand-point-right" aria-label="hand-point-right"></i> Annotation shall be done on a per novel basis. It should be performed in a parallel (and distributed) way.</p>
+<p><i class="fa-solid fa-hand-point-right" aria-label="hand-point-right"></i> Graphical pipelines should be reproducible and shall be given in an appendix.</p>
+</div>
+</div>
+<p><i class="fa-solid fa-hand-point-right" aria-label="hand-point-right"></i> Keep the downloaded data in a separate subdirectory. Your working directory (working tree) should look like something like that:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>.</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>├── .git/</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>├── DATA/</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>├──</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>|   :</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>├── _extensions/</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>├── _outdir/</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>├── _metadata.yml</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>├── _quarto.yml</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>├── our_report.qmd</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>├── :</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>└── README.md</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="report-organization" class="level2">
+<h2 class="anchored" data-anchor-id="report-organization"><i class="fa-solid fa-chart-bar" aria-label="chart-bar"></i> Report organization</h2>
+<p>The first part (introduction) of the report shall be dedicated to the description of the data to be extracted and to the extraction pipeline (not different from Homework I).</p>
+<p>The second part of the report shall be dedicated to the description of load/transform pipeline.</p>
+<p>The third part of the report shall be dedicated to the description of the annotation pipeline</p>
+<p>The fourth part of the report shall be dedicated to the stylometric analysis: which questions did you pick up (and why?), plots, summary tables and comments. Refrain from overplaying your hand: yours plots are not likely to provide a new literary interpretation of Balzac opera. Comment the data, all the data, and nothing but the data.</p>
+<p>The fifth part is the appendix. The first four parts should be mostly text and plots. The fifth part should be code only.</p>
+<p>The appendix shall be dedicated to the details of the pipelines. You shall give the code.</p>
+<p>You shall also give the code of the graphical pipelines in the appendix.</p>
+<p>You shall avoid copy-paste coding. Don’t Repeat Yourself. <code>knitr</code> provide the tools to organize the Quarto file so that you can write your code once and use it many times, once for data wrangling and plotting (without echoing), then for listing and explanation.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Note
+Organizing a report using the <code>jupyter</code> engine
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Many datasets are available in several formats. When possible, use <code>parquet</code>. <code>parquet</code> files can be uploaded using package <code>arrow</code>.</p>
-</div>
-</div>
-<div style="page-break-after: always;"></div>
-<p>Data concerning polling stations can also be gathered from various sources.</p>
-<ul>
-<li><a href="https://github.com/datagouv/bureau-vote">https://github.com/datagouv/bureau-vote</a></li>
-<li><a href="https://opendata.paris.fr">https://opendata.paris.fr</a></li>
-</ul>
-<p>You first task will be to design an <em>extraction pipeline</em> to obtain the voting data you will analyse. You will gather data corresponding to different types of elections (Municipales, Régionales, Législatives, Européennes, Présidentielles) that took place since Year 2000.</p>
-<div class="cell">
-<div class="cell-output-display">
-<div id="dknelhbrme" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#dknelhbrme table {
-  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-#dknelhbrme thead, #dknelhbrme tbody, #dknelhbrme tfoot, #dknelhbrme tr, #dknelhbrme td, #dknelhbrme th {
-  border-style: none;
-}
-
-#dknelhbrme p {
-  margin: 0;
-  padding: 0;
-}
-
-#dknelhbrme .gt_table {
-  display: table;
-  border-collapse: collapse;
-  line-height: normal;
-  margin-left: auto;
-  margin-right: auto;
-  color: #333333;
-  font-size: 16px;
-  font-weight: normal;
-  font-style: normal;
-  background-color: #FFFFFF;
-  width: auto;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #A8A8A8;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #A8A8A8;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-}
-
-#dknelhbrme .gt_caption {
-  padding-top: 4px;
-  padding-bottom: 4px;
-}
-
-#dknelhbrme .gt_title {
-  color: #333333;
-  font-size: 125%;
-  font-weight: initial;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-bottom-color: #FFFFFF;
-  border-bottom-width: 0;
-}
-
-#dknelhbrme .gt_subtitle {
-  color: #333333;
-  font-size: 85%;
-  font-weight: initial;
-  padding-top: 3px;
-  padding-bottom: 5px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-top-color: #FFFFFF;
-  border-top-width: 0;
-}
-
-#dknelhbrme .gt_heading {
-  background-color: #FFFFFF;
-  text-align: center;
-  border-bottom-color: #FFFFFF;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-}
-
-#dknelhbrme .gt_bottom_border {
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-}
-
-#dknelhbrme .gt_col_headings {
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-}
-
-#dknelhbrme .gt_col_heading {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: normal;
-  text-transform: inherit;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: bottom;
-  padding-top: 5px;
-  padding-bottom: 6px;
-  padding-left: 5px;
-  padding-right: 5px;
-  overflow-x: hidden;
-}
-
-#dknelhbrme .gt_column_spanner_outer {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: normal;
-  text-transform: inherit;
-  padding-top: 0;
-  padding-bottom: 0;
-  padding-left: 4px;
-  padding-right: 4px;
-}
-
-#dknelhbrme .gt_column_spanner_outer:first-child {
-  padding-left: 0;
-}
-
-#dknelhbrme .gt_column_spanner_outer:last-child {
-  padding-right: 0;
-}
-
-#dknelhbrme .gt_column_spanner {
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  vertical-align: bottom;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  overflow-x: hidden;
-  display: inline-block;
-  width: 100%;
-}
-
-#dknelhbrme .gt_spanner_row {
-  border-bottom-style: hidden;
-}
-
-#dknelhbrme .gt_group_heading {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: middle;
-  text-align: left;
-}
-
-#dknelhbrme .gt_empty_group_heading {
-  padding: 0.5px;
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  vertical-align: middle;
-}
-
-#dknelhbrme .gt_from_md > :first-child {
-  margin-top: 0;
-}
-
-#dknelhbrme .gt_from_md > :last-child {
-  margin-bottom: 0;
-}
-
-#dknelhbrme .gt_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  margin: 10px;
-  border-top-style: solid;
-  border-top-width: 1px;
-  border-top-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: middle;
-  overflow-x: hidden;
-}
-
-#dknelhbrme .gt_stub {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
-  border-right-style: solid;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#dknelhbrme .gt_stub_row_group {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
-  border-right-style: solid;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  padding-left: 5px;
-  padding-right: 5px;
-  vertical-align: top;
-}
-
-#dknelhbrme .gt_row_group_first td {
-  border-top-width: 2px;
-}
-
-#dknelhbrme .gt_row_group_first th {
-  border-top-width: 2px;
-}
-
-#dknelhbrme .gt_summary_row {
-  color: #333333;
-  background-color: #FFFFFF;
-  text-transform: inherit;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#dknelhbrme .gt_first_summary_row {
-  border-top-style: solid;
-  border-top-color: #D3D3D3;
-}
-
-#dknelhbrme .gt_first_summary_row.thick {
-  border-top-width: 2px;
-}
-
-#dknelhbrme .gt_last_summary_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-}
-
-#dknelhbrme .gt_grand_summary_row {
-  color: #333333;
-  background-color: #FFFFFF;
-  text-transform: inherit;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#dknelhbrme .gt_first_grand_summary_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-top-style: double;
-  border-top-width: 6px;
-  border-top-color: #D3D3D3;
-}
-
-#dknelhbrme .gt_last_grand_summary_row_top {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-bottom-style: double;
-  border-bottom-width: 6px;
-  border-bottom-color: #D3D3D3;
-}
-
-#dknelhbrme .gt_striped {
-  background-color: rgba(128, 128, 128, 0.05);
-}
-
-#dknelhbrme .gt_table_body {
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-}
-
-#dknelhbrme .gt_footnotes {
-  color: #333333;
-  background-color: #FFFFFF;
-  border-bottom-style: none;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-}
-
-#dknelhbrme .gt_footnote {
-  margin: 0px;
-  font-size: 90%;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#dknelhbrme .gt_sourcenotes {
-  color: #333333;
-  background-color: #FFFFFF;
-  border-bottom-style: none;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-}
-
-#dknelhbrme .gt_sourcenote {
-  font-size: 90%;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#dknelhbrme .gt_left {
-  text-align: left;
-}
-
-#dknelhbrme .gt_center {
-  text-align: center;
-}
-
-#dknelhbrme .gt_right {
-  text-align: right;
-  font-variant-numeric: tabular-nums;
-}
-
-#dknelhbrme .gt_font_normal {
-  font-weight: normal;
-}
-
-#dknelhbrme .gt_font_bold {
-  font-weight: bold;
-}
-
-#dknelhbrme .gt_font_italic {
-  font-style: italic;
-}
-
-#dknelhbrme .gt_super {
-  font-size: 65%;
-}
-
-#dknelhbrme .gt_footnote_marks {
-  font-size: 75%;
-  vertical-align: 0.4em;
-  position: initial;
-}
-
-#dknelhbrme .gt_asterisk {
-  font-size: 100%;
-  vertical-align: 0;
-}
-
-#dknelhbrme .gt_indent_1 {
-  text-indent: 5px;
-}
-
-#dknelhbrme .gt_indent_2 {
-  text-indent: 10px;
-}
-
-#dknelhbrme .gt_indent_3 {
-  text-indent: 15px;
-}
-
-#dknelhbrme .gt_indent_4 {
-  text-indent: 20px;
-}
-
-#dknelhbrme .gt_indent_5 {
-  text-indent: 25px;
-}
-
-#dknelhbrme .katex-display {
-  display: inline-flex !important;
-  margin-bottom: 0.75em !important;
-}
-
-#dknelhbrme div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
-  height: 0px !important;
-}
-</style>
-
-<table class="gt_table caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
-<thead>
-<tr class="gt_col_headings header">
-<th id="title" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">title</th>
-<th id="rounds" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">rounds</th>
-<th id="year" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">year</th>
-</tr>
-</thead>
-<tbody class="gt_table_body">
-<tr class="odd">
-<td class="gt_row gt_left" headers="title">Local</td>
-<td class="gt_row gt_right" headers="rounds">2</td>
-<td class="gt_row gt_right" headers="year">2008</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_left" headers="title">Parliament</td>
-<td class="gt_row gt_right" headers="rounds">2</td>
-<td class="gt_row gt_right" headers="year">2012</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_left" headers="title">Parliament</td>
-<td class="gt_row gt_right" headers="rounds">2</td>
-<td class="gt_row gt_right" headers="year">2017</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_left" headers="title">Local</td>
-<td class="gt_row gt_right" headers="rounds">2</td>
-<td class="gt_row gt_right" headers="year">2020</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_left" headers="title">European P</td>
-<td class="gt_row gt_right" headers="rounds">1</td>
-<td class="gt_row gt_right" headers="year">2024</td>
-</tr>
-</tbody>
-</table>
 
 </div>
 </div>
-</div>
-<p>II. <strong>Data cleaning</strong></p>
-<p>Some data cleaning may be necessary, for example</p>
-<ul>
-<li>Some parties changed their names during the last 25 years. Defining a mapping can facilitate the comparison of results from different elections</li>
-<li>Check that the names of <code>bulletins nuls</code>, <code>bulletins blancs</code>, … are consistent across the different datasets.</li>
-</ul>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Design a cleaning pipeline. Save the cleaned data.</p>
-</div>
-</div>
-<p>III. <strong>Applying Matrix Factorization Methods (SVD)</strong></p>
-<p>For one election round, the outcome is summarized by a <code>tibble</code> where rows (individuals) are polling stations and variables/columns are the number of votes obtained by the different condidates/parties.</p>
-<p>Perform PCA on different elections. Visualize and describe the result (attention, this is data analysis, not political science).</p>
-<p>You may also perform CCA to compare different elections.</p>
-<p>Feel free to combine different methods.</p>
-<p>IV. <strong>Clustering</strong></p>
-<p>Perform clustering on the outcomes of the Principal Component Analyses.</p>
+</section>
 <section id="references" class="level2">
-<h2 class="anchored" data-anchor-id="references">References</h2>
+<h2 class="anchored" data-anchor-id="references"><i class="fa-solid fa-book" aria-label="book"></i> References</h2>
 <ul>
-<li><a href="https://adv-r.hadley.nz">Advanced R Programming</a>
-<ul>
-<li><a href="https://adv-r.hadley.nz/functionals.html">Functional programming</a></li>
-<li><a href="https://adv-r.hadley.nz/s3.html">S3</a></li>
-<li><a href="https://adv-r.hadley.nz/metaprogramming.html">Meta programming</a></li>
-</ul></li>
-<li><a href="https://r-pkgs.org">Packages</a></li>
-<li><a href="https://ggplot2-book.org">Programming with/for <code>ggplot2</code></a></li>
-<li><a href="https://dplyr.tidyverse.org/articles/programming.html">Programming with <code>dplyr</code></a></li>
-<li><a href="https://ggplot2.tidyverse.org/reference/tidyeval.html"><code>tidyeval</code> helpers</a></li>
-<li><a href="https://posit.co/resources/cheatsheets/">Cheatsheets</a></li>
+<li><a href="https://humanitiesdata.org">Data Humanities with R</a></li>
+<li><a href="https://spacy.io">Spacy</a></li>
+<li><a href="https://sparknlp.org">Spark NLP</a></li>
+<li><a href="">Web scrapping</a></li>
+<li><a href="https://scrapy.org"><code>scrapy</code></a></li>
+<li><a href="https://github.com/computationalstylistics/stylo"><code>stylo</code></a><br>
+</li>
+<li><a href="https://rpy2.github.io"><code>py2r</code></a></li>
+<li><a href="https://computationalstylistics.github.io">Computational stylistics</a></li>
 </ul>
-<div style="page-break-after: always;"></div>
+</section>
+<section id="data-sources" class="level2">
+<h2 class="anchored" data-anchor-id="data-sources">Data sources</h2>
+<ul>
+<li><a href="https://www.gutenberg.org"><code>Project Gutenberg</code></a>: you can find the <code>La Comédie Humaine</code> using a simple search. All volumes can be downloaded as text files from there.</li>
+</ul>
+</section>
+<section id="grading-criteria" class="level2">
+<h2 class="anchored" data-anchor-id="grading-criteria"><i class="fa-solid fa-graduation-cap" aria-label="graduation-cap"></i> Grading criteria</h2>
 <table class="caption-top table">
-<caption><i class="fa-solid fa-graduation-cap" aria-label="graduation-cap"></i> Grading criteria</caption>
-<colgroup>
-<col style="width: 37%">
-<col style="width: 31%">
-<col style="width: 31%">
-</colgroup>
 <thead>
 <tr class="header">
 <th style="text-align: left;">Criterion</th>
@@ -1036,19 +607,39 @@ Note
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">Documentation/Report</td>
-<td style="text-align: center;">45%</td>
+<td style="text-align: left;">Narrative, spelling and syntax</td>
+<td style="text-align: center;">20%</td>
 <td style="text-align: left;">English/French <i class="fa-solid fa-pen-fancy" aria-label="pen-fancy"></i></td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Presentation</td>
-<td style="text-align: center;">40%</td>
-<td style="text-align: left;"></td>
+<td style="text-align: left;">Plots correction</td>
+<td style="text-align: center;">15%</td>
+<td style="text-align: left;">choice of <code>aesthetics</code>, <code>geom</code>, <code>scale</code> … <i class="fa-solid fa-chart-area" aria-label="chart-area"></i></td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Data gathering/cleaning pipelines</td>
-<td style="text-align: center;">15%</td>
-<td style="text-align: left;"></td>
+<td style="text-align: left;">Plot style</td>
+<td style="text-align: center;">10%</td>
+<td style="text-align: left;">Titles, legends, labels, breaks … <i class="fa-solid fa-chart-area" aria-label="chart-area"></i></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">ETL</td>
+<td style="text-align: center;">20%</td>
+<td style="text-align: left;">ETL, SQL like manipulations <i class="fa-solid fa-database" aria-label="database"></i></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Annotation</td>
+<td style="text-align: center;">10%</td>
+<td style="text-align: left;">Annotations <i class="fa-solid fa-book" aria-label="book"></i></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Computing Statistics</td>
+<td style="text-align: center;">5%</td>
+<td style="text-align: left;">… <i class="fa-solid fa-chart-area" aria-label="chart-area"></i></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">DRY compliance</td>
+<td style="text-align: center;">20%</td>
+<td style="text-align: left;">DRY principle at <i class="fa-brands fa-wikipedia-w" aria-label="wikipedia-w"></i> <a href="https://en.wikipedia.org/wiki/Don%27t_repeat_yourself">Wikipedia</a></td>
 </tr>
 </tbody>
 </table>
@@ -1482,7 +1073,7 @@ Note
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/s-v-b/MA7BY020/edit/main/core/projects/hmw-votes-2025.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/s-v-b/MA7BY020/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/s-v-b/MA7BY020/edit/main/core/projects/hmw_spark_balzac.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/s-v-b/MA7BY020/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>This page is built with blood, sweat, tears, and <a href="https://quarto.org/">Quarto</a>.</p>
 </div>
