@@ -2,13 +2,13 @@
 title: "Week 4"
 subtitle: "Bivariate analysis"
 editor: source
-draft: false
+draft: true
 ---
 
 ::: callout-important
 
--   Session I Buffon (RH10A) Wednesday 13h30-15h
--   Session II Sophie Germain (2012) Friday 9h00-10h30
+-   Session I Sophie Germain (2017) Monday 16h-17h30
+-   Session II Sophie Germain (2011) Friday 16h30-18h
 -   {{< fa cal >}} [Calendar](https://edt.math.univ-paris-diderot.fr/#/parcours/mathinfo/m1)
 
 :::

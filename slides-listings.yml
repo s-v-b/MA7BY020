@@ -2,14 +2,14 @@
   author: "Master I MIDS UParis Cité"
   categories: [SQL Tables, Relational Algebra, tidyverse]
   path: "core/slides/slides-dplyr.html"
-  date: "January 22 2025"
+  date: "January 12 2026"
 - title: "Hierarchical clustering"
   author: "Master I MIDS UParis Cité"
   categories: [Dendrogram, Hierarchical clustering]
   path: "core/slides/slides-hclust.html"
-  date: "April 4 2025"
+  date: "March 30 2026"
 - title: "Clustering kmeans"
   author: "Master I MIDS UParis Cité"
   categories: [kmeans, clustering]
   path: "core/slides/slides-kmeans.html"
-  date: "April 2 2025"
+  date: "March 30 2026"

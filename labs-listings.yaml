@@ -1,167 +1,65 @@
 - title: "Introduction and Visualization"
   author: "Master I MIDS UParis Cité"
-  date: "2025-01-15"
+  date: "2026-01-12"
   path: "core/labs/lab-gapminder.html"
   categories: [Visualization, Public Statistics]
 - title: "Brush up your R"
   author: "Master I MIDS UParis Cité"
-  date: "2025-01-15"
+  date: "2026-01-12"
   path: "core/labs/lab-r-intro.html"
   categories: [R language, Tidyverse, IDE]
 - title: "Univariate categorical data"
   author: "Master I MIDS UParis Cité"
-  date: "2025-01-29"
+  date: "2026-01-26"
   path: "core/labs/lab-univariate-categorical.html"
   categories: [Univariate data, GSS]
 - title: "Univariate numeric data"
   author: "Master I MIDS UParis Cité"
-  date: "2025-01-30"
+  date: "2026-01-26"
   path: "core/labs/lab-univariate-numeric.html"
   categories: [Univariate data, GSS]
 - title: "Table wranglig"
   author: "Master I MIDS UParis Cité"
-  date: "2025-01-22"
+  date: "2026-01-19"
   path: "core/labs/lab-tables.html"
   categories: [R language, dplyr, tabula data]
 - title: "Bivariate data"
   author: "Master I MIDS UParis Cité"
-  date: "2025-02-05"
+  date: "2026-02-02"
   path: "core/labs/lab-bivariate.html"
   categories: [bivariate data, mosaicplots, scatterplots, simple linear regression]
 - title: "Linear Regression I"
   author: "Master I MIDS UParis Cité"
-  date: "2025-02-19"
+  date: "2026-02-16"
   path: "core/labs/lab-linear-regression-whiteside.html"
   categories: [Linear regression, OLS, lm]
 - title: "Linear regression II"
   author: "Master I MIDS UParis Cité"
-  date: "2025-03-05"
+  date: "2026-03-02"
   path: "core/labs/lab-linear-regression-whiteside.html"
   categories: [Linear regression, OLS, lm, diagnostics, variable selection]
-# - title: "Multiple Linear Regression: diagnostics, `broom`"
-#   author: "Master I MIDS UParis Cité"
-#   date: "2025-02-05"
-#   path: "labs/lab-whiteside.html"
-#   categories: [Linear regression, diagnostics, broom]
-# - title: "Linear regression, Variable selection, Transformations"
-#   author: "Master I MIDS UParis Cité"
-#   date: "2025-02-05"
-#   path: "labs/lab-whiteside.html"
-#   categories: [Linear regression, Variable selection, Transformations, Penalized LS]
-# - title: "Bi and Multivariate categorical data"
-#   author: "Master I MIDS UParis Cité"
-#   date: "2025-02-12"
-#   path: "labs/lab-test-miashs.html"
-#   categories: [Categorical data, Tests, Area plots]
-# - title: "Temporal data"
-#   author: "Master I MIDS UParis Cité"
-#   date: "2025-02-12"
-#   path: "labs/lab-babynames.html"
-#   categories: [Temporal data, Time series, Babynames]
 - title: "SVD and PCA"
   author: "Master I MIDS UParis Cité"
-  date: "2025-03-12"
+  date: "2026-03-09"
   path: "core/labs/lab-pca.html"
   categories: [SVD, PCA]
-#   author: "Master I MIDS UParis Cité"
-#   date: "2025-02-19"
-#   path: "labs/lab-pca-misc.html"
-#   categories: [SVD, PCA, CA, MCA, CCA]  
 - title: "Correspondence Analysis"
   author: "Master I MIDS UParis Cité"
-  date: "2025-03-19"
+  date: "2026-03-16"
   path: "core/labs/lab-ca.html"
   categories: [SVD, CA, Correspondence Analysis]  
 - title: "SVD, MCA, CCA"
   author: "Master I MIDS UParis Cité"
-  date: "2025-03-26"
+  date: "2026-03-23"
   path: "core/labs/lab-mca.html"
   categories: [SVD, PCA, CA, MCA, CCA] 
 - title: "Clustering: kmeans"
   author: "Master I MIDS UParis Cité"
-  date: "2025-04-02"
+  date: "2026-03-30"
   path: "core/labs/lab-kmeans.html"
   categories: [Clustering, k-means]
 - title: "Clustering: Hierarchical"
   author: "Master I MIDS UParis Cité"
-  date: "2025-04-07"
+  date: "2026-04-06"
   path: "core/labs/lab-hclust.html"
   categories: [Clustering, Hierarchical]
-# - title: "PCA, CA, MCA"
-#   author: "Master I MIDS UParis Cité"
-#   date: "2025-03-05"
-#   path: "labs/lab-ca-hesitancy.html"
-#   categories: [SVD, PCA, CA, MCA, CCA] 
-# - title: "SVD plots and R programming"
-#   author: "Master I MIDS UParis Cité"
-#   date: "2025-03-12"
-#   path: "labs/lab-pca-misc.html"
-#   categories: [SVD, tidy evaluation, R packages] 
-# - title: "SVD plots and R programming (continued)"
-#   author: "Master I MIDS UParis Cité"
-#   date: "2025-03-12"
-#   path: "labs/lab-pca-misc.html"
-#   categories: [SVD, tidy evaluation, R packages] 
-# - title: "SVD, Life tables and Lee-Cater modeling"
-#   author: "Master I MIDS UParis Cité"
-#   date: "2025-03-12"
-#   path: "labs/lab-lee-carter.html"
-#   categories: [SVD, Life tables, Lee-Carter] 
-# - title: "R programming: Genericity"
-#   author: "Master I MIDS UParis Cité"
-#   date: "2025-03-19"
-#   path: "labs/lab-vctrs.html"
-#   categories: [R programming, S3]
-# - title: "R programming: Vectorization"
-#   author: "Master I MIDS UParis Cité"
-#   date: "2025-03-19"
-#   path: "labs/lab-vectorization.html"
-#   categories: [R programming, Vectorization]
-# - title: "R programming: dashboards"
-#   author: "Master I MIDS UParis Cité"
-#   date: "2025-04-02"
-#   path: "labs/lab-vctrs.html"
-#   categories: [Dashboards, Shiny]
-# - title: "R programming: packages"
-#   author: "Master I MIDS UParis Cité"
-#   date: "2025-04-02"
-#   path: "labs/lab-vecorization.html"
-#   categories: [R programming, Packages]
-# - title: "Spatial data visualization"
-#   author: "Master I MIDS UParis Cité"
-#   date: "2025-04-09"
-#   path: "labs/lab-vctrs.html"
-#   categories: [Clustering, k-means]
-# - title: "Spatio-Temporal data visualization"
-#   author: "Master I MIDS UParis Cité"
-#   date: "2025-04-09"
-#   path: "labs/lab-vecorization.html"
-#   categories: [Clustering, Hierarchical]
-
-# labs/lab-ca-hesitancy.qmd
-# labs/lab-ca-mortality.qmd
-# labs/lab-dplyr-SQL.qmd
-# labs/lab-exercices-glm.qmd
-# labs/lab-gapminder_oecd.qmd
-# labs/lab-gapminder-plotly.qmd
-# labs/lab-gss-r.qmd
-# labs/lab-hclust.qmd
-# labs/lab-histo-density.qmd
-# labs/lab-kmeans.qmd
-# labs/lab-lee-carter.qmd
-# labs/lab-lifeexp.qmd
-# labs/lab-life-tables.qmd
-# labs/lab-lt-1948-2016.qmd
-# labs/lab-lt-miashs.qmd
-# labs/lab-nycflights-pq.qmd
-# labs/lab-pca-misc.qmd
-# labs/lab-pca.qmd
-# labs/lab-progr.qmd
-# labs/lab-report-census.qmd
-# labs/lab-slr.qmd
-# labs/lab-template.qmd
-# labs/lab-tests-miashs-2.qmd
-# labs/lab-univariate-categorical.qmd
-# labs/lab-univariate-numeric.qmd
-# labs/lab-whiteside-aov.qmd
-# labs/lab-whiteside.qmd

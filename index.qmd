@@ -32,6 +32,7 @@ After that course, you will be able to:
 
 - Handle tabular data using R version of the relational algebra (`dplyr`)
 - Visualize data using `ggplot2` and `plotly`
+- Understand the challenge raised by data/metadata management
 - Perform univariate and bivariate analysis, compute and assess statistical summaries
 - Perform multivariate analysis using matrix methods
 - Diagnose and validate the results of multivariate analysis

@@ -1,48 +1,73 @@
 ---
 title: "Semaine 5"
-subtitle: "Définition de Données"
+subtitle: "TBA"
 editor: source
 draft: true
 ---
 
+
 ::: callout-important
 
--   Cours magistral en Amphi 2 Olympe de Gouges 14h-15h30
--   TD/TP Ingémaths/METIS salle 2006 Etage 2 Sophie Germain Jeudi 13h30-16h00
--   TD/TP MIASHS salles 2004-2005-2006 Étage 2 Sophie Germain Vendredi 15h45-18h15
--   {{< fa cal >}} [Emploi du temps MIASHS](https://edt.math.univ-paris-diderot.fr/#/parcours/miashs/l3)
--   {{< fa cal >}} [Emploi du temps Ingémaths/METIS](https://edt.math.univ-paris-diderot.fr/#/parcours/ingemath/l3)
+-   Session I Sophie Germain (2017) Monday 16h-17h30
+-   Session II Sophie Germain (2011) Friday 16h30-18h
+-   {{< fa cal >}} [Calendar](https://edt.math.univ-paris-diderot.fr/#/parcours/mathinfo/m1)
 
 :::
 
-## Préparer
-
-Finir requêtes du [TD 2](/workshops/td2.html) 
-
-## Cours magistral : diapositives
-
-[SQL Définition de données](/slides/LDD_0.html)
-
-[Modélisation des contraintes](/slides/LDD_1.html)
+## {{< fa chalkboard-teacher >}} Blackboard
 
 
-## Exercices : TD 3
+- Categorical samples
+  - 2-ways  Contingency tables
+  - Chi-square statistics
+- Numeric samples
+  - Covariance
+  - Correlation(s)
+  
 
-[html](/workshops/td3.html)  [pdf](/workshops/td3.pdf)
+## {{< fa flask-vial >}} Labs
 
-{{< fa hand-point-right >}} Construisez des *vues* à partir de vos requêtes  
+- [Lab 6](/core/labs/lab-bivariate.qmd) - Introduction to bivariate analysis
+  
+We relied  on the previous labs
 
-## Solutions du  TD 2  (Semaine 4)
+- [Lab 1](/core/labs/lab-r-intro.html) - Introduction to R and RStudio
+- [Lab 2](/core/labs/lab-gapminder.html) - Introduction to Data Visualization using Gapminder dataset
+- [Lab 3](/core/labs/lab-tables.html) - Working with `dplyr`
+- [Lab 4](/core/labs/lab-univariate-categorical.qmd) Univariate categorical variables
+- [Lab 5](/core/labs/lab-univariate-numeric.qmd) Univariate numeric variables
 
-[html](/solutions/td2.html)  [pdf](/solutions/td2.pdf)
+
+## {{< fa person-digging >}} Further work
+
+{{< fa hand-point-right >}} Review the content of the two labs. Work out every part you do not already know. 
+Report an issue if you are unhappy with the proposed solutions/hints.
 
 
-## Travail personnel
+## {{< fa book >}} Further reading
 
-[CC 1 2023-24](/exams/cc1-2023-10-27.html)
+- Bin Yu and Rebecca Barter, [Veridical Data Science](https://vdsbook.com/05-data_viz)
+- [`R` for data science](https://r4ds.hadley.nz)
+- [Advanced `R`](https://adv-r.hadley.nz)
+- [Cours de Statistique Fondamentale](https://statsfonda.github.io/site/)
+  - [Chap Tests du chi-deux](https://statsfonda.github.io/site/content/ch4_2.html)
+- [Sourav Chatterjee: A new correlation coefficient](https://arxiv.org/abs/1909.10140)  
+ 
+## {{< fa laptop >}} Logistics  
+
+{{< fa bullhorn >}}{{< fa bullhorn >}} : you will work with the [`R` programming language](https://www.r-project.org) in this course. 
+
+You need either to install `R`, `RStudio` and `VS Code` on your computer, or to use your `posit-cloud` account. 
+
+{{< fa bullhorn >}}{{< fa bullhorn >}} Install [`Quarto`](https://quarto.org) on your computer to render the `.qmd` files. 
+
+Please follow the instructions [here](/computing-access.qmd) to install `R`, `RStudio`, `VS Code`, and `Quarto` or to access `posit-cloud`. 
+
+{{< fa bullhorn >}}{{< fa bullhorn >}} Please activate your ENT account (follow the instructions on [Moodle](https://moodle.u-paris.fr/course/view.php?id=6143)). You will be able to access the PostGres server.
+
 
 <br><br>
 
 ::: {style="font-size: 0.875em;"}
-retour à [Agenda](/slides-listings.qmd) ⏎
+Back to [Agenda](/slides-listings.qmd) ⏎
 :::

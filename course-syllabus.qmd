@@ -11,8 +11,8 @@ title: "MA7BY020 Syllabus"
 
 |           | Day       | Time              | Location                       |  Start |
 |:---------:|:-----------:|:-------------------:|:--------------------------------|:--------|
-| Lab session 1   | Wednesday  | 13:13-15:00  | [Somewhere](https://edt.math.univ-paris-diderot.fr/#/parcours/mathinfo/m1)      | 2025-01-15 |
-| Lab session 2   | Friday  | 9:00-10:30  | Sophie Germain 2012      | 2024-01-17 |
+| Lab session 1   | Monday  | 16:00-17:30  | [Somewhere](https://edt.math.univ-paris-diderot.fr/#/parcours/mathinfo/m1)      | 2026-01-12 |
+| Lab session 2   | Friday  | 16:30-18:00  | [Somewhere](https://edt.math.univ-paris-diderot.fr/#/parcours/mathinfo/m1)      | 2026-01-16 |
 
 
 ### [ {{< fa cal >}} ](https://edt.math.univ-paris-diderot.fr/#/parcours/mathinfo/m1)
@@ -70,7 +70,7 @@ Subscribe to [Moodle portal](https://moodle.u-paris.fr/course/view.php?id=6143)
 - [`git`](https://git-scm.com)
 - [`docker`](https://www.docker.com)
 - [`postgresql`](https://www.postgresql.org)
-
+- [`cursor`](https://cursor.com/?from=home)
  
 :::
 
@@ -87,6 +87,7 @@ Subscribe to [Moodle portal](https://moodle.u-paris.fr/course/view.php?id=6143)
 - Hadley Wickham and Jennifer Bryan., [R packages](https://r-pkgs.org)
 - Hadley Wickham, [Mastering Shiny](https://mastering-shiny.org)
 - [`kaggle`](https://www.kaggle.com)
+  
 :::
 
 
@@ -109,15 +110,14 @@ Labs  with corrections are [available](/labs-solutions-listings.qmd)
 ###  {{< fa graduation-cap >}}
 
 
-- 3 projects:
+- 2 projects:
 
-   - $\textsf{P}_1$ Visualization
-   - $\textsf{P}_2$ Regression
-   - $\textsf{P}_3$ Packaging
+   - $\textsf{P}_1$ Visualization + Table Manipulation
+   - $\textsf{P}_2$ Regression/SVD/Clustering + Packaging
 
 - Grading
 
-$$.2 \textsf{P}_1 + .3 \textsf{P}_2 + .5 \textsf{P}_3$$
+$$.5 \textsf{P}_1 + .5 \textsf{P}_2$$
 
 
 :::

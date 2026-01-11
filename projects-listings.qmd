@@ -25,7 +25,9 @@ Course evaluation is based on Projects {{< fa hands-holding-circle >}}
 
 - {{< fa hand-holding-hand >}} Find a friend : all work done by *pairs of students*
 - {{< fa brands github >}} Create a single *private* `GitHub` repository  for each project and each pair of students. 
+- {{< fa brands github >}} Name the repository `MA7BY020-2026-xx` where `xx` is the project number
 - {{< fa unlock-keyhole >}} Grant me access to these repositories
+- {{< fa brands github >}} In the `README.md` file at the root of your repository, list the name (last name, first number, and student id number)  of each team member
 - {{< fa circle-radiation >}} All work is transmitted through your private repository and nowhere else
 - {{< fa paper-plane >}} No emails for project submission
 - {{< fa laptop-file >}} All projects deliverables consist of `Quarto` notebooks

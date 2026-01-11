@@ -6,7 +6,7 @@ title: "Course team"
 ::: {.columns}
 ::: {.column}
 
-# {{< fa chalkboard-teacher >}}  Teacher 2024-25
+# {{< fa chalkboard-teacher >}}  Teacher 2025-26
 
 ```{=html}
 <iframe src="http://stephane-v-boucheron.fr" width="450" height="400"></iframe>
