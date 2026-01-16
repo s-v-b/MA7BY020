@@ -11,8 +11,8 @@ title: "MA7BY020 Syllabus"
 
 |           | Day       | Time              | Location                       |  Start |
 |:---------:|:-----------:|:-------------------:|:--------------------------------|:--------|
-| Lab session 1   | Monday  | 16:00-17:30  | [Somewhere](https://edt.math.univ-paris-diderot.fr/#/parcours/mathinfo/m1)      | 2026-01-12 |
-| Lab session 2   | Friday  | 16:30-18:00  | [Somewhere](https://edt.math.univ-paris-diderot.fr/#/parcours/mathinfo/m1)      | 2026-01-16 |
+| Lab session 1   | Monday  | 16:00-17:30  | [Sophie Germain 2017](https://edt.math.univ-paris-diderot.fr/#/parcours/mathinfo/m1)      | 2026-01-12 |
+| Lab session 2   | Friday  | 16:45-18:15  | [Sophie Germain 2011](https://edt.math.univ-paris-diderot.fr/#/parcours/mathinfo/m1)      | 2026-01-16 |
 
 
 ### [ {{< fa cal >}} ](https://edt.math.univ-paris-diderot.fr/#/parcours/mathinfo/m1)

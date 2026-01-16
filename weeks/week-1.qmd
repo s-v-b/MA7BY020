@@ -8,7 +8,7 @@ draft: false
 ::: callout-important
 
 -   Session I Sophie Germain (2017) Monday 16h-17h30
--   Session II Sophie Germain (2011) Friday 16h30-18h
+-   Session II Sophie Germain (2011) Friday 16h45-18h15
 -   {{< fa cal >}} [Calendar](https://edt.math.univ-paris-diderot.fr/#/parcours/mathinfo/m1)
 
 :::
@@ -21,7 +21,7 @@ We worked on the next two labs ([solutions](/core/labs-solutions/) )
 -   [Lab 1](/core/labs/lab-r-intro.html) - Introduction to R and RStudio
 -   [Lab 2](/core/labs/lab-gapminder.html) - Introduction to Data Visualization using Gapminder dataset
 
-We used [Rstudio](https://posit.co/download/rstudio-desktop/), created and initialized a dedicated  `R` project (without `git` and `renv`). We installed packages `tidyverse`, `pak` and `gapminder`. 
+We used [Rstudio](https://posit.co/download/rstudio-desktop/), or [Positron](https://positron.posit.co),  created and initialized a dedicated  `R` project (without `git` and `renv`). We installed packages `tidyverse`, `pak` and `gapminder`. 
 
 We reconstructed the [`gapminder`](/core/labs/lab-gapminder.qmd) demo using `ggplot2` and `plotly`. 
 
@@ -60,7 +60,7 @@ You need either to install `R`, `RStudio` and `VS Code` on your computer, or to 
 
 {{< fa bullhorn >}}{{< fa bullhorn >}} Install [`Quarto`](https://quarto.org) on your computer to render the `.qmd` files. 
 
-Please follow the instructions [here](/computing-access.qmd) to install `R`, `RStudio`, `VS Code`, and `Quarto` or to access `posit-cloud`. 
+Please follow the instructions [here](/computing-access.qmd) to install `R`, `RStudio`, `VS Code`, `Positron`,  and `Quarto` or to access `posit-cloud`. 
 
 {{< fa bullhorn >}}{{< fa bullhorn >}} Please activate your ENT account (follow the instructions on [Moodle](https://moodle.u-paris.fr/course/view.php?id=6143)). You will be able to access the PostGres server.
 
