@@ -2161,5 +2161,579 @@
     "title": "Week 1",
     "section": " Logistics",
     "text": "Logistics\n : you will work with the R programming language in this course.\nYou need either to install R, RStudio and VS Code on your computer, or to use your posit-cloud account.\n Install Quarto on your computer to render the .qmd files.\nPlease follow the instructions here to install R, RStudio, VS Code, Positron, and Quarto or to access posit-cloud.\n Please activate your ENT account (follow the instructions on Moodle). You will be able to access the PostGres server.\n\n\nBack to Agenda ⏎"
+  },
+  {
+    "objectID": "core/slides/slides-dplyr.html#tables-examples",
+    "href": "core/slides/slides-dplyr.html#tables-examples",
+    "title": "Tables manipulation with dplyr",
+    "section": "Tables (examples)",
+    "text": "Tables (examples)\n\nSpeadsheets (Excel)\n Relational tables\n\nDataframes in datascience frameworks\n\n\n: data.frame, tibble, …\n\n: pandas.dataframe\n\n\nspark: dataframe\n\n\nDask: dataframe\n\nand many others"
+  },
+  {
+    "objectID": "core/slides/slides-dplyr.html#tables-why",
+    "href": "core/slides/slides-dplyr.html#tables-why",
+    "title": "Tables manipulation with dplyr",
+    "section": "Tables (Why ?)",
+    "text": "Tables (Why ?)\nIn Data Science, each framework comes with its own flavor(s) of table(s)\n Tables from relational databases serve as inspiration\nIn  legacy dataframes shape the life of statisticians and data scientists\nThe purpose of this session is\n\ndescribe dataframes from an end-user viewpoint (we leave aside implementations)\n\npresenting tools for\n\naccessing information within dataframes (querying)\nsummarizing information (aggregation queries)\ncleaning/cleaning dataframes (tidying)"
+  },
+  {
+    "objectID": "core/slides/slides-dplyr.html#loading-tables-and-packages",
+    "href": "core/slides/slides-dplyr.html#loading-tables-and-packages",
+    "title": "Tables manipulation with dplyr",
+    "section": "Loading tables and packages",
+    "text": "Loading tables and packages\n\nrequire(\"tidyverse\")      # All we need is there\nrequire(\"nycflights13\")    # for flight data\nrequire(\"gt\")\nrequire(\"kableExtra\")\n# \ndata(flights)"
+  },
+  {
+    "objectID": "core/slides/slides-dplyr.html#about-loaded-packages",
+    "href": "core/slides/slides-dplyr.html#about-loaded-packages",
+    "title": "Tables manipulation with dplyr",
+    "section": "About loaded packages",
+    "text": "About loaded packages\n\nMetapackage tidyverse provides tools to create, query, tidy dataframes as well as tools to load data from various sources and save them in persistent storage\nnycflights13 provides the dataframes we play with\ngt for tayloring table displays"
+  },
+  {
+    "objectID": "core/slides/slides-dplyr.html#the-flights-table",
+    "href": "core/slides/slides-dplyr.html#the-flights-table",
+    "title": "Tables manipulation with dplyr",
+    "section": "The flights table",
+    "text": "The flights table\n\n\n\nhead(flights) |&gt;\n  glimpse(width = 30) \n\nRows: 6\nColumns: 19\n$ year           &lt;int&gt; 2013,…\n$ month          &lt;int&gt; 1, 1,…\n$ day            &lt;int&gt; 1, 1,…\n$ dep_time       &lt;int&gt; 517, …\n$ sched_dep_time &lt;int&gt; 515, …\n$ dep_delay      &lt;dbl&gt; 2, 4,…\n$ arr_time       &lt;int&gt; 830, …\n$ sched_arr_time &lt;int&gt; 819, …\n$ arr_delay      &lt;dbl&gt; 11, 2…\n$ carrier        &lt;chr&gt; \"UA\",…\n$ flight         &lt;int&gt; 1545,…\n$ tailnum        &lt;chr&gt; \"N142…\n$ origin         &lt;chr&gt; \"EWR\"…\n$ dest           &lt;chr&gt; \"IAH\"…\n$ air_time       &lt;dbl&gt; 227, …\n$ distance       &lt;dbl&gt; 1400,…\n$ hour           &lt;dbl&gt; 5, 5,…\n$ minute         &lt;dbl&gt; 15, 2…\n$ time_hour      &lt;dttm&gt; 2013…\n\n\n\n\nA dataframe is a two-ways (two-dimensional) table\nhead(df) displays the first 6 rows of its first argument\nThe vectors making a dataframe may have different types/classes (a dataframe is not a matrix)\nCompare str(), glimpse(), head()"
+  },
+  {
+    "objectID": "core/slides/slides-dplyr.html#table-schema",
+    "href": "core/slides/slides-dplyr.html#table-schema",
+    "title": "Tables manipulation with dplyr",
+    "section": "Table schema",
+    "text": "Table schema\nA table is a list of columns\nEach column has\n\n\nname and\n\ntype (class in \n\n\n\n\nglimpse(flights,   #&lt;&lt;\n        width=50)\n\n\nRows: 336,776\nColumns: 19\n$ year           &lt;int&gt; 2013, 2013, 2013, 2013, 2…\n$ month          &lt;int&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1…\n$ day            &lt;int&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1…\n$ dep_time       &lt;int&gt; 517, 533, 542, 544, 554, …\n$ sched_dep_time &lt;int&gt; 515, 529, 540, 545, 600, …\n$ dep_delay      &lt;dbl&gt; 2, 4, 2, -1, -6, -4, -5, …\n$ arr_time       &lt;int&gt; 830, 850, 923, 1004, 812,…\n$ sched_arr_time &lt;int&gt; 819, 830, 850, 1022, 837,…\n$ arr_delay      &lt;dbl&gt; 11, 20, 33, -18, -25, 12,…\n$ carrier        &lt;chr&gt; \"UA\", \"UA\", \"AA\", \"B6\", \"…\n$ flight         &lt;int&gt; 1545, 1714, 1141, 725, 46…\n$ tailnum        &lt;chr&gt; \"N14228\", \"N24211\", \"N619…\n$ origin         &lt;chr&gt; \"EWR\", \"LGA\", \"JFK\", \"JFK…\n$ dest           &lt;chr&gt; \"IAH\", \"IAH\", \"MIA\", \"BQN…\n$ air_time       &lt;dbl&gt; 227, 227, 160, 183, 116, …\n$ distance       &lt;dbl&gt; 1400, 1416, 1089, 1576, 7…\n$ hour           &lt;dbl&gt; 5, 5, 5, 5, 6, 5, 6, 6, 6…\n$ minute         &lt;dbl&gt; 15, 29, 40, 45, 0, 58, 0,…\n$ time_hour      &lt;dttm&gt; 2013-01-01 05:00:00, 201…"
+  },
+  {
+    "objectID": "core/slides/slides-dplyr.html#section",
+    "href": "core/slides/slides-dplyr.html#section",
+    "title": "Tables manipulation with dplyr",
+    "section": "",
+    "text": "flights has 19 columns\nEach column is a sequence (vector) of items with the same type/class\nAll columns have the same length\n\nflights has 336776 rows\nIn  parlance, a row is (often) called a tuple\n\nIn  parlance, a column is (often) called a variable"
+  },
+  {
+    "objectID": "core/slides/slides-dplyr.html#column-types",
+    "href": "core/slides/slides-dplyr.html#column-types",
+    "title": "Tables manipulation with dplyr",
+    "section": "Column types",
+    "text": "Column types\n\n\n\n\n\n\n\n\nclass\ncolumns\n\n\n\ninteger\n‘year’ ‘month’ ‘day’ ‘dep_time’ ‘sched_dep_time’ ‘arr_time’ ‘sched_arr_time’ ‘flight’\n\n\nnumeric\n‘dep_delay’ ‘arr_delay’ ‘air_time’ ‘distance’ ‘hour’ ‘minute’\n\n\ncharacter\n‘carrier’ ‘tailnum’ ‘origin’ ‘dest’\n\n\nPOSIXct\n‘time_hour’\n\n\nPOSIXt\n‘time_hour’\n\n\n\n\nA column, as a vector, may be belong to different classes\nOther classes: factor for categorical variables\nColumns dest, origin carrier could be coerced as factors\nShould columns dest and origin be coerced to the same factor?"
+  },
+  {
+    "objectID": "core/slides/slides-dplyr.html#nycflights13",
+    "href": "core/slides/slides-dplyr.html#nycflights13",
+    "title": "Tables manipulation with dplyr",
+    "section": "nycflights13",
+    "text": "nycflights13"
+  },
+  {
+    "objectID": "core/slides/slides-dplyr.html#columns-specification",
+    "href": "core/slides/slides-dplyr.html#columns-specification",
+    "title": "Tables manipulation with dplyr",
+    "section": "Columns specification",
+    "text": "Columns specification\n\n\n\nas.col_spec(flights)\n\n\n\ncols(\n  year = col_integer(),\n  month = col_integer(),\n  day = col_integer(),\n  dep_time = col_integer(),\n  sched_dep_time = col_integer(),\n  dep_delay = col_double(),\n  arr_time = col_integer(),\n  sched_arr_time = col_integer(),\n  arr_delay = col_double(),\n  carrier = col_character(),\n  flight = col_integer(),\n  tailnum = col_character(),\n  origin = col_character(),\n  dest = col_character(),\n  air_time = col_double(),\n  distance = col_double(),\n  hour = col_double(),\n  minute = col_double(),\n  time_hour = col_datetime(format = \"\")\n)"
+  },
+  {
+    "objectID": "core/slides/slides-dplyr.html#section-1",
+    "href": "core/slides/slides-dplyr.html#section-1",
+    "title": "Tables manipulation with dplyr",
+    "section": "",
+    "text": "\\(\\approx\\) table schema in relational databases\nColumn specifications are useful when loading dataframes from structured text files like .csv files\n.csv files do not contain typing information\nFile loaders from package readr can be tipped about column classes using column specifications"
+  },
+  {
+    "objectID": "core/slides/slides-dplyr.html#section-2",
+    "href": "core/slides/slides-dplyr.html#section-2",
+    "title": "Tables manipulation with dplyr",
+    "section": "",
+    "text": "SQL stands for structured/simple Query Language\nA query language elaborated during the 1970’s at IBM by E. Codd\nGeared towards exploitation of collections of relational tables\nLess powerful but simpler to use than a programming language\ndplyr is a principled -friendly implementation of SQL ideas (and other things)\n\nAt the core of SQL lies the idea of a table calculus called relational algebra"
+  },
+  {
+    "objectID": "core/slides/slides-dplyr.html#relational-algebra-basics",
+    "href": "core/slides/slides-dplyr.html#relational-algebra-basics",
+    "title": "Tables manipulation with dplyr",
+    "section": "Relational algebra (basics)",
+    "text": "Relational algebra (basics)\nConvention: \\(R\\) is a table with columns \\(A_1, \\ldots, A_k\\)\n\n\n\n\n\n\nProjection (picking columns)\n\n\n\\(\\pi(R, A_1, A_3)\\)\n\n\n\n\n\n\n\n\n\nSelection/Filtering (picking rows)\n\n\n\\(\\sigma(R, {\\text{condition}})\\)\n\n\n\n\n\n\n\n\n\nJoin (mulitple tables operation)\n\n\n\\(\\bowtie(R,S, {\\text{condition}})\\)\n\n\n\n Any operation produces a table\n The schema of the derived table depends on the operation (but does not depend on the content/value of the operands)"
+  },
+  {
+    "objectID": "core/slides/slides-dplyr.html#section-3",
+    "href": "core/slides/slides-dplyr.html#section-3",
+    "title": "Tables manipulation with dplyr",
+    "section": "",
+    "text": "Table calculus relies on a small set of basic operations \\(\\pi, \\sigma, \\bowtie\\)\nEach operation has one or two table operands and produce a table\n There is more to SQL than relational algebra"
+  },
+  {
+    "objectID": "core/slides/slides-dplyr.html#projection-pi",
+    "href": "core/slides/slides-dplyr.html#projection-pi",
+    "title": "Tables manipulation with dplyr",
+    "section": "Projection \\(\\pi\\)\n",
+    "text": "Projection \\(\\pi\\)\n\n\\(\\pi(R, {A_1, A_3})\\)\nA projection \\(\\pi(\\cdot, {A_1, A_3})\\) is defined by a set of column names, say \\(A_1, A_3\\)\nIf \\(R\\) has columns with given names, the result is a table with names \\(A_1, A_3\\) and one row per row of \\(R\\)\nA projection is parametrized by a list of column names"
+  },
+  {
+    "objectID": "core/slides/slides-dplyr.html#package-dplyr",
+    "href": "core/slides/slides-dplyr.html#package-dplyr",
+    "title": "Tables manipulation with dplyr",
+    "section": "\n Package dplyr\n",
+    "text": "Package dplyr\n\n\n\n\nTranformation chapter in R4DS\nCheat sheet I\nCheat sheet II\n\n\n\n\n\n\nhttps://dplyr.tidyverse.org"
+  },
+  {
+    "objectID": "core/slides/slides-dplyr.html#section-4",
+    "href": "core/slides/slides-dplyr.html#section-4",
+    "title": "Tables manipulation with dplyr",
+    "section": "",
+    "text": "Base  provides tools to perform relational algebra operations\nBut:\n\nBase  does not provide a consistent API\nThe lack of a consistent API makes operation chaining tricky"
+  },
+  {
+    "objectID": "core/slides/slides-dplyr.html#dplyr-verbs",
+    "href": "core/slides/slides-dplyr.html#dplyr-verbs",
+    "title": "Tables manipulation with dplyr",
+    "section": "\ndplyr verbs",
+    "text": "dplyr verbs\nFive basic verbs:\n\nPick observations/rows by their values (filter()) σ(…)\nPick variables by their names (select()) π(…)\nReorder the rows (arrange())\nCreate new variables with functions of existing variables (mutate())\nCollapse many values down to a single summary (summarise())\n\n\nAnd\n\n\ngroup_by() changes the scope of each function from operating on the entire dataset to operating on it group-by-group"
+  },
+  {
+    "objectID": "core/slides/slides-dplyr.html#tidyverse",
+    "href": "core/slides/slides-dplyr.html#tidyverse",
+    "title": "Tables manipulation with dplyr",
+    "section": "\n tidyverse",
+    "text": "tidyverse\n\n\n\nAll verbs work similarly:\n\n\nThe first argument is a data frame (table).\n\n\nThe subsequent arguments describe what to do with the data frame, using the variable/column names (without quotes)\n\n\nThe result is a new data frame (table)"
+  },
+  {
+    "objectID": "core/slides/slides-dplyr.html#dplyrselect-as-a-projection-operator-π",
+    "href": "core/slides/slides-dplyr.html#dplyrselect-as-a-projection-operator-π",
+    "title": "Tables manipulation with dplyr",
+    "section": "\ndplyr::select() as a projection operator (π)",
+    "text": "dplyr::select() as a projection operator (π)\n\\(\\pi(R, \\underbrace{A_1, \\ldots, A_3}_{\\text{column names}})\\)\nselect(R, A1, A3) #&lt;&lt;\nor, equivalently\nR |&gt; select(A1, A3) #&lt;&lt;\n |&gt; is the pipe operator\n x |&gt; f(y, z) is translated to f(x, y, z) and then evaluated"
+  },
+  {
+    "objectID": "core/slides/slides-dplyr.html#dplyrselect",
+    "href": "core/slides/slides-dplyr.html#dplyrselect",
+    "title": "Tables manipulation with dplyr",
+    "section": "dplyr::select()",
+    "text": "dplyr::select()\n\nFunction select has a variable number of arguments\nFunction select has a variable number of arguments\nFunction select allows to pick column by names (and much more)\nNote that in the current environment, there are no objects called A1, A3\nThe consistent API allows to use the pipe operator\n\n\n\n\n\n\n\nCaution\n\n\nThere is also a select() function in base R"
+  },
+  {
+    "objectID": "core/slides/slides-dplyr.html#toy-tables",
+    "href": "core/slides/slides-dplyr.html#toy-tables",
+    "title": "Tables manipulation with dplyr",
+    "section": "Toy tables",
+    "text": "Toy tables\n\n\n\nspam &lt;- set.seed(42)\n\nR &lt;-  tibble(A1=seq(2, 10, 2),\n             A2=sample(letters, 5),\n             A3=seq(from=date(\"2021-10-21\"),\n                    to=date(\"2021-11-20\"),\n                    by=7),\n             D=sample(letters, 5))\n\nS &lt;- tibble(E=c(3,4,6,9, 10),\n            F=sample(letters, 5),\n            G=seq(from=date(\"2021-10-21\"),\n                   to=date(\"2021-10-21\")+4, by=1),\n            D=sample(letters,5)\n          )\n\n\n\n\n\nR\n\nA1\nA2\nA3\nD\n\n\n\n2\nq\n2021-10-21\nr\n\n\n4\ne\n2021-10-28\nq\n\n\n6\na\n2021-11-04\no\n\n\n8\nj\n2021-11-11\ng\n\n\n10\nd\n2021-11-18\nd\n\n\n\n\n\n\nS\n\nE\nF\nG\nD\n\n\n\n3\ny\n2021-10-21\no\n\n\n4\ne\n2021-10-22\nc\n\n\n6\nn\n2021-10-23\ni\n\n\n9\nt\n2021-10-24\nd\n\n\n10\nr\n2021-10-25\ne"
+  },
+  {
+    "objectID": "core/slides/slides-dplyr.html#projecting-toy-tables",
+    "href": "core/slides/slides-dplyr.html#projecting-toy-tables",
+    "title": "Tables manipulation with dplyr",
+    "section": "Projecting toy tables",
+    "text": "Projecting toy tables\n\n\n\nR |&gt; \n  dplyr::select(A2,D) |&gt; \n  knitr::kable(caption=\"Projecting R\")\n\n\nProjecting R\n\nA2\nD\n\n\n\nq\nr\n\n\ne\nq\n\n\na\no\n\n\nj\ng\n\n\nd\nd\n\n\n\n\n\n\n\nR |&gt; \n  dplyr::select(- where(is.character)) |&gt; \n  knitr::kable(caption=\"Projecting R, all but character columns\")\n\n\nProjecting R, all but character columns\n\nA1\nA3\n\n\n\n2\n2021-10-21\n\n\n4\n2021-10-28\n\n\n6\n2021-11-04\n\n\n8\n2021-11-11\n\n\n10\n2021-11-18"
+  },
+  {
+    "objectID": "core/slides/slides-dplyr.html#projecting-flights-on-origin-and-dest",
+    "href": "core/slides/slides-dplyr.html#projecting-flights-on-origin-and-dest",
+    "title": "Tables manipulation with dplyr",
+    "section": "Projecting flights on origin and dest\n",
+    "text": "Projecting flights on origin and dest\n\n\n\nflights |&gt;\n  select(origin, dest) |&gt;  #&lt;&lt;\n  head()\n\n\n# A tibble: 6 × 2\n  origin dest \n  &lt;chr&gt;  &lt;chr&gt;\n1 EWR    IAH  \n2 LGA    IAH  \n3 JFK    MIA  \n4 JFK    BQN  \n5 LGA    ATL  \n6 EWR    ORD  \n\n\nA more readable equivalent of\nhead(select(flights, origin, dest), 10)\nor\nSELECT \n  origin, dest\nFROM \n  flights\nLIMIT 6;"
+  },
+  {
+    "objectID": "core/slides/slides-dplyr.html#sigmar-textcondition",
+    "href": "core/slides/slides-dplyr.html#sigmar-textcondition",
+    "title": "Tables manipulation with dplyr",
+    "section": "\\(\\sigma(R, \\text{condition})\\)",
+    "text": "\\(\\sigma(R, \\text{condition})\\)\n\nA selection/filtering operation is defined by a condition that can be checked on the rows of tables with convenient schema\n\\(\\sigma(R, \\text{condition})\\) returns a table with the same schema as \\(R\\)\nThe resulting table contains the rows/tuples of \\(R\\) that satisfy \\(\\text{condition}\\)\n\\(\\sigma(R, \\text{FALSE})\\) returns an empty table with the same schema as \\(R\\)"
+  },
+  {
+    "objectID": "core/slides/slides-dplyr.html#chaining-filtering-and-projecting",
+    "href": "core/slides/slides-dplyr.html#chaining-filtering-and-projecting",
+    "title": "Tables manipulation with dplyr",
+    "section": "Chaining filtering and projecting",
+    "text": "Chaining filtering and projecting\n\n\nstart &lt;- date(\"2021-10-27\")\nend &lt;- start + 21\n\nR |&gt;\n#  filter(A2 &gt; \"n\") |&gt;  #&lt;&lt;\n  filter(between(A3, start, end)) |&gt;\n  select(A1, A3) #&lt;&lt;\n\n\n# A tibble: 3 × 2\n     A1 A3        \n  &lt;dbl&gt; &lt;date&gt;    \n1     4 2021-10-28\n2     6 2021-11-04\n3     8 2021-11-11\n\n\n\n\nFiltering dropped one row\nProjecting dropped two columns"
+  },
+  {
+    "objectID": "core/slides/slides-dplyr.html#selecting-flights-based-on-origin-and-dest",
+    "href": "core/slides/slides-dplyr.html#selecting-flights-based-on-origin-and-dest",
+    "title": "Tables manipulation with dplyr",
+    "section": "Selecting flights based on origin and dest\n",
+    "text": "Selecting flights based on origin and dest\n\nand then projecting on dest, time_hour, carrier\n\n\nflights |&gt;\n  filter(dest %in% c('ATL', 'LAX'), #&lt;&lt;\n         origin == 'JFK') |&gt;\n  select(dest, time_hour, carrier) |&gt; #&lt;&lt;\n  head()\n\n\n# A tibble: 6 × 3\n  dest  time_hour           carrier\n  &lt;chr&gt; &lt;dttm&gt;              &lt;chr&gt;  \n1 LAX   2013-01-01 06:00:00 UA     \n2 ATL   2013-01-01 06:00:00 DL     \n3 LAX   2013-01-01 07:00:00 VX     \n4 LAX   2013-01-01 07:00:00 B6     \n5 LAX   2013-01-01 07:00:00 AA     \n6 ATL   2013-01-01 08:00:00 DL     \n\n\nIn SQL ( parlance:\nSELECT \n  dest, time_hour, carrier\nFROM \n  flights\nWHERE \n  dest IN ('ATL', 'LAX') AND\n  origin = 'JFK'\nLIMIT 6"
+  },
+  {
+    "objectID": "core/slides/slides-dplyr.html#logical-operations",
+    "href": "core/slides/slides-dplyr.html#logical-operations",
+    "title": "Tables manipulation with dplyr",
+    "section": "Logical operations",
+    "text": "Logical operations\n\nfilter(R, condition_1, condition_2) is meant to return the rows of R that satisfy condition_1 and condition_2\nfilter(R, condition_1 & condition_2) is an equivalent formulation\nfilter(R, condition_1 | condition_2) is meant to return the rows of R that satisfy condition_1 or condition_2 (possibly both)\nfilter(R, xor(condition_1,condition_2)) is meant to return the rows of R that satisfy either condition_1 or condition_2 (just one of them)\nfilter(R, ! condition_1) is meant to return the rows of R that do not satisfy condition_1"
+  },
+  {
+    "objectID": "core/slides/slides-dplyr.html#missing-values",
+    "href": "core/slides/slides-dplyr.html#missing-values",
+    "title": "Tables manipulation with dplyr",
+    "section": "\n Missing values!",
+    "text": "Missing values!\nNumerical column dep_time contains many NA's (missing values)\n\n# flights |&gt; pull(dep_time) |&gt; summary()\nsummary(flights$dep_time)\n\n   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's \n      1     907    1401    1349    1744    2400    8255 \n\n\n Missing values (NA and variants) should be handled with care\nNA & TRUE\n[1] NA\nNA | TRUE\n[1] TRUE"
+  },
+  {
+    "objectID": "core/slides/slides-dplyr.html#truth-tables-for-three-valued-logic",
+    "href": "core/slides/slides-dplyr.html#truth-tables-for-three-valued-logic",
+    "title": "Tables manipulation with dplyr",
+    "section": "Truth tables for three-valued logic",
+    "text": "Truth tables for three-valued logic\n\n\n  uses three-valued logic\n Generate complete truth tables for and, or, xor\n\nv &lt;- c(TRUE, FALSE, NA) # truth values\n\nlist_tt &lt;- map(c(`&`, `|`, xor),  #&lt;&lt;\n               ~ outer(v, v, .x)) #&lt;&lt;\n\nfor (i in seq_along(list_tt)){\n  colnames(list_tt[[i]]) &lt;- v\n  rownames(list_tt[[i]]) &lt;- v\n}\n\nnames(list_tt) &lt;- c('& AND',\n                    'OR',\n                    'XOR')\n\n\n\n\n\n\n& AND\n\n\n\n\n\nTRUE\n\n\nFALSE\n\n\nNA\n\n\n\n\n\nTRUE\n\n\nTRUE\n\n\nFALSE\n\n\nNA\n\n\n\n\nFALSE\n\n\nFALSE\n\n\nFALSE\n\n\nFALSE\n\n\n\n\nNA\n\n\nNA\n\n\nFALSE\n\n\nNA\n\n\n\n\n\n\n\n\nOR\n\n\n\n\n\nTRUE\n\n\nFALSE\n\n\nNA\n\n\n\n\n\nTRUE\n\n\nTRUE\n\n\nTRUE\n\n\nTRUE\n\n\n\n\nFALSE\n\n\nTRUE\n\n\nFALSE\n\n\nNA\n\n\n\n\nNA\n\n\nTRUE\n\n\nNA\n\n\nNA\n\n\n\n\n\n\n\n\nXOR\n\n\n\n\n\nTRUE\n\n\nFALSE\n\n\nNA\n\n\n\n\n\nTRUE\n\n\nFALSE\n\n\nTRUE\n\n\nNA\n\n\n\n\nFALSE\n\n\nTRUE\n\n\nFALSE\n\n\nNA\n\n\n\n\nNA\n\n\nNA\n\n\nNA\n\n\nNA"
+  },
+  {
+    "objectID": "core/slides/slides-dplyr.html#slice-choosing-rows-based-on-location",
+    "href": "core/slides/slides-dplyr.html#slice-choosing-rows-based-on-location",
+    "title": "Tables manipulation with dplyr",
+    "section": "\nslice(): choosing rows based on location",
+    "text": "slice(): choosing rows based on location\n\n\nIn base  dataframe cells can be addressed by indices\nflights[5000:5010,seq(1, 19, by=5)] returns rows 5000:5010 and columns 1, 6, 11 from dataframe flights\nThis can be done in a (verbose) dplyr way using slice() and select()\n\n\nflights |&gt;\n  slice(5001:5005) |&gt;  #&lt;&lt;\n  select(seq(1, 19, by=5))\n\n# A tibble: 5 × 4\n   year dep_delay flight distance\n  &lt;int&gt;     &lt;dbl&gt;  &lt;int&gt;    &lt;dbl&gt;\n1  2013         3   4437      602\n2  2013        43   1016      187\n3  2013        -2   2190     1089\n4  2013        -1     91     2576\n5  2013         5   2131      502\n\n\n\n combined with aggregation (group_by()) variants of slice_ may be used to perform windowing operations\n Useful variant slice_sample()"
+  },
+  {
+    "objectID": "core/slides/slides-dplyr.html#section-5",
+    "href": "core/slides/slides-dplyr.html#section-5",
+    "title": "Tables manipulation with dplyr",
+    "section": "",
+    "text": "Note\n\n\n\\(\\bowtie(R,S, {\\text{condition}})\\)\nstands for\n\njoin rows/tuples of \\(R\\) and rows/tuples of \\(S\\) that satisfy \\(\\text{condition}\\)"
+  },
+  {
+    "objectID": "core/slides/slides-dplyr.html#nycflights-tables",
+    "href": "core/slides/slides-dplyr.html#nycflights-tables",
+    "title": "Tables manipulation with dplyr",
+    "section": "\nnycflights tables",
+    "text": "nycflights tables\n\n\nThe nycflights13 package offers five related tables:\n\n\nFact tables:\n\nflights\n\nweather (hourly weather conditions at different locations)\n\n\n\nDimension tables:\n\n\nairports (airports full names, location, …)\n\nplanes (model, manufacturer, year, …)\n\nairlines (full names)\n\n\n\nThis is an instance of a Star Schema"
+  },
+  {
+    "objectID": "core/slides/slides-dplyr.html#about-star-schemas",
+    "href": "core/slides/slides-dplyr.html#about-star-schemas",
+    "title": "Tables manipulation with dplyr",
+    "section": "About Star schemas\n",
+    "text": "About Star schemas\n\n\nFact tables record measurements for a specific event\nFact tables generally consist of numeric values, and foreign keys to dimensional data where descriptive information is kept\nDimension tables record informations about entities involved in events recorded in Fact tables\n\n\n\nFrom Wikipedia]"
+  },
+  {
+    "objectID": "core/slides/slides-dplyr.html#weather-conditions",
+    "href": "core/slides/slides-dplyr.html#weather-conditions",
+    "title": "Tables manipulation with dplyr",
+    "section": "\n weather conditions",
+    "text": "weather conditions\n\n\nweather |&gt;\n  glimpse(width = 50)\n\n\nRows: 26,115\nColumns: 15\n$ origin     &lt;chr&gt; \"EWR\", \"EWR\", \"EWR\", \"EWR\", \"…\n$ year       &lt;int&gt; 2013, 2013, 2013, 2013, 2013,…\n$ month      &lt;int&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,…\n$ day        &lt;int&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,…\n$ hour       &lt;int&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10…\n$ temp       &lt;dbl&gt; 39.02, 39.02, 39.02, 39.92, 3…\n$ dewp       &lt;dbl&gt; 26.06, 26.96, 28.04, 28.04, 2…\n$ humid      &lt;dbl&gt; 59.37, 61.63, 64.43, 62.21, 6…\n$ wind_dir   &lt;dbl&gt; 270, 250, 240, 250, 260, 240,…\n$ wind_speed &lt;dbl&gt; 10.35702, 8.05546, 11.50780, …\n$ wind_gust  &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, N…\n$ precip     &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,…\n$ pressure   &lt;dbl&gt; 1012.0, 1012.3, 1012.5, 1012.…\n$ visib      &lt;dbl&gt; 10, 10, 10, 10, 10, 10, 10, 1…\n$ time_hour  &lt;dttm&gt; 2013-01-01 01:00:00, 2013-01…"
+  },
+  {
+    "objectID": "core/slides/slides-dplyr.html#connecting-flights-and-weather",
+    "href": "core/slides/slides-dplyr.html#connecting-flights-and-weather",
+    "title": "Tables manipulation with dplyr",
+    "section": "Connecting flights and weather\n",
+    "text": "Connecting flights and weather\n\nWe want to complement information in flights using data weather\nMotivation: we would like to relate delays (arr_delay) and weather conditions\n\ncan we explain (justify) delays using weather data?\ncan we predict delays using weather data?"
+  },
+  {
+    "objectID": "core/slides/slides-dplyr.html#section-6",
+    "href": "core/slides/slides-dplyr.html#section-6",
+    "title": "Tables manipulation with dplyr",
+    "section": "\n ⋈ \n",
+    "text": "⋈ \n\nFor each flight (row in flights)\n\nyear, month, day, hour (computed from time_hour) indicate the approaximate time of departure\norigin indicates the airport where the plane takes off\n\nEach row of weather contains corresponding information\n for each row of flights we look for rows of weather with matching values in year, month, day, hour and origin\n NATURAL INNER JOIN between the tables"
+  },
+  {
+    "objectID": "core/slides/slides-dplyr.html#inner_join-natural-join",
+    "href": "core/slides/slides-dplyr.html#inner_join-natural-join",
+    "title": "Tables manipulation with dplyr",
+    "section": "\ninner_join: natural join",
+    "text": "inner_join: natural join\n\n\nf_w &lt;- flights |&gt;\n  inner_join(weather) #&lt;&lt;\n\nf_w |&gt; \n  select(seq(1, \n             ncol(f_w),\n             by=2)) |&gt; \n  glimpse(width=50)\n\n\nRows: 335,220\nColumns: 14\n$ year           &lt;int&gt; 2013, 2013, 2013, 2013, 2…\n$ day            &lt;int&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1…\n$ sched_dep_time &lt;int&gt; 515, 529, 540, 545, 600, …\n$ arr_time       &lt;int&gt; 830, 850, 923, 1004, 812,…\n$ arr_delay      &lt;dbl&gt; 11, 20, 33, -18, -25, 12,…\n$ flight         &lt;int&gt; 1545, 1714, 1141, 725, 46…\n$ origin         &lt;chr&gt; \"EWR\", \"LGA\", \"JFK\", \"JFK…\n$ air_time       &lt;dbl&gt; 227, 227, 160, 183, 116, …\n$ hour           &lt;dbl&gt; 5, 5, 5, 5, 6, 5, 6, 6, 6…\n$ time_hour      &lt;dttm&gt; 2013-01-01 05:00:00, 201…\n$ dewp           &lt;dbl&gt; 28.04, 24.98, 26.96, 26.9…\n$ wind_dir       &lt;dbl&gt; 260, 250, 260, 260, 260, …\n$ wind_gust      &lt;dbl&gt; NA, 21.86482, NA, NA, 23.…\n$ pressure       &lt;dbl&gt; 1011.9, 1011.4, 1012.1, 1…"
+  },
+  {
+    "objectID": "core/slides/slides-dplyr.html#join-schema",
+    "href": "core/slides/slides-dplyr.html#join-schema",
+    "title": "Tables manipulation with dplyr",
+    "section": "Join schema",
+    "text": "Join schema\n\n\nRows: 335,220\nColumns: 28\n$ year           &lt;int&gt; 2013, 2013, 2013, 2013, 2…\n$ month          &lt;int&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1…\n$ day            &lt;int&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1…\n$ dep_time       &lt;int&gt; 517, 533, 542, 544, 554, …\n$ sched_dep_time &lt;int&gt; 515, 529, 540, 545, 600, …\n$ dep_delay      &lt;dbl&gt; 2, 4, 2, -1, -6, -4, -5, …\n$ arr_time       &lt;int&gt; 830, 850, 923, 1004, 812,…\n$ sched_arr_time &lt;int&gt; 819, 830, 850, 1022, 837,…\n$ arr_delay      &lt;dbl&gt; 11, 20, 33, -18, -25, 12,…\n$ carrier        &lt;chr&gt; \"UA\", \"UA\", \"AA\", \"B6\", \"…\n$ flight         &lt;int&gt; 1545, 1714, 1141, 725, 46…\n$ tailnum        &lt;chr&gt; \"N14228\", \"N24211\", \"N619…\n$ origin         &lt;chr&gt; \"EWR\", \"LGA\", \"JFK\", \"JFK…\n$ dest           &lt;chr&gt; \"IAH\", \"IAH\", \"MIA\", \"BQN…\n$ air_time       &lt;dbl&gt; 227, 227, 160, 183, 116, …\n$ distance       &lt;dbl&gt; 1400, 1416, 1089, 1576, 7…\n$ hour           &lt;dbl&gt; 5, 5, 5, 5, 6, 5, 6, 6, 6…\n$ minute         &lt;dbl&gt; 15, 29, 40, 45, 0, 58, 0,…\n$ time_hour      &lt;dttm&gt; 2013-01-01 05:00:00, 201…\n$ temp           &lt;dbl&gt; 39.02, 39.92, 39.02, 39.0…\n$ dewp           &lt;dbl&gt; 28.04, 24.98, 26.96, 26.9…\n$ humid          &lt;dbl&gt; 64.43, 54.81, 61.63, 61.6…\n$ wind_dir       &lt;dbl&gt; 260, 250, 260, 260, 260, …\n$ wind_speed     &lt;dbl&gt; 12.65858, 14.96014, 14.96…\n$ wind_gust      &lt;dbl&gt; NA, 21.86482, NA, NA, 23.…\n$ precip         &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0…\n$ pressure       &lt;dbl&gt; 1011.9, 1011.4, 1012.1, 1…\n$ visib          &lt;dbl&gt; 10, 10, 10, 10, 10, 10, 1…"
+  },
+  {
+    "objectID": "core/slides/slides-dplyr.html#section-7",
+    "href": "core/slides/slides-dplyr.html#section-7",
+    "title": "Tables manipulation with dplyr",
+    "section": "",
+    "text": "The schema of the result is the union of the schemas of the operands\nA tuple from flights matches a tuple from weather if the tuple have the same values in the common columns:\n\n\n [1] \"year\"           \"month\"          \"day\"            \"dep_time\"      \n [5] \"sched_dep_time\" \"dep_delay\"      \"arr_time\"       \"sched_arr_time\"\n [9] \"arr_delay\"      \"carrier\"        \"flight\"         \"tailnum\"       \n[13] \"origin\"         \"dest\"           \"air_time\"       \"distance\"      \n[17] \"hour\"           \"minute\"         \"time_hour\"      \"temp\"          \n[21] \"dewp\"           \"humid\"          \"wind_dir\"       \"wind_speed\"    \n[25] \"wind_gust\"      \"precip\"         \"pressure\"       \"visib\""
+  },
+  {
+    "objectID": "core/slides/slides-dplyr.html#which-columns-are-used-when-joining-tables-r-and-s",
+    "href": "core/slides/slides-dplyr.html#which-columns-are-used-when-joining-tables-r-and-s",
+    "title": "Tables manipulation with dplyr",
+    "section": "Which columns are used when joining tables \\(R\\) and \\(S\\)?",
+    "text": "Which columns are used when joining tables \\(R\\) and \\(S\\)?\n\ndefault behavior of inner_join: all columns shared by \\(R\\) and \\(S\\). Common columns have the same name in both schema. They are expected to have the same class\nmanual definition: in many settings, we want to overrule the default behavior. We specify manually which column from \\(R\\) should match which column from \\(S\\)"
+  },
+  {
+    "objectID": "core/slides/slides-dplyr.html#natural-join-of-flights-and-weather",
+    "href": "core/slides/slides-dplyr.html#natural-join-of-flights-and-weather",
+    "title": "Tables manipulation with dplyr",
+    "section": "Natural join of flights and weather:",
+    "text": "Natural join of flights and weather:\n\ncommon_names &lt;- base::intersect(names(weather),\n                                names(flights))\n\nsetequal(\n  inner_join(flights, weather),\n  inner_join(flights,\n             weather,\n             by=common_names)\n)\n\n[1] TRUE"
+  },
+  {
+    "objectID": "core/slides/slides-dplyr.html#are-you-surprised-by-the-next-chunk",
+    "href": "core/slides/slides-dplyr.html#are-you-surprised-by-the-next-chunk",
+    "title": "Tables manipulation with dplyr",
+    "section": "\n Are you surprised by the next chunk?",
+    "text": "Are you surprised by the next chunk?\n\ndtu  &lt;- inner_join(flights,\n           weather,\n           by=c(\"year\", \"month\", \"day\", \"origin\", \"hour\"))\n\ndtv &lt;- inner_join(flights,\n           weather,\n           by=c(\"origin\", \"time_hour\"))\n\n# setequal(dtu, dtv)\n\nRecall that columns year, month day hour can be computed from time_hour\n\nflights |&gt;\n  filter(year!=year(time_hour) |\n         month!=month(time_hour) |\n         day!=day(time_hour) |\n         hour!=hour(time_hour)) |&gt;\n  nrow()\n\n[1] 0"
+  },
+  {
+    "objectID": "core/slides/slides-dplyr.html#the-two-results-do-not-have-the-same-schema",
+    "href": "core/slides/slides-dplyr.html#the-two-results-do-not-have-the-same-schema",
+    "title": "Tables manipulation with dplyr",
+    "section": "The two results do not have the same schema!",
+    "text": "The two results do not have the same schema!\n\nsetdiff(colnames(dtv), colnames(dtu))\n\n[1] \"year.x\"    \"month.x\"   \"day.x\"     \"hour.x\"    \"time_hour\" \"year.y\"   \n[7] \"month.y\"   \"day.y\"     \"hour.y\"   \n\nsetdiff(colnames(dtu), colnames(dtv))\n\n[1] \"year\"        \"month\"       \"day\"         \"hour\"        \"time_hour.x\"\n[6] \"time_hour.y\""
+  },
+  {
+    "objectID": "core/slides/slides-dplyr.html#fixing",
+    "href": "core/slides/slides-dplyr.html#fixing",
+    "title": "Tables manipulation with dplyr",
+    "section": "Fixing",
+    "text": "Fixing\n\ndtu  &lt;- inner_join(flights,\n           weather,\n           by=c(\"year\", \"month\", \"day\", \"origin\", \"hour\"),\n           suffix= c(\"\", \".y\")) |&gt;  #&lt;&lt;\n           select(-ends_with(\".y\"))  #&lt;&lt;\n\ndtv &lt;- inner_join(flights,\n           weather,\n           by=c(\"origin\", \"time_hour\"),\n           suffix= c(\"\", \".y\")) |&gt;  #&lt;&lt;\n           select(-ends_with(\".y\"))  #&lt;&lt;\n\nsetequal(dtu, dtv)\n\n[1] TRUE"
+  },
+  {
+    "objectID": "core/slides/slides-dplyr.html#about-inner_join",
+    "href": "core/slides/slides-dplyr.html#about-inner_join",
+    "title": "Tables manipulation with dplyr",
+    "section": "About inner_join\n",
+    "text": "About inner_join\n\n\n\ninner_join(\n  x, y,\n  by = NULL,      #&lt;&lt;\n  copy = FALSE,\n  suffix = c(\".x\", \".y\"), #&lt;&lt;\n  ...,\n  keep = FALSE,  #&lt;&lt;\n  na_matches = \"na\")  #&lt;&lt;\n\n\n\nby:\n\n\nby=c(\"A1\", \"A3\", \"A7\") row r from R and s from S match if r.A1 == s.A1, r.A3 == s.A3, r.A7 == s.A7\n\n\nby=c(\"A1\"=\"B\", \"A3\"=\"C\", \"A7\"=\"D\") row r from R and s from S match if r.A1 == s.B, r.A3 == s.C, r.A7 == s.D\n\n\n\nsuffix: If there are non-joined duplicate variables in x and y, these suffixes will be added to the output to disambiguate them.\nkeep: Should the join keys from both x and y be preserved in the output?\nna_matches: Should NA and NaN values match one another?\n\n\n\n\nFrom online documentation"
+  },
+  {
+    "objectID": "core/slides/slides-dplyr.html#join-flavors",
+    "href": "core/slides/slides-dplyr.html#join-flavors",
+    "title": "Tables manipulation with dplyr",
+    "section": "Join flavors",
+    "text": "Join flavors\nDifferent flavors of join can be used to join one table to columns from another, matching values with the rows that they correspond to\nEach join retains a different combination of values from the tables\n\n\nleft_join(x, y, by = NULL, suffix = c(\".x\", \".y\"), ...) Join matching values from y to x. Retain all rows of x padding missing values from y by NA\nsemi_join …\nanti_join …"
+  },
+  {
+    "objectID": "core/slides/slides-dplyr.html#toy-examples-inner_join",
+    "href": "core/slides/slides-dplyr.html#toy-examples-inner_join",
+    "title": "Tables manipulation with dplyr",
+    "section": "Toy examples : inner_join\n",
+    "text": "Toy examples : inner_join\n\n\n\n\n\n\nR\n\nA1\nA2\nA3\nD\n\n\n\n2\nq\n2021-10-21\nr\n\n\n4\ne\n2021-10-28\nq\n\n\n6\na\n2021-11-04\no\n\n\n8\nj\n2021-11-11\ng\n\n\n10\nd\n2021-11-18\nd\n\n\n\n\n\n\nS\n\nE\nF\nG\nD\n\n\n\n3\ny\n2021-10-21\no\n\n\n4\ne\n2021-10-22\nc\n\n\n6\nn\n2021-10-23\ni\n\n\n9\nt\n2021-10-24\nd\n\n\n10\nr\n2021-10-25\ne\n\n\n\n\n\n\n\n\n\ninner_join(S, R, by=c(“E”=“A1”))\n\nE\nF\nG\nD.x\nA2\nA3\nD.y\n\n\n\n4\ne\n2021-10-22\nc\ne\n2021-10-28\nq\n\n\n6\nn\n2021-10-23\ni\na\n2021-11-04\no\n\n\n10\nr\n2021-10-25\ne\nd\n2021-11-18\nd"
+  },
+  {
+    "objectID": "core/slides/slides-dplyr.html#toy-examples-left_join",
+    "href": "core/slides/slides-dplyr.html#toy-examples-left_join",
+    "title": "Tables manipulation with dplyr",
+    "section": "Toy examples : left_join\n",
+    "text": "Toy examples : left_join\n\n\n\n\n\n\nR\n\nA1\nA2\nA3\nD\n\n\n\n2\nq\n2021-10-21\nr\n\n\n4\ne\n2021-10-28\nq\n\n\n6\na\n2021-11-04\no\n\n\n8\nj\n2021-11-11\ng\n\n\n10\nd\n2021-11-18\nd\n\n\n\n\n\n\nS\n\nE\nF\nG\nD\n\n\n\n3\ny\n2021-10-21\no\n\n\n4\ne\n2021-10-22\nc\n\n\n6\nn\n2021-10-23\ni\n\n\n9\nt\n2021-10-24\nd\n\n\n10\nr\n2021-10-25\ne\n\n\n\n\n\n\n\n\n\nleft_join(S, R, by=c(“E”=“A1”))\n\nE\nF\nG\nD.x\nA2\nA3\nD.y\n\n\n\n3\ny\n2021-10-21\no\nNA\nNA\nNA\n\n\n4\ne\n2021-10-22\nc\ne\n2021-10-28\nq\n\n\n6\nn\n2021-10-23\ni\na\n2021-11-04\no\n\n\n9\nt\n2021-10-24\nd\nNA\nNA\nNA\n\n\n10\nr\n2021-10-25\ne\nd\n2021-11-18\nd"
+  },
+  {
+    "objectID": "core/slides/slides-dplyr.html#toy-examples-semi_join-anti_join",
+    "href": "core/slides/slides-dplyr.html#toy-examples-semi_join-anti_join",
+    "title": "Tables manipulation with dplyr",
+    "section": "Toy examples : semi_join anti_join\n",
+    "text": "Toy examples : semi_join anti_join\n\n\n\n\n\n\nR\n\nA1\nA2\nA3\nD\n\n\n\n2\nq\n2021-10-21\nr\n\n\n4\ne\n2021-10-28\nq\n\n\n6\na\n2021-11-04\no\n\n\n8\nj\n2021-11-11\ng\n\n\n10\nd\n2021-11-18\nd\n\n\n\n\n\n\nS\n\nE\nF\nG\nD\n\n\n\n3\ny\n2021-10-21\no\n\n\n4\ne\n2021-10-22\nc\n\n\n6\nn\n2021-10-23\ni\n\n\n9\nt\n2021-10-24\nd\n\n\n10\nr\n2021-10-25\ne\n\n\n\n\n\n\n\n\n\nsemi_join(S, R, by=c(“E”=“A1”))\n\nE\nF\nG\nD\n\n\n\n4\ne\n2021-10-22\nc\n\n\n6\nn\n2021-10-23\ni\n\n\n10\nr\n2021-10-25\ne\n\n\n\n\n\n\n\n\n\nanti_join(S, R, by=c(“E”=“A1”))\n\nE\nF\nG\nD\n\n\n\n3\ny\n2021-10-21\no\n\n\n9\nt\n2021-10-24\nd"
+  },
+  {
+    "objectID": "core/slides/slides-dplyr.html#conditional-theta--join",
+    "href": "core/slides/slides-dplyr.html#conditional-theta--join",
+    "title": "Tables manipulation with dplyr",
+    "section": "Conditional/ \\(\\theta\\) -join",
+    "text": "Conditional/ \\(\\theta\\) -join\nIn relational databases, joins are not restricted to natural joins\n\n\\[U \\leftarrow R \\bowtie_{\\theta} S\\]\nreads as\n\\[\\begin{array}{rl} T & \\leftarrow R \\times S\\\\ U & \\leftarrow \\sigma(T, \\theta)\\end{array}\\]\nwhere\n\n\\(R \\times S\\) is the cartesian product of \\(R\\) and \\(S\\)\n\\(\\theta\\) is a boolean expression that can be evaluated on any tuple of \\(R \\times S\\)"
+  },
+  {
+    "objectID": "core/slides/slides-dplyr.html#do-we-need-conditional-theta--joins",
+    "href": "core/slides/slides-dplyr.html#do-we-need-conditional-theta--joins",
+    "title": "Tables manipulation with dplyr",
+    "section": "Do we need conditional/ \\(\\theta\\) -joins?",
+    "text": "Do we need conditional/ \\(\\theta\\) -joins?\n\n\n\n\n\n\nNote\n\n\n: We can implement \\(\\theta\\)/conditional-joins by pipelining a cross product and a filtering\n\n\n\n\n\n\n\n\n\n\nCaution\n\n\n: Cross products are costly:\n\n\\(\\#\\text{rows}(R \\times S) = \\#\\text{rows}(R) \\times \\#\\text{rows}(S)\\)\n\\(\\#\\text{cols}(R \\times S) = \\#\\text{cols}(R) + \\#\\text{cols}(S)\\)"
+  },
+  {
+    "objectID": "core/slides/slides-dplyr.html#do-we-need-conditional-theta--joins-1",
+    "href": "core/slides/slides-dplyr.html#do-we-need-conditional-theta--joins-1",
+    "title": "Tables manipulation with dplyr",
+    "section": "Do we need conditional/ \\(\\theta\\) -joins?",
+    "text": "Do we need conditional/ \\(\\theta\\) -joins?\n\n\n\n\n\n\nNote\n\n\n: RDBMS use query planning and optimization, indexing to circumvent the cross product bottleneck (when possible)\n\n\n\n\n\n\n\n\n\n\nTip\n\n\n: if we need to perform a \\(\\theta\\)-join\n\noutsource it to a RDBMS, or\ndesign an ad hoc pipeline\n\n\n\n\n\n\n\nAbout conditional join"
+  },
+  {
+    "objectID": "core/slides/slides-dplyr.html#a-conditional-join-between-flights-and-weather",
+    "href": "core/slides/slides-dplyr.html#a-conditional-join-between-flights-and-weather",
+    "title": "Tables manipulation with dplyr",
+    "section": "A conditional join between flights and weather\n",
+    "text": "A conditional join between flights and weather\n\n\nThe natural join between flights and weather we implemented can be regarded as an ad hoc conditional join between normalized versions of weather and flights \nTable flights and weather are redundant: year, month, day, hour can be computed from time_hour\nAssume flights and weather are trimmed so as to become irredundant\nThe conditional join is then based on truncations of variables time_hour\n\nSELECT \n  *\nFROM \n  flights AS f, weather AS w\nWHERE \n  date_trunc('hour', f.time_hour) = date_trunc('hour', w.time_hour)\n\nAdding redundant columns to flights and weather allows us to transform a tricky conditional join into a simple natural join \n\n\n\n\nPostgreSQL documentation"
+  },
+  {
+    "objectID": "core/slides/slides-dplyr.html#section-8",
+    "href": "core/slides/slides-dplyr.html#section-8",
+    "title": "Tables manipulation with dplyr",
+    "section": "",
+    "text": "Creation of new columns may happen\n\non the fly\nwhen altering (enriching) the schema of a table\n\nIn databases, creation of new columns may be the result of a query or be the result of altering a table schema with ALTER TABLE ADD COLUMN ...\nIn tidyverse() we use verbs mutate or add_column to add columns to the input table"
+  },
+  {
+    "objectID": "core/slides/slides-dplyr.html#mutate",
+    "href": "core/slides/slides-dplyr.html#mutate",
+    "title": "Tables manipulation with dplyr",
+    "section": "mutate",
+    "text": "mutate\n\n\nmutate(   #&lt;&lt;\n  .data,\n  new_col= expression, #&lt;&lt;\n  ...,   #&lt;&lt;\n  .keep = c(\"all\", \"used\", \"unused\", \"none\"),\n  .before = NULL,\n  .after = NULL\n)\n\n.data: the input data frame\nnew_col= expression:\n\nnew_col is the name of a new column\nexpression is evaluated on each row of .data or it is a vector of length 1\nall is the default behavior, retains all columns from .data"
+  },
+  {
+    "objectID": "core/slides/slides-dplyr.html#creating-a-categorical-column-to-spot-large-delays",
+    "href": "core/slides/slides-dplyr.html#creating-a-categorical-column-to-spot-large-delays",
+    "title": "Tables manipulation with dplyr",
+    "section": "Creating a categorical column to spot large delays",
+    "text": "Creating a categorical column to spot large delays\n\n\nbreaks_delay &lt;- with(flights,\n  c(min(arr_delay, na.rm=TRUE),\n    0, 30,\n    max(arr_delay, na.rm=TRUE))\n)\n\nlevel_delay &lt;- c(\"None\",\n                 \"Moderate\",\n                 \"Large\")\n\nflights |&gt;\n  mutate(large_delay = cut(\n    arr_delay,  #&lt;&lt;\n    breaks=breaks_delay, #&lt;&lt;\n    labels=level_delay,  #&lt;&lt;\n    ordered_result=TRUE)) |&gt;   #&lt;&lt;\n  select(large_delay, arr_delay) |&gt;\n  sample_n(5)\n\n\n# A tibble: 5 × 2\n  large_delay arr_delay\n  &lt;ord&gt;           &lt;dbl&gt;\n1 Large             219\n2 Moderate           18\n3 None              -19\n4 None              -16\n5 None               -1"
+  },
+  {
+    "objectID": "core/slides/slides-dplyr.html#section-9",
+    "href": "core/slides/slides-dplyr.html#section-9",
+    "title": "Tables manipulation with dplyr",
+    "section": "",
+    "text": "flights |&gt;\n  mutate(foo = if_else(arr_time &gt; sched_arr_time,        #&lt;&lt;\n                              arr_time - sched_arr_time,\n                              0L,\n                              missing = NA_integer_)) |&gt;\n  group_by( (foo &gt;0) & abs(foo - arr_delay)  &gt; 100) |&gt;\n  summarise(N=n())\n\n\n# A tibble: 3 × 2\n  `(foo &gt; 0) & abs(foo - arr_delay) &gt; 100`      N\n  &lt;lgl&gt;                                     &lt;int&gt;\n1 FALSE                                    322281\n2 TRUE                                       5157\n3 NA                                         9338"
+  },
+  {
+    "objectID": "core/slides/slides-dplyr.html#changing-the-class-of-a-column",
+    "href": "core/slides/slides-dplyr.html#changing-the-class-of-a-column",
+    "title": "Tables manipulation with dplyr",
+    "section": "Changing the class of a column",
+    "text": "Changing the class of a column\n\n\nflights |&gt;\n  mutate(large_delay = cut(arr_delay,  #&lt;&lt;\n    breaks=breaks_delay,\n    labels=level_delay,\n    ordered_result=TRUE),\n    origin = as.factor(origin), #&lt;&lt;\n    dest = as.factor(dest)    #&lt;&lt;\n  ) |&gt;\n  select(\n    large_delay,\n    arr_delay,\n    origin,\n    dest) |&gt;\n  sample_n(5)\n\n\n# A tibble: 5 × 4\n  large_delay arr_delay origin dest \n  &lt;ord&gt;           &lt;dbl&gt; &lt;fct&gt;  &lt;fct&gt;\n1 None              -44 LGA    CVG  \n2 None              -15 EWR    DAY  \n3 Large             136 EWR    DEN  \n4 None               -9 EWR    TPA  \n5 Moderate           14 LGA    TPA"
+  },
+  {
+    "objectID": "core/slides/slides-dplyr.html#tidying-tables-is-part-of-data-cleaning",
+    "href": "core/slides/slides-dplyr.html#tidying-tables-is-part-of-data-cleaning",
+    "title": "Tables manipulation with dplyr",
+    "section": "Tidying tables is part of data cleaning",
+    "text": "Tidying tables is part of data cleaning\n\nA (tidy) dataset is a collection of values, usually either numbers (if quantitative) or strings (if qualitative)\n\n\nValues are organised in two ways\n\n\nEvery value belongs to a variable and an observation\n\n\nA variable contains all values that measure the same underlying attribute (like height, temperature, duration) across units\n\n\nAn observation contains all values measured on the same unit (like a person, or a day, or a race) across attributes\n\n\nThe principles of tidy data are tied to those of relational databases and Codd’s relational algebra\n\n\n\n The tidy data paper"
+  },
+  {
+    "objectID": "core/slides/slides-dplyr.html#codds-principles",
+    "href": "core/slides/slides-dplyr.html#codds-principles",
+    "title": "Tables manipulation with dplyr",
+    "section": "Codd’s principles",
+    "text": "Codd’s principles\n\nInformation is represented logically in tables\n\nData must be logically accessible by table, primary key, and column.\n\nNull values must be uniformly treated as “missing information,” not as empty strings, blanks, or zeros.\nMetadata (data about the database) must be stored in the database just as regular data is\nA single language must be able to define data, views, integrity constraints, authorization, transactions, and data manipulation\n\nViews must show the updates of their base tables and vice versa\nA single operation must be available to do each of the following operations: retrieve data, insert data, update data, or delete data\nBatch and end-user operations are logically separate from physical storage and access methods\nBatch and end-user operations can change the database schema without having to recreate it or the applications built upon it\n\nIntegrity constraints must be available and stored in the metadata, not in an application program\nThe data manipulation language of the relational system should not care where or how the physical data is distributed and should not require alteration if the physical data is centralized or distributed\nAny row processing done in the system must obey the same integrity rules and constraints that set-processing operations do"
+  },
+  {
+    "objectID": "core/slides/slides-dplyr.html#section-10",
+    "href": "core/slides/slides-dplyr.html#section-10",
+    "title": "Tables manipulation with dplyr",
+    "section": "",
+    "text": "dplyr functions expect and return tidy tables\nIn a tidy table\n\nEach variable is a column\nEach observation is a row\nEvery cell is a single value\n\n\n\n The tidy data paper]"
+  },
+  {
+    "objectID": "core/slides/slides-dplyr.html#section-11",
+    "href": "core/slides/slides-dplyr.html#section-11",
+    "title": "Tables manipulation with dplyr",
+    "section": "",
+    "text": "In order to tell whether a table is tidy, we need to know what is the population under investigation, what are the observations/individuals, which measures are performed on each individual, …"
+  },
+  {
+    "objectID": "core/slides/slides-dplyr.html#untidy-data",
+    "href": "core/slides/slides-dplyr.html#untidy-data",
+    "title": "Tables manipulation with dplyr",
+    "section": "Untidy data",
+    "text": "Untidy data\n\nColumn headers are values, not variable names.\n\n\nMultiple variables are stored in one column.\n\n\nVariables are stored in both rows and columns.\n\n\nMultiple types of observational units are stored in the same table.\n\n\nA single observational unit is stored in multiple tables.\n\n\n…"
+  },
+  {
+    "objectID": "core/slides/slides-dplyr.html#functions-from-tidyr...",
+    "href": "core/slides/slides-dplyr.html#functions-from-tidyr...",
+    "title": "Tables manipulation with dplyr",
+    "section": "Functions from tidyr::...\n",
+    "text": "Functions from tidyr::...\n\n\npivot_wider and pivot_longer\nseparate and unite\nHandling missing values with complete, fill, …\n…\n\ntidyr website"
+  },
+  {
+    "objectID": "core/slides/slides-dplyr.html#pivot-longer",
+    "href": "core/slides/slides-dplyr.html#pivot-longer",
+    "title": "Tables manipulation with dplyr",
+    "section": "Pivot longer",
+    "text": "Pivot longer\n\n\npivot_longer() is commonly needed to tidy wild-caught datasets as they often optimise for ease of data entry or ease of comparison rather than ease of analysis.\n\n\n\nmessy &lt;- tibble::tribble(\n  ~row, ~a, ~b, ~c,\n  \"A\", 1, 4, 7,\n  \"B\", 2, 5, 8,\n  \"C\", 3, 6, 9,\n)\nmessy |&gt; kable()\n\n\n\n\nrow\na\nb\nc\n\n\n\nA\n1\n4\n7\n\n\nB\n2\n5\n8\n\n\nC\n3\n6\n9\n\n\n\n\n\n\n\nmessy_long &lt;- messy |&gt; \n  pivot_longer(\n    cols=c(-row),  #&lt;&lt;\n    names_to = \"name\",\n    values_to = \"value\")\n  \nmessy_long  |&gt; \n  kable()\n\n\n\n\nrow\nname\nvalue\n\n\n\nA\na\n1\n\n\nA\nb\n4\n\n\nA\nc\n7\n\n\nB\na\n2\n\n\nB\nb\n5\n\n\nB\nc\n8\n\n\nC\na\n3\n\n\nC\nb\n6\n\n\nC\nc\n9\n\n\n\n\n\n\n\n\n\npivot_longer() makes datasets longer by increasing the number of rows and decreasing the number of columns. I don’t believe it makes sense to describe a dataset as being in “long form”. Length is a relative term, and you can only say (e.g.) that dataset A is longer than dataset B."
+  },
+  {
+    "objectID": "core/slides/slides-dplyr.html#pivot-wider",
+    "href": "core/slides/slides-dplyr.html#pivot-wider",
+    "title": "Tables manipulation with dplyr",
+    "section": "Pivot wider",
+    "text": "Pivot wider\n\n\npivot_wider(  #&lt;&lt;\n  data,\n  id_cols = NULL, #&lt;&lt;\n  names_from = name, #&lt;&lt;\n  names_prefix = \"\",\n  values_from = value, #&lt;&lt;\n  ...\n)\n some optional arguments are missing\n\nWhen reporting, we often use pivot_wider (explicitely or implicitely) to make results more readable, possibly to conform to a tradition\n\nLife tables in demography and actuarial science\nLongitudinal data\nSee slide How many flights per day of week per departure airport?"
+  },
+  {
+    "objectID": "core/slides/slides-dplyr.html#pivot_wider-in-action",
+    "href": "core/slides/slides-dplyr.html#pivot_wider-in-action",
+    "title": "Tables manipulation with dplyr",
+    "section": "\npivot_wider() in action",
+    "text": "pivot_wider() in action\n\n\nmessy_long |&gt;\n  pivot_wider( \n  id_cols = c(\"row\"), #&lt;&lt;\n  names_from = name, #&lt;&lt;\n  names_prefix = \"\",\n  values_from = value\n)\n\n\n# A tibble: 3 × 4\n  row       a     b     c\n  &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n1 A         1     4     7\n2 B         2     5     8\n3 C         3     6     9"
+  },
+  {
+    "objectID": "core/slides/slides-dplyr.html#how-many-flights-per-carrier",
+    "href": "core/slides/slides-dplyr.html#how-many-flights-per-carrier",
+    "title": "Tables manipulation with dplyr",
+    "section": "How many flights per carrier?",
+    "text": "How many flights per carrier?\n\n\nflights |&gt;\n  group_by(carrier) |&gt;  #&lt;&lt;\n  summarise(count=n()) |&gt;  #&lt;&lt;\n  arrange(desc(count))\n\n\n# A tibble: 16 × 2\n   carrier count\n   &lt;chr&gt;   &lt;int&gt;\n 1 UA      58665\n 2 B6      54635\n 3 EV      54173\n 4 DL      48110\n 5 AA      32729\n 6 MQ      26397\n 7 US      20536\n 8 9E      18460\n 9 WN      12275\n10 VX       5162\n11 FL       3260\n12 AS        714\n13 F9        685\n14 YV        601\n15 HA        342\n16 OO         32\n\n\nSELECT \n  carrier, COUNT(*) AS n\nFROM \n  flights\nGROUP BY \n  carrier\nORDER BY \n  n DESCENDING"
+  },
+  {
+    "objectID": "core/slides/slides-dplyr.html#how-many-flights-per-day-of-week-per-departure-airport",
+    "href": "core/slides/slides-dplyr.html#how-many-flights-per-day-of-week-per-departure-airport",
+    "title": "Tables manipulation with dplyr",
+    "section": "How many flights per day of week per departure airport?",
+    "text": "How many flights per day of week per departure airport?\n\n\nflights |&gt;\n  group_by(origin,  wday(time_hour, abbr=T, label=T)) |&gt;  #&lt;&lt;\n  summarise(count=n(), .groups=\"drop\") |&gt;       #&lt;&lt;\n  rename(day_of_week=`wday(time_hour, abbr = T, label = T)`) |&gt;\n  pivot_wider(  #&lt;&lt;\n    id_cols=\"origin\",   #&lt;&lt;\n    names_from=\"day_of_week\", #&lt;&lt;\n    values_from=\"count\") |&gt;  #&lt;&lt;\n  kable(caption=\"Departures per day\")\n\n\n\nDepartures per day\n\norigin\ndim.\nlun.\nmar.\nmer.\njeu.\nven.\nsam.\n\n\n\nEWR\n16425\n18329\n18243\n18180\n18169\n18142\n13347\n\n\nJFK\n15966\n16104\n16017\n15841\n16087\n16176\n15088\n\n\nLGA\n13966\n16257\n16162\n16039\n15963\n15990\n10285"
+  },
+  {
+    "objectID": "core/slides/slides-dplyr.html#window-queries-1",
+    "href": "core/slides/slides-dplyr.html#window-queries-1",
+    "title": "Tables manipulation with dplyr",
+    "section": "Window queries",
+    "text": "Window queries\nAssume we want to answer the question: for each day of week (Monday, Tuesday, …), what are the five carriers that experience the largest average delay?\n\n\nflights |&gt;\n  group_by(weekdays(time_hour), carrier) |&gt;\n  summarise(avg_dep_delay=mean(dep_delay, na.rm=T)) |&gt;\n  slice_max(n=2, order_by=avg_dep_delay)\n\n\n# A tibble: 14 × 3\n# Groups:   weekdays(time_hour) [7]\n   `weekdays(time_hour)` carrier avg_dep_delay\n   &lt;chr&gt;                 &lt;chr&gt;           &lt;dbl&gt;\n 1 dimanche              F9               23.7\n 2 dimanche              VX               17.4\n 3 jeudi                 YV               29.7\n 4 jeudi                 F9               26.5\n 5 lundi                 FL               24.8\n 6 lundi                 EV               23.4\n 7 mardi                 YV               19.1\n 8 mardi                 FL               17.7\n 9 mercredi              OO               52  \n10 mercredi              HA               24.5\n11 samedi                OO               41  \n12 samedi                F9               15.8\n13 vendredi              OO               29  \n14 vendredi              F9               25.6"
+  },
+  {
+    "objectID": "core/slides/slides-dplyr.html#the-sql-way",
+    "href": "core/slides/slides-dplyr.html#the-sql-way",
+    "title": "Tables manipulation with dplyr",
+    "section": "The SQL way",
+    "text": "The SQL way\nWITH R AS (\n  SELECT \n    EXTRACT(dow FROM time_hour) AS day_of_week,\n    carrier,\n    AVG(dep_delay) AS avg_dep_delay\n  FROM \n    flights\n  GROUP BY \n    EXTRACT(dow FROM time_hour), carrier\n), S AS (\n  SELECT \n    day_of_week,\n    carrier,\n    rank() OVER (PARTITION by day_of_week ORDER BY avg_dep_delay DESC) AS rnk\n  FROM \n    R\n)\n\nSELECT \n  day_of_week, \n  carrier, \n  rnk\nFROM \n  S\nWHERE \n  rnk &lt;= 10 ;"
+  },
+  {
+    "objectID": "core/slides/slides-dplyr.html#sliding-windows-and-package-slider",
+    "href": "core/slides/slides-dplyr.html#sliding-windows-and-package-slider",
+    "title": "Tables manipulation with dplyr",
+    "section": "Sliding windows and package slider\n",
+    "text": "Sliding windows and package slider\n\nTODO"
+  },
+  {
+    "objectID": "core/slides/slides-dplyr.html#and-other-pipes",
+    "href": "core/slides/slides-dplyr.html#and-other-pipes",
+    "title": "Tables manipulation with dplyr",
+    "section": "\n|>, %>% and other pipes",
+    "text": "|&gt;, %&gt;% and other pipes\n\nAll dplyr functions take a table as the first argument\nRather than forcing the user to either save intermediate objects or nest functions, dplyr provides the |&gt; operator from magrittr\nx |&gt; f(y) turns into f(x, y)\nThe result from one step is piped into the next step\nUse |&gt; to rewrite multiple operations that you can read left-to-right/top-to-bottom\n\n\ng(f(x, y), z)\n\nx |&gt;\n  f(y) |&gt;\n  g(z)\n\n\n\nFrom dplyr vignette"
+  },
+  {
+    "objectID": "core/slides/slides-dplyr.html#magrittr",
+    "href": "core/slides/slides-dplyr.html#magrittr",
+    "title": "Tables manipulation with dplyr",
+    "section": "Magrittr %>%\n",
+    "text": "Magrittr %&gt;%\n\n\n\n\n\n%&gt;% is not tied to dplyr\n\n\n%&gt;% can be used with packages from tidyverse\n\n\n%&gt;% can be used outside tidyverse that is with functions which take a table (or something else) as a second, third or keyword argument\n\n Use pronoun . to denote the LHS of the pipe expression\n\nSecond argument of g has the same type as the result of f\n\ng(z, f(x, y))\n\nx %&gt;%\n  f(y) %&gt;%\n  g(z, .)   #&lt;&lt;\n\nx %&gt;% f(y) is a shorthand for x %&gt;% f(., y)"
+  },
+  {
+    "objectID": "core/slides/slides-dplyr.html#standard-pipe-version-4.",
+    "href": "core/slides/slides-dplyr.html#standard-pipe-version-4.",
+    "title": "Tables manipulation with dplyr",
+    "section": "Standard pipe |> (version > 4.)",
+    "text": "Standard pipe |&gt; (version &gt; 4.)\nAs of version 4.1 (2021), base  offers a pipe operator denoted by |&gt;\n\n\nx |&gt; f(y) turns into f(x, y)\n\ng(f(x, y), z)\n\nx |&gt;\n  f(y) |&gt;\n  g(z)\n\n\n the standard pipe |&gt; has no pronoun/placeholder to denote the LHS of the pipe expression\nThe roundabout consists in using another new construct \\(x)\ng(z, w)\n\nx |&gt;\n  (\\(x) g(z, w=x))()\n\n\"une\" |&gt;\n  (\\(x) str_c(\"ceci n'est pas\", x, sep=\" \"))() |&gt;\n  str_c(\"pipe\", sep=\" \") |&gt;\n  cat()\n\nceci n'est pas une pipe\n\n\n\n\n\nSee Blog on the new standard pipe]"
+  },
+  {
+    "objectID": "core/slides/slides-dplyr.html#other-pipes",
+    "href": "core/slides/slides-dplyr.html#other-pipes",
+    "title": "Tables manipulation with dplyr",
+    "section": "Other pipes",
+    "text": "Other pipes\nMagrittr offers several variants of |&gt;\n\nTee operator %T&gt;%\n\nAssignement pipe %&lt;&gt;%\n\nExposition operator %$%\n\n…\n\nSee pipes for beginners\n Base  has a pipe() function to manipulate connections (Files, URLs, …)"
+  },
+  {
+    "objectID": "core/slides/slides-dplyr.html#references",
+    "href": "core/slides/slides-dplyr.html#references",
+    "title": "Tables manipulation with dplyr",
+    "section": "\n References",
+    "text": "References\n\n\nR for Data Science\n\nData transformation\n\n\nRstudio cheat sheets\n\ndplyr\ntidyr\ndatatable\nreadr"
+  },
+  {
+    "objectID": "core/slides/slides-dplyr.html#pandas-python-versus-r-dataframes",
+    "href": "core/slides/slides-dplyr.html#pandas-python-versus-r-dataframes",
+    "title": "Tables manipulation with dplyr",
+    "section": "Pandas (Python) versus R dataframes",
+    "text": "Pandas (Python) versus R dataframes\nThis document Comparison with R in Panda’s documentation is somewhat outdated, yet, it remains useful.\nIn a single package, through classes DataFrame and Series, Pandas covers things that are handled by a collection of packages in R :\n\nQuerying (dplyr, dtplyr, dbplyr)\nReshaping (tidyr)\nSummary statistics (skimr)\nBridging with graphical backends (ggplot2)\nTable display (gt)\nReaders and writers (readr, readxl, …)\n…"
+  },
+  {
+    "objectID": "core/slides/slides-dplyr.html#tidy-selection-and-tidy-evaluation",
+    "href": "core/slides/slides-dplyr.html#tidy-selection-and-tidy-evaluation",
+    "title": "Tables manipulation with dplyr",
+    "section": "Tidy selection and tidy evaluation",
+    "text": "Tidy selection and tidy evaluation\nThanks to tidy evaluation, R programmers can avoid quoting column names. Some programmers like it that way."
+  },
+  {
+    "objectID": "core/slides/slides-dplyr.html#near-future",
+    "href": "core/slides/slides-dplyr.html#near-future",
+    "title": "Tables manipulation with dplyr",
+    "section": "Near future",
+    "text": "Near future\nPandas (up to 2.xx) has not been praised for its treatment of strings and missing data. This is changing with the Arrow revolution and Pandas 3.0"
+  },
+  {
+    "objectID": "core/slides/slides-dplyr.html#section-12",
+    "href": "core/slides/slides-dplyr.html#section-12",
+    "title": "Tables manipulation with dplyr",
+    "section": "",
+    "text": "The document Comparison with R in Pandas documentation is somewhat outdated, yet, it remains useful.\nIn a single package, through classes DataFrame and Series, Pandas covers things that are handled by a collection of packages in R :\n\nQuerying (dplyr, dtplyr, dbplyr)\nReshaping (tidyr)\nSummary statistics (skimr)\nBridging with graphical backends (ggplot2)\nTable display (gt)\nReaders and writers (readr, readxl, …)\n…"
   }
 ]
