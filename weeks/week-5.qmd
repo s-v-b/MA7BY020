@@ -9,7 +9,7 @@ draft: true
 ::: callout-important
 
 -   Session I Sophie Germain (2017) Monday 16h-17h30
--   Session II Sophie Germain (2011) Friday 16h30-18h
+-   Session II Sophie Germain (2011) Friday 16h45-18h15
 -   {{< fa cal >}} [Calendar](https://edt.math.univ-paris-diderot.fr/#/parcours/mathinfo/m1)
 
 :::
