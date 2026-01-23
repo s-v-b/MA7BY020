@@ -24,13 +24,13 @@ engine: knitr
 Course evaluation is based on Projects {{< fa hands-holding-circle >}}
 
 - {{< fa hand-holding-hand >}} Find a friend : all work done by *pairs of students*
-- {{< fa brands github >}} Create a single *private* `GitHub` repository  for each project and each pair of students. 
+- {{< fa brands github >}} Create a single *private* `GitHub` repository  for each project and each pair of students. You may use your github account to do that.
 - {{< fa brands github >}} Name the repository `MA7BY020-2026-xx` where `xx` is the project number
 - {{< fa unlock-keyhole >}} Grant me access to these repositories
 - {{< fa brands github >}} In the `README.md` file at the root of your repository, list the name (last name, first number, and student id number)  of each team member
 - {{< fa circle-radiation >}} All work is transmitted through your private repository and nowhere else
 - {{< fa paper-plane >}} No emails for project submission
-- {{< fa laptop-file >}} All projects deliverables consist of `Quarto` notebooks
+- {{< fa laptop-file >}} All projects deliverables (report and presentation support) consist of `Quarto` notebooks. I should be able to fork your repository and use `quarto render` to generate the deliverable.
 
 :::
 
@@ -54,6 +54,7 @@ Grading criteria are given per project. They involve the following aspects:
 | Criterion | Points  | Details |
 |:----------|:-------:|:--------|
 |Narrative, spelling and syntax |  | English/French {{<  fa pen-fancy >}}|
+|FAIRness   | |  FAIR principles at {{< fa brands wikipedia-w >}} [Wikipedia](https://en.wikipedia.org/wiki/FAIR_data) |
 |Plots correction |  | choice of `aesthetics`, `geom`, `scale` ... {{<  fa chart-area >}}|
 |Plots style |  | Titles, legends, labels, breaks ... {{<  fa chart-area >}} |
 |Table wrangling |  | ETL, SQL like manipulations {{<  fa database >}} |

@@ -1,7 +1,7 @@
 - title: "Data wrangling and Visualization"
   description: "Data extraction, wrangling, visualization, reproducible data science"
   categories: ["OECD", "Visualization", "Quarto", "tidyverse", "plotly"]
-#  path: "core/projects/hmw_gapminder_oecd.html"
+  path: "core/projects/hmw_gapminder_oecd.html"
   date: "March 2026"
 # - title: "Regression, Package Development"
 #   description: "Statistical summaries, Regression, Package, Generics, isotone"
