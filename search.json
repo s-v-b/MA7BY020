@@ -4,7 +4,7 @@
     "href": "projects-listings.html",
     "title": "Projects",
     "section": "",
-    "text": "Note\n\n\n\nCourse evaluation is based on Projects \n\n Find a friend : all work done by pairs of students\n Create a single private GitHub repository for each project and each pair of students.\n Name the repository MA7BY020-2026-xx where xx is the project number\n Grant me access to these repositories\n In the README.md file at the root of your repository, list the name (last name, first number, and student id number) of each team member\n All work is transmitted through your private repository and nowhere else\n No emails for project submission\n All projects deliverables consist of Quarto notebooks\n\n\n\n\n\n   \n    \n    \n      Order By\n      Default\n      \n        Title\n      \n      \n        Description\n      \n      \n        Tags\n      \n      \n        Due date - Oldest\n      \n      \n        Due date - Newest\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\nDue date\n\n\n\nTitle\n\n\n\nDescription\n\n\n\nTags\n\n\n\n\n\n\n\n\nMar 1, 2026\n\n\nData wrangling and Visualization\n\n\nData extraction, wrangling, visualization, reproducible data science\n\n\nOECD, Visualization, Quarto, tidyverse, plotly\n\n\n\n\n\n\nMay 1, 2026\n\n\nRegression SVD methods and Voting data\n\n\nRegression, SVD, Clustering,\n\n\nRegression”, PCA, Clustering, Quarto\n\n\n\n\n\n\nNo matching items\n\n\n\n\n\n\n\nWarningEvaluation guidelines\n\n\n\nGrading criteria are given per project. They involve the following aspects:\n\n\n\nCriterion\nPoints\nDetails\n\n\n\n\nNarrative, spelling and syntax\n\nEnglish/French \n\n\nPlots correction\n\nchoice of aesthetics, geom, scale … \n\n\nPlots style\n\nTitles, legends, labels, breaks … \n\n\nTable wrangling\n\nETL, SQL like manipulations \n\n\nComputing Statistics\n\nAggregations, LR, PCA, CA, … \n\n\nDRY compliance\n\nDRY principle at  Wikipedia\n\n\nReport organization\n\n\n\n\nCode organization",
+    "text": "Note\n\n\n\nCourse evaluation is based on Projects \n\n Find a friend : all work done by pairs of students\n Create a single private GitHub repository for each project and each pair of students. You may use your github account to do that.\n Name the repository MA7BY020-2026-xx where xx is the project number\n Grant me access to these repositories\n In the README.md file at the root of your repository, list the name (last name, first number, and student id number) of each team member\n All work is transmitted through your private repository and nowhere else\n No emails for project submission\n All projects deliverables (report and presentation support) consist of Quarto notebooks. I should be able to fork your repository and use quarto render to generate the deliverable.\n\n\n\n\n\n   \n    \n    \n      Order By\n      Default\n      \n        Title\n      \n      \n        Description\n      \n      \n        Tags\n      \n      \n        Due date - Oldest\n      \n      \n        Due date - Newest\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\nDue date\n\n\n\nTitle\n\n\n\nDescription\n\n\n\nTags\n\n\n\n\n\n\n\n\nMar 1, 2026\n\n\nData wrangling and Visualization\n\n\nData extraction, wrangling, visualization, reproducible data science\n\n\nOECD, Visualization, Quarto, tidyverse, plotly\n\n\n\n\n\n\nMay 1, 2026\n\n\nRegression SVD methods and Voting data\n\n\nRegression, SVD, Clustering,\n\n\nRegression”, PCA, Clustering, Quarto\n\n\n\n\n\n\nNo matching items\n\n\n\n\n\n\n\nWarningEvaluation guidelines\n\n\n\nGrading criteria are given per project. They involve the following aspects:\n\n\n\nCriterion\nPoints\nDetails\n\n\n\n\nNarrative, spelling and syntax\n\nEnglish/French \n\n\nFAIRness\n\nFAIR principles at  Wikipedia\n\n\nPlots correction\n\nchoice of aesthetics, geom, scale … \n\n\nPlots style\n\nTitles, legends, labels, breaks … \n\n\nTable wrangling\n\nETL, SQL like manipulations \n\n\nComputing Statistics\n\nAggregations, LR, PCA, CA, … \n\n\nDRY compliance\n\nDRY principle at  Wikipedia\n\n\nReport organization\n\n\n\n\nCode organization",
     "crumbs": [
       "Projects"
     ]
@@ -2735,5 +2735,147 @@
     "title": "Tables manipulation with dplyr",
     "section": "",
     "text": "The document Comparison with R in Pandas documentation is somewhat outdated, yet, it remains useful.\nIn a single package, through classes DataFrame and Series, Pandas covers things that are handled by a collection of packages in R :\n\nQuerying (dplyr, dtplyr, dbplyr)\nReshaping (tidyr)\nSummary statistics (skimr)\nBridging with graphical backends (ggplot2)\nTable display (gt)\nReaders and writers (readr, readxl, …)\n…"
+  },
+  {
+    "objectID": "weeks/week-2.html",
+    "href": "weeks/week-2.html",
+    "title": "Week 2",
+    "section": "",
+    "text": "Important\n\n\n\n\nSession I Sophie Germain (2017) Monday 16h-17h30\nSession II Sophie Germain (2011) Friday 16h45-18h15\n Calendar"
+  },
+  {
+    "objectID": "weeks/week-2.html#labs",
+    "href": "weeks/week-2.html#labs",
+    "title": "Week 2",
+    "section": " Labs",
+    "text": "Labs\nWe revisit the first two labs (solutions )\n\nLab 1 - Introduction to R and RStudio\nLab 2 - Introduction to Data Visualization using Gapminder dataset\n\nWe use Rstudio, and our dedicated R project (without git and renv). We install packages gt, nycflights and slider.\nWe review our first slide deck:\n\nIntroduction to dplyr\n\nand dig into\n\nLab 3 - Working with dplyr"
+  },
+  {
+    "objectID": "weeks/week-2.html#further-work",
+    "href": "weeks/week-2.html#further-work",
+    "title": "Week 2",
+    "section": " Further work",
+    "text": "Further work\n Review the content of the three labs. Work out every part you do not already know. Report an issue if you are unhappy with the proposed solutions/hints."
+  },
+  {
+    "objectID": "weeks/week-2.html#further-reading",
+    "href": "weeks/week-2.html#further-reading",
+    "title": "Week 2",
+    "section": " Further reading",
+    "text": "Further reading\n\nR for data science\nAdvanced R"
+  },
+  {
+    "objectID": "weeks/week-2.html#logistics",
+    "href": "weeks/week-2.html#logistics",
+    "title": "Week 2",
+    "section": " Logistics",
+    "text": "Logistics\n : you will work with the R programming language in this course.\nYou need either to install R, RStudio and VS Code on your computer, or to use your posit-cloud account.\n Install Quarto on your computer to render the .qmd files.\nPlease follow the instructions here to install R, RStudio, VS Code, and Quarto or to access posit-cloud.\n Please activate your ENT account (follow the instructions on Moodle). You will be able to access the PostGres server.\n\n\nBack to Agenda ⏎"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "MA7BY020: Exporatory Data Analysis",
+    "section": "",
+    "text": "Github\n  \n\n  \n  \n\n\nCourse MA7BY020: Exploratory Data Analysis is an introduction to the principles and practice of data exploration and visualization using the R programming language. Keeping an eye on Machine Learning and Data Science, the course will cover the following topics:\n\nTabular data manipulation\nData visualization\nUnivariate and bivariate analysis for qualitative and quantitative data\nMultivariate analysis starting with multiple linear\nMatrix methods based on Singular Value Decomposition: PCA, CA, CCA, …\nClustering methods\n\n\n\n\nAfter that course, you will be able to:\n\nHandle tabular data using R version of the relational algebra (dplyr)\nVisualize data using ggplot2 and plotly\nUnderstand the challenge raised by data/metadata management\nPerform univariate and bivariate analysis, compute and assess statistical summaries\nPerform multivariate analysis using matrix methods\nDiagnose and validate the results of multivariate analysis\nPerform, discuss and communicate the results of SVD factorization methods\nPerform, discuss and communicate the results of clustering methods\nCommunicate the results of the analysis in a clear and concise manner using Quarto reports, presentations, and dashboards\n\n\n\n\nThe course is based on the R programming language, the RStudio IDE, and the VS Code Ide. We will rely on the tidyverse package and attempt to take advantage of R tidy evaluation mechanisms to write expressive and efficient code.\nWe will use the quarto package for reproducible research.\n\n\n\n\n\nSyllabus\nTeaching team\nComputing environment\nSlides\nLabs\nLabs solutions\nProjects\nClass notes",
+    "crumbs": [
+      "Information",
+      "Glimpse"
+    ]
+  },
+  {
+    "objectID": "labs-listings.html",
+    "href": "labs-listings.html",
+    "title": "Labs",
+    "section": "",
+    "text": "Note\n\n\n\nSessions are organized around labs. Feel free to look at the lab before sessions. Do not rush to solutions proposed here\n\n\n\n\n   \n    \n    \n      Order By\n      Default\n      \n        Title\n      \n      \n        Date - Oldest\n      \n      \n        Date - Newest\n      \n      \n        Tags\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\nDate\n\n\n\nTitle\n\n\n\nTags\n\n\n\n\n\n\n\n\nJan 12, 2026\n\n\nIntroduction and Visualization\n\n\nVisualization, Public Statistics\n\n\n\n\n\n\nJan 12, 2026\n\n\nBrush up your R\n\n\nR language, Tidyverse, IDE\n\n\n\n\n\n\nJan 19, 2026\n\n\nTable wranglig\n\n\nR language, dplyr, tabula data\n\n\n\n\n\n\nJan 26, 2026\n\n\nUnivariate categorical data\n\n\nUnivariate data, GSS\n\n\n\n\n\n\nJan 26, 2026\n\n\nUnivariate numeric data\n\n\nUnivariate data, GSS\n\n\n\n\n\n\nFeb 2, 2026\n\n\nBivariate data\n\n\nbivariate data, mosaicplots, scatterplots, simple linear regression\n\n\n\n\n\n\nFeb 16, 2026\n\n\nLinear Regression I\n\n\nLinear regression, OLS, lm\n\n\n\n\n\n\nMar 2, 2026\n\n\nLinear regression II\n\n\nLinear regression, OLS, lm, diagnostics, variable selection\n\n\n\n\n\n\nMar 9, 2026\n\n\nSVD and PCA\n\n\nSVD, PCA\n\n\n\n\n\n\nMar 16, 2026\n\n\nCorrespondence Analysis\n\n\nSVD, CA, Correspondence Analysis\n\n\n\n\n\n\nMar 23, 2026\n\n\nSVD, MCA, CCA\n\n\nSVD, PCA, CA, MCA, CCA\n\n\n\n\n\n\nMar 30, 2026\n\n\nClustering: kmeans\n\n\nClustering, k-means\n\n\n\n\n\n\nApr 6, 2026\n\n\nClustering: Hierarchical\n\n\nClustering, Hierarchical\n\n\n\n\n\n\nNo matching items\n\n\n\n\n\n\n\nTipTip\n\n\n\nBefore working out a lab, make sure the relevant packages are installed in your environment.",
+    "crumbs": [
+      "Labs"
+    ]
+  },
+  {
+    "objectID": "labs-solutions-listings.html",
+    "href": "labs-solutions-listings.html",
+    "title": "Labs Solutions",
+    "section": "",
+    "text": "Order By\n      Default\n      \n        Title\n      \n      \n        Date - Oldest\n      \n      \n        Date - Newest\n      \n      \n        Tags\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\nDate\n\n\n\nTitle\n\n\n\nTags\n\n\n\n\n\n\n\n\nJan 12, 2026\n\n\nIntroduction and Visualization\n\n\nVisualization, Public Statistics\n\n\n\n\n\n\nJan 12, 2026\n\n\nBrush up your R\n\n\nR language, Tidyverse, IDE\n\n\n\n\n\n\nJan 19, 2026\n\n\nTable wranglig\n\n\nR language, dplyr, tabula data\n\n\n\n\n\n\nJan 26, 2026\n\n\nUnivariate categorical data\n\n\nUnivariate data, GSS\n\n\n\n\n\n\nJan 26, 2026\n\n\nUnivariate numeric data\n\n\nUnivariate data, GSS\n\n\n\n\n\n\nFeb 2, 2026\n\n\nBivariate data\n\n\nbivariate data, mosaicplots, scatterplots, simple linear regression\n\n\n\n\n\n\nFeb 16, 2026\n\n\nLinear regression I\n\n\nLinear regression, OLS, lm\n\n\n\n\n\n\nMar 2, 2026\n\n\nLinear regression II\n\n\nLinear regression, OLS, lm, diagnostics, variable selection\n\n\n\n\n\n\nMar 9, 2026\n\n\nSVD and PCA\n\n\nSVD, PCA\n\n\n\n\n\n\nMar 16, 2026\n\n\nCorrespondence Analysis\n\n\nSVD, CA, Correspondence Analysis\n\n\n\n\n\n\nMar 23, 2026\n\n\nSVD, MCA, CCA\n\n\nSVD, PCA, CA, MCA, CCA\n\n\n\n\n\n\nMar 30, 2026\n\n\nClustering: kmeans\n\n\nClustering, k-means\n\n\n\n\n\n\nApr 6, 2026\n\n\nClustering: Hierarchical\n\n\nClustering, Hierarchical\n\n\n\n\n\n\nNo matching items",
+    "crumbs": [
+      "Solutions"
+    ]
+  },
+  {
+    "objectID": "weeks-listings.html",
+    "href": "weeks-listings.html",
+    "title": "Journal",
+    "section": "",
+    "text": "Order By\n      Default\n      \n        Title\n      \n      \n        Date - Oldest\n      \n      \n        Date - Newest\n      \n      \n        Tags\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\nDate\n\n\n\nTitle\n\n\n\nTags\n\n\n\n\n\n\n\n\nJan 12, 2026\n\n\nWeek 1\n\n\nVisualization, Public Statistics, R language, Tidyverse\n\n\n\n\n\n\nJan 19, 2026\n\n\nWeek 2\n\n\nR language, Tidyverse, Table manipulations\n\n\n\n\n\n\nJan 26, 2026\n\n\nWeek 3\n\n\nUnivariate data\n\n\n\n\n\n\nFeb 2, 2026\n\n\nWeek 4\n\n\nBivariate data\n\n\n\n\n\n\nFeb 9, 2026\n\n\nWeek 5\n\n\nLinear regression, OLS, lm, Model diagnostics\n\n\n\n\n\n\nFeb 16, 2026\n\n\nWeek 6\n\n\nLinear regression, OLS, lm, Model diagnostics\n\n\n\n\n\n\nFeb 23, 2026\n\n\nWeek 7\n\n\nPCA, SVD\n\n\n\n\n\n\nMar 9, 2026\n\n\nWeek 8\n\n\nCA, SVD\n\n\n\n\n\n\nMar 16, 2026\n\n\nWeek 9\n\n\nCCA, MCA, SVD\n\n\n\n\n\n\nMar 23, 2026\n\n\nWeek 10\n\n\nClusterings\n\n\n\n\n\n\nMar 30, 2026\n\n\nWeek 11\n\n\nClusterings\n\n\n\n\n\n\nApr 13, 2026\n\n\nWeek 12\n\n\nTBA\n\n\n\n\n\n\nNo matching items",
+    "crumbs": [
+      "Journal"
+    ]
+  },
+  {
+    "objectID": "core/projects/hmw-II.html",
+    "href": "core/projects/hmw-II.html",
+    "title": "Hmw II : Tables and visualization",
+    "section": "",
+    "text": "Important\n\n\n\n\nDue : May 29, 2025\nWork in pairs\nDeliver your work as a qmd file through a github  repository\nUse the quarto package for reproducible research\nUse pyspark or sparlyr\nUse spark-nlp for text annotation\nThe report should be rendered at least in HTML format, and possibly also in PDF format"
+  },
+  {
+    "objectID": "core/projects/hmw-II.html#report-organization",
+    "href": "core/projects/hmw-II.html#report-organization",
+    "title": "Hmw II : Tables and visualization",
+    "section": " Report organization",
+    "text": "Report organization\nThe first part (introduction) of the report shall be dedicated to the description of the data to be extracted and to the extraction pipeline (not different from Homework I).\nThe second part of the report shall be dedicated to the description of load/transform pipeline.\nThe third part of the report shall be dedicated to the description of the annotation pipeline\nThe fourth part of the report shall be dedicated to the stylometric analysis: which questions did you pick up (and why?), plots, summary tables and comments. Refrain from overplaying your hand: yours plots are not likely to provide a new literary interpretation of Balzac opera. Comment the data, all the data, and nothing but the data.\nThe fifth part is the appendix. The first four parts should be mostly text and plots. The fifth part should be code only.\nThe appendix shall be dedicated to the details of the pipelines. You shall give the code.\nYou shall also give the code of the graphical pipelines in the appendix.\nYou shall avoid copy-paste coding. Don’t Repeat Yourself. knitr provide the tools to organize the Quarto file so that you can write your code once and use it many times, once for data wrangling and plotting (without echoing), then for listing and explanation.\n\n\n\n\n\n\nTipOrganizing a report using the jupyter engine"
+  },
+  {
+    "objectID": "core/projects/hmw-II.html#references",
+    "href": "core/projects/hmw-II.html#references",
+    "title": "Hmw II : Tables and visualization",
+    "section": " References",
+    "text": "References\n\nData Humanities with R\nSpacy\nSpark NLP\nWeb scrapping\nscrapy\nstylo\n\npy2r\nComputational stylistics"
+  },
+  {
+    "objectID": "core/projects/hmw-II.html#data-sources",
+    "href": "core/projects/hmw-II.html#data-sources",
+    "title": "Hmw II : Tables and visualization",
+    "section": "Data sources",
+    "text": "Data sources\n\nProject Gutenberg: you can find the La Comédie Humaine using a simple search. All volumes can be downloaded as text files from there."
+  },
+  {
+    "objectID": "core/projects/hmw-II.html#grading-criteria",
+    "href": "core/projects/hmw-II.html#grading-criteria",
+    "title": "Hmw II : Tables and visualization",
+    "section": " Grading criteria",
+    "text": "Grading criteria\n\n\n\nCriterion\nPoints\nDetails\n\n\n\n\nNarrative, spelling and syntax\n20%\nEnglish/French \n\n\nPlots correction\n15%\nchoice of aesthetics, geom, scale … \n\n\nPlot style\n10%\nTitles, legends, labels, breaks … \n\n\nETL\n20%\nETL, SQL like manipulations \n\n\nAnnotation\n10%\nAnnotations \n\n\nComputing Statistics\n5%\n… \n\n\nDRY compliance\n20%\nDRY principle at  Wikipedia"
+  },
+  {
+    "objectID": "core/projects/fake-report.html",
+    "href": "core/projects/fake-report.html",
+    "title": "LAB: Fake report",
+    "section": "",
+    "text": "Motivation\n\n\nAmet commodo faucibus risus neque rutrum sodales ante eleifend inceptos est pharetra?\n\n\n\n\nReproducible data gathering\nData and metadata should be retrieved programmatically.\nHere is an example from the OECD API documentation. Other providers have their own API for example Eurostat.\n\nurl &lt;- \"https://sdmx.oecd.org/public/rest/data/OECD.SDD.STES,DSD_STES@DF_CLI/.M.LI...AA...H?startPeriod=2023-02&dimensionAtObservation=AllDimensions&format=csvfilewithlabels\"\n\ndf &lt;-  read.csv(url)\n\ndf |&gt;\n  dplyr::select(sample(seq(1,30), size=10)) |&gt;\n  tibble::glimpse(width=30)\n\nRows: 770\nColumns: 10\n$ Observation.value       &lt;lgl&gt; …\n$ Unit.of.measure         &lt;chr&gt; …\n$ Time.horizon            &lt;chr&gt; …\n$ TIME_HORIZ              &lt;chr&gt; …\n$ Reference.area          &lt;chr&gt; …\n$ FREQ                    &lt;chr&gt; …\n$ STRUCTURE_NAME          &lt;chr&gt; …\n$ Calculation.methodology &lt;chr&gt; …\n$ TRANSFORMATION          &lt;chr&gt; …\n$ Observation.status      &lt;chr&gt; …\n\n\n Note that in your report, data gathering chunks should go to the appendix.\n\n\n200 countries, 50 years, 20 lines of code\nYou should build your report and your presentation around plots and tables.\n\n\nSit varius nibh ultricies convallis fames velit ut inceptos dapibus. Mauris sed nisi magnis odio duis cum vel quis sagittis nisi – posuere, nisi parturient mus lectus. Curae hac nascetur eu netus vel eleifend, et duis facilisis augue nibh vulputate. Cursus vitae fringilla magnis, fames potenti velit nunc fermentum risus. Enim ante egestas rutrum nisl posuere quisque quisque.\n\n\n Display tables with style (no kitsch please).\n\n\n\n\n\n\n\n\nCountry\nContinent\nYear\nLife Expectancy\nPopulation (Millions Inhab.)\ngdpPercap\n\n\n\n\nPhilippines\nAsia\n1957\n51.3\n26.1\n$1,548\n\n\nMongolia\nAsia\n2002\n65.0\n2.7\n$2,141\n\n\nUnited Kingdom\nEurope\n1977\n72.8\n56.2\n$17,429\n\n\nFrance\nEurope\n1992\n77.5\n57.4\n$24,704\n\n\nZambia\nAfrica\n1977\n51.4\n5.2\n$1,589\n\n\nNiger\nAfrica\n1977\n41.3\n5.7\n$809\n\n\nUruguay\nAmericas\n1967\n68.5\n2.7\n$5,445\n\n\nArgentina\nAmericas\n1957\n64.4\n19.6\n$6,857\n\n\nAustralia\nOceania\n1987\n76.3\n16.3\n$21,889\n\n\nNew Zealand\nOceania\n1997\n77.5\n3.7\n$21,050\n\n\n\n\n\n\n\n\n\nAdipiscing nascetur, per sem blandit montes venenatis cubilia nam parturient ac. Curae ridiculus leo, morbi at donec penatibus parturient. Phasellus netus consequat cursus litora fames, augue congue nunc. Vehicula egestas consequat laoreet aenean – consequat pellentesque, ut dignissim dictum dis.\n\n\n Visualization matters\n\n\n\n\n\n\n\n\n\n\n\nStatic with plotly\n\n\nSit varius nibh ultricies convallis fames velit ut inceptos dapibus. Mauris sed nisi magnis odio duis cum vel quis sagittis nisi – posuere, nisi parturient mus lectus. Curae hac nascetur eu netus vel eleifend, et duis facilisis augue nibh vulputate. Cursus vitae fringilla magnis, fames potenti velit nunc fermentum risus. Enim ante egestas rutrum nisl posuere quisque quisque.\n\n\n Interaction and animation shine\n\n\n\n\n\n\n\n\nWizardry\n\n\nSit ultrices nisi proin dictumst ac primis augue egestas a. Odio ultricies sagittis sapien sollicitudin sem convallis tempor montes quisque! Hendrerit urna nunc pulvinar nostra ullamcorper convallis sem. Blandit habitasse cubilia nisi nisi neque habitant, mollis taciti vivamus fermentum ultricies.\n\n\n\n\n\n\n\n\n\n\nAppendix\n The appendix should contain the code that helped you create the document\n\n\nDolor nulla facilisis duis at varius sociis! Lectus magna aptent hac suspendisse tempus torquent tempor primis magnis ornare netus hac lacinia, fames turpis vulputate nisl, bibendum gravida commodo.\n\n\n\n# Load the data\n#\ngapminder &lt;- gapminder::gapminder\n#\n#\n# Using package gt \n#\ngapminder |&gt;\n  dplyr::slice_sample(n=2, by= continent) |&gt;\n  dplyr::mutate(pop=pop/1e6) |&gt;\n  gt::gt() |&gt;\n  gt::fmt_number(columns=c(pop, lifeExp),decimals=1)|&gt;\n  gt::fmt_currency(columns=gdpPercap, use_subunits=FALSE) |&gt;\n  gt::cols_label(\n    country = \"Country\",\n    continent = \"Continent\",\n    year = \"Year\",\n    lifeExp = \"Life Expectancy\",\n    pop = \"Population (Millions Inhab.)\", \n    .fn =  stringr::str_to_title\n    )\n#\n#\n# A neater color scale \n#\nneat_color_scale &lt;-\n      c(\"Africa\" = \"#01d4e5\",\n        \"Americas\" = \"#7dea01\" ,\n        \"Asia\" = \"#fc5173\",\n        \"Europe\" = \"#fde803\",\n        \"Oceania\" = \"#536227\")\n#\n#\na_year &lt;- sample(gapminder$year, 1)\n\np &lt;- gapminder |&gt;\n    filter(year==a_year) |&gt;\n    ggplot() +\n    aes(x = gdpPercap) +\n    aes(y = lifeExp) +\n    aes(size = pop) +\n    aes(text = country) +                   #\n    aes(fill = continent) +\n    aes(color= continent) +\n    aes(frame = year) +                     #\n    geom_point(alpha=.5) +\n    scale_x_log10() +\n    scale_size_area(max_size = 15,\n                    labels= scales::label_number(scale=1/1e6,\n                                                suffix=\" M\")) +\n    scale_fill_manual(values = neat_color_scale) +\n    labs(title= glue(\"Gapminder  {a_year}\"),\n        x = \"Yearly Income per Capita\",\n        y = \"Life Expectancy\",\n        caption=\"From sick  and poor (bottom left) to healthy and rich (top right)\")\n\np \n\n(p + theme(legend.position = \"none\")) |&gt; \n    plotly::ggplotly(height = 500, width=750)\n\n(p %+% \n    gapminder + \n    theme(legend.position = \"none\") +\n    ggtitle(\"Gapminder\")) |&gt; \n    plotly::ggplotly(height = 500, width=750)"
+  },
+  {
+    "objectID": "core/projects/hmw_gapminder_oecd.html",
+    "href": "core/projects/hmw_gapminder_oecd.html",
+    "title": "Hmw I : Tables and visualization",
+    "section": "",
+    "text": "Important\n\n\n\n\nDue : March 7, 2026\nWork in pairs\nDeliver your work as qmd files through a github  repository (your github repository should be organized and named accoring to the rules)\nUse the quarto package for reproducible research (see Projects)\nI should be able to render the report and presentation at least in HTML format"
+  },
+  {
+    "objectID": "core/projects/hmw_gapminder_oecd.html#report-organization",
+    "href": "core/projects/hmw_gapminder_oecd.html#report-organization",
+    "title": "Hmw I : Tables and visualization",
+    "section": " Report organization",
+    "text": "Report organization\nThe first part (introduction) of the report shall be dedicated to the description of the data you have downloaded. You shall motivate your choice and non-trivial aspects of the data (for example if you were discussing GDP per capita against Life expectancy, you should remind the reader about the definition of Life expectancy and GDP). You shall also give a hint about why you intend to plot some variables against others.\nThe second part (results) shall be dedicated to plots and animations. Commenting a plot is not paraphrasing. It consists in adding informations and explanations that are not already in and around the plot (this includes the plot itself, title, subtitle, caption, and guides). It also consists in questions and issues that the plot raises. For example, in the Gapminder presentation, the apparent connection between life expectancy and GDP per capita deserves to be discussed (is it stationary? is it homogeneous throughout continents ? …). Refrain from overplaying your hand: yours plots are not likely to provide causal explanations. Comment the data, all the data, and nothing but the data.\nThe third part is the appendix. The first two parts should be text and plots only. The third part should be code only.\nThe appendix shall be dedicated to the description of the data wrangling pipeline. You shall give the code.\nYou shall also give the code of the table and graphical pipelines in the appendix.\nYou shall avoid copy-paste coding. Don’t Repeat Yourself. The tidyverse is your friend. knitr provide the tools to organize the Quarto file so that you can write your code once and use it many times, once for data wrangling and plotting (without echoing), then for listing and explanation.\n\n\n\n\n\n\nTipTip for organizing the report\n\n\n\nLook at fake report organized along this principles. Note that works with the knitr engine.\nHave a look at Rmarkdown the definitive guide to learn about knitr tricks (this works with quarto provided tou use the knitr engine).\nThis trick is described in Section 4.19"
+  },
+  {
+    "objectID": "slides-listings.html",
+    "href": "slides-listings.html",
+    "title": "Slides",
+    "section": "",
+    "text": "Slides summarize the lectures. Feel free to watch them before and after the lectures.\n point to material to be developped on blackboard.\n\n\n   \n    \n    \n      Order By\n      Default\n      \n        Title\n      \n      \n        Tags\n      \n      \n        Date - Oldest\n      \n      \n        Date - Newest\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\nDate\n\n\n\nTitle\n\n\n\nTags\n\n\n\n\n\n\n\n\nJan 12, 2026\n\n\nHandling tables with dplyr\n\n\nSQL Tables, Relational Algebra, tidyverse\n\n\n\n\n\n\nMar 30, 2026\n\n\nHierarchical clustering\n\n\nDendrogram, Hierarchical clustering\n\n\n\n\n\n\nMar 30, 2026\n\n\nClustering kmeans\n\n\nkmeans, clustering\n\n\n\n\n\n\nNo matching items\n\n\n\n\n\n\n\nNoteMode d’emploi\n\n\n\nSlides use libraries revealjs or remark from . They are displayed in your browser.\nTo get help, press",
+    "crumbs": [
+      "Slides"
+    ]
   }
 ]

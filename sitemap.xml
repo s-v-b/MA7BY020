@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://s-v-b.github.io/MA7BY020/projects-listings.html</loc>
-    <lastmod>2025-11-07T16:16:13.379Z</lastmod>
+    <lastmod>2026-01-23T12:44:03.451Z</lastmod>
   </url>
   <url>
     <loc>https://s-v-b.github.io/MA7BY020/core/labs-solutions/lab-gapminder.html</loc>
@@ -26,7 +26,7 @@
   </url>
   <url>
     <loc>https://s-v-b.github.io/MA7BY020/core/labs/lab-gapminder.html</loc>
-    <lastmod>2026-01-12T13:57:09.008Z</lastmod>
+    <lastmod>2026-01-22T20:35:47.267Z</lastmod>
   </url>
   <url>
     <loc>https://s-v-b.github.io/MA7BY020/core/labs/lab-gapminder-plotly.html</loc>
@@ -130,10 +130,50 @@
   </url>
   <url>
     <loc>https://s-v-b.github.io/MA7BY020/weeks/week-1.html</loc>
-    <lastmod>2026-01-16T11:01:19.836Z</lastmod>
+    <lastmod>2026-01-16T11:29:21.394Z</lastmod>
   </url>
   <url>
     <loc>https://s-v-b.github.io/MA7BY020/core/slides/slides-dplyr.html</loc>
     <lastmod>2026-01-19T13:23:29.114Z</lastmod>
+  </url>
+  <url>
+    <loc>https://s-v-b.github.io/MA7BY020/weeks/week-2.html</loc>
+    <lastmod>2026-01-22T20:35:47.270Z</lastmod>
+  </url>
+  <url>
+    <loc>https://s-v-b.github.io/MA7BY020/index.html</loc>
+    <lastmod>2026-01-23T09:15:12.016Z</lastmod>
+  </url>
+  <url>
+    <loc>https://s-v-b.github.io/MA7BY020/labs-listings.html</loc>
+    <lastmod>2025-03-12T19:39:06.541Z</lastmod>
+  </url>
+  <url>
+    <loc>https://s-v-b.github.io/MA7BY020/labs-solutions-listings.html</loc>
+    <lastmod>2024-12-21T13:40:45.721Z</lastmod>
+  </url>
+  <url>
+    <loc>https://s-v-b.github.io/MA7BY020/weeks-listings.html</loc>
+    <lastmod>2025-03-05T18:52:59.763Z</lastmod>
+  </url>
+  <url>
+    <loc>https://s-v-b.github.io/MA7BY020/core/projects/hmw-dev-2025.html</loc>
+    <lastmod>2025-03-16T22:09:14.245Z</lastmod>
+  </url>
+  <url>
+    <loc>https://s-v-b.github.io/MA7BY020/core/projects/hmw-II.html</loc>
+    <lastmod>2026-01-22T20:35:47.269Z</lastmod>
+  </url>
+  <url>
+    <loc>https://s-v-b.github.io/MA7BY020/core/projects/fake-report.html</loc>
+    <lastmod>2026-01-23T12:44:03.451Z</lastmod>
+  </url>
+  <url>
+    <loc>https://s-v-b.github.io/MA7BY020/core/projects/hmw_gapminder_oecd.html</loc>
+    <lastmod>2026-01-23T12:44:03.451Z</lastmod>
+  </url>
+  <url>
+    <loc>https://s-v-b.github.io/MA7BY020/slides-listings.html</loc>
+    <lastmod>2025-03-12T19:42:03.592Z</lastmod>
   </url>
 </urlset>

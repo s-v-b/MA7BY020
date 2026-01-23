@@ -2,5 +2,21 @@
   {
     "listing": "/projects-listings.html",
     "items": []
+  },
+  {
+    "listing": "/labs-listings.html",
+    "items": []
+  },
+  {
+    "listing": "/labs-solutions-listings.html",
+    "items": []
+  },
+  {
+    "listing": "/weeks-listings.html",
+    "items": []
+  },
+  {
+    "listing": "/slides-listings.html",
+    "items": []
   }
 ]
