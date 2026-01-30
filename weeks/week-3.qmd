@@ -2,7 +2,7 @@
 title: "Week 3"
 subtitle: "Univariate analysis"
 editor: source
-draft: true
+draft: false
 ---
 
 ::: callout-important
