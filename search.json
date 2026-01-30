@@ -2877,5 +2877,47 @@
     "crumbs": [
       "Slides"
     ]
+  },
+  {
+    "objectID": "weeks/week-3.html",
+    "href": "weeks/week-3.html",
+    "title": "Week 3",
+    "section": "",
+    "text": "Important\n\n\n\n\nSession I Sophie Germain (2017) Monday 16h-17h30\nSession II Sophie Germain (2011) Friday 16h45-18h15\n Calendar"
+  },
+  {
+    "objectID": "weeks/week-3.html#blackboard",
+    "href": "weeks/week-3.html#blackboard",
+    "title": "Week 3",
+    "section": " Blackboard",
+    "text": "Blackboard\nWe reviewed the toolkit of univariate analysis\n\nLexicon\nCategorical samples\n\nCounts, Contingency tables, barplots, colplots\n\nNumeric samples\n\nNumerical summaries for location and scale\nCumulative distribution functions and Quantiles functions\nQuantile-quantile plots\nHistograms"
+  },
+  {
+    "objectID": "weeks/week-3.html#labs",
+    "href": "weeks/week-3.html#labs",
+    "title": "Week 3",
+    "section": " Labs",
+    "text": "Labs\nWe went (briefly) through the two labs\n\nLab 4 Univariate categorical variables\nLab 5 Univariate numeric variables\n\nWe relied on the previous labs\n\nLab 1 - Introduction to R and RStudio\nLab 2 - Introduction to Data Visualization using Gapminder dataset\nLab 3 - Working with dplyr"
+  },
+  {
+    "objectID": "weeks/week-3.html#further-work",
+    "href": "weeks/week-3.html#further-work",
+    "title": "Week 3",
+    "section": " Further work",
+    "text": "Further work\n Review the content of the two labs. Work out every part you do not already know. Report an issue if you are unhappy with the proposed solutions/hints."
+  },
+  {
+    "objectID": "weeks/week-3.html#further-reading",
+    "href": "weeks/week-3.html#further-reading",
+    "title": "Week 3",
+    "section": " Further reading",
+    "text": "Further reading\n\nBin Yu and Rebecca Barter, Veridical Data Science\nR for data science\nAdvanced R\nCours de Statistique Fondamentale\n\nChap Estimation de densité\nChap Test de Kolmogorov-Smirnov"
+  },
+  {
+    "objectID": "weeks/week-3.html#logistics",
+    "href": "weeks/week-3.html#logistics",
+    "title": "Week 3",
+    "section": " Logistics",
+    "text": "Logistics\n : you will work with the R programming language in this course.\nYou need either to install R, RStudio and VS Code on your computer, or to use your posit-cloud account.\n Install Quarto on your computer to render the .qmd files.\nPlease follow the instructions here to install R, RStudio, VS Code, and Quarto or to access posit-cloud.\n Please activate your ENT account (follow the instructions on Moodle). You will be able to access the PostGres server.\n\n\nBack to Agenda ⏎"
   }
 ]
