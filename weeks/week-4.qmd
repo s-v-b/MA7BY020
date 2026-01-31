@@ -2,7 +2,7 @@
 title: "Week 4"
 subtitle: "Bivariate analysis"
 editor: source
-draft: true
+draft: false
 ---
 
 ::: callout-important
@@ -40,7 +40,7 @@ We relied  on the previous labs
 ## {{< fa person-digging >}} Further work
 
 {{< fa hand-point-right >}} Review the content of the two labs. Work out every part you do not already know. 
-Report an issue if you are unhappy with the proposed solutions/hints.
+Report an [issue](https://github.com/s-v-b/MA7BY020/issues) if you are unhappy with the proposed solutions/hints.
 
 
 ## {{< fa book >}} Further reading

@@ -17,33 +17,43 @@ draft: false
 
 We reviewed the toolkit of univariate analysis
 
-- Lexicon
-- Categorical samples
-  - Counts, Contingency tables,  barplots, colplots
-- Numeric samples
-  - Numerical summaries for location and scale
-  - Cumulative distribution functions and Quantiles functions
+- *Lexicon*
+- *Categorical samples*
+  - *Counts*, Contingency tables,  barplots, colplots
+- *Numeric samples*
+  - *Numerical summaries for location and scale*
+  - *Cumulative distribution functions and Quantiles functions*
   - Quantile-quantile plots 
-  - Histograms  
+  - *Histograms*  
 
 ## {{< fa flask-vial >}} Labs
 
-We went (briefly) through the two labs 
+We went (briefly) through the lab: 
 
-- [Lab 4](/core/labs/lab-univariate-categorical.qmd) Univariate categorical variables
-- [Lab 5](/core/labs/lab-univariate-numeric.qmd) Univariate numeric variables
+- [Lab 4](/core/labs/lab-univariate-numeric.qmd) Univariate numeric variables 
   
-We relied  on the previous labs
+::: {.callout-note title="Take out"}
+
+The last part of [Lab 4](/core/labs/lab-univariate-numeric.qmd)  is about attempts to comply with the DRY principle. The production of tables and plots derived from column-wise analysis should be automated as much as possible.  
+
+:::  
+
+The lab dedicated to categorical samples will be surveyed in week 4.
+
+- [Lab 5](/core/labs/lab-univariate-categorical.qmd) Univariate categorical variables
+
+We also relied  on the previous labs
 
 - [Lab 1](/core/labs/lab-r-intro.html) - Introduction to R and RStudio
 - [Lab 2](/core/labs/lab-gapminder.html) - Introduction to Data Visualization using Gapminder dataset
 - [Lab 3](/core/labs/lab-tables.html) - Working with `dplyr`
 
+You should have surveyed the solutions. 
 
 ## {{< fa person-digging >}} Further work
 
 {{< fa hand-point-right >}} Review the content of the two labs. Work out every part you do not already know. 
-Report an issue if you are unhappy with the proposed solutions/hints.
+Report an [issue](https://github.com/s-v-b/MA7BY020/issues) if you are unhappy with the proposed solutions/hints.
 
 
 ## {{< fa book >}} Further reading
