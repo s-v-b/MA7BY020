@@ -714,7 +714,7 @@
     "href": "core/labs/lab-bivariate.html#setup",
     "title": "Bivariate analysis",
     "section": "Setup",
-    "text": "Setup\n\nCodestopifnot(\n  require(glue),\n  require(magrittr),\n  require(lobstr),\n  require(arrow),\n  require(ggforce),\n  require(vcd),\n  require(ggmosaic),\n  require(httr),\n  require(patchwork),\n  require(corrr),\n  require(gapminder),\n  require(slider),\n  require(tidyverse) \n) \n\n\nBivariate techniques depend on the types of columns we are facing.\nFor numerical/numerical samples\n\nScatter plots\nSmoothed lineplots (for example linear regression)\n2-dimensional density plots\n\nFor categorical/categorical samples : mosaicplots and variants\nFor numerical/categorical samples\n\nBoxplots per group\nHistograms per group\nDensity plots per group"
+    "text": "Setup\n\nCodestopifnot(\n  require(glue),\n  require(magrittr),\n  require(lobstr),\n  require(arrow),\n  require(ggforce),\n  require(vcd),\n  require(ggmosaic),\n  require(httr),\n  require(patchwork),\n  require(corrr),\n  require(gapminder),\n  require(slider),\n  require(tidyverse), \n  require(gt)\n) \n\n\nBivariate techniques depend on the types of columns we are facing.\nFor numerical/numerical samples\n\nScatter plots\nSmoothed lineplots (for example linear regression)\n2-dimensional density plots\n\nFor categorical/categorical samples : mosaicplots and variants\nFor numerical/categorical samples\n\nBoxplots per group\nHistograms per group\nDensity plots per group"
   },
   {
     "objectID": "core/labs/lab-bivariate.html#chi-square-independenceassociation-test",
@@ -770,14 +770,14 @@
     "href": "core/labs-solutions/lab-bivariate.html#setup",
     "title": "Bivariate analysis",
     "section": "Setup",
-    "text": "Setup\n\nCodestopifnot(\n  require(glue),\n  require(magrittr),\n  require(lobstr),\n  require(arrow),\n  require(ggforce),\n  require(vcd),\n  require(ggmosaic),\n  require(httr),\n  require(patchwork),\n  require(corrr),\n  require(gapminder),\n  require(slider),\n  require(tidyverse) \n) \n\n\nBivariate techniques depend on the types of columns we are facing.\nFor numerical/numerical samples\n\nScatter plots\nSmoothed lineplots (for example linear regression)\n2-dimensional density plots\n\nFor categorical/categorical samples : mosaicplots and variants\nFor numerical/categorical samples\n\nBoxplots per group\nHistograms per group\nDensity plots per group"
+    "text": "Setup\n\nCodestopifnot(\n  require(glue),\n  require(magrittr),\n  require(lobstr),\n  require(arrow),\n  require(ggforce),\n  require(vcd),\n  require(ggmosaic),\n  require(httr),\n  require(patchwork),\n  require(corrr),\n  require(gapminder),\n  require(slider),\n  require(tidyverse), \n  require(gt)\n) \n\n\nBivariate techniques depend on the types of columns we are facing.\nFor numerical/numerical samples\n\nScatter plots\nSmoothed lineplots (for example linear regression)\n2-dimensional density plots\n\nFor categorical/categorical samples : mosaicplots and variants\nFor numerical/categorical samples\n\nBoxplots per group\nHistograms per group\nDensity plots per group"
   },
   {
     "objectID": "core/labs-solutions/lab-bivariate.html#chi-square-independenceassociation-test",
     "href": "core/labs-solutions/lab-bivariate.html#chi-square-independenceassociation-test",
     "title": "Bivariate analysis",
     "section": "Chi-square independence/association test",
-    "text": "Chi-square independence/association test\nhttps://statsfonda.github.io/site/content/ch4_2.html#test-dindépendance\n\n\n\n\n\n\nNoteQuestion\n\n\n\n\nCompute the chi-square association statistic between CATEGORIE and SEXE.\nDisplay the output of chisq.test() as a table, using broom::tidy()\n\n\n\n\n\n\n\n\n\n\n\nCodetest_1 &lt;- df |&gt;\n  select(CATEGORIE, SEXE) |&gt;\n  table() |&gt;\n  chisq.test()\n\n# test_1 \n\ntest_1 |&gt;\n  broom::tidy() |&gt;\n  knitr::kable()\n\n\n\nstatistic\np.value\nparameter\nmethod\n\n\n140.6717\n0\n5\nPearson’s Chi-squared test\n\n\n\n\n\n\n\n\n\n\n\n\n\nNoteQuestion\n\n\n\nCompute the Chi-square statistics from the contingeny table\n\n\n\n\n\n\n\n\n\nCoderowcounts &lt;- apply(tb, MARGIN = 1, FUN = sum)\ncolcounts &lt;- apply(tb, MARGIN = 2, FUN = sum)\n\nexpected &lt;- (rowcounts %*% t(colcounts))/sum(colcounts)\n\n# norm((tb - expected) / sqrt(expected), type = \"F\")^2\n\nexpected |&gt;\n  as_tibble() |&gt;\n  knitr::kable()\n\n\n\nF\nM\n\n\n\n22.80801\n23.19199\n\n\n65.94491\n67.05509\n\n\n61.97830\n63.02170\n\n\n23.79967\n24.20033\n\n\n46.60768\n47.39232\n\n\n75.86144\n77.13856"
+    "text": "Chi-square independence/association test\nhttps://statsfonda.github.io/site/content/ch4_2.html#test-dindépendance\n\n\n\n\n\n\nNoteQuestion\n\n\n\n\nCompute the chi-square association statistic between CATEGORIE and SEXE.\nDisplay the output of chisq.test() as a table, using broom::tidy()\n\n\n\n\n\n\n\n\n\n\n\nCodetest_1 &lt;- df |&gt;\n  select(CATEGORIE, SEXE) |&gt;\n  table() |&gt;\n  chisq.test()\n\n# test_1 \n\ntest_1 |&gt;\n  broom::tidy() |&gt;\n  gt::gt() |&gt;\n  gt::fmt_number(decimals=2)\n\n\n\n\n\nstatistic\np.value\nparameter\nmethod\n\n\n140.67\n0.00\n5.00\nPearson's Chi-squared test\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNoteQuestion\n\n\n\nCompute the Chi-square statistics from the contingeny table\n\n\n\n\n\n\n\n\n\nCoderowcounts &lt;- apply(tb, MARGIN = 1, FUN = sum)\ncolcounts &lt;- apply(tb, MARGIN = 2, FUN = sum)\n\nexpected &lt;- (rowcounts %*% t(colcounts))/sum(colcounts)\n\n# norm((tb - expected) / sqrt(expected), type = \"F\")^2\n\ngt_e &lt;- expected |&gt;\n  tibble::as_tibble() |&gt; \n  mutate(CATEGORIE= levels(df$CATEGORIE)) |&gt;\n  relocate(CATEGORIE) |&gt;\n  gt::gt() |&gt;\n  gt::fmt_number(decimals=2) |&gt;\n  gt::tab_caption(\"Expected counts CATEGORIE/SEXE\")\n\n\n\n\n\n\n\n\n\nContingency table in wide form\\n (2-way table)\n\nCATEGORIE\nF\nM\n\n\n\nBusiness, Management and Finance\n23\n23\n\n\nLiberal profession\n82\n51\n\n\nServices\n75\n50\n\n\nSelling\n30\n18\n\n\nAdministration\n72\n22\n\n\nPrimary-Secondary\n15\n138\n\n\n\n\n\n\n\n\n\n\n\n\nExpected counts CATEGORIE/SEXE\n\nCATEGORIE\nF\nM\n\n\n\nBusiness, Management and Finance\n22.81\n23.19\n\n\nLiberal profession\n65.94\n67.06\n\n\nServices\n61.98\n63.02\n\n\nSelling\n23.80\n24.20\n\n\nAdministration\n46.61\n47.39\n\n\nPrimary-Secondary\n75.86\n77.14\n\n\n\n\n\n\n\n\n\n\nCodenorm((tb - expected) / sqrt(expected), type = \"F\")^2\n\n[1] 140.6717"
   },
   {
     "objectID": "core/labs-solutions/lab-bivariate.html#grouped-boxplots",
@@ -2897,7 +2897,7 @@
     "href": "weeks/week-3.html#labs",
     "title": "Week 3",
     "section": " Labs",
-    "text": "Labs\nWe went (briefly) through the two labs\n\nLab 4 Univariate categorical variables\nLab 5 Univariate numeric variables\n\nWe relied on the previous labs\n\nLab 1 - Introduction to R and RStudio\nLab 2 - Introduction to Data Visualization using Gapminder dataset\nLab 3 - Working with dplyr"
+    "text": "Labs\nWe went (briefly) through the lab:\n\nLab 4 Univariate numeric variables\n\n\n\n\n\n\n\nNoteTake out\n\n\n\nThe last part of Lab 4 is about attempts to comply with the DRY principle. The production of tables and plots derived from column-wise analysis should be automated as much as possible.\n\n\nThe lab dedicated to categorical samples will be surveyed in week 4.\n\nLab 5 Univariate categorical variables\n\nWe also relied on the previous labs\n\nLab 1 - Introduction to R and RStudio\nLab 2 - Introduction to Data Visualization using Gapminder dataset\nLab 3 - Working with dplyr\n\nYou should have surveyed the solutions."
   },
   {
     "objectID": "weeks/week-3.html#further-work",
@@ -2917,6 +2917,48 @@
     "objectID": "weeks/week-3.html#logistics",
     "href": "weeks/week-3.html#logistics",
     "title": "Week 3",
+    "section": " Logistics",
+    "text": "Logistics\n : you will work with the R programming language in this course.\nYou need either to install R, RStudio and VS Code on your computer, or to use your posit-cloud account.\n Install Quarto on your computer to render the .qmd files.\nPlease follow the instructions here to install R, RStudio, VS Code, and Quarto or to access posit-cloud.\n Please activate your ENT account (follow the instructions on Moodle). You will be able to access the PostGres server.\n\n\nBack to Agenda ⏎"
+  },
+  {
+    "objectID": "weeks/week-4.html",
+    "href": "weeks/week-4.html",
+    "title": "Week 4",
+    "section": "",
+    "text": "Important\n\n\n\n\nSession I Sophie Germain (2017) Monday 16h-17h30\nSession II Sophie Germain (2011) Friday 16h45-18h15\n Calendar"
+  },
+  {
+    "objectID": "weeks/week-4.html#blackboard",
+    "href": "weeks/week-4.html#blackboard",
+    "title": "Week 4",
+    "section": " Blackboard",
+    "text": "Blackboard\n\nCategorical samples\n\n2-ways Contingency tables\nChi-square statistics\n\nNumeric samples\n\nCovariance\nCorrelation(s)"
+  },
+  {
+    "objectID": "weeks/week-4.html#labs",
+    "href": "weeks/week-4.html#labs",
+    "title": "Week 4",
+    "section": " Labs",
+    "text": "Labs\n\nLab 6 - Introduction to bivariate analysis\n\nWe relied on the previous labs\n\nLab 1 - Introduction to R and RStudio\nLab 2 - Introduction to Data Visualization using Gapminder dataset\nLab 3 - Working with dplyr\nLab 4 Univariate categorical variables\nLab 5 Univariate numeric variables"
+  },
+  {
+    "objectID": "weeks/week-4.html#further-work",
+    "href": "weeks/week-4.html#further-work",
+    "title": "Week 4",
+    "section": " Further work",
+    "text": "Further work\n Review the content of the two labs. Work out every part you do not already know. Report an issue if you are unhappy with the proposed solutions/hints."
+  },
+  {
+    "objectID": "weeks/week-4.html#further-reading",
+    "href": "weeks/week-4.html#further-reading",
+    "title": "Week 4",
+    "section": " Further reading",
+    "text": "Further reading\n\nBin Yu and Rebecca Barter, Veridical Data Science\nR for data science\nAdvanced R\nCours de Statistique Fondamentale\n\nChap Tests du chi-deux\n\nSourav Chatterjee: A new correlation coefficient"
+  },
+  {
+    "objectID": "weeks/week-4.html#logistics",
+    "href": "weeks/week-4.html#logistics",
+    "title": "Week 4",
     "section": " Logistics",
     "text": "Logistics\n : you will work with the R programming language in this course.\nYou need either to install R, RStudio and VS Code on your computer, or to use your posit-cloud account.\n Install Quarto on your computer to render the .qmd files.\nPlease follow the instructions here to install R, RStudio, VS Code, and Quarto or to access posit-cloud.\n Please activate your ENT account (follow the instructions on Moodle). You will be able to access the PostGres server.\n\n\nBack to Agenda ⏎"
   }
