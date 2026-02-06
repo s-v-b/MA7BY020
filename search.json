@@ -1215,7 +1215,7 @@
     "href": "core/labs-solutions/lab-bivariate.html#grouped-boxplots",
     "title": "Bivariate analysis",
     "section": "Grouped boxplots",
-    "text": "Grouped boxplots\n\n\n\n\n\n\nNoteQuestion\n\n\n\nPlot boxplots of AGE according to NIV_ETUDES\n\n\n\n\n\n\n\n\n\nCodedf |&gt;\n  ggplot() +\n  aes(x=NIV_ETUDES, y=AGE) +\n  geom_boxplot() +\n  rot_x_text\n\n\n\n\n\n\n\n\nCodedf |&gt;\n  ggplot() +\n  aes(x=fct_infreq(NIV_ETUDES), y=AGE) +\n  geom_boxplot(varwidth = T) +\n  rot_x_text\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNoteQuestion\n\n\n\nDraw density plots of AGE, facet by NIV_ETUDES and SEXE\n\n\n\n\n\n\n\n\n\nCodep &lt;- df |&gt; \n  ggplot() +\n  aes(x=AGE) +\n  stat_density(fill=\"white\", color=\"black\") +\n  facet_grid(rows=vars(NIV_ETUDES), \n             cols=vars(SEXE))\n\np\n\nWarning: Groups with fewer than two data points have been dropped.\nGroups with fewer than two data points have been dropped.\n\n\nWarning in max(ids, na.rm = TRUE): no non-missing arguments to max; returning\n-Inf\nWarning in max(ids, na.rm = TRUE): no non-missing arguments to max; returning\n-Inf\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNoteQuestion\n\n\n\nCollapse rare levels of NIV_ETUDES and replay.\n\n\n\n\n\n\n\n\n\nCodep %+% (\n  df |&gt; \n    mutate(NIV_ETUDES = fct_lump_min(NIV_ETUDES, min=30)) \n)"
+    "text": "Grouped boxplots\n\n\n\n\n\n\nNoteQuestion\n\n\n\nPlot boxplots of AGE according to NIV_ETUDES\n\n\n\n\n\n\n\n\n\nCodedf |&gt;\n  ggplot() +\n  aes(x=NIV_ETUDES, y=AGE) +\n  geom_boxplot() +\n  rot_x_text\n\n\n\n\n\n\n\n\nCodedf |&gt;\n  ggplot() +\n  aes(x=fct_infreq(NIV_ETUDES), y=AGE) +\n  geom_boxplot(varwidth = T) +\n  rot_x_text\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNoteQuestion\n\n\n\nDraw density plots of AGE, facet by NIV_ETUDES and SEXE\n\n\n\n\n\n\n\n\n\nCodep &lt;- df |&gt; \n  ggplot() +\n  aes(x=AGE) +\n  stat_density(fill=\"white\", color=\"black\") +\n  facet_grid(rows=vars(NIV_ETUDES), \n             cols=vars(SEXE))\n\np\n\nWarning: Groups with fewer than two data points have been dropped.\nGroups with fewer than two data points have been dropped.\n\n\nWarning: Removed 2 rows containing missing values or values outside the scale range\n(`geom_area()`).\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNoteQuestion\n\n\n\nCollapse rare levels of NIV_ETUDES and replay.\n\n\n\n\n\n\n\n\n\nCodep %+% (\n  df |&gt; \n    mutate(NIV_ETUDES = fct_lump_min(NIV_ETUDES, min=30)) \n)\n\nWarning: &lt;ggplot&gt; %+% x was deprecated in ggplot2 4.0.0.\nℹ Please use &lt;ggplot&gt; + x instead."
   },
   {
     "objectID": "core/labs-solutions/lab-bivariate.html#scatterplots",
@@ -2167,7 +2167,7 @@
     "href": "labs-listings.html",
     "title": "Labs",
     "section": "",
-    "text": "Note\n\n\n\nSessions are organized around labs. Feel free to look at the lab before sessions. Do not rush to solutions proposed here\n\n\n\n\n   \n    \n    \n      Order By\n      Default\n      \n        Title\n      \n      \n        Date - Oldest\n      \n      \n        Date - Newest\n      \n      \n        Tags\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\nDate\n\n\n\nTitle\n\n\n\nTags\n\n\n\n\n\n\n\n\nJan 12, 2026\n\n\nIntroduction and Visualization\n\n\nVisualization, Public Statistics\n\n\n\n\n\n\nJan 12, 2026\n\n\nBrush up your R\n\n\nR language, Tidyverse, IDE\n\n\n\n\n\n\nJan 19, 2026\n\n\nTable wranglig\n\n\nR language, dplyr, tabula data\n\n\n\n\n\n\nJan 26, 2026\n\n\nUnivariate categorical data\n\n\nUnivariate data, GSS\n\n\n\n\n\n\nJan 26, 2026\n\n\nUnivariate numeric data\n\n\nUnivariate data, GSS\n\n\n\n\n\n\nFeb 2, 2026\n\n\nBivariate data\n\n\nbivariate data, mosaicplots, scatterplots, simple linear regression\n\n\n\n\n\n\nFeb 16, 2026\n\n\nLinear Regression I\n\n\nLinear regression, OLS, lm\n\n\n\n\n\n\nMar 2, 2026\n\n\nLinear regression II\n\n\nLinear regression, OLS, lm, diagnostics, variable selection\n\n\n\n\n\n\nMar 9, 2026\n\n\nSVD and PCA\n\n\nSVD, PCA\n\n\n\n\n\n\nMar 16, 2026\n\n\nCorrespondence Analysis\n\n\nSVD, CA, Correspondence Analysis\n\n\n\n\n\n\nMar 23, 2026\n\n\nSVD, MCA, CCA\n\n\nSVD, PCA, CA, MCA, CCA\n\n\n\n\n\n\nMar 30, 2026\n\n\nClustering: kmeans\n\n\nClustering, k-means\n\n\n\n\n\n\nApr 6, 2026\n\n\nClustering: Hierarchical\n\n\nClustering, Hierarchical\n\n\n\n\n\n\nNo matching items\n\n\n\n\n\n\n\nTipTip\n\n\n\nBefore working out a lab, make sure the relevant packages are installed in your environment.",
+    "text": "Note\n\n\n\nSessions are organized around labs. Feel free to look at the lab before sessions. Do not rush to solutions proposed here\n\n\n\n\n   \n    \n    \n      Order By\n      Default\n      \n        Title\n      \n      \n        Date - Oldest\n      \n      \n        Date - Newest\n      \n      \n        Tags\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\nDate\n\n\n\nTitle\n\n\n\nTags\n\n\n\n\n\n\n\n\nJan 12, 2026\n\n\nIntroduction and Visualization\n\n\nVisualization, Public Statistics\n\n\n\n\n\n\nJan 12, 2026\n\n\nBrush up your R\n\n\nR language, Tidyverse, IDE\n\n\n\n\n\n\nJan 19, 2026\n\n\nTable wranglig\n\n\nR language, dplyr, tabula data\n\n\n\n\n\n\nJan 26, 2026\n\n\nUnivariate categorical data\n\n\nUnivariate data, GSS\n\n\n\n\n\n\nJan 26, 2026\n\n\nUnivariate numeric data\n\n\nUnivariate data, GSS\n\n\n\n\n\n\nFeb 2, 2026\n\n\nBivariate data\n\n\nbivariate data, mosaicplots, scatterplots, simple linear regression\n\n\n\n\n\n\nFeb 9, 2026\n\n\nLinear Regression I\n\n\nLinear regression, OLS, lm\n\n\n\n\n\n\nFeb 16, 2026\n\n\nLinear regression II\n\n\nLinear regression, OLS, lm, diagnostics, variable selection\n\n\n\n\n\n\nFeb 23, 2026\n\n\nSVD and PCA\n\n\nSVD, PCA\n\n\n\n\n\n\nMar 9, 2026\n\n\nCorrespondence Analysis\n\n\nSVD, CA, Correspondence Analysis\n\n\n\n\n\n\nMar 16, 2026\n\n\nSVD, MCA, CCA\n\n\nSVD, PCA, CA, MCA, CCA\n\n\n\n\n\n\nMar 23, 2026\n\n\nClustering: kmeans\n\n\nClustering, k-means\n\n\n\n\n\n\nMar 30, 2026\n\n\nClustering: Hierarchical\n\n\nClustering, Hierarchical\n\n\n\n\n\n\nNo matching items\n\n\n\n\n\n\n\nTipTip\n\n\n\nBefore working out a lab, make sure the relevant packages are installed in your environment.",
     "crumbs": [
       "Labs"
     ]
@@ -2177,7 +2177,7 @@
     "href": "labs-solutions-listings.html",
     "title": "Labs Solutions",
     "section": "",
-    "text": "Order By\n      Default\n      \n        Title\n      \n      \n        Date - Oldest\n      \n      \n        Date - Newest\n      \n      \n        Tags\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\nDate\n\n\n\nTitle\n\n\n\nTags\n\n\n\n\n\n\n\n\nJan 12, 2026\n\n\nIntroduction and Visualization\n\n\nVisualization, Public Statistics\n\n\n\n\n\n\nJan 12, 2026\n\n\nBrush up your R\n\n\nR language, Tidyverse, IDE\n\n\n\n\n\n\nJan 19, 2026\n\n\nTable wranglig\n\n\nR language, dplyr, tabula data\n\n\n\n\n\n\nJan 26, 2026\n\n\nUnivariate categorical data\n\n\nUnivariate data, GSS\n\n\n\n\n\n\nJan 26, 2026\n\n\nUnivariate numeric data\n\n\nUnivariate data, GSS\n\n\n\n\n\n\nFeb 2, 2026\n\n\nBivariate data\n\n\nbivariate data, mosaicplots, scatterplots, simple linear regression\n\n\n\n\n\n\nFeb 16, 2026\n\n\nLinear regression I\n\n\nLinear regression, OLS, lm\n\n\n\n\n\n\nMar 2, 2026\n\n\nLinear regression II\n\n\nLinear regression, OLS, lm, diagnostics, variable selection\n\n\n\n\n\n\nMar 9, 2026\n\n\nSVD and PCA\n\n\nSVD, PCA\n\n\n\n\n\n\nMar 16, 2026\n\n\nCorrespondence Analysis\n\n\nSVD, CA, Correspondence Analysis\n\n\n\n\n\n\nMar 23, 2026\n\n\nSVD, MCA, CCA\n\n\nSVD, PCA, CA, MCA, CCA\n\n\n\n\n\n\nMar 30, 2026\n\n\nClustering: kmeans\n\n\nClustering, k-means\n\n\n\n\n\n\nApr 6, 2026\n\n\nClustering: Hierarchical\n\n\nClustering, Hierarchical\n\n\n\n\n\n\nNo matching items",
+    "text": "Order By\n      Default\n      \n        Title\n      \n      \n        Date - Oldest\n      \n      \n        Date - Newest\n      \n      \n        Tags\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\nDate\n\n\n\nTitle\n\n\n\nTags\n\n\n\n\n\n\n\n\nJan 12, 2026\n\n\nIntroduction and Visualization\n\n\nVisualization, Public Statistics\n\n\n\n\n\n\nJan 12, 2026\n\n\nBrush up your R\n\n\nR language, Tidyverse, IDE\n\n\n\n\n\n\nJan 19, 2026\n\n\nTable wranglig\n\n\nR language, dplyr, tabula data\n\n\n\n\n\n\nJan 26, 2026\n\n\nUnivariate categorical data\n\n\nUnivariate data, GSS\n\n\n\n\n\n\nJan 26, 2026\n\n\nUnivariate numeric data\n\n\nUnivariate data, GSS\n\n\n\n\n\n\nFeb 2, 2026\n\n\nBivariate data\n\n\nbivariate data, mosaicplots, scatterplots, simple linear regression\n\n\n\n\n\n\nFeb 9, 2026\n\n\nLinear regression I\n\n\nLinear regression, OLS, lm\n\n\n\n\n\n\nFeb 16, 2026\n\n\nLinear regression II\n\n\nLinear regression, OLS, lm, diagnostics, variable selection\n\n\n\n\n\n\nFeb 23, 2026\n\n\nSVD and PCA\n\n\nSVD, PCA\n\n\n\n\n\n\nMar 9, 2026\n\n\nCorrespondence Analysis\n\n\nSVD, CA, Correspondence Analysis\n\n\n\n\n\n\nMar 16, 2026\n\n\nSVD, MCA, CCA\n\n\nSVD, PCA, CA, MCA, CCA\n\n\n\n\n\n\nMar 23, 2026\n\n\nClustering: kmeans\n\n\nClustering, k-means\n\n\n\n\n\n\nMar 30, 2026\n\n\nClustering: Hierarchical\n\n\nClustering, Hierarchical\n\n\n\n\n\n\nNo matching items",
     "crumbs": [
       "Solutions"
     ]
@@ -2211,5 +2211,110 @@
     "crumbs": [
       "Journal"
     ]
+  },
+  {
+    "objectID": "core/labs-solutions/lab-bivariate.html#testing-correlation",
+    "href": "core/labs-solutions/lab-bivariate.html#testing-correlation",
+    "title": "Bivariate analysis",
+    "section": "Testing correlation",
+    "text": "Testing correlation\nAssuming that the data are collected using i.i.d. sampling, we may test\n\nNull hypothesis: the population correlation coefficient is zero\nAlternative: the population correlation coefficient differs from zero\n\nThis binary testing problem (where both the Null and the Alternative are composite) can be stated for the three flavors of correlation coefficients described above.\nNote that we have stated the problem with two-sided alternative. It can also be stated with one-sided alternatives ()\n\n\n\n\n\n\nNoteQuestion\n\n\n\nUse function cor.test() to test correlation between AGE and SAL_HOR\n\n\n\n\n\n\n\n\nTipSolution\n\n\n\n\nCodemethods &lt;- c(\"pearson\", \"kendall\", \"spearman\")\n\nfoo &lt;- function(lst) {\n  lst |&gt; \n  purrr::map(broom::tidy) |&gt;\n  bind_rows() |&gt;\n  gt::gt() |&gt;\n  gt::fmt_number(c(estimate, conf.low, conf.high), decimals=3) |&gt;\n  gt::fmt_scientific(c(statistic, p.value), decimals=2) |&gt;\n  gt::tab_caption(\"Correlation tests for AGE and SAL_HOR\")\n}\n\nmethods |&gt;\n  purrr::map( \\(x) {cor.test(x=df$AGE, y=df$SAL_HOR, method=x, exact=F)})|&gt;\n  foo() \n\n\n\n\nCorrelation tests for AGE and SAL_HOR\n\nestimate\nstatistic\np.value\nparameter\nconf.low\nconf.high\nmethod\nalternative\n\n\n\n0.250\n6.32\n5.12 × 10−10\n\n597\n0.174\n0.324\nPearson's product-moment correlation\ntwo.sided\n\n\n0.223\n8.04\n9.15 × 10−16\n\nNA\nNA\nNA\nKendall's rank correlation tau\ntwo.sided\n\n\n0.322\n2.43 × 107\n\n6.31 × 10−16\n\nNA\nNA\nNA\nSpearman's rank correlation rho\ntwo.sided\n\n\n\n\n\n\n\nCodemethods |&gt;\n  purrr::map( \\(x) {cor.test(x=df$AGE, y=df$SAL_HOR, alternative=\"greater\", method=x, exact=F)})|&gt;\n  foo()  \n\n\n\n\nCorrelation tests for AGE and SAL_HOR\n\nestimate\nstatistic\np.value\nparameter\nconf.low\nconf.high\nmethod\nalternative\n\n\n\n0.250\n6.32\n2.56 × 10−10\n\n597\n0.186\n1.000\nPearson's product-moment correlation\ngreater\n\n\n0.223\n8.04\n4.58 × 10−16\n\nNA\nNA\nNA\nKendall's rank correlation tau\ngreater\n\n\n0.322\n2.43 × 107\n\n3.15 × 10−16\n\nNA\nNA\nNA\nSpearman's rank correlation rho\ngreater"
+  },
+  {
+    "objectID": "core/labs-solutions/lab-linear-regression-whiteside.html",
+    "href": "core/labs-solutions/lab-linear-regression-whiteside.html",
+    "title": "LAB: Linear Regression on Whiteside data",
+    "section": "",
+    "text": "M1 MIDS/MFA/LOGOS\n\n\nUniversité Paris Cité\n\n\nAnnée 2025\n\n\nCourse Homepage\n\n\nMoodle"
+  },
+  {
+    "objectID": "core/labs-solutions/lab-linear-regression-whiteside.html#introduction",
+    "href": "core/labs-solutions/lab-linear-regression-whiteside.html#introduction",
+    "title": "LAB: Linear Regression on Whiteside data",
+    "section": "Introduction",
+    "text": "Introduction\nThe purpose of this lab is to introduce linear regression using base R and the tidyverse. We work on a dataset provided by the MASS package. This dataset is investigated in the book by Venables and Ripley. This discusssion is worth being read. Our aim is to relate regression as a tool for data exploration with regression as a method in statistical inference. To perform regression, we will rely on the base R function lm() and on the eponymous S3 class lm. We will spend time understanding how the formula argument can be used to construct a design matrix from a dataframe representing a dataset."
+  },
+  {
+    "objectID": "core/labs-solutions/lab-linear-regression-whiteside.html#packages-installation-and-loading-again",
+    "href": "core/labs-solutions/lab-linear-regression-whiteside.html#packages-installation-and-loading-again",
+    "title": "LAB: Linear Regression on Whiteside data",
+    "section": "Packages installation and loading (again)",
+    "text": "Packages installation and loading (again)\n\n\nCode\n# We will use the following packages. \n# If needed, install them : pak::pkg_install(). \nstopifnot(\n  require(\"magrittr\"),\n  require(\"lobstr\"),\n  require(\"ggforce\"),\n  require(\"patchwork\"), \n  require(\"gt\"),\n  require(\"glue\"),\n  require(\"skimr\"),\n  require(\"corrr\"),\n  require(\"GGally\"),\n  require(\"broom\"),\n  require(\"tidyverse\"),\n  require(\"ggfortify\"),\n  require(\"autoplotly\")\n\n)\n\n\nBesides the tidyverse, we rely on skimr to perform univariate analysis, GGally::ggpairs to perform pairwise (bivariate) analysis. Package corrr provide graphical tools to explore correlation matrices. At some point, we will showcase the exposing pipe %$% and the classical pipe %&gt;% of magrittr. We use gt to display handy tables, patchwork to compose graphical objects. glue provides a kind of formatted strings. Package broom proves very useful when milking lienar models produced by lm() (and many other objects produced by estimators, tests, …)"
+  },
+  {
+    "objectID": "core/labs-solutions/lab-linear-regression-whiteside.html#s3-classes-in-r",
+    "href": "core/labs-solutions/lab-linear-regression-whiteside.html#s3-classes-in-r",
+    "title": "LAB: Linear Regression on Whiteside data",
+    "section": "S3 classes in R",
+    "text": "S3 classes in R\nGeneric functions for S3 classes are used extensively in this lab. Functions from broom, ggplot2, and ggfortify are often generic functions.\nmethods(autoplot) lists the S3 classes for which an autoplot method is defined. Some methods are defined in ggplot2, others like autoplot.lm are defined in extension packages like ggfortify."
+  },
+  {
+    "objectID": "core/labs-solutions/lab-linear-regression-whiteside.html#generic-functions-for-s3-classes",
+    "href": "core/labs-solutions/lab-linear-regression-whiteside.html#generic-functions-for-s3-classes",
+    "title": "LAB: Linear Regression on Whiteside data",
+    "section": "Generic functions for S3 classes",
+    "text": "Generic functions for S3 classes\nmethods(autoplot) lists the S3 classes for which an autoplot method is defined. Some methods are defined in ggplot2, others like autoplot.lm are defined in extension packages like ggfortify."
+  },
+  {
+    "objectID": "core/labs-solutions/lab-linear-regression-whiteside.html#s4-classes-in-r",
+    "href": "core/labs-solutions/lab-linear-regression-whiteside.html#s4-classes-in-r",
+    "title": "LAB: Linear Regression on Whiteside data",
+    "section": "S4 classes in R",
+    "text": "S4 classes in R\nThe output of autoplot.lm is an instance of S4 class.\nSee also New trends:\n\nThe S7 package is a new OOP system designed to be a successor to S3 and S4. It has been designed and implemented collaboratively by the R Consortium Object-Oriented Programming Working Group, which includes representatives from R-Core, Bioconductor, the tidyverse/Posit, and the wider R community."
+  },
+  {
+    "objectID": "core/labs-solutions/lab-linear-regression-whiteside.html#tibbles-with-list-columns",
+    "href": "core/labs-solutions/lab-linear-regression-whiteside.html#tibbles-with-list-columns",
+    "title": "LAB: Linear Regression on Whiteside data",
+    "section": "tibbles with list columns",
+    "text": "tibbles with list columns\nWe also used tibbles with list columns, that is nested dataframes. Nested dataframes show up in every implementation of dataframes (from R to Spark), see: Tidyr: article on nesting"
+  },
+  {
+    "objectID": "core/labs/lab-linear-regression-whiteside.html",
+    "href": "core/labs/lab-linear-regression-whiteside.html",
+    "title": "LAB: Linear Regression on Whiteside data",
+    "section": "",
+    "text": "M1 MIDS/MFA/LOGOS\n\n\nUniversité Paris Cité\n\n\nAnnée 2025\n\n\nCourse Homepage\n\n\nMoodle"
+  },
+  {
+    "objectID": "core/labs/lab-linear-regression-whiteside.html#introduction",
+    "href": "core/labs/lab-linear-regression-whiteside.html#introduction",
+    "title": "LAB: Linear Regression on Whiteside data",
+    "section": "Introduction",
+    "text": "Introduction\nThe purpose of this lab is to introduce linear regression using base R and the tidyverse. We work on a dataset provided by the MASS package. This dataset is investigated in the book by Venables and Ripley. This discusssion is worth being read. Our aim is to relate regression as a tool for data exploration with regression as a method in statistical inference. To perform regression, we will rely on the base R function lm() and on the eponymous S3 class lm. We will spend time understanding how the formula argument can be used to construct a design matrix from a dataframe representing a dataset."
+  },
+  {
+    "objectID": "core/labs/lab-linear-regression-whiteside.html#packages-installation-and-loading-again",
+    "href": "core/labs/lab-linear-regression-whiteside.html#packages-installation-and-loading-again",
+    "title": "LAB: Linear Regression on Whiteside data",
+    "section": "Packages installation and loading (again)",
+    "text": "Packages installation and loading (again)\n\n\nCode\n# We will use the following packages. \n# If needed, install them : pak::pkg_install(). \nstopifnot(\n  require(\"magrittr\"),\n  require(\"lobstr\"),\n  require(\"ggforce\"),\n  require(\"patchwork\"), \n  require(\"gt\"),\n  require(\"glue\"),\n  require(\"skimr\"),\n  require(\"corrr\"),\n  require(\"GGally\"),\n  require(\"broom\"),\n  require(\"tidyverse\"),\n  require(\"ggfortify\"),\n  require(\"autoplotly\")\n\n)\n\n\nBesides the tidyverse, we rely on skimr to perform univariate analysis, GGally::ggpairs to perform pairwise (bivariate) analysis. Package corrr provide graphical tools to explore correlation matrices. At some point, we will showcase the exposing pipe %$% and the classical pipe %&gt;% of magrittr. We use gt to display handy tables, patchwork to compose graphical objects. glue provides a kind of formatted strings. Package broom proves very useful when milking lienar models produced by lm() (and many other objects produced by estimators, tests, …)"
+  },
+  {
+    "objectID": "core/labs/lab-linear-regression-whiteside.html#s3-classes-in-r",
+    "href": "core/labs/lab-linear-regression-whiteside.html#s3-classes-in-r",
+    "title": "LAB: Linear Regression on Whiteside data",
+    "section": "S3 classes in R",
+    "text": "S3 classes in R\nGeneric functions for S3 classes are used extensively in this lab. Functions from broom, ggplot2, and ggfortify are often generic functions.\nmethods(autoplot) lists the S3 classes for which an autoplot method is defined. Some methods are defined in ggplot2, others like autoplot.lm are defined in extension packages like ggfortify."
+  },
+  {
+    "objectID": "core/labs/lab-linear-regression-whiteside.html#generic-functions-for-s3-classes",
+    "href": "core/labs/lab-linear-regression-whiteside.html#generic-functions-for-s3-classes",
+    "title": "LAB: Linear Regression on Whiteside data",
+    "section": "Generic functions for S3 classes",
+    "text": "Generic functions for S3 classes\nmethods(autoplot) lists the S3 classes for which an autoplot method is defined. Some methods are defined in ggplot2, others like autoplot.lm are defined in extension packages like ggfortify."
+  },
+  {
+    "objectID": "core/labs/lab-linear-regression-whiteside.html#s4-classes-in-r",
+    "href": "core/labs/lab-linear-regression-whiteside.html#s4-classes-in-r",
+    "title": "LAB: Linear Regression on Whiteside data",
+    "section": "S4 classes in R",
+    "text": "S4 classes in R\nThe output of autoplot.lm is an instance of S4 class.\nSee also New trends:\n\nThe S7 package is a new OOP system designed to be a successor to S3 and S4. It has been designed and implemented collaboratively by the R Consortium Object-Oriented Programming Working Group, which includes representatives from R-Core, Bioconductor, the tidyverse/Posit, and the wider R community."
+  },
+  {
+    "objectID": "core/labs/lab-linear-regression-whiteside.html#tibbles-with-list-columns",
+    "href": "core/labs/lab-linear-regression-whiteside.html#tibbles-with-list-columns",
+    "title": "LAB: Linear Regression on Whiteside data",
+    "section": "tibbles with list columns",
+    "text": "tibbles with list columns\nWe also used tibbles with list columns, that is nested dataframes. Nested dataframes show up in every implementation of dataframes (from R to Spark), see: Tidyr: article on nesting"
   }
 ]
