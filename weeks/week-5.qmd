@@ -1,8 +1,8 @@
 ---
 title: "Semaine 5"
-subtitle: "TBA"
+subtitle: "Regression"
 editor: source
-draft: true
+draft: false
 ---
 
 
@@ -16,20 +16,17 @@ draft: true
 
 ## {{< fa chalkboard-teacher >}} Blackboard
 
-
-- Categorical samples
-  - 2-ways  Contingency tables
-  - Chi-square statistics
-- Numeric samples
-  - Covariance
-  - Correlation(s)
+- Ordinary Least Squares
+- QR factorization
+- Ridge regression (Regularized Least Squares)
+- Pseudo-Inversion
   
 
 ## {{< fa flask-vial >}} Labs
 
-- [Lab 6](/core/labs/lab-bivariate.qmd) - Introduction to bivariate analysis
+- [Lab 6](/core/labs/lab-linear-regression-whiteside.qmd) - Linear Regression I
   
-We relied  on the previous labs
+We still rely on the previous labs
 
 - [Lab 1](/core/labs/lab-r-intro.html) - Introduction to R and RStudio
 - [Lab 2](/core/labs/lab-gapminder.html) - Introduction to Data Visualization using Gapminder dataset
@@ -38,9 +35,10 @@ We relied  on the previous labs
 - [Lab 5](/core/labs/lab-univariate-numeric.qmd) Univariate numeric variables
 
 
+
 ## {{< fa person-digging >}} Further work
 
-{{< fa hand-point-right >}} Review the content of the two labs. Work out every part you do not already know. 
+{{< fa hand-point-right >}} Review the content of the labs. Work out every part you do not already know. 
 Report an issue if you are unhappy with the proposed solutions/hints.
 
 
@@ -51,6 +49,8 @@ Report an issue if you are unhappy with the proposed solutions/hints.
 - [Advanced `R`](https://adv-r.hadley.nz)
 - [Cours de Statistique Fondamentale](https://statsfonda.github.io/site/)
   - [Chap Tests du chi-deux](https://statsfonda.github.io/site/content/ch4_2.html)
+  - [Chap Tests du chi-deux](https://statsfonda.github.io/site/content/ch4_2.html)
+  - [Modèles linéaires]()
 - [Sourav Chatterjee: A new correlation coefficient](https://arxiv.org/abs/1909.10140)  
  
 ## {{< fa laptop >}} Logistics  
