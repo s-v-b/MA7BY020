@@ -30,36 +30,36 @@
   categories: [bivariate data, mosaicplots, scatterplots, simple linear regression]
 - title: "Linear Regression I"
   author: "Master I MIDS UParis Cité"
-  date: "2026-02-16"
+  date: "2026-02-09"
   path: "core/labs/lab-linear-regression-whiteside.html"
   categories: [Linear regression, OLS, lm]
 - title: "Linear regression II"
   author: "Master I MIDS UParis Cité"
-  date: "2026-03-02"
+  date: "2026-02-16"
   path: "core/labs/lab-linear-regression-whiteside.html"
   categories: [Linear regression, OLS, lm, diagnostics, variable selection]
 - title: "SVD and PCA"
   author: "Master I MIDS UParis Cité"
-  date: "2026-03-09"
+  date: "2026-02-23"
   path: "core/labs/lab-pca.html"
   categories: [SVD, PCA]
 - title: "Correspondence Analysis"
   author: "Master I MIDS UParis Cité"
-  date: "2026-03-16"
+  date: "2026-03-09"
   path: "core/labs/lab-ca.html"
   categories: [SVD, CA, Correspondence Analysis]  
 - title: "SVD, MCA, CCA"
   author: "Master I MIDS UParis Cité"
-  date: "2026-03-23"
+  date: "2026-03-16"
   path: "core/labs/lab-mca.html"
   categories: [SVD, PCA, CA, MCA, CCA] 
 - title: "Clustering: kmeans"
   author: "Master I MIDS UParis Cité"
-  date: "2026-03-30"
+  date: "2026-03-23"
   path: "core/labs/lab-kmeans.html"
   categories: [Clustering, k-means]
 - title: "Clustering: Hierarchical"
   author: "Master I MIDS UParis Cité"
-  date: "2026-04-06"
+  date: "2026-03-30"
   path: "core/labs/lab-hclust.html"
   categories: [Clustering, Hierarchical]
