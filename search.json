@@ -2316,5 +2316,47 @@
     "title": "LAB: Linear Regression on Whiteside data",
     "section": "tibbles with list columns",
     "text": "tibbles with list columns\nWe also used tibbles with list columns, that is nested dataframes. Nested dataframes show up in every implementation of dataframes (from R to Spark), see: Tidyr: article on nesting"
+  },
+  {
+    "objectID": "weeks/week-5.html",
+    "href": "weeks/week-5.html",
+    "title": "Semaine 5",
+    "section": "",
+    "text": "Important\n\n\n\n\nSession I Sophie Germain (2017) Monday 16h-17h30\nSession II Sophie Germain (2011) Friday 16h45-18h15\n Calendar"
+  },
+  {
+    "objectID": "weeks/week-5.html#blackboard",
+    "href": "weeks/week-5.html#blackboard",
+    "title": "Semaine 5",
+    "section": " Blackboard",
+    "text": "Blackboard\n\nOrdinary Least Squares\nQR factorization\nRidge regression (Regularized Least Squares)\nPseudo-Inversion"
+  },
+  {
+    "objectID": "weeks/week-5.html#labs",
+    "href": "weeks/week-5.html#labs",
+    "title": "Semaine 5",
+    "section": " Labs",
+    "text": "Labs\n\nLab 6 - Linear Regression I\n\nWe still rely on the previous labs\n\nLab 1 - Introduction to R and RStudio\nLab 2 - Introduction to Data Visualization using Gapminder dataset\nLab 3 - Working with dplyr\nLab 4 Univariate categorical variables\nLab 5 Univariate numeric variables"
+  },
+  {
+    "objectID": "weeks/week-5.html#further-work",
+    "href": "weeks/week-5.html#further-work",
+    "title": "Semaine 5",
+    "section": " Further work",
+    "text": "Further work\n Review the content of the labs. Work out every part you do not already know. Report an issue if you are unhappy with the proposed solutions/hints."
+  },
+  {
+    "objectID": "weeks/week-5.html#further-reading",
+    "href": "weeks/week-5.html#further-reading",
+    "title": "Semaine 5",
+    "section": " Further reading",
+    "text": "Further reading\n\nBin Yu and Rebecca Barter, Veridical Data Science\nR for data science\nAdvanced R\nCours de Statistique Fondamentale\n\nChap Tests du chi-deux\nChap Tests du chi-deux\nModèles linéaires\n\nSourav Chatterjee: A new correlation coefficient"
+  },
+  {
+    "objectID": "weeks/week-5.html#logistics",
+    "href": "weeks/week-5.html#logistics",
+    "title": "Semaine 5",
+    "section": " Logistics",
+    "text": "Logistics\n : you will work with the R programming language in this course.\nYou need either to install R, RStudio and VS Code on your computer, or to use your posit-cloud account.\n Install Quarto on your computer to render the .qmd files.\nPlease follow the instructions here to install R, RStudio, VS Code, and Quarto or to access posit-cloud.\n Please activate your ENT account (follow the instructions on Moodle). You will be able to access the PostGres server.\n\n\nBack to Agenda ⏎"
   }
 ]
