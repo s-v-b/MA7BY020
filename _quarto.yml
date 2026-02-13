@@ -91,6 +91,7 @@ format:
     code-overflow: wrap
     toc: true
     link-external-newwindow: true
+    highlight-style: arrow
 
 execute:
   freeze: auto

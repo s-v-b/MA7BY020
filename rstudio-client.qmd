@@ -1,9 +1,5 @@
 ---
 title: "Rstudio Desktop"
-
-format:
-  html:
-    highlight-style: zenburn
 ---
 
 
@@ -27,19 +23,23 @@ Follow `Tools > Global Options`
 - Rstudio addins
 - Customize keyboad shortcuts 
 - Code snippets
+- Provide helpers when importing novel datasets stored in formats like `csv` that are not self-documented.
 
 # Use {{< fa brands r-project >}} projects
 
+Doing so, `rstudio`
+
 - Automatically sets working directory
 - Settles version control options
-- Use `renv` (or not)
-- 
+- Uses `renv` to manage a consistent collection of packages (or not)
 
-
-## Project options
 
 # Use {{< fa brands git-alt >}} {{< fa brands git >}}
 
-- 
+`rstudio` provides a `git` panel. This is a very convenient way 
+of versioning and interacting with remote repositories
+
+
+
 
 

@@ -1,9 +1,7 @@
 ---
 title: "Computing environment"
 
-format:
-  html:
-    highlight-style: zenburn
+
 ---
 
 
@@ -37,7 +35,7 @@ In the course, we will use `rstudio` and `vs code`.
 
 # Quarto
 
-[Download from Quarto Website](https://quarto.org). It is very convenient to work the Command Line Interface (CLI) of `Quarto`.
+[Download from Quarto Website](https://quarto.org). It is very convenient to work with the Command Line Interface (CLI) of `Quarto`.
 
 ::: {.callout-important}
 
