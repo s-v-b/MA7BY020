@@ -1239,6 +1239,13 @@
     "text": "Rank based methods\nSpearman’s rho (𝜌) and Kendall’s tau (𝜏) are both non-parametric correlation coefficients used to measure the strength and direction of a monotonic relationship between two variables.\n\nSpearman’s rho (𝜌)\n\nBased on rank differences. Defined as the Pearson correlation coefficient between the ranked variables.\\[\\rho = 1 - \\frac{6 \\sum d_i^2}{n(n^2 - 1)}\\] where \\(d_i\\) is the difference between the ranks of each pair, and \\(n\\) is the number of observations.\n\nKendall’s tau (𝜏)\n\nBased on concordant and discordant pairs.  Measures the proportion of pairs that have the same order in both variables compared to the total number of pairs. \\[\\tau = \\frac{(C - D)}{\\frac{1}{2} n (n - 1)}\\] where \\(C\\) is the number of concordant pairs, and \\(D\\) is the number of discordant pairs.\n\n\nWhen to Use Which?\n\n\n\n\n\n\n\nFactor\nSpearman’s rho (𝜌)\nKendall’s tau (𝜏)\n\n\n\nLarge differences in ranks\nMore sensitive\nLess sensitive\n\n\nSmall sample sizes\nLess reliable\nMore reliable\n\n\nOutlier resistance\nModerate\nHigh\n\n\nComputational efficiency\nFaster\nSlower (due to pairwise comparisons)\n\n\nInterpretation\nSimilar to Pearson’s correlation\nMore intuitive (proportion of concordance)"
   },
   {
+    "objectID": "core/labs-solutions/lab-bivariate.html#testing-correlation",
+    "href": "core/labs-solutions/lab-bivariate.html#testing-correlation",
+    "title": "Bivariate analysis",
+    "section": "Testing correlation",
+    "text": "Testing correlation\nAssuming that the data are collected using i.i.d. sampling, we may test\n\nNull hypothesis: the population correlation coefficient is zero\nAlternative: the population correlation coefficient differs from zero\n\nThis binary testing problem (where both the Null and the Alternative are composite) can be stated for the three flavors of correlation coefficients described above.\nNote that we have stated the problem with two-sided alternative. It can also be stated with one-sided alternatives ()\n\n\n\n\n\n\nNoteQuestion\n\n\n\nUse function cor.test() to test correlation between AGE and SAL_HOR\n\n\n\n\n\n\n\n\nTipSolution\n\n\n\n\nCodemethods &lt;- c(\"pearson\", \"kendall\", \"spearman\")\n\nfoo &lt;- function(lst) {\n  lst |&gt; \n  purrr::map(broom::tidy) |&gt;\n  bind_rows() |&gt;\n  gt::gt() |&gt;\n  gt::fmt_number(c(estimate, conf.low, conf.high), decimals=3) |&gt;\n  gt::fmt_scientific(c(statistic, p.value), decimals=2) |&gt;\n  gt::tab_caption(\"Correlation tests for AGE and SAL_HOR\")\n}\n\nmethods |&gt;\n  purrr::map( \\(x) {cor.test(x=df$AGE, y=df$SAL_HOR, method=x, exact=F)})|&gt;\n  foo() \n\n\n\n\nCorrelation tests for AGE and SAL_HOR\n\nestimate\nstatistic\np.value\nparameter\nconf.low\nconf.high\nmethod\nalternative\n\n\n\n0.250\n6.32\n5.12 × 10−10\n\n597\n0.174\n0.324\nPearson's product-moment correlation\ntwo.sided\n\n\n0.223\n8.04\n9.15 × 10−16\n\nNA\nNA\nNA\nKendall's rank correlation tau\ntwo.sided\n\n\n0.322\n2.43 × 107\n\n6.31 × 10−16\n\nNA\nNA\nNA\nSpearman's rank correlation rho\ntwo.sided\n\n\n\n\n\n\n\nCodemethods |&gt;\n  purrr::map( \\(x) {cor.test(x=df$AGE, y=df$SAL_HOR, alternative=\"greater\", method=x, exact=F)})|&gt;\n  foo()  \n\n\n\n\nCorrelation tests for AGE and SAL_HOR\n\nestimate\nstatistic\np.value\nparameter\nconf.low\nconf.high\nmethod\nalternative\n\n\n\n0.250\n6.32\n2.56 × 10−10\n\n597\n0.186\n1.000\nPearson's product-moment correlation\ngreater\n\n\n0.223\n8.04\n4.58 × 10−16\n\nNA\nNA\nNA\nKendall's rank correlation tau\ngreater\n\n\n0.322\n2.43 × 107\n\n3.15 × 10−16\n\nNA\nNA\nNA\nSpearman's rank correlation rho\ngreater"
+  },
+  {
     "objectID": "core/labs-solutions/lab-bivariate.html#chatterjees-correlation-coefficient-chatterjees-ξ",
     "href": "core/labs-solutions/lab-bivariate.html#chatterjees-correlation-coefficient-chatterjees-ξ",
     "title": "Bivariate analysis",
@@ -1831,7 +1838,7 @@
     "href": "core/labs-solutions/lab-r-intro.html#vector-creation-and-assignment",
     "title": "R language: a tour",
     "section": "Vector creation and assignment",
-    "text": "Vector creation and assignment\nThe next three lines create three numerical atomic vectors.\nIn IDE Rstudio, have a look at the environment pane on the right before running the chunk, and after.\nUse ls() to investigate the environment before and after the execution of the three assignments.\n\nls()\nx &lt;- c(1, 2, 12)\ny &lt;- 5:7\nz &lt;- 10:1\nx ; y ; z \nls()\n\n\n\n\n\n\n\nNoteQuestion\n\n\n\n\nWhat are the identifiers known in the global environment before execution of lines 2-4?\nWhat are the identifiers known in the global environment after execution of lines 2-4?\nWhich objects are attached to identifiers x, y, and z?\n\n\n\n\n\n\n\n\n\nTipSolution\n\n\n\n\n\n\nls()\n\n[1] \"opts\"\n\nx &lt;- c(1, 2, 12)\ny &lt;- 5:7\nz &lt;- 10:1\nx ; y ; z \n\n[1]  1  2 12\n\n\n[1] 5 6 7\n\n\n [1] 10  9  8  7  6  5  4  3  2  1\n\nls()\n\n[1] \"opts\" \"x\"    \"y\"    \"z\"   \n\n\nThe chunks adds three identifiers x,y,z to the global environment. Identifiers are bound to R objects which turn out to be numerical vectors.\n\n\n\n\n\n\n\n\n\nNoteQuestion\n\n\n\nWhat does the next chunk?\n\nls()\nw &lt;- y\nls()\n\n\n\n\n\n\n\n\n\nTipSolution\n\n\n\n\n\nThe chunk inserts a new identifier w in the global environment. This identifier is associated with the same object as y.\n\n\n\n\n\n\n\n\n\nNoteQuestion\n\n\n\n\nIs the content of object denoted by y copied to a new object bound to w?\nInterpret the result of w == y.\nInterpret the result of identical(w,y) (use help(\"identical\") if needed).\n\n\nw == y \nidentical(w,y)\n\n\n\n\n\n\n\n\n\nTipSolution\n\n\n\n\n\nPackage lobstr lets us explore low-level aspects of R (and much more). Function lobstr::obj_addr() returns the address of the object denoted by the argument.\n\nlobstr::obj_addr(w)\n\n[1] \"0x5c50fc6ca238\"\n\nlobstr::obj_addr(y)\n\n[1] \"0x5c50fc6ca238\"\n\n\nNow, if we modify either y or w\n\ny &lt;- y + 1\nidentical(y, w)\n\n[1] FALSE\n\nc(lobstr::obj_addr(w), lobstr::obj_addr(y))\n\n[1] \"0x5c50fc6ca238\" \"0x5c50fd0a1098\"\n\n\nThe address associated with y has changed!\n\n\n\n\n\n\n\n\n\nWarning\n\n\n\nThe meaning of assignment in R differs from its counterpart in Python. In Python, assignment is shallow. In R, assignment creates a new identifier bound to the same object as the right-hand side of the assignment. If either side of the assignment is modified, it is copied to a new object before modification. This is called copy-on-modify."
+    "text": "Vector creation and assignment\nThe next three lines create three numerical atomic vectors.\nIn IDE Rstudio, have a look at the environment pane on the right before running the chunk, and after.\nUse ls() to investigate the environment before and after the execution of the three assignments.\n\nls()\nx &lt;- c(1, 2, 12)\ny &lt;- 5:7\nz &lt;- 10:1\nx ; y ; z \nls()\n\n\n\n\n\n\n\nNoteQuestion\n\n\n\n\nWhat are the identifiers known in the global environment before execution of lines 2-4?\nWhat are the identifiers known in the global environment after execution of lines 2-4?\nWhich objects are attached to identifiers x, y, and z?\n\n\n\n\n\n\n\n\n\nTipSolution\n\n\n\n\n\n\nls()\n\n[1] \"opts\"\n\nx &lt;- c(1, 2, 12)\ny &lt;- 5:7\nz &lt;- 10:1\nx ; y ; z \n\n[1]  1  2 12\n\n\n[1] 5 6 7\n\n\n [1] 10  9  8  7  6  5  4  3  2  1\n\nls()\n\n[1] \"opts\" \"x\"    \"y\"    \"z\"   \n\n\nThe chunks adds three identifiers x,y,z to the global environment. Identifiers are bound to R objects which turn out to be numerical vectors.\n\n\n\n\n\n\n\n\n\nNoteQuestion\n\n\n\nWhat does the next chunk?\n\nls()\nw &lt;- y\nls()\n\n\n\n\n\n\n\n\n\nTipSolution\n\n\n\n\n\nThe chunk inserts a new identifier w in the global environment. This identifier is associated with the same object as y.\n\n\n\n\n\n\n\n\n\nNoteQuestion\n\n\n\n\nIs the content of object denoted by y copied to a new object bound to w?\nInterpret the result of w == y.\nInterpret the result of identical(w,y) (use help(\"identical\") if needed).\n\n\nw == y \nidentical(w,y)\n\n\n\n\n\n\n\n\n\nTipSolution\n\n\n\n\n\nPackage lobstr lets us explore low-level aspects of R (and much more). Function lobstr::obj_addr() returns the address of the object denoted by the argument.\n\nlobstr::obj_addr(w)\n\n[1] \"0x58a0b92270a0\"\n\nlobstr::obj_addr(y)\n\n[1] \"0x58a0b92270a0\"\n\n\nNow, if we modify either y or w\n\ny &lt;- y + 1\nidentical(y, w)\n\n[1] FALSE\n\nc(lobstr::obj_addr(w), lobstr::obj_addr(y))\n\n[1] \"0x58a0b92270a0\" \"0x58a0b6408a58\"\n\n\nThe address associated with y has changed!\n\n\n\n\n\n\n\n\n\nWarning\n\n\n\nThe meaning of assignment in R differs from its counterpart in Python. In Python, assignment is shallow. In R, assignment creates a new identifier bound to the same object as the right-hand side of the assignment. If either side of the assignment is modified, it is copied to a new object before modification. This is called copy-on-modify."
   },
   {
     "objectID": "core/labs-solutions/lab-r-intro.html#indexation-slicing-modification",
@@ -1866,21 +1873,21 @@
     "href": "core/labs-solutions/lab-r-intro.html#creation-transposition-and-reshaping",
     "title": "R language: a tour",
     "section": "Creation, transposition and reshaping",
-    "text": "Creation, transposition and reshaping\nA vector can be turned into a column matrix.\n\nv &lt;- as.matrix(1:5)\nv\n\n     [,1]\n[1,]    1\n[2,]    2\n[3,]    3\n[4,]    4\n[5,]    5\n\n\nA matrix can be transposed\n\nt(v)  # transpose \n\n     [,1] [,2] [,3] [,4] [,5]\n[1,]    1    2    3    4    5\n\ncat(dim(v), ' ', dim(t(v)), '\\n')\n\n5 1   1 5 \n\n\n\nA &lt;- matrix(1, nrow=5, ncol=2) ; A\n\n     [,1] [,2]\n[1,]    1    1\n[2,]    1    1\n[3,]    1    1\n[4,]    1    1\n[5,]    1    1\n\n\n\n\n\n\n\n\nNoteQuestion\n\n\n\nlobstr::mem_used() allows us to keep track of the amount of memory used by our R session. lobstr::obj_size() tells us the amount of memory used by the representation of an object.\nComment the next chunk\n\nm1 &lt;-lobstr::mem_used()\nA &lt;- matrix(rnorm(100000L), nrow=1000L)\nm2 &lt;- lobstr::mem_used()\nlobstr::obj_size(A)\n\n800.22 kB\n\nB &lt;- t(A)\nlobstr::obj_size(B)\n\n800.22 kB\n\nm3 &lt;- lobstr::mem_used()\nm2-m1 ; m3-m2\n\n807.81 kB\n\n\n1.09 MB\n\n\n\n\n\n\n\n\n\n\nNoteQuestion\n\n\n\n\nIs there a difference between the next two assignments?\nHow would you assign value to all entries of a matrix?\n\n\nA &lt;- matrix(rnorm(16), nrow=4)\nA[] &lt;- 0 ; A\n\n     [,1] [,2] [,3] [,4]\n[1,]    0    0    0    0\n[2,]    0    0    0    0\n[3,]    0    0    0    0\n[4,]    0    0    0    0\n\nA   &lt;- 0 ; A\n\n[1] 0\n\n\n\n\n\n\n\n\n\n\nNoneSolution\n\n\n\n\n\nThere is!\nThe first assignment assigns 0 to every entry in A.\nThe second assignment binds 0 to name A\n\n\n\n\n\n\n\n\n\nNoteQuestion\n\n\n\nWhat is the final shape of A?\n\nA &lt;- matrix(1, nrow=5, ncol=2) \nA\nA[] &lt;- 1:15 \nA\n\n\n\nWe can easily generate diagonal matrices and constant matrices.\n\ndiag(1, 3)  # building identity matrix\n\n     [,1] [,2] [,3]\n[1,]    1    0    0\n[2,]    0    1    0\n[3,]    0    0    1\n\nmatrix(0, 3, 3) # building null matrix\n\n     [,1] [,2] [,3]\n[1,]    0    0    0\n[2,]    0    0    0\n[3,]    0    0    0\n\n\n\n\n\n\n\n\nNoteQuestion\n\n\n\nIs there any difference between the next two assignments?\n\nB &lt;- A[]\nB ; A\n\n[1] 0\n\n\n[1] 0\n\nlobstr::obj_addr(B) ; lobstr::obj_addr(A)\n\n[1] \"0x5c50fce2b060\"\n\n\n[1] \"0x5c50fda62838\"\n\nB &lt;- A\nlobstr::obj_addr(B) ; lobstr::obj_addr(A)\n\n[1] \"0x5c50fda62838\"\n\n\n[1] \"0x5c50fda62838\""
+    "text": "Creation, transposition and reshaping\nA vector can be turned into a column matrix.\n\nv &lt;- as.matrix(1:5)\nv\n\n     [,1]\n[1,]    1\n[2,]    2\n[3,]    3\n[4,]    4\n[5,]    5\n\n\nA matrix can be transposed\n\nt(v)  # transpose \n\n     [,1] [,2] [,3] [,4] [,5]\n[1,]    1    2    3    4    5\n\ncat(dim(v), ' ', dim(t(v)), '\\n')\n\n5 1   1 5 \n\n\n\nA &lt;- matrix(1, nrow=5, ncol=2) ; A\n\n     [,1] [,2]\n[1,]    1    1\n[2,]    1    1\n[3,]    1    1\n[4,]    1    1\n[5,]    1    1\n\n\n\n\n\n\n\n\nNoteQuestion\n\n\n\nlobstr::mem_used() allows us to keep track of the amount of memory used by our R session. lobstr::obj_size() tells us the amount of memory used by the representation of an object.\nComment the next chunk\n\nm1 &lt;-lobstr::mem_used()\nA &lt;- matrix(rnorm(100000L), nrow=1000L)\nm2 &lt;- lobstr::mem_used()\nlobstr::obj_size(A)\n\n800.22 kB\n\nB &lt;- t(A)\nlobstr::obj_size(B)\n\n800.22 kB\n\nm3 &lt;- lobstr::mem_used()\nm2-m1 ; m3-m2\n\n805.10 kB\n\n\n953.89 kB\n\n\n\n\n\n\n\n\n\n\nNoteQuestion\n\n\n\n\nIs there a difference between the next two assignments?\nHow would you assign value to all entries of a matrix?\n\n\nA &lt;- matrix(rnorm(16), nrow=4)\nA[] &lt;- 0 ; A\n\n     [,1] [,2] [,3] [,4]\n[1,]    0    0    0    0\n[2,]    0    0    0    0\n[3,]    0    0    0    0\n[4,]    0    0    0    0\n\nA   &lt;- 0 ; A\n\n[1] 0\n\n\n\n\n\n\n\n\n\n\nNoneSolution\n\n\n\n\n\nThere is!\nThe first assignment assigns 0 to every entry in A.\nThe second assignment binds 0 to name A\n\n\n\n\n\n\n\n\n\nNoteQuestion\n\n\n\nWhat is the final shape of A?\n\nA &lt;- matrix(1, nrow=5, ncol=2) \nA\nA[] &lt;- 1:15 \nA\n\n\n\nWe can easily generate diagonal matrices and constant matrices.\n\ndiag(1, 3)  # building identity matrix\n\n     [,1] [,2] [,3]\n[1,]    1    0    0\n[2,]    0    1    0\n[3,]    0    0    1\n\nmatrix(0, 3, 3) # building null matrix\n\n     [,1] [,2] [,3]\n[1,]    0    0    0\n[2,]    0    0    0\n[3,]    0    0    0\n\n\n\n\n\n\n\n\nNoteQuestion\n\n\n\nIs there any difference between the next two assignments?\n\nB &lt;- A[]\nB ; A\n\n[1] 0\n\n\n[1] 0\n\nlobstr::obj_addr(B) ; lobstr::obj_addr(A)\n\n[1] \"0x58a0b9c300a8\"\n\n\n[1] \"0x58a0ba0d3830\"\n\nB &lt;- A\nlobstr::obj_addr(B) ; lobstr::obj_addr(A)\n\n[1] \"0x58a0ba0d3830\"\n\n\n[1] \"0x58a0ba0d3830\""
   },
   {
     "objectID": "core/labs-solutions/lab-r-intro.html#indexation-slicing-modification-1",
     "href": "core/labs-solutions/lab-r-intro.html#indexation-slicing-modification-1",
     "title": "R language: a tour",
     "section": "Indexation, slicing, modification",
-    "text": "Indexation, slicing, modification\nIndexation consists in getting one item from a vector/list/matrix/array/dataframe.\nSlicing and subsetting consists in picking a substructure:\n\nsubsetting a vector returns a vector\nsubsetting a list returns a list\nsubsetting a matrix/array returns a matrix/array (beware of implicit simplifications and dimension dropping)\nsubsetting a dataframe returns a dataframe or a vector (again, beware of implicit simplifications).\n\n\n\n\n\n\n\nNoteQuestion\n\n\n\nExplain the next results\n\nA &lt;- matrix(1, nrow=5, ncol=2)\n\ndim(A[sample(5, 3), -1])\ndim(A[sample(5, 3), 1])\nlength(A[sample(5, 3), 1])\nis.vector(A[sample(5, 3), 1])\nA[10:15]\nA[60]\ndim(A[])\n\n\n\n\n\n\n\n\n\n\n\nNULL\n\n\nNULL\n\n\n[1] 3\n\n\n[1] TRUE\n\n\n[1]  1 NA NA NA NA NA\n\n\n[1] NA\n\n\n[1] 5 2\n\n\n\n\n\n\n\n\n\n\n\nNoteQuestion\n\n\n\nHow would you create a fresh copy of a matrix?\n\n\n\n\n\n\n\n\nTipSolution\n\n\n\n\nA &lt;- matrix(rnorm(10), ncol=2L)\nB &lt;- matrix(0, nrow=5L, ncol=2L)\n\nB[] &lt;- A\nall(B==A) ; identical(A, B) ; lobstr::obj_addrs(list(A, B))\n\n[1] TRUE\n\n\n[1] TRUE\n\n\n[1] \"0x5c50fb4e0e78\" \"0x5c50fb4e1558\""
+    "text": "Indexation, slicing, modification\nIndexation consists in getting one item from a vector/list/matrix/array/dataframe.\nSlicing and subsetting consists in picking a substructure:\n\nsubsetting a vector returns a vector\nsubsetting a list returns a list\nsubsetting a matrix/array returns a matrix/array (beware of implicit simplifications and dimension dropping)\nsubsetting a dataframe returns a dataframe or a vector (again, beware of implicit simplifications).\n\n\n\n\n\n\n\nNoteQuestion\n\n\n\nExplain the next results\n\nA &lt;- matrix(1, nrow=5, ncol=2)\n\ndim(A[sample(5, 3), -1])\ndim(A[sample(5, 3), 1])\nlength(A[sample(5, 3), 1])\nis.vector(A[sample(5, 3), 1])\nA[10:15]\nA[60]\ndim(A[])\n\n\n\n\n\n\n\n\n\n\n\nNULL\n\n\nNULL\n\n\n[1] 3\n\n\n[1] TRUE\n\n\n[1]  1 NA NA NA NA NA\n\n\n[1] NA\n\n\n[1] 5 2\n\n\n\n\n\n\n\n\n\n\n\nNoteQuestion\n\n\n\nHow would you create a fresh copy of a matrix?\n\n\n\n\n\n\n\n\nTipSolution\n\n\n\n\nA &lt;- matrix(rnorm(10), ncol=2L)\nB &lt;- matrix(0, nrow=5L, ncol=2L)\n\nB[] &lt;- A\nall(B==A) ; identical(A, B) ; lobstr::obj_addrs(list(A, B))\n\n[1] TRUE\n\n\n[1] TRUE\n\n\n[1] \"0x58a0b9438fe8\" \"0x58a0b9439828\""
   },
   {
     "objectID": "core/labs-solutions/lab-r-intro.html#computing-with-matrices",
     "href": "core/labs-solutions/lab-r-intro.html#computing-with-matrices",
     "title": "R language: a tour",
     "section": "Computing with matrices",
-    "text": "Computing with matrices\n\n\n* versus %*%\n\n\n%*% stands for matrix multiplication. In order to use it, the two matrices should have conformant dimensions.\n\n\n\nt(v) %*% A\n\n          [,1]     [,2]\n[1,] -4.124554 8.253829\n\n\nThere are a variety of reasonable products around. Some of them are available in R.\n\n\n\n\n\n\nNoteQuestion\n\n\n\nHow would you compute the Hilbert-Schmidt inner product between two matrices?\n\\[\\langle A, B\\rangle_{\\text{HS}} = \\text{Trace} \\big(A \\times B^\\top\\big)\\]\n\n\n\n\n\n\n\n\nNoneSolution\n\n\n\n\n\nIn R, trace() does not return the trace of a matrix! Function is used for debugging.\nJust remember that the trace of a matrix is the sum of its diagonal elements.\n\nA &lt;- matrix(runif(6), 2, 3)\nB &lt;- matrix(runif(6), 2, 3)\nfoo &lt;- sum(diag(A %*% t(B)))\nbar &lt;- sum(A * B)\nfoo ; bar\n\n[1] 1.387838\n\n\n[1] 1.387838\n\n\nAre you surprised?\n\n\n\n\n\n\n\n\n\nNoteQuestion\n\n\n\nHow can you invert a square (invertible) matrix?\n\n\nUse solve(A) which is a shorthand for solve(A, diag(1, nrow(3)))."
+    "text": "Computing with matrices\n\n\n* versus %*%\n\n\n%*% stands for matrix multiplication. In order to use it, the two matrices should have conformant dimensions.\n\n\n\nt(v) %*% A\n\n         [,1]      [,2]\n[1,] 14.41456 -2.523686\n\n\nThere are a variety of reasonable products around. Some of them are available in R.\n\n\n\n\n\n\nNoteQuestion\n\n\n\nHow would you compute the Hilbert-Schmidt inner product between two matrices?\n\\[\\langle A, B\\rangle_{\\text{HS}} = \\text{Trace} \\big(A \\times B^\\top\\big)\\]\n\n\n\n\n\n\n\n\nNoneSolution\n\n\n\n\n\nIn R, trace() does not return the trace of a matrix! Function is used for debugging.\nJust remember that the trace of a matrix is the sum of its diagonal elements.\n\nA &lt;- matrix(runif(6), 2, 3)\nB &lt;- matrix(runif(6), 2, 3)\nfoo &lt;- sum(diag(A %*% t(B)))\nbar &lt;- sum(A * B)\nfoo ; bar\n\n[1] 1.189073\n\n\n[1] 1.189073\n\n\nAre you surprised?\n\n\n\n\n\n\n\n\n\nNoteQuestion\n\n\n\nHow can you invert a square (invertible) matrix?\n\n\nUse solve(A) which is a shorthand for solve(A, diag(1, nrow(3)))."
   },
   {
     "objectID": "core/labs-solutions/lab-r-intro.html#handling-three-valued-logic",
@@ -1908,14 +1915,14 @@
     "href": "core/labs-solutions/lab-r-intro.html#iterations-for-it-in-iterable-...",
     "title": "R language: a tour",
     "section": "Iterations for (it in iterable) {...}\n",
-    "text": "Iterations for (it in iterable) {...}\n\nHave a look at Iteration section in R for Data Science\n\n\n\n\n\n\nNoteQuestion\n\n\n\nCreate a lower triangular matrix which represents the 5 first lines of the Pascal triangle.\n\n\nRecall\n\\[\\binom{n}{k} = \\binom{n-1}{k-1} + \\binom{n-1}{k}\\]\n\n\n\n\n\n\nNoneSolution\n\n\n\n\n\n\nT &lt;- matrix(0L, nrow=6, ncol=6)\nT[1,1] &lt;- 1L\n\nfor (i in 2:ncol(T))\n  T[i, 1:i] &lt;- c(0L, T[i-1, 2:i-1]) + T[i-1, 1:i]\n\ncolnames(T) &lt;- 0L:5L\nrownames(T) &lt;- 0L:5L\n\nT\n\n  0 1  2  3 4 5\n0 1 0  0  0 0 0\n1 1 1  0  0 0 0\n2 1 2  1  0 0 0\n3 1 3  3  1 0 0\n4 1 4  6  4 1 0\n5 1 5 10 10 5 1\n\n\n\n\n\n\n\n\n\n\n\nNoteQuestion\n\n\n\nLocate the smallest element in a numerical vector\n\n\n\n\n\n\n\n\nNoneSolution\n\n\n\n\n\n\nv &lt;- sample(1:100, 100)\nv[1:10]\n\n [1] 31 74 66 19 29 94 41 48 97 51\n\npmin &lt;- 1\n\n# q: what is the purpose of the following loop?\n# for (i in 2:length(v)) {\n#   if (v[i]&lt;v[pmin]) {\n#     pmin &lt;- i\n#   }\n# }\nfor (i in seq_along(v)) {\n  if (v[i]&lt;v[pmin]) {\n    pmin &lt;- i\n  }\n}\n\nprint(stringr::str_c('minimum is at ', pmin, ', it is equal to ', v[pmin]))\n\n[1] \"minimum is at 32, it is equal to 1\"\n\n\nThere are some redundant braces {}"
+    "text": "Iterations for (it in iterable) {...}\n\nHave a look at Iteration section in R for Data Science\n\n\n\n\n\n\nNoteQuestion\n\n\n\nCreate a lower triangular matrix which represents the 5 first lines of the Pascal triangle.\n\n\nRecall\n\\[\\binom{n}{k} = \\binom{n-1}{k-1} + \\binom{n-1}{k}\\]\n\n\n\n\n\n\nNoneSolution\n\n\n\n\n\n\nT &lt;- matrix(0L, nrow=6, ncol=6)\nT[1,1] &lt;- 1L\n\nfor (i in 2:ncol(T))\n  T[i, 1:i] &lt;- c(0L, T[i-1, 2:i-1]) + T[i-1, 1:i]\n\ncolnames(T) &lt;- 0L:5L\nrownames(T) &lt;- 0L:5L\n\nT\n\n  0 1  2  3 4 5\n0 1 0  0  0 0 0\n1 1 1  0  0 0 0\n2 1 2  1  0 0 0\n3 1 3  3  1 0 0\n4 1 4  6  4 1 0\n5 1 5 10 10 5 1\n\n\n\n\n\n\n\n\n\n\n\nNoteQuestion\n\n\n\nLocate the smallest element in a numerical vector\n\n\n\n\n\n\n\n\nNoneSolution\n\n\n\n\n\n\nv &lt;- sample(1:100, 100)\nv[1:10]\n\n [1] 94 69 63 43 96 46 34 57 66 15\n\npmin &lt;- 1\n\n# q: what is the purpose of the following loop?\n# for (i in 2:length(v)) {\n#   if (v[i]&lt;v[pmin]) {\n#     pmin &lt;- i\n#   }\n# }\nfor (i in seq_along(v)) {\n  if (v[i]&lt;v[pmin]) {\n    pmin &lt;- i\n  }\n}\n\nprint(stringr::str_c('minimum is at ', pmin, ', it is equal to ', v[pmin]))\n\n[1] \"minimum is at 50, it is equal to 1\"\n\n\nThere are some redundant braces {}"
   },
   {
     "objectID": "core/labs-solutions/lab-r-intro.html#while-condition",
     "href": "core/labs-solutions/lab-r-intro.html#while-condition",
     "title": "R language: a tour",
     "section": "While (condition) {…}",
-    "text": "While (condition) {…}\n\n\n\n\n\n\nNoteQuestion\n\n\n\nFind the location of the minimum in a vector v\n\n\n\n\n\n\n\n\nNoneSolution\n\n\n\n\n\n\nv &lt;- sample(100, 100)\n\npmin &lt;- 1   # Minimum in v[1:1]\ni &lt;- 2\n\n# q: find le location of the minimum in  vector v\n\nwhile (i &lt;= length(v)) {\n  # loop invariant: v[pmin] == min(v[1:i])\n  if (v[i]&lt;v[pmin]) {\n    pmin &lt;- i\n  }\n  i &lt;- i + 1\n}\n\nprint(stringr::str_c('minimum is at ', pmin, ', it is equal to ', v[pmin]))\n\n[1] \"minimum is at 97, it is equal to 1\"\n\nwhich.min(v); v[which.min(v)]\n\n[1] 97\n\n\n[1] 1\n\n\n\n\n\n\n\n\n\n\n\nNoteQuestion\n\n\n\nWrite a loop that checks whether vector v is non-decreasing.\n\n\n\n\n\n\n\n\nNoneSolution\n\n\n\n\n\n\nresult &lt;- TRUE\n\nfor (i in 2:length(v))\n  if (v[i] &lt; v[i-1]) {\n    result &lt;- FALSE\n    break\n  }\n\nif (result) {\n  print(\"non-decreasing\")\n} else {\n  print(\"not non-decreasing\")\n}\n\n[1] \"not non-decreasing\""
+    "text": "While (condition) {…}\n\n\n\n\n\n\nNoteQuestion\n\n\n\nFind the location of the minimum in a vector v\n\n\n\n\n\n\n\n\nNoneSolution\n\n\n\n\n\n\nv &lt;- sample(100, 100)\n\npmin &lt;- 1   # Minimum in v[1:1]\ni &lt;- 2\n\n# q: find le location of the minimum in  vector v\n\nwhile (i &lt;= length(v)) {\n  # loop invariant: v[pmin] == min(v[1:i])\n  if (v[i]&lt;v[pmin]) {\n    pmin &lt;- i\n  }\n  i &lt;- i + 1\n}\n\nprint(stringr::str_c('minimum is at ', pmin, ', it is equal to ', v[pmin]))\n\n[1] \"minimum is at 96, it is equal to 1\"\n\nwhich.min(v); v[which.min(v)]\n\n[1] 96\n\n\n[1] 1\n\n\n\n\n\n\n\n\n\n\n\nNoteQuestion\n\n\n\nWrite a loop that checks whether vector v is non-decreasing.\n\n\n\n\n\n\n\n\nNoneSolution\n\n\n\n\n\n\nresult &lt;- TRUE\n\nfor (i in 2:length(v))\n  if (v[i] &lt; v[i-1]) {\n    result &lt;- FALSE\n    break\n  }\n\nif (result) {\n  print(\"non-decreasing\")\n} else {\n  print(\"not non-decreasing\")\n}\n\n[1] \"not non-decreasing\""
   },
   {
     "objectID": "core/labs-solutions/lab-r-intro.html#operators-purrrmap_",
@@ -2056,6 +2063,48 @@
     "title": "Data visualization",
     "section": "More material",
     "text": "More material\n\nRead Visualization in R for Data Science"
+  },
+  {
+    "objectID": "core/labs-solutions/lab-linear-regression-whiteside.html",
+    "href": "core/labs-solutions/lab-linear-regression-whiteside.html",
+    "title": "LAB: Linear Regression on Whiteside data",
+    "section": "",
+    "text": "M1 MIDS/MFA/LOGOS\n\n\nUniversité Paris Cité\n\n\nAnnée 2025\n\n\nCourse Homepage\n\n\nMoodle"
+  },
+  {
+    "objectID": "core/labs-solutions/lab-linear-regression-whiteside.html#introduction",
+    "href": "core/labs-solutions/lab-linear-regression-whiteside.html#introduction",
+    "title": "LAB: Linear Regression on Whiteside data",
+    "section": "Introduction",
+    "text": "Introduction\nThe purpose of this lab is to introduce linear regression using base R and the tidyverse. We work on a dataset provided by the MASS package. This dataset is investigated in the book by Venables and Ripley. This discusssion is worth being read. Our aim is to relate regression as a tool for data exploration with regression as a method in statistical inference. To perform regression, we will rely on the base R function lm() and on the eponymous S3 class lm. We will spend time understanding how the formula argument can be used to construct a design matrix from a dataframe representing a dataset."
+  },
+  {
+    "objectID": "core/labs-solutions/lab-linear-regression-whiteside.html#packages-installation-and-loading-again",
+    "href": "core/labs-solutions/lab-linear-regression-whiteside.html#packages-installation-and-loading-again",
+    "title": "LAB: Linear Regression on Whiteside data",
+    "section": "Packages installation and loading (again)",
+    "text": "Packages installation and loading (again)\n\n\nCode\n# We will use the following packages. \n# If needed, install them : pak::pkg_install(). \nstopifnot(\n  require(\"magrittr\"),\n  require(\"lobstr\"),\n  require(\"ggforce\"),\n  require(\"patchwork\"), \n  require(\"gt\"),\n  require(\"glue\"),\n  require(\"skimr\"),\n  require(\"corrr\"),\n  require(\"GGally\"),\n  require(\"broom\"),\n  require(\"tidyverse\"),\n  require(\"ggfortify\"),\n  require(\"autoplotly\")\n\n)\n\n\nBesides the tidyverse, we rely on skimr to perform univariate analysis, GGally::ggpairs to perform pairwise (bivariate) analysis. Package corrr provide graphical tools to explore correlation matrices. At some point, we will showcase the exposing pipe %$% and the classical pipe %&gt;% of magrittr. We use gt to display handy tables, patchwork to compose graphical objects. glue provides a kind of formatted strings. Package broom proves very useful when milking lienar models produced by lm() (and many other objects produced by estimators, tests, …)"
+  },
+  {
+    "objectID": "core/labs-solutions/lab-linear-regression-whiteside.html#s3-classes-in-r",
+    "href": "core/labs-solutions/lab-linear-regression-whiteside.html#s3-classes-in-r",
+    "title": "LAB: Linear Regression on Whiteside data",
+    "section": "S3 classes in R",
+    "text": "S3 classes in R\nGeneric functions for S3 classes are used extensively in this lab. Functions from broom, ggplot2, and ggfortify are often generic functions.\nmethods(autoplot) lists the S3 classes for which an autoplot method is defined. Some methods are defined in ggplot2, others like autoplot.lm are defined in extension packages like ggfortify."
+  },
+  {
+    "objectID": "core/labs-solutions/lab-linear-regression-whiteside.html#s4-classes-in-r",
+    "href": "core/labs-solutions/lab-linear-regression-whiteside.html#s4-classes-in-r",
+    "title": "LAB: Linear Regression on Whiteside data",
+    "section": "S4 classes in R",
+    "text": "S4 classes in R\nThe output of autoplot.lm is an instance of S4 class.\nSee also New trends:\n\nThe S7 package is a new OOP system designed to be a successor to S3 and S4. It has been designed and implemented collaboratively by the R Consortium Object-Oriented Programming Working Group, which includes representatives from R-Core, Bioconductor, the tidyverse/Posit, and the wider R community."
+  },
+  {
+    "objectID": "core/labs-solutions/lab-linear-regression-whiteside.html#tibbles-with-list-columns",
+    "href": "core/labs-solutions/lab-linear-regression-whiteside.html#tibbles-with-list-columns",
+    "title": "LAB: Linear Regression on Whiteside data",
+    "section": "tibbles with list columns",
+    "text": "tibbles with list columns\nWe also used tibbles with list columns, that is nested dataframes. Nested dataframes show up in every implementation of dataframes (from R to Spark), see: Tidyr: article on nesting"
   },
   {
     "objectID": "core/labs-solutions/lab-progr.html",
@@ -2213,60 +2262,11 @@
     ]
   },
   {
-    "objectID": "core/labs-solutions/lab-bivariate.html#testing-correlation",
-    "href": "core/labs-solutions/lab-bivariate.html#testing-correlation",
-    "title": "Bivariate analysis",
-    "section": "Testing correlation",
-    "text": "Testing correlation\nAssuming that the data are collected using i.i.d. sampling, we may test\n\nNull hypothesis: the population correlation coefficient is zero\nAlternative: the population correlation coefficient differs from zero\n\nThis binary testing problem (where both the Null and the Alternative are composite) can be stated for the three flavors of correlation coefficients described above.\nNote that we have stated the problem with two-sided alternative. It can also be stated with one-sided alternatives ()\n\n\n\n\n\n\nNoteQuestion\n\n\n\nUse function cor.test() to test correlation between AGE and SAL_HOR\n\n\n\n\n\n\n\n\nTipSolution\n\n\n\n\nCodemethods &lt;- c(\"pearson\", \"kendall\", \"spearman\")\n\nfoo &lt;- function(lst) {\n  lst |&gt; \n  purrr::map(broom::tidy) |&gt;\n  bind_rows() |&gt;\n  gt::gt() |&gt;\n  gt::fmt_number(c(estimate, conf.low, conf.high), decimals=3) |&gt;\n  gt::fmt_scientific(c(statistic, p.value), decimals=2) |&gt;\n  gt::tab_caption(\"Correlation tests for AGE and SAL_HOR\")\n}\n\nmethods |&gt;\n  purrr::map( \\(x) {cor.test(x=df$AGE, y=df$SAL_HOR, method=x, exact=F)})|&gt;\n  foo() \n\n\n\n\nCorrelation tests for AGE and SAL_HOR\n\nestimate\nstatistic\np.value\nparameter\nconf.low\nconf.high\nmethod\nalternative\n\n\n\n0.250\n6.32\n5.12 × 10−10\n\n597\n0.174\n0.324\nPearson's product-moment correlation\ntwo.sided\n\n\n0.223\n8.04\n9.15 × 10−16\n\nNA\nNA\nNA\nKendall's rank correlation tau\ntwo.sided\n\n\n0.322\n2.43 × 107\n\n6.31 × 10−16\n\nNA\nNA\nNA\nSpearman's rank correlation rho\ntwo.sided\n\n\n\n\n\n\n\nCodemethods |&gt;\n  purrr::map( \\(x) {cor.test(x=df$AGE, y=df$SAL_HOR, alternative=\"greater\", method=x, exact=F)})|&gt;\n  foo()  \n\n\n\n\nCorrelation tests for AGE and SAL_HOR\n\nestimate\nstatistic\np.value\nparameter\nconf.low\nconf.high\nmethod\nalternative\n\n\n\n0.250\n6.32\n2.56 × 10−10\n\n597\n0.186\n1.000\nPearson's product-moment correlation\ngreater\n\n\n0.223\n8.04\n4.58 × 10−16\n\nNA\nNA\nNA\nKendall's rank correlation tau\ngreater\n\n\n0.322\n2.43 × 107\n\n3.15 × 10−16\n\nNA\nNA\nNA\nSpearman's rank correlation rho\ngreater"
-  },
-  {
-    "objectID": "core/labs-solutions/lab-linear-regression-whiteside.html",
-    "href": "core/labs-solutions/lab-linear-regression-whiteside.html",
+    "objectID": "core/labs-solutions/lab-linear-regression-whiteside.html#solving-ols-with-qr-factorization",
+    "href": "core/labs-solutions/lab-linear-regression-whiteside.html#solving-ols-with-qr-factorization",
     "title": "LAB: Linear Regression on Whiteside data",
-    "section": "",
-    "text": "M1 MIDS/MFA/LOGOS\n\n\nUniversité Paris Cité\n\n\nAnnée 2025\n\n\nCourse Homepage\n\n\nMoodle"
-  },
-  {
-    "objectID": "core/labs-solutions/lab-linear-regression-whiteside.html#introduction",
-    "href": "core/labs-solutions/lab-linear-regression-whiteside.html#introduction",
-    "title": "LAB: Linear Regression on Whiteside data",
-    "section": "Introduction",
-    "text": "Introduction\nThe purpose of this lab is to introduce linear regression using base R and the tidyverse. We work on a dataset provided by the MASS package. This dataset is investigated in the book by Venables and Ripley. This discusssion is worth being read. Our aim is to relate regression as a tool for data exploration with regression as a method in statistical inference. To perform regression, we will rely on the base R function lm() and on the eponymous S3 class lm. We will spend time understanding how the formula argument can be used to construct a design matrix from a dataframe representing a dataset."
-  },
-  {
-    "objectID": "core/labs-solutions/lab-linear-regression-whiteside.html#packages-installation-and-loading-again",
-    "href": "core/labs-solutions/lab-linear-regression-whiteside.html#packages-installation-and-loading-again",
-    "title": "LAB: Linear Regression on Whiteside data",
-    "section": "Packages installation and loading (again)",
-    "text": "Packages installation and loading (again)\n\n\nCode\n# We will use the following packages. \n# If needed, install them : pak::pkg_install(). \nstopifnot(\n  require(\"magrittr\"),\n  require(\"lobstr\"),\n  require(\"ggforce\"),\n  require(\"patchwork\"), \n  require(\"gt\"),\n  require(\"glue\"),\n  require(\"skimr\"),\n  require(\"corrr\"),\n  require(\"GGally\"),\n  require(\"broom\"),\n  require(\"tidyverse\"),\n  require(\"ggfortify\"),\n  require(\"autoplotly\")\n\n)\n\n\nBesides the tidyverse, we rely on skimr to perform univariate analysis, GGally::ggpairs to perform pairwise (bivariate) analysis. Package corrr provide graphical tools to explore correlation matrices. At some point, we will showcase the exposing pipe %$% and the classical pipe %&gt;% of magrittr. We use gt to display handy tables, patchwork to compose graphical objects. glue provides a kind of formatted strings. Package broom proves very useful when milking lienar models produced by lm() (and many other objects produced by estimators, tests, …)"
-  },
-  {
-    "objectID": "core/labs-solutions/lab-linear-regression-whiteside.html#s3-classes-in-r",
-    "href": "core/labs-solutions/lab-linear-regression-whiteside.html#s3-classes-in-r",
-    "title": "LAB: Linear Regression on Whiteside data",
-    "section": "S3 classes in R",
-    "text": "S3 classes in R\nGeneric functions for S3 classes are used extensively in this lab. Functions from broom, ggplot2, and ggfortify are often generic functions.\nmethods(autoplot) lists the S3 classes for which an autoplot method is defined. Some methods are defined in ggplot2, others like autoplot.lm are defined in extension packages like ggfortify."
-  },
-  {
-    "objectID": "core/labs-solutions/lab-linear-regression-whiteside.html#generic-functions-for-s3-classes",
-    "href": "core/labs-solutions/lab-linear-regression-whiteside.html#generic-functions-for-s3-classes",
-    "title": "LAB: Linear Regression on Whiteside data",
-    "section": "Generic functions for S3 classes",
-    "text": "Generic functions for S3 classes\nmethods(autoplot) lists the S3 classes for which an autoplot method is defined. Some methods are defined in ggplot2, others like autoplot.lm are defined in extension packages like ggfortify."
-  },
-  {
-    "objectID": "core/labs-solutions/lab-linear-regression-whiteside.html#s4-classes-in-r",
-    "href": "core/labs-solutions/lab-linear-regression-whiteside.html#s4-classes-in-r",
-    "title": "LAB: Linear Regression on Whiteside data",
-    "section": "S4 classes in R",
-    "text": "S4 classes in R\nThe output of autoplot.lm is an instance of S4 class.\nSee also New trends:\n\nThe S7 package is a new OOP system designed to be a successor to S3 and S4. It has been designed and implemented collaboratively by the R Consortium Object-Oriented Programming Working Group, which includes representatives from R-Core, Bioconductor, the tidyverse/Posit, and the wider R community."
-  },
-  {
-    "objectID": "core/labs-solutions/lab-linear-regression-whiteside.html#tibbles-with-list-columns",
-    "href": "core/labs-solutions/lab-linear-regression-whiteside.html#tibbles-with-list-columns",
-    "title": "LAB: Linear Regression on Whiteside data",
-    "section": "tibbles with list columns",
-    "text": "tibbles with list columns\nWe also used tibbles with list columns, that is nested dataframes. Nested dataframes show up in every implementation of dataframes (from R to Spark), see: Tidyr: article on nesting"
+    "section": "Solving OLS with QR factorization",
+    "text": "Solving OLS with QR factorization\nIn order to solve le Least-Square problems, we have to compute \\[(X^T \\times X)^{-1} \\times X^T\\] This can be done in several ways.\nlm() uses QR factorization.\n\n\n\n\n\n\nNoteQuestion\n\n\n\nExtract the QR factorization of the design matrix from lm1\n\nCheck that the columns of Q form an orthorgonal family\nCheck that R is upper triangular\nCompute the Hat matrix from the QR factorization\nCheck that the Hat matrix is an orthonormal projection matrix on the column space of the design.\n\n\n\n\n\n\n\n\n\nTipSolution\n\n\n\n\n\nCode\nQ &lt;- qr.Q(lm1$qr)\nR &lt;- qr.R(lm1$qr)  # R is upper triangular \n\nnorm(X - Q %*% R, type=\"F\") # QR Factorization\n\n\n[1] 1.753321e-14\n\n\nCode\nsignif(t(Q) %*% Q, 2)      # Q's columns form an orthonormal family\n\n\n         [,1]     [,2]     [,3]    [,4]\n[1,]  1.0e+00 -1.4e-17  3.1e-17 1.7e-16\n[2,] -1.4e-17  1.0e+00 -3.5e-17 1.4e-17\n[3,]  3.1e-17 -3.5e-17  1.0e+00 0.0e+00\n[4,]  1.7e-16  1.4e-17  0.0e+00 1.0e+00\n\n\nCode\nH &lt;- Q %*% t(Q)             # The Hat matrix \n\nnorm(X - H %*% X, type=\"F\") # H leaves X's columns invariant\n\n\n[1] 1.758479e-14\n\n\nCode\nnorm(H - H %*% H, type=\"F\") # H is idempotent\n\n\n[1] 7.993681e-16\n\n\nCode\n# eigen(H, symmetric = TRUE, only.values = TRUE)$values\n\n\n\n\nCode\nsum((solve(t(X) %*% X) %*% t(X) %*% whiteside$Gas - lm1$coefficients)^2)\n\n\n[1] 3.075652e-29\n\n\nOnce we have the QR factorization of \\(X\\), solving the normal equations boils down to inverting a triangular matrix.\n\n\nCode\nsum((solve(R) %*% t(Q) %*% whiteside$Gas - lm1$coefficients)^2)\n\n\n[1] 2.050287e-29\n\n\n\n\n\n\n\n\n\n\nNoteQuestion\n\n\n\nCompute the Gram matrix of the row vectors of the design matrix for lm1\n\n\n\n\n\n\n\n\nTipSolution\n\n\n\n\n\nCode\n#matador::mat2latex(signif(solve(t(X) %*% X), 2))\n\n\n\\[\n(X^T \\times X)^{-1} = \\begin{bmatrix}\n0.18 & -0.026 & -0.18 & 0.026\\\\\n-0.026 & 0.0048 & 0.026 & -0.0048\\\\\n-0.18 & 0.026 & 0.31 & -0.048\\\\\n0.026 & -0.0048 & -0.048 & 0.0099\n\\end{bmatrix}\n\\]\n\n\n\n\n\n\n\n\nNoteQuestion\n\n\n\nUnderstand .fitted column in augment(lm1, whiteside)\n\n\n\n\n\n\n\n\nTipSolution\n\n\n\n\n\nCode\nsum((predict(lm1, newdata = whiteside) - whiteside_aug1$.fitted)^2)\n\n\n[1] 0\n\n\nCode\nsum((H %*% whiteside_aug1$Gas - whiteside_aug1$.fitted)^2)\n\n\n[1] 3.478877e-28\n\n\n\n\n\n\n\n\n\n\nNoteQuestion\n\n\n\nTry understanding the computation of .resid in an lm object. Compare .resid with the projection of Gas on the linear subspace orthogonal to the columns of the design matrix.\n\n\n\n\n\n\n\n\nTipSolution\n\n\n\n\n\nCode\nsum((whiteside_aug1$.resid + H %*% whiteside_aug1$Gas - whiteside_aug1$Gas)^2)\n\n\n[1] 3.461127e-28\n\n\n\n\n\n\n\n\n\n\nNoteQuestion\n\n\n\nUnderstand .hat\n\n\n\n\n\n\n\n\nTipSolution\n\n\n\n\n\nCode\nsum((whiteside_aug1$.hat - diag(H))^2)\n\n\n[1] 0\n\n\n\n\n\n\n\n\n\n\nNoteQuestion\n\n\n\nUnderstanding .std.resid\n\nEstimate noise intensity from residuals\nCompare with the output of glance()\n\n\n\n\n\n\n\n\n\nTipSolution\n\n\n\n\n\nCode\nsigma_hat &lt;- sqrt(sum(lm1$residuals^2)/lm1$df.residual)\n\nlm1 |&gt;\n  glance() |&gt;\n  gt::gt() |&gt;\n  gt::fmt_number(decimals=2) |&gt;\n  gt::tab_caption(glue(\"The hand-made estimate of sigma is {round(sigma_hat,2)}\"))\n\n\n\n\n\n\nThe hand-made estimate of sigma is 0.32\n\n\nr.squared\nadj.r.squared\nsigma\nstatistic\np.value\ndf\nlogLik\nAIC\nBIC\ndeviance\ndf.residual\nnobs\n\n\n\n\n0.93\n0.92\n0.32\n222.33\n0.00\n3.00\n−14.10\n38.20\n48.33\n5.43\n52.00\n56.00\n\n\n\n\n\n\n\n\\[\n\\widehat{r}_i = \\frac{\\widehat{\\epsilon}_i}{\\widehat{\\sigma} \\sqrt{1 - H_{i,i}}}\n\\]\n\n\nCode\nsum((sigma_hat * sqrt(1 -whiteside_aug1$.hat) * whiteside_aug1$.std.resid - whiteside_aug1$.resid)^2)\n\n\n[1] 4.471837e-28\n\n\n\n\n\n\n\n\n\n\nNoteQuestion\n\n\n\nUnderstanding column .sigma\n\n\n\n\n\n\n\n\nTipSolution\n\n\n\nColumn .sigma contains the leave-one-out estimates of \\(\\sigma\\), that is whiteside_aug1$.sigma[i] is the estimate of \\(\\sigma\\) you obtain by leaving out the i row of the dataframe.\nThere is no need to recompute everything for each sample element.\n\\[\n\\widehat{\\sigma}^2_{(i)} =  \\widehat{\\sigma}^2 \\frac{n-p-1- \\frac{\\widehat{\\epsilon}_i^2}{\\widehat{\\sigma}^2 {(1 - H_{i,i})}}\\frac{}{}}{n-p-2}\n\\]"
   },
   {
     "objectID": "core/labs/lab-linear-regression-whiteside.html",
@@ -2290,18 +2290,18 @@
     "text": "Packages installation and loading (again)\n\n\nCode\n# We will use the following packages. \n# If needed, install them : pak::pkg_install(). \nstopifnot(\n  require(\"magrittr\"),\n  require(\"lobstr\"),\n  require(\"ggforce\"),\n  require(\"patchwork\"), \n  require(\"gt\"),\n  require(\"glue\"),\n  require(\"skimr\"),\n  require(\"corrr\"),\n  require(\"GGally\"),\n  require(\"broom\"),\n  require(\"tidyverse\"),\n  require(\"ggfortify\"),\n  require(\"autoplotly\")\n\n)\n\n\nBesides the tidyverse, we rely on skimr to perform univariate analysis, GGally::ggpairs to perform pairwise (bivariate) analysis. Package corrr provide graphical tools to explore correlation matrices. At some point, we will showcase the exposing pipe %$% and the classical pipe %&gt;% of magrittr. We use gt to display handy tables, patchwork to compose graphical objects. glue provides a kind of formatted strings. Package broom proves very useful when milking lienar models produced by lm() (and many other objects produced by estimators, tests, …)"
   },
   {
+    "objectID": "core/labs/lab-linear-regression-whiteside.html#solving-ols-with-qr-factorization",
+    "href": "core/labs/lab-linear-regression-whiteside.html#solving-ols-with-qr-factorization",
+    "title": "LAB: Linear Regression on Whiteside data",
+    "section": "Solving OLS with QR factorization",
+    "text": "Solving OLS with QR factorization\nIn order to solve le Least-Square problems, we have to compute \\[(X^T \\times X)^{-1} \\times X^T\\] This can be done in several ways.\nlm() uses QR factorization.\n\n\n\n\n\n\nNoteQuestion\n\n\n\nExtract the QR factorization of the design matrix from lm1\n\nCheck that the columns of Q form an orthorgonal family\nCheck that R is upper triangular\nCompute the Hat matrix from the QR factorization\nCheck that the Hat matrix is an orthonormal projection matrix on the column space of the design.\n\n\n\n\n\n\n\n\n\nNoteQuestion\n\n\n\nCompute the Gram matrix of the row vectors of the design matrix for lm1\n\n\n\n\n\n\n\n\nNoteQuestion\n\n\n\nUnderstand .fitted column in augment(lm1, whiteside)\n\n\n\n\n\n\n\n\nNoteQuestion\n\n\n\nTry understanding the computation of .resid in an lm object. Compare .resid with the projection of Gas on the linear subspace orthogonal to the columns of the design matrix.\n\n\n\n\n\n\n\n\nNoteQuestion\n\n\n\nUnderstand .hat\n\n\n\n\n\n\n\n\nNoteQuestion\n\n\n\nUnderstanding .std.resid\n\nEstimate noise intensity from residuals\nCompare with the output of glance()\n\n\n\n\n\n\n\n\n\nNoteQuestion\n\n\n\nUnderstanding column .sigma"
+  },
+  {
     "objectID": "core/labs/lab-linear-regression-whiteside.html#s3-classes-in-r",
     "href": "core/labs/lab-linear-regression-whiteside.html#s3-classes-in-r",
     "title": "LAB: Linear Regression on Whiteside data",
     "section": "S3 classes in R",
     "text": "S3 classes in R\nGeneric functions for S3 classes are used extensively in this lab. Functions from broom, ggplot2, and ggfortify are often generic functions.\nmethods(autoplot) lists the S3 classes for which an autoplot method is defined. Some methods are defined in ggplot2, others like autoplot.lm are defined in extension packages like ggfortify."
-  },
-  {
-    "objectID": "core/labs/lab-linear-regression-whiteside.html#generic-functions-for-s3-classes",
-    "href": "core/labs/lab-linear-regression-whiteside.html#generic-functions-for-s3-classes",
-    "title": "LAB: Linear Regression on Whiteside data",
-    "section": "Generic functions for S3 classes",
-    "text": "Generic functions for S3 classes\nmethods(autoplot) lists the S3 classes for which an autoplot method is defined. Some methods are defined in ggplot2, others like autoplot.lm are defined in extension packages like ggfortify."
   },
   {
     "objectID": "core/labs/lab-linear-regression-whiteside.html#s4-classes-in-r",
@@ -2318,45 +2318,36 @@
     "text": "tibbles with list columns\nWe also used tibbles with list columns, that is nested dataframes. Nested dataframes show up in every implementation of dataframes (from R to Spark), see: Tidyr: article on nesting"
   },
   {
-    "objectID": "weeks/week-5.html",
-    "href": "weeks/week-5.html",
-    "title": "Semaine 5",
+    "objectID": "posit-cloud.html",
+    "href": "posit-cloud.html",
+    "title": "Positcloud",
     "section": "",
-    "text": "Important\n\n\n\n\nSession I Sophie Germain (2017) Monday 16h-17h30\nSession II Sophie Germain (2011) Friday 16h45-18h15\n Calendar"
+    "text": "Posit cloud Website\nPosit cloud allows us to get an rstudio-like working environment (IDE) in browser. This dispenses us from installing and maintaining a working R environment on our laptop/desktop\nPosit cloud is more than sufficient for this course.",
+    "crumbs": [
+      "Support",
+      "Posit cloud"
+    ]
   },
   {
-    "objectID": "weeks/week-5.html#blackboard",
-    "href": "weeks/week-5.html#blackboard",
-    "title": "Semaine 5",
-    "section": " Blackboard",
-    "text": "Blackboard\n\nOrdinary Least Squares\nQR factorization\nRidge regression (Regularized Least Squares)\nPseudo-Inversion"
+    "objectID": "rstudio-client.html",
+    "href": "rstudio-client.html",
+    "title": "Rstudio Desktop",
+    "section": "",
+    "text": "Installation\n\n\nOptions\nFollow Tools &gt; Global Options\n\nGeneral: Check whether you want to save and restore .Rdata after and before each session. (No recommended)\nCode: choose you favorite pipe operator: |&gt; or %&gt;% (favor standard pipe |&gt;)\nFor other options, pick as you like.\n\n You can tune options for each RStudio project.\n\n\nGoodies\n\nRstudio addins\nCustomize keyboad shortcuts\nCode snippets\nProvide helpers when importing novel datasets stored in formats like csv that are not self-documented.\n\n\n\nUse  projects\nDoing so, rstudio\n\nAutomatically sets working directory\nSettles version control options\nUses renv to manage a consistent collection of packages (or not)\n\n\n\nUse  \nrstudio provides a git panel. This is a very convenient way of versioning and interacting with remote repositories",
+    "crumbs": [
+      "Support",
+      "rstudio"
+    ]
   },
   {
-    "objectID": "weeks/week-5.html#labs",
-    "href": "weeks/week-5.html#labs",
-    "title": "Semaine 5",
-    "section": " Labs",
-    "text": "Labs\n\nLab 6 - Linear Regression I\n\nWe still rely on the previous labs\n\nLab 1 - Introduction to R and RStudio\nLab 2 - Introduction to Data Visualization using Gapminder dataset\nLab 3 - Working with dplyr\nLab 4 Univariate categorical variables\nLab 5 Univariate numeric variables"
-  },
-  {
-    "objectID": "weeks/week-5.html#further-work",
-    "href": "weeks/week-5.html#further-work",
-    "title": "Semaine 5",
-    "section": " Further work",
-    "text": "Further work\n Review the content of the labs. Work out every part you do not already know. Report an issue if you are unhappy with the proposed solutions/hints."
-  },
-  {
-    "objectID": "weeks/week-5.html#further-reading",
-    "href": "weeks/week-5.html#further-reading",
-    "title": "Semaine 5",
-    "section": " Further reading",
-    "text": "Further reading\n\nBin Yu and Rebecca Barter, Veridical Data Science\nR for data science\nAdvanced R\nCours de Statistique Fondamentale\n\nChap Tests du chi-deux\nChap Tests du chi-deux\nModèles linéaires\n\nSourav Chatterjee: A new correlation coefficient"
-  },
-  {
-    "objectID": "weeks/week-5.html#logistics",
-    "href": "weeks/week-5.html#logistics",
-    "title": "Semaine 5",
-    "section": " Logistics",
-    "text": "Logistics\n : you will work with the R programming language in this course.\nYou need either to install R, RStudio and VS Code on your computer, or to use your posit-cloud account.\n Install Quarto on your computer to render the .qmd files.\nPlease follow the instructions here to install R, RStudio, VS Code, and Quarto or to access posit-cloud.\n Please activate your ENT account (follow the instructions on Moodle). You will be able to access the PostGres server.\n\n\nBack to Agenda ⏎"
+    "objectID": "computing-access.html",
+    "href": "computing-access.html",
+    "title": "Computing environment",
+    "section": "",
+    "text": "In this course, we will use the R programming language. Install the latest version of R from the R Project website on your hard drive. In any case, you shall have Version &gt; 4.0.\nCheatsheets\n\n\nIDEs\nThere exist several Integrated Development Environments (IDEs) for R. Here are some of them:\n\nrstudio\nvs code\nvs codium\nemacs\n\nrstudio has been designed to work around R. It is free and open-source. It is available for Windows, Mac, and Linux. It works very well git. Quarto has been designed and developed by the same team.\nvs code is a general-purpose IDE. It works very well with git. It is very versatile and can be used for many programming languages. It is endowed with a large number of extensions for R, Python, SQL, and Quarto. It integrates very well with git. It is promoted by github just as copilot. vs codium is a telemetry-free version of vs code.\nemacs is a classical and powerful general-purpose editor that can be turned into an IDE. It is available for Windows, Mac, and Linux. It also works very well with git. Extension ESS (Emacs Speaks Statistics) is available for R.\nIn the course, we will use rstudio and vs code.\n\n\nPositcloud\nPosit Cloud lets you access Posit’s powerful set of data science tools right in your browser – no installation or complex configuration required.\n\n\nQuarto\nDownload from Quarto Website. It is very convenient to work with the Command Line Interface (CLI) of Quarto.\n\n\n\n\n\n\nImportantFrom the Quarto website\n\n\n\n\nAn open-source scientific and technical publishing system\nAuthor using Jupyter notebooks or with plain text markdown in your favorite editor.\nCreate dynamic content with Python, R, Julia, and Observable.\nPublish reproducible, production quality articles, presentations, dashboards, websites, blogs, and books in HTML, PDF, MS Word, ePub, and more.\nShare knowledge and insights organization-wide by publishing to Posit Connect, Confluence, or other publishing systems.\nWrite using Pandoc markdown, including equations, citations, cross references, figure panels, callouts, advanced layout, and more.",
+    "crumbs": [
+      "Support",
+      "Computing resources"
+    ]
   }
 ]
