@@ -1,8 +1,8 @@
 ---
 title: "Week 6"
-subtitle: "Linear Regression"
+subtitle: "SVD"
 editor: source
-draft: true
+draft: false
 ---
 
 ::: callout-important
@@ -15,10 +15,8 @@ draft: true
 
 ## {{< fa chalkboard-teacher >}} Blackboard
 
-- Ordinary Least Squares
-- QR factorizatio
-- Ridge regression (Regularized Least Squares)
-- Pseudo-Inversion
+- Singular Value Decomposition (SVD)
+- [Class notes](/resources/svd-notes.pdf)
   
 
 ## {{< fa flask-vial >}} Labs

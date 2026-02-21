@@ -27,7 +27,7 @@
   author: "Master I MIDS UParis Cité"
   date: "2026-02-16"
   path: /weeks/week-6.html
-  categories: [Linear regression, OLS, lm, Model diagnostics]
+  categories: [SVD, Spectral decomposition]
 - title: "Week 7"
   author: "Master I MIDS UParis Cité"
   date: "2026-02-23"

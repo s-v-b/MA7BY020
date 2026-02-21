@@ -1,8 +1,8 @@
 ---
 title: "Week 7"
-subtitle: "Linear Regression (continued)"
+subtitle: "PCA"
 editor: source
-draft: true
+draft: false
 ---
 
 ::: callout-important
@@ -13,19 +13,12 @@ draft: true
 
 :::
 
-## {{< fa chalkboard-teacher >}} Blackboard
-
-- Ordinary Least Squares
-- QR factorizatio
-- Ridge regression (Regularized Least Squares)
-- Pseudo-Inversion
-- Linear regrssion with `R`  
 
 ## {{< fa flask-vial >}} Labs
 
-- [Lab 6](/core/labs/lab-linear-regression-whiteside.qmd) - Linear Regression I
-- [Lab 7](/core/labs/lab-linear-regression-whiteside-2.qmd) - Linear Regression II  
-<!-- - [Lab 8](/core/labs/lab-prog-R.qmd) - Aspects of Programming with `R` --> -->
+
+- [Lab 8](/core/labs/lab-pca.qmd)  Principal Component Analysis as an application of SVD
+
 
 We still rely on the previous labs
 
@@ -34,6 +27,8 @@ We still rely on the previous labs
 - [Lab 3](/core/labs/lab-tables.html) - Working with `dplyr`
 - [Lab 4](/core/labs/lab-univariate-categorical.qmd) Univariate categorical variables
 - [Lab 5](/core/labs/lab-univariate-numeric.qmd) Univariate numeric variables
+- [Lab 6](/core/labs/lab-linear-regression-whiteside.qmd) - Linear Regression I
+- [Lab 7](/core/labs/lab-linear-regression-whiteside-2.qmd) - Linear Regression II  
 
 
 ## {{< fa person-digging >}} Further work
