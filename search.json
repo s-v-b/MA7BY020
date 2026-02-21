@@ -2256,7 +2256,7 @@
     "href": "weeks-listings.html",
     "title": "Journal",
     "section": "",
-    "text": "Order By\n      Default\n      \n        Title\n      \n      \n        Date - Oldest\n      \n      \n        Date - Newest\n      \n      \n        Tags\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\nDate\n\n\n\nTitle\n\n\n\nTags\n\n\n\n\n\n\n\n\nJan 12, 2026\n\n\nWeek 1\n\n\nVisualization, Public Statistics, R language, Tidyverse\n\n\n\n\n\n\nJan 19, 2026\n\n\nWeek 2\n\n\nR language, Tidyverse, Table manipulations\n\n\n\n\n\n\nJan 26, 2026\n\n\nWeek 3\n\n\nUnivariate data\n\n\n\n\n\n\nFeb 2, 2026\n\n\nWeek 4\n\n\nBivariate data\n\n\n\n\n\n\nFeb 9, 2026\n\n\nWeek 5\n\n\nLinear regression, OLS, lm, Model diagnostics\n\n\n\n\n\n\nFeb 16, 2026\n\n\nWeek 6\n\n\nLinear regression, OLS, lm, Model diagnostics\n\n\n\n\n\n\nFeb 23, 2026\n\n\nWeek 7\n\n\nPCA, SVD\n\n\n\n\n\n\nMar 9, 2026\n\n\nWeek 8\n\n\nCA, SVD\n\n\n\n\n\n\nMar 16, 2026\n\n\nWeek 9\n\n\nCCA, MCA, SVD\n\n\n\n\n\n\nMar 23, 2026\n\n\nWeek 10\n\n\nClusterings\n\n\n\n\n\n\nMar 30, 2026\n\n\nWeek 11\n\n\nClusterings\n\n\n\n\n\n\nApr 13, 2026\n\n\nWeek 12\n\n\nTBA\n\n\n\n\n\n\nNo matching items",
+    "text": "Order By\n      Default\n      \n        Title\n      \n      \n        Date - Oldest\n      \n      \n        Date - Newest\n      \n      \n        Tags\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\nDate\n\n\n\nTitle\n\n\n\nTags\n\n\n\n\n\n\n\n\nJan 12, 2026\n\n\nWeek 1\n\n\nVisualization, Public Statistics, R language, Tidyverse\n\n\n\n\n\n\nJan 19, 2026\n\n\nWeek 2\n\n\nR language, Tidyverse, Table manipulations\n\n\n\n\n\n\nJan 26, 2026\n\n\nWeek 3\n\n\nUnivariate data\n\n\n\n\n\n\nFeb 2, 2026\n\n\nWeek 4\n\n\nBivariate data\n\n\n\n\n\n\nFeb 9, 2026\n\n\nWeek 5\n\n\nLinear regression, OLS, lm, Model diagnostics\n\n\n\n\n\n\nFeb 16, 2026\n\n\nWeek 6\n\n\nSVD, Spectral decomposition\n\n\n\n\n\n\nFeb 23, 2026\n\n\nWeek 7\n\n\nPCA, SVD\n\n\n\n\n\n\nMar 9, 2026\n\n\nWeek 8\n\n\nCA, SVD\n\n\n\n\n\n\nMar 16, 2026\n\n\nWeek 9\n\n\nCCA, MCA, SVD\n\n\n\n\n\n\nMar 23, 2026\n\n\nWeek 10\n\n\nClusterings\n\n\n\n\n\n\nMar 30, 2026\n\n\nWeek 11\n\n\nClusterings\n\n\n\n\n\n\nApr 13, 2026\n\n\nWeek 12\n\n\nTBA\n\n\n\n\n\n\nNo matching items",
     "crumbs": [
       "Journal"
     ]
@@ -2349,5 +2349,82 @@
       "Support",
       "Computing resources"
     ]
+  },
+  {
+    "objectID": "weeks/week-6.html",
+    "href": "weeks/week-6.html",
+    "title": "Week 6",
+    "section": "",
+    "text": "Important\n\n\n\n\nSession I Sophie Germain (2017) Monday 16h-17h30\nSession II Sophie Germain (2011) Friday 16h45-18h15\n Calendar"
+  },
+  {
+    "objectID": "weeks/week-6.html#blackboard",
+    "href": "weeks/week-6.html#blackboard",
+    "title": "Week 6",
+    "section": " Blackboard",
+    "text": "Blackboard\n\nSingular Value Decomposition (SVD)\nClass notes"
+  },
+  {
+    "objectID": "weeks/week-6.html#labs",
+    "href": "weeks/week-6.html#labs",
+    "title": "Week 6",
+    "section": " Labs",
+    "text": "Labs\n\nLab 6 - Linear Regression I\n\nWe still rely on the previous labs\n\nLab 1 - Introduction to R and RStudio\nLab 2 - Introduction to Data Visualization using Gapminder dataset\nLab 3 - Working with dplyr\nLab 4 Univariate categorical variables\nLab 5 Univariate numeric variables"
+  },
+  {
+    "objectID": "weeks/week-6.html#further-work",
+    "href": "weeks/week-6.html#further-work",
+    "title": "Week 6",
+    "section": " Further work",
+    "text": "Further work\n Review the content of the two labs. Work out every part you do not already know. Report an issue if you are unhappy with the proposed solutions/hints."
+  },
+  {
+    "objectID": "weeks/week-6.html#further-reading",
+    "href": "weeks/week-6.html#further-reading",
+    "title": "Week 6",
+    "section": " Further reading",
+    "text": "Further reading\n\nBin Yu and Rebecca Barter, Veridical Data Science\nR for data science\nAdvanced R\nCours de Statistique Fondamentale\n\nChap Tests du chi-deux\nModèles linéaires\n\nSourav Chatterjee: A new correlation coefficient"
+  },
+  {
+    "objectID": "weeks/week-6.html#logistics",
+    "href": "weeks/week-6.html#logistics",
+    "title": "Week 6",
+    "section": " Logistics",
+    "text": "Logistics\n : you will work with the R programming language in this course.\nYou need either to install R, RStudio and VS Code on your computer, or to use your posit-cloud account.\n Install Quarto on your computer to render the .qmd files.\nPlease follow the instructions here to install R, RStudio, VS Code, and Quarto or to access posit-cloud.\n Please activate your ENT account (follow the instructions on Moodle). You will be able to access the PostGres server.\n\n\nBack to Agenda ⏎"
+  },
+  {
+    "objectID": "weeks/week-7.html",
+    "href": "weeks/week-7.html",
+    "title": "Week 7",
+    "section": "",
+    "text": "Important\n\n\n\n\nSession I Sophie Germain (2017) Monday 16h-17h30\nSession II Sophie Germain (2011) Friday 16h45-18h15\n Calendar"
+  },
+  {
+    "objectID": "weeks/week-7.html#labs",
+    "href": "weeks/week-7.html#labs",
+    "title": "Week 7",
+    "section": " Labs",
+    "text": "Labs\n\nLab 8 Principal Component Analysis as an application of SVD\n\nWe still rely on the previous labs\n\nLab 1 - Introduction to R and RStudio\nLab 2 - Introduction to Data Visualization using Gapminder dataset\nLab 3 - Working with dplyr\nLab 4 Univariate categorical variables\nLab 5 Univariate numeric variables\nLab 6 - Linear Regression I\nLab 7 - Linear Regression II"
+  },
+  {
+    "objectID": "weeks/week-7.html#further-work",
+    "href": "weeks/week-7.html#further-work",
+    "title": "Week 7",
+    "section": " Further work",
+    "text": "Further work\n Review the content of the two labs. Work out every part you do not already know. Report an issue if you are unhappy with the proposed solutions/hints."
+  },
+  {
+    "objectID": "weeks/week-7.html#further-reading",
+    "href": "weeks/week-7.html#further-reading",
+    "title": "Week 7",
+    "section": " Further reading",
+    "text": "Further reading\n\nBin Yu and Rebecca Barter, Veridical Data Science\nR for data science\nAdvanced R\n\nS3 classes\nS4 classes\n\nCours de Statistique Fondamentale\n\nModèles linéaires\nSherman–Morrison–Woodbury formula\n\nSourav Chatterjee: A new correlation coefficient"
+  },
+  {
+    "objectID": "weeks/week-7.html#logistics",
+    "href": "weeks/week-7.html#logistics",
+    "title": "Week 7",
+    "section": " Logistics",
+    "text": "Logistics\n : you will work with the R programming language in this course.\nYou need either to install R, RStudio and VS Code on your computer, or to use your posit-cloud account.\n Install Quarto on your computer to render the .qmd files.\nPlease follow the instructions here to install R, RStudio, VS Code, and Quarto or to access posit-cloud.\n Please activate your ENT account (follow the instructions on Moodle). You will be able to access the PostGres server.\n\n\nBack to Agenda ⏎"
   }
 ]
