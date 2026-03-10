@@ -1,8 +1,8 @@
 ---
 title: "Week 9"
-subtitle: "SVD and Applications: Correspondence Analysis"
+subtitle: "SVD and Applications: Multiple Correspondence Analysis"
 editor: source
-draft: true
+draft: False
 ---
 
 ::: callout-important
@@ -13,13 +13,46 @@ draft: true
 
 :::
 
-## {{< fa chalkboard-teacher >}} Blackboard
 
-- Extended SVD
+
+::: {.callout-important}
+
+### Very (very) important 
+
+During session I (Monday 16th, afternoon), each team will have *5 minutes* to present their 
+results from [Homework I](/core/projects/hmw_gapminder_oecd.qmd) and *5 minutes* to answer question(s). 
+
+{{< fa hand-point-right >}} Each team will have to prepare one or two slides and a short pitch commenting the pictures. 
+
+{{< fa hand-point-right >}} All team members must attend the defense and be prepared to answer questions. 
+
+
+| Team  | Schedule |
+|:-----|:-----------:|
+| `ls-leon` | 16:00 |
+| `LOR75` | 16:10  |
+| `abdjin-xxx` | 16:20  |
+| `Sidi-xxx` | 16:30  |
+| `MA7BY020-2026` | 16:40  |
+| `sabrina-xxxx` | 16:50  |
+| `Steven-xxx` | 17:00  |
+| `T1S2G3` | 17:10  |
+| `aya-xxx` | 17:20  |
+| `sevikri-xxx` | 17:30  |
+| `OsKaR31415` | 17:40  |
+| `yaniogl` | 17:50  |
+
+Bring your laptop with a working HDMI connector 
+
+## {{< fa display >}} {{< fa person-chalkboard >}}
+
+:::
+
+## {{< fa chalkboard-teacher >}} Blackboard
 
 ## {{< fa flask-vial >}} Labs
 
-- [Lab 9](/core/labs/lab-ca.html)  Correspondence Analysis as an application of extended SVD
+- [Lab 10](/core/labs/lab-mca.qmd)  Multiple Correspondence Analysis  as application of SVD
 
 
 We still rely on the previous labs
@@ -33,6 +66,7 @@ We still rely on the previous labs
 - [Lab 6](/core/labs/lab-linear-regression-whiteside-2.qmd) - Linear Regression II
 - [Lab 7](/core/labs/lab-linear-regression-whiteside-2.qmd) - Linear Regression II
 - [Lab 8](/core/labs/lab-pca.qmd)  Principal Component Analysis as an application of SVD
+- [Lab 9](/core/labs/lab-ca.html)  Correspondence Analysis as an application of extended SVD
 
 ## {{< fa person-digging >}} Further work
 

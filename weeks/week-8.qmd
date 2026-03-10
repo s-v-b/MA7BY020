@@ -2,7 +2,7 @@
 title: "Week 8"
 subtitle: "SVD and Applications"
 editor: source
-draft: true
+draft: false
 ---
 
 ::: callout-important
@@ -13,19 +13,14 @@ draft: true
 
 :::
 
-## {{< fa chalkboard-teacher >}} Blackboard
+## {{< fa chalkboard-teacher >}} 
 
-- SVD
-    - Definition
-    - Existence
-- Matrix norms 
-- SVD and low rank approximations
-    - Eckart-Young-Mirsky theorem  for operator norm
-    - Eckart-Young-Mirsky theorem  for Frobenius-Hilbert-Schmidt norm
+Correspondence Analysis  
+
 
 ## {{< fa flask-vial >}} Labs
 
-- [Lab 8](/core/labs/lab-pca.qmd)  Principal Component Analysis as an application of SVD
+- [Lab 9](/core/labs/lab-ca.html)  Correspondence Analysis as an application of SVD
 
 We still rely on the previous labs
 
@@ -37,6 +32,7 @@ We still rely on the previous labs
 - [Lab 6](/core/labs/lab-linear-regression-whiteside.qmd) - Linear Regression I
 - [Lab 6](/core/labs/lab-linear-regression-whiteside-2.qmd) - Linear Regression II
 - [Lab 7](/core/labs/lab-linear-regression-whiteside-2.qmd) - Linear Regression II
+- [Lab 8](/core/labs/lab-pca.qmd)
 
 ## {{< fa person-digging >}} Further work
 
@@ -51,7 +47,8 @@ Report an issue if you are unhappy with the proposed solutions/hints.
 - [Advanced `R`](https://adv-r.hadley.nz)
   - S3 classes
   - S4 classes
-  
+- Greenacre M. Correspondence Analysis in Practice. 2nd edn. 2007. Chapman & Hall/CRC, London. Published in Spanish
+as [La Practica del Análisis de Correspondencias, Fundacion BBVA, Madrid; 2008.](https://www.fbbva.es/wp-content/uploads/2017/05/dat/DE_2008_practica_analisis_correspondencias.pdf)  
  
 ## {{< fa laptop >}} Logistics  
 

@@ -42,12 +42,12 @@
   author: "Master I MIDS UParis Cité"
   date: "2026-03-16"
   path: /weeks/week-9.html
-  categories: [CCA, MCA, SVD]
+  categories: [MCA, SVD]
 - title: "Week 10"
   author: "Master I MIDS UParis Cité"
   date: "2026-03-23"
   path: /weeks/week-10.html
-  categories: [Clusterings]
+  categories: [CCA, Clusterings]
 - title: "Week 11"
   author: "Master I MIDS UParis Cité"
   date: "2026-03-30"

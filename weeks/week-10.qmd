@@ -1,37 +1,23 @@
 ---
 title: "Week 10"
-subtitle: "SVD and Applications: MCA and CCA"
+subtitle: "SVD and Applications: CCA"
 editor: source
-draft: true
+draft: false
 ---
 
 ::: callout-important
 
 -   Session I Sophie Germain (2017) Monday 16h-17h30
 -   Session II Sophie Germain (2011) Friday 16h45-18h15
--   **Session II bis Olympe de Gouges (130) Friday 15h45-17h15**
+
 -   {{< fa cal >}} [Calendar](https://edt.math.univ-paris-diderot.fr/#/parcours/mathinfo/m1)
 
 :::
 
 
-::: {.callout-important}
-
-### Very important 
-
-During session II bis (Friday afternoon), each pair will have *5 minutes* to present their 
-results from [Homework I](/core/projects/hmw_gapminder_oecd.qmd). 
-
-{{< fa hand-point-right >}} Each pair will have to prepare one or two slides and ashort pitch commenting the pictures. 
-
-## {{< fa display >}} {{< fa person-chalkboard >}}
-
-:::
-
 ## {{< fa flask-vial >}} Labs
 
-- [Lab 10](/core/labs/lab-mca.qmd)  Multiple Correspondence Analysis  as application of extended SVD
-- [Lab 10 bis](/core/labs/lab-cca.qmd) Canonical Correspondence Analysis
+- [Lab 11](/core/labs/lab-cca.qmd) - Canonical Correspondence Analysis 
 
 We still rely on the previous labs
 
@@ -44,7 +30,7 @@ We still rely on the previous labs
 - [Lab 6](/core/labs/lab-linear-regression-whiteside-2.qmd) - Linear Regression II
 - [Lab 7](/core/labs/lab-linear-regression-whiteside-2.qmd) - Linear Regression II
 - [Lab 8](/core/labs/lab-pca.qmd)  Principal Component Analysis as an application of SVD
-- [Lab 9](/core/labs/lab-ca.qmd)  Correspondence Analysis as an application of extended SVD
+- [Lab 9](/core/labs/lab-ca-mortality.qmd)  Correspondence Analysis as an application of extended SVD
 
 ## {{< fa person-digging >}} Further work
 
