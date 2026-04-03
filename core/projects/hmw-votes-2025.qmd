@@ -1,8 +1,8 @@
 ---
-title: "Hmw III: SVD methods and Elections Data"
-date: "2025-05-29"
+title: "Hmw II: SVD methods and Elections Data"
+date: "2026-03-30"
 engine: knitr
-draft: true 
+draft: false 
 
 execute:
   echo: true
@@ -11,9 +11,9 @@ execute:
 
 format:
   html:
-    output-file: hmw-votes-2025.html
+    output-file: hmw-votes-2026.html
   pdf:
-    output-file: hmw-votes-2025.pdf
+    output-file: hmw-votes-2026.pdf
 
 
 prefer-html: true
@@ -21,10 +21,10 @@ prefer-html: true
 
 ::: {.callout-important}
 
-- Due : May 29 2025
+- Due : May 18 2026
 - Work in pairs
 - {{< fa brands github >}} Deliver your work through a github  repository
-- {{< fa desktop >}} Present your work (15 minutes) on *2025-06-03* 
+- {{< fa desktop >}} Present your work (15 minutes) on *2026-06-03* 
 
 :::
 
@@ -32,7 +32,7 @@ prefer-html: true
 This homework is about  
 
 1. Using Matrix Factorization methods in Data analysis
-2. Investigating  voting patterns in Paris 
+2. Investigating  voting patterns in Paris (or elsewhere)
 
 ```{r useful-pkg, include=FALSE}
 #| message: FALSE
@@ -51,7 +51,7 @@ stopifnot(
 
 I\. **Voting Data**
 
-Voting data  per polling station can be obtained  from a variety of websites. 
+Voting data  in Paris per polling station can be obtained  from a variety of websites. 
 
 
 - [An example](https://opendata.paris.fr/explore/dataset/elections-legislatives-2024-2emetour/information/)
@@ -87,7 +87,7 @@ scrutins <-  dplyr::bind_rows(
   tibble::tibble(title='European P', rounds=1, year=seq(2004, 2024, 5)),
   tibble::tibble(title='Parliament', rounds=2, year=c(seq(2002, 2022, 5),2024)),
   tibble::tibble(title='President', rounds=2, year=seq(2002, 2022, 5)),
-  tibble::tibble(title='Local', rounds=2, year=c(2001, seq(2008, 2020, 6))),
+  tibble::tibble(title='Local', rounds=2, year=c(2001, seq(2008, 2020, 6))),# 2026 ???
   tibble::tibble(title='Régionales', rounds=2, year=c(2004, 2010, 2015, 2021))
   )
 
@@ -102,8 +102,8 @@ II\. **Data cleaning**
 Some data cleaning may be necessary, for example
 
 - Some parties changed their names during the last 25 years. Defining a mapping can facilitate the comparison of results from different elections
-- Check that the names of `bulletins nuls`, `bulletins blancs`, ... are consistent across the different 
-datasets. 
+- Some parties were born during the last 25 years 
+- Check that the names of `bulletins nuls`, `bulletins blancs`, ... are consistent across the different datasets. 
 
 ::: {.callout-note}
 
@@ -114,12 +114,13 @@ Design  a cleaning pipeline. Save the cleaned data.
 
 III\. **Applying Matrix Factorization Methods (SVD)**
 
-For one election round, the outcome is summarized by a `tibble` where rows (individuals) are 
-polling stations and variables/columns are the number of votes obtained by the different condidates/parties. 
+For one election round, the outcome is summarized by a `tibble` where rows (individuals) are polling stations and variables/columns are the number of votes obtained by the different condidates/parties. 
 
 Perform PCA on different elections. Visualize and describe the result (attention, this is data analysis, not political science). 
 
-You may also perform CCA to compare different elections. 
+Choropleths are welcome
+
+Perform CCA to compare different elections. 
 
 Feel free to combine different methods.  
 
@@ -127,8 +128,19 @@ Feel free to combine different methods.
 
 IV\. **Clustering**
 
-Perform clustering on the outcomes of the Principal Component Analyses.  
-  
+Perform clustering of polling stations
+
+Compare the  results of different clustering methods (kmeans with different initializations, hierarchical clustering with different distances and different merging methods). 
+
+Compare clustering 
+
+V\. **Regression**
+
+Consider first round of Parliementary Elections in 2024 as the reponse variables and Elections between 2017 and European Elections 2024 as explanatory variables. 
+
+Fit linear regressions. Discuss the results. 
+
+
 ## References
 
 - [Advanced R Programming](https://adv-r.hadley.nz)

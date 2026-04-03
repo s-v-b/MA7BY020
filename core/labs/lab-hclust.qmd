@@ -5,9 +5,10 @@ date: "`r Sys.time()`"
 execute:
   echo: true
   eval: true
-  collapse: true
+  collapse: false
   message: false
   warning: false
+  code-fold: false
 
 format:
   html:
@@ -115,49 +116,172 @@ dend <- 1:5 %>%
   as.dendrogram
 ```
 
-Nodes are identified by their prefix order index (note that this depend on the chosen rotation). 
-
 ```{r}
-dend %>%  
-  rotate(c(1,2,4,5,3)) %>% 
-  get_nodes_attr("members", 
-                 id = c(1, 2, 5, 7)) 
-
-
+dend |>  plot()
 ```
 
+```{r}
+dend  |>  head(10)
+```
+
+::: {.callout-note title="Question"}
+
+- List the generic functions with registered methods for class `dendrogram`
+
+:::
+
+::: {.content-visible when-format="solution"}
+
+::: {.callout-tip title="Solution"}
+
+```{r}
+#| label: methods-dendrogram
+
+sloop::s3_methods_class("dendrogram") |> 
+  select(generic) |> 
+  gt::gt() |> 
+  gt::tab_caption("Fonctions génériques pour `dendrogram`")
+```
+:::
+
+:::
+
+::: {.callout-note title="Question"}
+
+Explain attribute `members`  in the next chunk.
+
+Hint: Nodes are identified by their *prefix order index*. 
+
+:::
+
+```{r}
+dend |>  
+  get_nodes_attr("members", 
+                 id = c(1, 2, 5, 7)) 
+```
+
+::: {.content-visible when-profile="solution"}
+
+::: {.callout-tip title="Solution"}
+
+The dendrogram is traversed using depth-first-search. For each node, attribute `members` is the number of leaves 
+in the subtree rooted at that node. 
+
+We start form the root with 5 leaves/members, then proceed to left child with 2 leaves/members .... 
+
+:::
+
+:::
+
+
+
+
+
+::: {.callout-note title="Question"}
+
+- What does `labels()` return?
+- What does function `rotate` do ?
+
+:::
+
+```{r}
+dend |>  labels()
+
+dend |> 
+  rotate(c(1,2,4,5,3)) |> 
+  plot()
+```
+
+::: {.content-visible when-profile="solution"}
+
+::: {.callout-tip title="Solution"}
+
+`labels()` returns leaves labels ordered by depth-first-search tarversal.
+
+:::
+
+:::
+
+::: {.callout-note type="Question"}
+
+What is the *height* of a branch?
+
+Just look at what happens when `hclust` uses method `ward.D2`
+
+:::  
+
+
+::: {.content-visible when-profile="solution"}
+
+::: {.callout-tip title="Solution"}
+
+```{r}
+hc9 <- 1:9  |>  dist()  |>  hclust(method="ward.D2")
+
+hc9$height
+
+dend9 <- as.dendrogram(hc9)
+
+dend9 |>  plot()
+#get_branches_heights(dend9)
+
+hc9$height^2
+```
+
+This is consistent with the `ward.D2` clost  for merging clusters with $n_A, n_B$ elements and centroids $\mu_A, \mu_B$
+
+$$\left(2 \frac{n_An_B}{n_A+n_B} \|\mu_A - \mu_B\|^2\right)^{1/2}$$
+
+
+:::
+
+:::
+
+::: {.callout-note type="Question"}
+
+What is a cophenetic distance ?
+
+:::
 
 ```{r}
 cophenetic(rotate(dend, c(1,2,4,5,3)))
 cophenetic(dend)
 ```
 
-```{r}
-dend %>% 
-  rotate(c(1,2,4,5,3)) %>% 
-  get_nodes_attr("height") 
-```
+::: {.content-visible when-profile="solution"}
 
-```{r}
-as.ggdend(rev(dend))
-```
+::: {.callout-tip title="Solution"}
 
+Just have a look at `?cophenetic`
 
-```{r}
-# kmeans(tibble(x=1:5), centers = 2)
-```
+:::
+
+:::
 
 
 
-```{r}
-# Get various attributes
-dend %>% 
-  get_nodes_attr("height") # node's height
-```
+
+
+
+
+
+
+::: {.callout-note title="Question"}
+
 How is attributed `height` computed? What is its purpose? 
 
 What kind of tree traversal is used by `get_nodes_...` helpers?
 
+:::
+
+
+```{r}
+#| label: Get-various-attributes
+dend |> 
+  rotate(c(1,2,4,5,3)) |> 
+  get_nodes_attr("height") 
+```
+  
 
 ```{r}
 dend %>% 
@@ -165,6 +289,7 @@ dend %>%
 
 ```
 
+::: {.content-hidden unless-profile="TOUT"}
 
 Tweaking a dendrogram
 -----------------------
@@ -178,6 +303,7 @@ How should we do that?
 
 ```
 
+:::
 
 USArrests
 ---------
@@ -243,23 +369,30 @@ Perform hierarchical clustering on *unscaled* and *scaled* dataset.
 :::
 
 ::::: {.content-visible when-profile="solution"}  
-
+::: {.callout-tip title="Solution"}
 
 ```{r}
 hcl.1 <- hclust(dist.1, method = "ward.D2")
 hcl.2 <- hclust(dist.2, method = "ward.D2") # scaled
 ```
 
-
+:::
 :::::
 
 ::: {.callout-note}
 
 ### Question
 
+Draw a choropleth map of the US. Color states according to cluster assignment.   
 
+Hint: use `ggplot2::map_data`
 
 :::
+
+
+
+::::: {.content-visible when-profile="solution"}  
+::: {.callout-tip title="Solution"}
 
 
 ```{r}
@@ -270,9 +403,14 @@ mutate(USArrests,
   aes(x=long, y=lat, group=region, fill=.cluster) +
   geom_polygon() +
   scale_fill_viridis_d() +
+  coord_map("albers",  lat0 = 45.5, lat1 = 29.5) +
   ggtitle("Components of arrest data") +
   theme(legend.position = "none")
 ```
+
+:::
+:::::
+
 
 The `dendrogram` class
 ----------------------
@@ -287,7 +425,7 @@ Exploration of results of hierarchical clustering (objects of class `hclust`) is
 
 ::::: {.content-visible when-profile="solution"}  
 
-
+::: {.callout-tip title="Solution"}
 
 ```{r}
 dend.1 <- hcl.1 %>% 
@@ -302,13 +440,26 @@ length(dend.1[[1]][[2]])
 class(dend.1)
 class(unclass(dend.1))
 
-methods(class=class(dend.1)) %>% head()
+# methods(class=class(dend.1)) |> head()
 ```
 
 ```{r}
-dend.1 %>% head()
+dend.1 |> head()
 ```
 
+:::
+
+:::::
+
+::: {.callout-note title="Question"}
+
+:::
+
+
+::::: {.content-visible when-profile="solution"}  
+
+
+::: {.callout-tip title="Solution"}
 
 ```{r}
 dend.1 %>% 
@@ -317,6 +468,8 @@ dend.1 %>%
   ggdendro::theme_dendro() +
   scale_y_reverse(expand = c(0.2, 0))
 ```  
+
+:::
 
 :::::
 
@@ -330,12 +483,15 @@ dend.1 %>%
   
 ::::: {.content-visible when-profile="solution"}  
 
+
+::: {.callout-tip title="Solution"}
+
 ```{r}
 # label(dend.1)
 
 dend.2 <-  as.dendrogram(hcl.1)
 # order it the closest we can to the order of the observations:
-dend.2 <- rotate(dend.2, 1:50)
+dend.2 <- dendextend::rotate(dend.2, 1:50)
 # Color the branches based on the clusters:
 dend.2 <- color_branches(dend.2, k=3) #, groupLabels=iris_species)
 # Manually match the labels, as much as possible, to the real classification of the flowers:
@@ -345,6 +501,7 @@ dend.2 <- color_branches(dend.2, k=3) #, groupLabels=iris_species)
 #    )]
 ```
 
+:::
 
 :::::  
 
@@ -441,39 +598,81 @@ color vector. Interpretation.
 
 
 
+::::: {.content-visible when-profile="solution"}  
+
+
+```{r}
+pca_arrests <- USArrests |> 
+  select(where(is.numeric), -UrbanPop) |> 
+  scale() |> 
+  prcomp()
+
+hcl_pca <- pca_arrests |>  
+  augment() |> 
+  select(.fittedPC1, .fittedPC2) |> 
+  dist() |> 
+  hclust(method="ward.D2")
+
+
+```
+
+
 
 ```{r}
 mutate(USArrests, 
-       .cluster = factor(cutree(hcl.1, 10))) %>% 
+       .cluster = factor(cutree(hcl_pca, 3))) %>% 
   inner_join(map_data("state"), by = "region") %>%
   ggplot() +
   aes(x=long, y=lat, group=region, fill=.cluster) +
   geom_polygon() +
   scale_fill_viridis_d() +
-  ggtitle("Components of arrest data") +
+  ggtitle("Components of USArrest data", "Clustering after PCA") +
   theme(legend.position = "none")
 ```
 
 
 
 ```{r}
-#data(france)
+p1 <- autoplot(pca_arrests, data=USArrests, loadings=T, loadings.label=T) +
+  aes(x=PC1, y=PC2, color=Murder, label="region")+
+  geom_point() +
+#  ggrepel::geom_text_repel()  +
+  coord_fixed() +
+  theme(legend.position="none")
+
 ```
 
+```{r}
+p2 <- autoplot(pca_arrests, data=USArrests) +
+  aes(x=PC1, y=PC2, color=Murder, label=region)+
+  geom_point() +
+  ggrepel::geom_text_repel()  +
+  coord_fixed()
+```
 
 ```{r}
-(map_data("state") %>%
+p1 + p2
+```
+```{r}
+(
+mutate(USArrests, 
+       .cluster = factor(cutree(hcl_pca, 3))) %>% 
+  inner_join(map_data("state"), by = "region")  %>%
   ggplot() +
   aes(x=long, 
       y=lat, 
       label=factor(region), 
-      fill = factor(region)) +
+      fill = factor(.cluster)) +
   geom_polygon() +
   scale_fill_viridis_d() +
   ggtitle("USA") +
-  theme(legend.position = "none")) |> 
+  theme(legend.position = "none")
+  ) |> 
     ggplotly()
 ```
+
+:::::
+
 
 Cophenetic distance
 -------------------

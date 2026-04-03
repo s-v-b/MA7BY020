@@ -58,7 +58,7 @@ The first canonical components are the solution of the next problem
 
 ::: {.callout-note title="Optimization problem"}
 
-$$\begin{array}{lll}\text{Maximize} & & u^\top C_{xy}  v \\\text{subject to} & & u^\top C_{xx} uv=1 =v^\top C_{yy} v     \end{array}$$
+$$\begin{array}{lll}\text{Maximize} & & u^\top C_{xy}  v \\\text{subject to} & & u^\top C_{xx} u =1 =v^\top C_{yy} v     \end{array}$$
 
 :::
 
@@ -73,17 +73,16 @@ $$U \times D \times V^\top$$
 
 be a SVD of 
 
-$$C_{xx}^{-1/2} \times C_{xy} \times C_{yy}^{-1/2}$$
+$$C_{xx}^{1/2} \times C_{xy} \times C_{yy}^{1/2}$$
 
 The solution to the optimization problem above is 
 
-$$a = C_{xx}^{-1/2} u_1 \qquad \text{and} \qquad b= S_{yy}^{-1/2} v_1$$
+$$a = C_{xx}^{-1/2} u_1 \qquad \text{and} \qquad b= C_{yy}^{-1/2} v_1$$
 
-where $u_1$ and $v_1$ are the leading left and right singular vectors of  $C_{xx}^{-1/2} \times C_{xy} \times C_{yy}^{-1/2}$, that is the first column vectors of $U$ and $V$.
+where $u_1$ and $v_1$ are the leading left and right singular vectors of  $C_{xx}^{1/2} \times C_{xy} \times C_{yy}^{1/2}$, that is the first column vectors of $U$ and $V$.
 
 :::
 
-<!-- This is also related to the extended SVD of $C_{xy}$ relatively to $C_{xx}^{-1}$ and $C_{yy}^{-1}$ -->
 
 Proof:  {{< fa chalkboard-teacher >}}
 

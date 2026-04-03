@@ -7,6 +7,8 @@ execute:
   echo: true
   eval: true
   collapse: true
+  warning: false
+  message: false
 
 format:
   html:
@@ -116,7 +118,7 @@ Check the online help.
 ?gss_panel_doc
 ```
 
- `gss_dict` and `gss_panel_doc` are dataframes that can be queried:
+`gss_dict` and `gss_panel_doc` are dataframes that can be queried:
 
 ```{r}
 gss_panel_doc |> 
@@ -163,7 +165,8 @@ The data set we will use comes from year 2010 panel data.
 ```{r}
 data("gss_panel10_long")
 
-gss_panel10_long 
+gss_panel10_long |> 
+  dim()
 ```
 
 At the beginning, the panel was made of roughly 2000 respondents. And the respondents were interviewed in 2010, 2012 and 2014 (the three waves). 
@@ -171,7 +174,9 @@ At the beginning, the panel was made of roughly 2000 respondents. And the respon
 ```{r}
 gss_panel10_long  |>  
   filter(wave==3, !is.na(id)) |>
-  select(firstid, wave, id, sex)
+  select(firstid, wave, id, sex) |>
+  slice_sample(n=10) |>
+  gt::gt()
 ```
 
 Some respondents left the survey. Attrition can be monitored within the next query. 
@@ -187,7 +192,7 @@ gss_panel10_long |>
 
 ## The confidence topic
 
-Do GSS surveys are made of a huge number of questions. Not all questions were asked to the respondents. Indeed, each question was asked to two thirds of the respondents. Questions were related to demographic features (Age, Sex, Level of education, Employment and so on). Answers to these questions can be used to determine whether the panel sample is representative. Data can be compared with last census data (there is a census every ten years in the US). 
+Do GSS surveys are made of a huge number of questions. Not all questions were asked to all respondents. Indeed, each question was asked to two thirds of the respondents. Questions were related to demographic features (Age, Sex, Level of education, Employment and so on). Answers to these questions can be used to determine whether the panel sample is representative. Data can be compared with last census data (there is a census every ten years in the US). 
 
 A number of questions are related to the *confidence* topic. Respondents were asked about the level of confidence they put  in a wide array of institutions. 
 
@@ -243,6 +248,25 @@ gss_panel_doc |>
   filter(id %in% confidence_ids) |> 
   select(-ends_with("2"), -ends_with("3")) |>
   gt::gt()
+```
+
+
+```{r}
+#| label: confidence_ids_wave_1bis
+
+cleanup_text <- function(str_col) {
+    {str_split(str_col, '\\? [a-z]\\. ', simplify = T)[,2]} |> 
+    str_squish()
+}
+
+gss_panel_doc |>
+  filter(id %in% confidence_ids) |> 
+  select(-ends_with("2"), -ends_with("3")) |>
+  mutate(text=cleanup_text(text)) |> 
+  select(id, text) |> 
+  gt::gt() |>
+  gt::tab_caption("Question {id} consists of 'As far as the people running these institutions are concerned, would you say you have a great deal of confidence, only some confidence, or hardly any confidence at all in them? ' {text}")
+
 ```
 
 Levels labels for answers to confidence questions are:
@@ -314,12 +338,13 @@ Transform all relevant columns into factors.
 #| 
 confidence_panel10 <- gss_panel10_long |> 
   filter(wave==1) |>
-  select(firstid, wave, id, sex, contains(confidence_ids)) |>
+  select(firstid, wave, id, sex, age, contains(confidence_ids)) |>
   mutate(across(starts_with("con"), as_factor)) |>
   mutate(sex=as_factor(sex))
 ```
 
 ```{r}
+#| label: confidence_10_setup
 confidence_10 <- gss_panel_doc |>
    filter(id %in% confidence_ids) |> 
    select(-ends_with("2"), -ends_with("3")) |> 
@@ -327,19 +352,29 @@ confidence_10 <- gss_panel_doc |>
     cols=c(properties_1), names_repair = "universal") |> 
    unnest(
     cols=c(marginals_1), names_repair = "universal") |>
-   mutate(text=str_squish(text)) |>
-   mutate(text= str_match(text, "\\? [\\w]\\.(.*)")) |> 
-   mutate(text=text[,2]) |> 
+   mutate(text=cleanup_text(text)) |>
    filter(property == "Missing-data codes") |>
-   select(-starts_with("id"), -property, -`value...5`)
+   select(-starts_with("id"), -property, -`value...5`) 
 
+confidence_10 |>
+  head() |>
+  gt::gt() |>
+  gt::tab_caption("Excerpt")
 ```
 
 ```{r}
+#| label: confidence-levels
 levels_table <- confidence_10 |> 
   filter(label!='Total' | is.na(label)) |>
-  distinct(`value...9`, label)
+  distinct(`value...9`, label) |>
+  rename(encoding=`value...9`)
 
+levels_table |> 
+  gt::gt() |> 
+  gt::tab_caption("Confidence levels encodings") |>
+  gt::tab_options(
+    column_labels.text_transform="capitalize"
+  )
 ```
 
 
@@ -353,7 +388,7 @@ levels_table <- confidence_10 |>
 
 ::: {.callout-note  title="Question"}
 
-Use `skimmr` to summarize your dataset. 
+Use `skimr` to summarize your dataset. 
 
 :::
 
@@ -418,7 +453,13 @@ confidence_data <- confidence_panel10 |>
   select(-ends_with("isna"), -firstid, -wave, -econsci) |>
   mutate(across(starts_with("con"), fct_drop), sex=as_factor(sex))
 
+# cleanup_column_labels <- function(col_labs){
+#   {str_split(col_labs, ':', simplify = T)[,2]} |> 
+#     str_squish()
+# }
+
 confidence_data |> 
+#  rename_with(.fn=, .cols=everything()) |> 
   slice_sample(n=10) |> 
   gt::gt()
 ```
@@ -529,11 +570,13 @@ In MCA, we compute the SVD $U \times D \times V^\top$ of the *standardized resid
 $$S = D_r^{-1/2}\times \left(P - r\times c^\top\right) \times D_c^{-1/2} = \sqrt{n}\left(P - r\times c^\top\right) \times D_c^{-1/2}$$
 
 Coefficient $i, \langle j, k\rangle$  of $S$ is
-$$\frac{\mathbb{I}_{i, \langle j, k\rangle}- f_{\langle j,k\rangle}}{\sqrt{n f_{\langle j,k\rangle}/p}}$$
+$$\frac{\mathbb{I}_{i, \langle j, k\rangle}- f_{\langle j,k\rangle}}{\sqrt{N f_{\langle j,k\rangle}}}$$
    
    
+The squared Hilbert-Schmidt (Frobenius) norm of matrix $S$ is 
 
-
+$$\sum_{j\leq p} \sum_{k\leq J_j} \sum_{i\leq n} \frac{(\mathbb{I}_{i, \langle j, k\rangle}- f_{\langle j,k\rangle})^2}{N f_{\langle j,k\rangle}} = \sum_{j\leq p} \sum_{k\leq J_j}  \frac{n f_{\langle j,k\rangle}(1- f_{\langle j,k\rangle})}{N f_{\langle j,k\rangle}}=    \frac{\sum_{j\leq p} J_j- p}{p}$$
+This is often called the total inertial of the standardized residuals matrix $S$.
 
 MCA consists in computing the SVD of the standardized residuals matrix $S =  U  \times D \times V^\top$
 
@@ -669,9 +712,7 @@ Element `call` also contains the table margin distributions `marge.col` and `mar
 {{< fa exclamation-triangle >}}  `res.mca$svd` is not part of the output! 
 
 - `eig` is computed from the singular values in `res.mca$svd`
-
 - `var` contains material for plotting information about categories and variables on factorial planes
-
 - `ind` conatins material for plotting information about individuals on on factorial planes
 
 
@@ -733,7 +774,7 @@ res.mca |>
   geom_text(angle=45, vjust=-1, hjust=-.1) 
 ```
 
-Note that the share of cumulated inertia doesn't grow very fast with the number of components. Situation is different from what we met when performing Correspondence Analysis or Principal Component Analysis. This tells us that we will hqve to look beyond the first two axis. This is commonplace with multiple correspondence analysis. Look at the reference below where most of the interesting information can be found on the 3rd and 4th axis. 
+Note that the share of cumulated inertia doesn't grow very fast with the number of components. Situation is different from what we met when performing Correspondence Analysis or Principal Component Analysis. This tells us that we will have to look beyond the first two axis. This is commonplace with multiple correspondence analysis. 
 
 ::: 
 
@@ -794,37 +835,58 @@ Attribute `ind` is a named list made of $4$ components.
 `coord`
 : a matrix with *named* rows and columns. The number of rows of `coord` matches the number of rows of the table fed to `MCA` (here, the number of respondents in the panel). The number of columns matches the rank of the truncated SVD that underlies Multiple Correspondance Analysis. Here it is the default truncation $5$.
 
-> The principal coordinates are the principal coordinates of each individual in terms of the principal component. 
+> The principal coordinates are the principal coordinates of each individual in terms of the principal component.  These are the coefficients of $D_r^{-1/2} \times U \times D$ 
+where $U, D$ come from the SVD  of the standardized residuals matrix $S$.
 
-The columns of `coord` are pairwise orthogonal in the usual  inner product space.
+The columns of `coord` are pairwise orthogonal in the usual  inner product space (they are rescaled versions of the columns of $U$).
 
-Function `augment_mca` Bind the columns of `coord` with the columns of the original dataset.  
+Function `augment_mca` binds the columns of `coord` with the columns of the original dataset.  
 
 ```{r}
-res.mca |> 
 #| label: augment_mca_glimpse
+res.mca |> 
   augment_mca(confidence_data) |> 
   glimpse()
 ```
 
-Note that, we can recover `ind$coord` from the left singular vectors and the singular values.
+Note that we can recover `ind$coord` from the left singular vectors and the singular values.
 
 The output of `augment_mca` is the basis of the individual plots.  Individual plots are defined by picking a pair of principal axes. 
 Him use the 3rd and the 4th axis, and we map the `sex` column from the original dataset  to the `fill` aesthetics.  
 
 ```{r}
 #| label: augment_mca_plot
+
+neat_color_scale <-c(
+        "MALE" = "#1a29d0ff",
+        "FEMALE" = "#dc3b29ff")
+
 res.mca |> 
   augment_mca(confidence_data) |> 
   ggplot() +
-  aes(x=`Dim 3`, y=`Dim 4`, fill=sex) +
-  geom_point(alpha=.2, size=.2) +
-  coord_fixed() +
-  scale_fill_viridis_d()
+  aes(x=`Dim 1`, y=`Dim 2`) +
+#  scale_color_manual(values=neat_color_scale) +
+  geom_point(aes(fill=age), alpha=.8, size=.7) +
+  coord_fixed()  
+#  scale_color_viridis_c()
 ```
 
 :::
 
+::: {.callout-tip title='Solution'}
+
+```{r}
+res.mca |> 
+  augment_mca(confidence_data) |> 
+  ggplot() +
+  aes(x=`Dim 1`, y=`Dim 2`, color=sex) +
+  scale_color_manual(values=neat_color_scale) +
+  geom_point(alpha=.5, size=1) +
+  coord_fixed() +
+  facet_wrap(~ sex)
+```
+
+:::
 
 
 ::: {.callout-tip title='Solution'} 
@@ -839,11 +901,49 @@ res.mca |>
 res.mca |> 
   augment_mca(confidence_data) |> 
   ggplot() +
-  aes(x=`Dim 1`, y=`Dim 2`, fill=sex) +
-  geom_point(alpha=.2, size=.2) +
-  coord_fixed() +
-  scale_fill_viridis_d()
+  aes(x=`Dim 1`, y=`Dim 2`, color=sex) +
+  scale_color_manual(values=neat_color_scale) +
+  geom_point(alpha=.8, size=.8) +
+  coord_fixed() # +
+#  scale_fill_viridis_d()
 ```
+
+:::
+
+
+::: {.content-visible unless-profile="TOUT"}
+
+```{r}
+Z <- res.mca$call$Xtot
+
+N <- sum(Z)
+n <- nrow(Z)
+p <- ncol(Z)
+
+P <- Z/N
+
+c <- res.mca$call$marge.col
+
+# Standardized residual matrix
+S <- sqrt(n)*(as.matrix(P)- (matrix(1/n, nrow=n) %*% c)) %*% diag(c^(-1/2))
+
+# with(res.mca$svd, norm(S-U %*% diag(vs[1:res.mca$call$ncp]) %*% t(V), type="F")^2)
+U <- res.mca$svd$U
+V <- res.mca$svd$V
+vs <- res.mca$svd$vs
+
+# $U$ and $V$ are rescaled components of svd(S)
+norm(diag(res.mca$call$marge.row[1:5]) %*% t(U) %*% U - diag(rep(1,5)), type="F")
+norm(diag(rep(1,5))- t(V) %*% diag((res.mca$call$marge.col)) %*% V, type="F")
+
+
+Vp <- diag((res.mca$call$marge.col)^(1/2)) %*% V
+Up <- diag((res.mca$call$marge.row)^(1/2)) %*% U
+
+norm(S - Up %*% diag(vs[1:5]) %*% t(Vp), type="F")^2 - sum(vs[6:39]^2)
+```
+
+
 
 :::
 
@@ -921,11 +1021,18 @@ We are then ready to plot an analog of the correlation circle.
 #| label: tidy_mca_var_plotly_1_2
 tidied_mca_var <- tidy_mca_var(res.mca) |>   
   mutate(sentiment=str_split(as.character(levels),'_')) |>
-  mutate(topic=map_chr(sentiment, \(x)x[1]), sentiment=map_chr(sentiment, \(x)x[2])) 
+  mutate(topic=map_chr(sentiment, \(x)x[1]), 
+         sentiment=map_chr(sentiment, \(x)x[2])
+  ) 
 
 p <- tidied_mca_var |> 
   ggplot() +
-    aes(x=`Dim 1`, y=`Dim 2`, label=levels, fill=topic, shape=sentiment) +
+    aes(
+      x=`Dim 1`, 
+      y=`Dim 2`, 
+      label=levels, 
+      fill=topic, 
+      shape=sentiment) +
     geom_point(alpha=.5, show.legend = F) +
     coord_fixed() +
     scale_color_viridis_d() +
@@ -985,18 +1092,14 @@ Here is a chatbot answer:
 
 > In *Multiple Correspondence Analysis (MCA)*, the *v-test* (also known as the *test-value* or *t-test value*) is a statistical measure used to assess the *significance of the association* between a category and a dimension (factor). It helps determine which categories contribute the most to the definition of a given dimension.
 
-### **Definition and Calculation**
+### Definition and Calculation
 
-The v-test is computed as:
-
-
+The $v$-test statistic is computed as:
 $$v = \frac{p - P}{\sqrt{P(1 - P)/n}}$$
-
-
 where:
-- $p$ = proportion of individuals in a given category for the specific dimension,
-- $P$ = overall proportion of individuals in that category across all dimensions,
-- $n$ = total number of individuals.
+- $p$ is the proportion of individuals in a given category for the specific dimension,
+- $P$ is the  overall proportion of individuals in that category across all dimensions,
+- $n$ is the total number of individuals.
 
 Alternatively, the v-test can also be expressed as:
 
@@ -1009,9 +1112,9 @@ This essentially provides a **z-score**, which follows a standard normal distrib
 - A *high absolute v-test value* (typically above 2 or below -2) indicates that the category is *strongly associated* with the given dimension.
 - *Positive v-test*: The category is overrepresented in that dimension.
 - *Negative v-test*: The category is underrepresented in that dimension.
-- If the absolute value of the v-test is below 2, the association is **not statistically significant** (at a 5% significance level).
+- If the absolute value of the v-test is below 2, the association is *not statistically significant* (at a 5% significance level).
 
-### *Why is it useful?*
+### Is it useful?
 
 - It helps *interpret MCA results quantitatively* rather than relying only on visual inspection.
 - It aids in identifying *key categories* that structure the data on a given axis.
