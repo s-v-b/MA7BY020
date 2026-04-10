@@ -2,7 +2,7 @@
 title: "Week 11"
 subtitle: "Clustering"
 editor: source
-draft: true
+draft: false
 ---
 
 ::: callout-important

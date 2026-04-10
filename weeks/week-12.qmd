@@ -1,14 +1,13 @@
 ---
 title: "Week 12"
-subtitle: "TBA"
+subtitle: "Life tables"
 editor: source
-draft: true
+draft: false
 ---
 
 ::: callout-important
 
 -   Session I Sophie Germain (2017) Monday 16h-17h30
--   Session II Sophie Germain (2011) Friday 16h45-18h15
 -   {{< fa cal >}} [Calendar](https://edt.math.univ-paris-diderot.fr/#/parcours/mathinfo/m1)
 
 :::
@@ -20,12 +19,8 @@ draft: true
 
 ## {{< fa flask-vial >}} Labs
 
-We will work on coding and package development, with following goals
-
-- developping methods for `tidy`, `glance`, `methods` for S3 classes `FactomineR::CA`, `FactomineR::MCA`.
-- investigate problems posed by output of `cancor`
-- develop `autoplot` methods of `FactomineR::CA`, `FactomineR::MCA`
-- special emphasis on documentation and testing
+- [Lab 13](/core/labs/lab-lt-1948-2016.qmd)  Life tables, pattern or mortality
+- [Lab 14](/core/labs/lab-lee-carter.qmd) Life tables, PCA, SVD, Lee-Carter
 
 We still rely on the previous labs
 
