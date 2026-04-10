@@ -3,7 +3,7 @@ title: "Introduction to Lee-Carter"
 
 
 execute:
-  echo: true
+  echo: false
   eval: true
   collapse: false
   message: false
@@ -30,7 +30,10 @@ format:
 #| warning: false
 #| message: false
 #| echo: false
-#|
+#| appendix: false
+
+require(arrow)
+require(demography)
 require(tidyverse)
 require(gt)
 require(skimr)
@@ -40,8 +43,6 @@ require(patchwork)
 require(ggforce)
 require(glue)
 require(ggfortify)
-# require(magrittr)
-# require(tidymodels)
 require(ggforce)
 
 tidymodels::tidymodels_prefer(quiet = TRUE)
@@ -49,11 +50,11 @@ tidymodels::tidymodels_prefer(quiet = TRUE)
 old_theme <-theme_set(theme_bw(base_size=9, base_family = "Helvetica"))
 ```
 
-$tidyverse conflicts](https://tidyverse.tidyverse.org/reference/tidyverse_conflicts.html)
+[tidyverse conflicts](https://tidyverse.tidyverse.org/reference/tidyverse_conflicts.html)
 
 ```{r}
 #| echo: false
-#| 
+#| appendix: false
 knitr::opts_chunk$set(
   message = FALSE,
   warning = FALSE,
@@ -65,22 +66,17 @@ knitr::opts_chunk$set(
 )
 ```
 
-```{r}
-#| echo: false
-#| eval: true
-#|
-source(file = "./UTILS/make_biotiful.R")
-```
 
 
 
 ```{r}
+#| appendix: false
 params <- list(
-  country_code= 'fr_t',
+  country_code= 'FRA',
   country= 'France',
-  datafile= 'full_life_table.Rds',
+  datafile= '~/Dropbox/HMD/hld-part.parquet',
   year_p= 1948,
-  year_e= 2013
+  year_e= 2020
 )
 ```
 
@@ -88,83 +84,91 @@ params <- list(
 
 
 Life data tables are downloaded from $https://www.mortality.org](https://www.mortality.org).
+and [https://www.lifetable.de](https://www.lifetable.de), see [Lab on life tables](/core/labs/lab-lt-1948-2016.qmd). If you install and load package [https://cran.r-project.org/web/packages/demography/index.html](https://cran.r-project.org/web/packages/demography/index.html), you will also find life data tables.
+We investigate life tables describing countries from Western Europe (France, Great Britain, Italy, the Netherlands, Spain, Portugal, and Sweden), Canada, and the United States.
 
-See also [https://www.lifetable.de](https://www.lifetable.de).
-
-If you install and load package [https://cran.r-project.org/web/packages/demography/index.html](https://cran.r-project.org/web/packages/demography/index.html), you will also find life data tables.
-
-
-We investigate life tables describing countries from Western Europe (France, Great Britain --actually England and Wales--, Italy, the Netherlands, Spain, and Sweden) and the United States.
-
-We load the one-year lifetables for female, male and whole population for the different countries.
+We load the one-year lifetables for females and  males for the different countries.
 
 
 ```{r}
-#| label: coding_tables
-#| echo: false
-country_code <- list(fr_t='FRATNP',
-                     fr_c='FRACNP',
-                     be='BEL',
-                     gb_t='GBRTENW',
-                     gb_c='GBRCENW',
-                     nl='NLD',
-                     it='ITA',
-                     swe='SWE',
-                     sp='ESP',
-                     us='USA')
+#| label: country-codes
+#| appendix: true
 
-countries <- c('fr_t', 'gb_t', 'nl', 'it', 'sp', 'swe', 'us')
+country_iso3 <- c(
+  "France"="FRA",
+  "Canada"="CAN",
+  "Netherlands"="NLD",
+  "Sweden"="SWE",
+  "Italy"="ITA",
+  "Spain"="ESP",
+  "Portugal"="PRT",
+  "USA"="USA"
+)
 
-country_names <- list(fr_t='France',     # total population
-                     fr_c='France',      # civilian population
-                     be='Belgium',
-                     gb_t='England & Wales',    # total population
-                     gb_c='England & Wales',    # civilian population
-                     nl='Netherlands',
-                     it='Italy',
-                     swe='Sweden',
-                     sp='Spain',
-                     us='USA')
+tb_iso3 <- tibble(
+  name=names(country_iso3), iso3=country_iso3
+)
+```
 
-gender_names <- list('b'='Both',
-                     'f'='Female',
-                     'm'='Male')
+```{r}
+#| label: col-selection
+#| appendix: true
+
+ds_path <- '~/Dropbox/HMD/hld-part.parquet'
+
+ds <- open_dataset(ds_path)
+```
+
+```{r}
+#| label: load-lt-countries
+#| appendix: true
+tb <- ds |>
+  filter(
+    Country %in% country_iso3, 
+    Sex %in% c(1L, 2L), 
+    Region=='0', 
+    Residence=='0',
+    SocDem=='0',
+    Version=='1',
+    Year1 >= 1948, 
+    Ethnicity=='0', 
+    AgeInt==1,
+    TypeLT==1) |> 
+    select(-c(Region, Ethnicity,Year2,AgeInt, TypeLT, Residence, SocDem, Version)) |> 
+  collect()
+```
+
+```{r}
+#| label: crude-averaging
+#| appendix: true
+tb <- tb  |>  
+  summarise(across(ends_with('(x)'), mean), .by=c(Country, Sex, Year1, Age)) 
 ```
 
 
 ```{r}
-life_table <- readr::read_rds('../../resources/full_life_table.Rds')
+#| appendix: true
+life_table <- tb |>
+  mutate(Iso3 = factor(Country)) |>
+  mutate(Gender = factor(Sex, labels=c("Male", "Female"))) |>
+  mutate(Area = fct_collapse(Iso3, 
+    SE = c("PRT", "ESP", "ITA", "FRA"), 
+    NE = c("NLD", "SWE", "CAN"), 
+    USA = "USA")) |> 
+  rename(Year=Year1) |> 
+  select(Area, Country, Gender, Year, Age, `q(x)`) |> 
+  mutate(`q(x)`=ifelse(`q(x)`==0, 2e-5 , `q(x)`))   # special care for data from Sweden around age 7-8
 ```
-
-```{r}
-life_table <- life_table %>%
-  dplyr::mutate(Country = forcats::as_factor(Country)) %>%
-  dplyr::mutate(Country = forcats::fct_relevel(Country, "Spain", "Italy", "France", "England & Wales", "Netherlands", "Sweden", "USA")) %>%
-  dplyr::mutate(Gender = forcats::as_factor(Gender)) |> 
-  dplyr::mutate(Area =forcats::fct_collapse(Country, 
-                                            SE = c("Spain", "Italy", "France"), 
-                                            NE = c("England & Wales", "Netherlands", "Sweden"), 
-                                            USA="USA"))
-```
-
-
-
-
-
 
 
 
 # PCA  and SVD over log-mortality tables
 
-```{r}
-#| label: argspca
-args_pca <- list(Country="Netherlands", Gender="Female", Start_Year=1948, End_Year=2013)
-```
 
-- [x] facet screeplots for gender and countries
-- [x] comment the screeplots
+- [ ] facet screeplots for gender and countries
+- [ ] comment the screeplots
 - [ ] comment the correlation circles
-- [ ] comment the biplots
+- [ ] comment the individual plots
 
 In the next chunks we compute the PCA (with standardization and centering) for all Countries and
 Genders in the database. The `dplyr` pipeline prepares grouped tibble corresponding
@@ -183,43 +187,45 @@ between $5$ and $10$ in Sweeden is dominated by a Poisson distribution with para
 The probability of outcome $0$ under Poisson distribution with parameter $3$ is approximately `r round(exp(-3),2)`.
 
 
-```{r}
-#| label: wide_grouped_lt
 
-wide_grouped_life_table <- function(life_table,
-                                    genders = c("Male", "Female"),
-                                    lim_age = c(0, 89),
-                                    lim_year = c(1948, 2013)) {
-  life_table |>
-    dplyr::filter(Country != 'Sweden',
-                  Gender %in% genders,
-                  between(Year, lim_year[1], lim_year[2]),
-                  between(Age, lim_age[1], lim_age[2])) |> 
-    dplyr::select(Country, Gender, Year, Age, qx) |>
-    dplyr::mutate(lqx = log(qx)) |>
-    dplyr::select(-qx) |>
-    tidyr::pivot_wider(names_from = Age, values_from = lqx) |>
-    dplyr::group_by(Country, Gender)
+```{r}
+#| label: nested-lt
+#| appendix: true
+#
+#
+# Nest the life tables data frame acording to Area, Country, Gender
+lt_nested <- life_table  |>  
+  filter(Age < 90)  |>       # no data above age 90 for some years in Spain
+  nest(.by=c(Area, Country, Gender))  |>  
+  mutate(data_tf=map(data, 
+                  \(df)  pivot_wider(df, id_cols=Year, names_from=Age, values_from=`q(x)`)))
+```
+
+
+```{r}
+#| label: taylored_prcomp
+#| appendix: true
+#
+#
+# Wrapper for prcomp for per Country/Gender PCA
+prcomp_lt <- function(df, ...){
+  df |> 
+    tibble::column_to_rownames("Year") |>
+    mutate(across(everything(), \(x) log(x, 10))) |> 
+    scale() |> 
+    prcomp(...)
 }
 ```
 
 ```{r}
-#| label: helper_pca
-# 
-wg_lt <- wide_grouped_life_table(life_table)
+#| label: pca_s
+#| appendix: true
+#
+#
+# Add resultof  prcomp for per Country/Gender PCA as a list column
 
-group_pca <- function(df, scale_or_not=TRUE){
-  df |> 
-    tibble::column_to_rownames("Year") |>
-    scale() |> 
-    prcomp()
-}
-
-pcas_by_country_gender <- dplyr::group_map(wg_lt, 
-                 .f = ~ list(key=.y , value=try(group_pca(.x, TRUE)))) 
-
-# pcas_by_country_gender_ns <- dplyr::group_map(wg_lt, 
-#                  .f = ~ list(key=.y , value=try(group_pca(.x, FALSE)))) 
+lt_nested <- lt_nested |> 
+  mutate(pca = map(data_tf, \(x) try(prcomp_lt(x, rank=5)))) 
 ```
 
 
@@ -236,40 +242,48 @@ The screeplots for standardized-centered PCAs for countries and genders shows
 
 
 
+```{r}
+#| label: prepare_screeplots
+#| appendix: true
+#
+#
+# Add preparation for screeplots per Country/Gender PCA as a list column
+
+lt_nested <- lt_nested |> 
+  mutate(scrp = map(pca, \(x) drop_na(tidy(x, matrix="d"))))  
+```
 
 ```{r}
 #| label: df_screeplots
-#| 
-foo <- pcas_by_country_gender  |> 
-  map(\(x) { broom::tidy(x[['value']], matrix="d") |> 
-             mutate(Country=as.character(x[['key']][1,1]), 
-                    Gender=as.character(unclass(x[['key']][1,2])))}
-      )  |>  
-  bind_rows() |> 
-  filter(PC <= 10) |> 
-  group_by(Gender) |>
-  dplyr::group_map(
-    .f = \(x,y) { ggplot(data=x) +
-        aes(x=PC, y=percent, fill=Country) +
-        geom_col(position="dodge") +
-        labs(title= glue::glue("Gender:  {y}"))
-    }
-  )
+#| appendix: true
+# 
+#
+# Add screeplots per Country/Gender PCA as a list column
 
-foo[[1]] + 
-  foo[[2]] +
-  patchwork::plot_annotation(title="PCA of log death rates, centered, scaled")
-
+lt_nested  |>  
+  select(Country, Gender, scrp)  |>  
+  unnest(cols=c(scrp)) |> 
+  ggplot() +
+    aes(x=PC, y=percent, fill=Country) +
+    geom_col(position="dodge") +
+    facet_wrap(~ Gender) +
+    labs(
+      title="Screeplots of log mortality quotients at Age < 90, Years between 1950-2020"
+    )
 ```
 
 
 
+But for all  countries and genders, most of the inertia is captured by the first two axes. 
+USA and Canada exhibit a larger inertia on the second axis.
 
 
+::: {.callout-note}
 
+This suggests that for all countries,  genders, the scaled and centered log-quotient mortality matrices are well-approximated 
+by rank-one matrices. However, recall that we measure approximation error using the Frobenius norm. We weight the different ages (columns) in a uniform way. This does not take into account the impact the different columns on the Life Expectancy.  
 
-But for all six countries and two genders, most of the inertia is captured by the first two axes. 
-
+:::
 
 
 
@@ -288,8 +302,7 @@ for Female populations and than for Male populations.
 
 ## Correlation circles 
 
-For a given PCA, the correlation circle tells us  how close the different variables are from the plane spanned by the first two components 
-and where the projection of the variables lay on this plan. This can be the basis  of  some variables clustering procedures. 
+For a given PCA, the correlation circle tells us  how close the different variables are from the plane spanned by the first two components  and where the projection of the variables lay on this plan. This can be the basis  of  some variables clustering procedures. 
 
 
 
@@ -298,17 +311,16 @@ The correlation circle delivered by `ade4` is not readable:
   - labels overlapping hides a possible structure
 
 
-```{r}
-#| label: multicocircle
-#| eval: false
-pcas_by_country_gender %>%
-  purrr::map( ~ add_column([['value']]$$'co']], Age=0:89)) -> list_df_co_circles
 
-list_df_co_circles[[4]] -> datum
-```
 
 
 ```{r}
+#| label: prep-co-circle
+#| appendix: true
+#
+#
+# Add preparation for correlation circles per Country/Gender PCA as a list column
+
 prep_co_circle <- function(pco) {
   r <- with(pco,  t(t(rotation) * sdev[1:ncol(rotation)]))
   as_tibble(r) |> 
@@ -317,62 +329,93 @@ prep_co_circle <- function(pco) {
 }
 ```
 
-```{r}
-bar <- pcas_by_country_gender |>  
-  purrr::map(\(x) x[["value"]]) |> 
-  purrr::map(prep_co_circle)
-```
 
-```{r}
-etiquettes <- pcas_by_country_gender |>  
-  purrr::map(\(x) x[["key"]]) |> 
-  bind_rows()
-```
 
 
 ```{r}
-p_cc1 <- bar[[1]] |> 
-  ggplot() +
-  aes(x=`1`, y=`2`, label=row_id) +
-  geom_segment(
-    aes(xend=0, yend=0, color=as.integer(row_id))#, 
-    # arrow = grid::arrow(ends = "first")
+#| appendix: true
+#| label: plot_co_circle
+#
+#
+#
+plot_co_circle <- function(df, tit){
+  df |> 
+    ggplot() +
+    aes(x=`1`, y=`2`, label=row_id) +
+    geom_segment(
+      aes(xend=0, yend=0, color=cut(
+        as.integer(row_id),breaks=c(0, 6, 15, 65, 90), right=F))# ,
     ) +
+  scale_color_viridis_d(name="Age") +
   ggrepel::geom_text_repel() +
   coord_fixed() +
-  xlim(c(-1.1, 1.1)) + ylim(c(-1.1, 1.1))  + 
+  xlim(c(-1.1, 1.1)) + ylim(c(-1.1, 1.1)) +
   ggforce::geom_circle(aes(x0=0, y0=0, r=1), linetype="dashed") +
   theme_minimal() +
-  labs(title=glue::glue("{etiquettes$Country[1]}  {etiquettes$Gender[1]}"))
+  labs(title=tit)
+}
 
-p_cc2 <- p_cc1 + bar[[2]] +
-  labs(title=glue::glue("{etiquettes$Country[2]}  {etiquettes$Gender[2]}"))
+```
+
+
+```{r}
+#| label: build_plots_co_circle
+#| appendix: true
+#
+#  
+# Add correlation  circle plots per Country/Gender PCA as a list column
+
+lt_nested <- lt_nested |>  
+  mutate(cocirc= map(pca, prep_co_circle))  |> 
+  mutate(tit=glue::glue("Cor circle {Country} {Gender}")) |> 
+  mutate(p_co_circ=map2(cocirc, tit, plot_co_circle))
 ```
 
 ```{r}
-p_cc1 + p_cc2
+#| appendix: true
+#| label: plot-co-circle-canada
+#
+#
+# Correlation circles for Canada
+tmp <- lt_nested |>  
+  filter(Country=='CAN') |> pull(p_co_circ)
+
+tmp[[1]] + tmp[[2]]
 ```
+
+For Canada
+
 
 ```{r}
-p_cc5 <- p_cc1 + bar[[5]] +
-  labs(title=glue::glue("{etiquettes$Country[5]}  {etiquettes$Gender[5]}"))
+#| appendix: true
+#| label: plot-co-circle-italy
+#
+#
+# Correlation circles for Italy
 
-p_cc6 <- p_cc1 + bar[[6]] +
-  labs(title=glue::glue("{etiquettes$Country[6]}  {etiquettes$Gender[6]}"))
+tmp <- lt_nested |>  
+  filter(Country=='ITA') |> pull(p_co_circ)
+
+tmp[[1]] + tmp[[2]]
 ```
-```{r}
-p_cc5 + p_cc6
-```
 
-
-
-
-
-
-
-
-For UK, France and Italy,  as could have been guessed from screeplots, all centered and standardized
+For France and Italy,  as could have been guessed from screeplots, all centered and standardized
 variables are highly correlated with the first component. This is even more striking for women than for men.
+
+
+```{r}
+#| appendix: true
+#| label: plot-co-circle-usa
+#
+#
+# Correlation circles for USA
+tmp <- lt_nested |>  
+  filter(Country=='USA') |> pull(p_co_circ)
+
+tmp[[1]] + tmp[[2]]
+```
+
+
 For the Netherlands, Spain and the US, especially for men, variables  associated with old ages
 are substantially correlated with the second component.
 
@@ -394,7 +437,7 @@ Looking at the variables on the plane generated by the second and third principa
 - Ages above 80 are almost aligned along another line on the north east quarter
 
 
-
+## Individuals (Years)
 
 If we plot the rows (years) on the plane spanned by the first two principal axes, patterns across
 genders and countries again look very similar. Axis 1 roughly corresponds to a time axis. If we look
@@ -405,9 +448,31 @@ the projections on the planed spanned by the first two principal axes look strik
 
 
 
+```{r}
+#| appendix: true
+#| label: plot-individuals
+#
+#
+# Add row plots as a list column
+lt_nested  <- lt_nested |>  
+  mutate(rowplots=map2(pca, data_tf, \(pco, df2) autoplot(pco, df2))) |> 
+  mutate(rowplots=map(rowplots, \(p) p + coord_fixed()  + ggrepel::geom_text_repel(aes(label=rownames)))) |> 
+  mutate(rowplots=map2(rowplots, tit, \(x,y) x + labs(title=y)))
+```
 
 
 
+```{r}
+#| appendix: true
+#| label: row-plot-fr
+#
+#
+# Row plot for USA
+tmp <- lt_nested |>  
+  filter(Country=='FRA') |> pull(rowplots)
+
+tmp[[1]] + tmp[[2]]
+```
 
 # Canonical Correlation Analysis
 
@@ -446,56 +511,82 @@ and $\epsilon_{x,t}$ are i.i.d Gaussian random variables.
 
 ## US data
 
-- [ ]  Fit a Lee-Carter model on the American data (for Male and Female data) training on years `1933` up to `1995`.
+- [ ] Fit a Lee-Carter model on the American data (for Male and Female data) training on years `1933` up to `1995`.
 - [ ] Compare the fit provided by the Lee-Carter model with the fit provided by a rank $2$
 truncated SVD
-- [ ] Compare vectors avec $(a_x)_x, (b_x)_x$ and $(\kappa_t)_t$ with appropriate singular vectors. - $ ] Use the Lee-Carter model to predict the central death rates for years $2000$ up to $2015$
-      Plot predictions and observations for years $2000, 2005, 2010, 2015$
+- [ ] Compare vectors avec $(a_x)_x, (b_x)_x$ and $(\kappa_t)_t$ with appropriate singular vectors. 
+- [ ] Use the Lee-Carter model to predict the central death rates for years $2000$ up to $2015$
+- [ ] Plot predictions and observations for years $2000, 2005, 2010, 2015$
 
 
 ## Application of Lee-Carter model to a European Country
 
 
-- [ ]  Fit a Lee-Carter model to a European country
+- [ ]  Fit a Lee-Carter model to a European country (Framce) using `demography::lca`
 - [ ]  Comment
 - [ ]  Compare with rank-2 truncated SVD
 - [ ]  Use the Lee-Carter model to predict the central death rates for years $2000$ up to $2015$
-- [ ] Plot predictions and observations for years $2000, 2005, 2010, 2015$
+- [ ]  Plot predictions and observations for years $2000, 2005, 2010, 2015$
+
+
 
 
 ```{r}
-require(demography)
+#| label: lca-fr
+#| appendix: true
+#
+#
+# Lee-Carter analysis
+res <- demography::lca(
+  demography::fr.mort, 
+  ages=seq(20, 80), 
+  years=seq(1948, 1998), 
+  restype="logrates")
 ```
 
-```{r, echo=FALSE, eval=FALSE}
-?demography::lca()
+
+```{r}
+#| label: lca-fr-plot
+#| appendix: true
+#
+#
+# Lee-Carter analysis plots
+plot(res)
 ```
 
-```{r, echo=FALSE, eval=FALSE}
-life_table %>% 
-  dplyr::filter(Gender=='Male', Country=='USA', between(Year, 1948, 1995)) %>% 
-  dplyr::select(Year, Age, qx) %>% 
-  tidyr::pivot_wider(id_cols =Year, names_from=Age, values_from=qx) %>% 
-  tibble::column_to_rownames(var="Year") -> foo_data
-```
 
-```{r, echo=FALSE, eval=FALSE}
-demography::lca
-glimpse(demography::fr.mort$rate$male)
-```
+
 
 ## Predictions of life expectancies at different ages
 
-- $ ] Use Lee-Carter approximation to approximate residual life expectations
-- $ ] Compare with observed residual life expectations
-
-# Dimension of mortality
-
-# Lee-Carter modeling
-
-# Assessment
+- [ ] Use Lee-Carter approximation to approximate residual life expectations
+- [ ]  Compare with observed residual life expectations
 
 
-$R4Data Science Tidy](https://r4ds.had.co.nz/tidy-data.html#tidy-data-1)
+
+::: {.callout-note title="References"}
+
+- Lee, R. D., & Carter, L. R. (1992). *Modeling and Forecasting U. S. Mortality.* Journal of the American Statistical Association, 87(419), 659–671. https://doi.org/10.2307/2290201
+
+- Preston, S. H., Heuveline, P., & Guillot, M. (2001). Measuring and Modeling Population Processes, Oxford: Blackwell Publishers, 2001, xv+ 291 pp.
+
+:::
 
 
+
+
+::::: {.content-visible unles-profile="solution"}
+
+# Appendix 
+
+
+```{r}
+#| label: chunk-make-appendix
+#| ref.label: !expr knitr::all_labels(appendix==TRUE)
+#| echo: true
+#| eval: false
+#| code-fold: false
+```
+
+
+:::::

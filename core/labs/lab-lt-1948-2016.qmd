@@ -4,7 +4,7 @@ title: "Lab: Life Tables (1948-2016)"
 
 
 execute:
-  echo: true
+  echo: false
   eval: true
   collapse: true
   warning: false
@@ -33,7 +33,8 @@ engine: knitr
 
 stopifnot(
   require(patchwork),
-  require(httr),
+#  require(httr),
+  require(arrow),
   require(glue),
   require(ineq),
   require(here),
@@ -41,18 +42,201 @@ stopifnot(
   require(stringr),
   require(magrittr),
   require(plotly),
-  require(slider),
+#  require(slider),
   require(gt),
+  require(rlang),
   require(tidyverse)
 )
 
 old_theme <- theme_set(theme_minimal())
 ```
 
+# Introduction
+
+Life tables 
+
+- [John Gaunt. The first life table. 1663](https://doi.org/10.1098/rsnr.1938.0017) 
+- [De Witt. Valuation of life annuities. 1671](https://mathshistory.st-andrews.ac.uk/Projects/Daxenberger/chapter-7/)
+- [Actuarial science](https://en.wikipedia.org/wiki/Actuarial_science)
+
+
+> A  period life table is supposed to represent the mortality conditions at a specific moment in time. Period life tables are said to be synthetic in that each age group of data comes from a different birth cohort.
 
 
 
-# Loading
+Demography 
+
+- History
+- Perspective
+
+
+# Getting the data 
+
+::: {.callout-note}
+
+[http://www.mortality.org](http://www.mortality.org) 
+
+[http://www.lifetable.de](http://www.lifetable.de)
+
+:::
+
+# First attempt at understanding
+
+
+[Methodology](https://www.lifetable.de/File/GetDocument/methodology.pdf)
+
+
+## Glossary 
+
+## Connections between terms
+
+
+# Data wrangling 
+
+```{r}
+#| label: data-path
+#| appendix: true
+res_path <- fs::path('~/Dropbox/HMD/res') |> fs::path_expand()
+res_url <- 'https://www.lifetable.de/File/GetDocument/data/hld.zip'
+dest_path <- fs::path_join(c(fs::path_dir(res_path), fs::path_file(res_url)))
+dpath <- fs::path('~/Dropbox/HMD/res') |>  fs::path_expand()
+
+if (!fs::file_exists(res_path)) {
+  download.file(res_url, destfile = dest_path)
+  zip::unzip(dest_path)
+}
+```
+
+```{r}
+#| label: res-col-spec
+#| appendix: true 
+res_col_spec <- cols(
+  Country = col_character(),
+  Region = col_character(),
+  Residence = col_character(),
+  Ethnicity = col_character(),
+  SocDem = col_character(),
+  Version = col_character(),
+  `Ref-ID` = col_character(),
+  Year1 = col_integer(),
+  Year2 = col_integer(),
+  TypeLT = col_integer(),
+  Sex = col_integer(),
+  Age = col_integer(),
+  AgeInt = col_double(),
+  `m(x)` = col_double(),
+  `q(x)` = col_double(),
+  `l(x)` = col_double(),
+  `d(x)` = col_double(),
+  `L(x)` = col_double(),
+  `T(x)` = col_double(),
+  `e(x)` = col_double(),
+  `e(x)Orig` = col_character()
+)
+```
+
+
+```{r}
+#| label: load-csv-file
+tb <- readr::read_csv(dpath, col_types = res_col_spec)
+```
+
+
+```{r}
+# problems(tb)
+```
+
+```{r}
+tb |> glimpse()
+```
+
+```{r}
+#| label: save-partitioned-parquet
+#| appendix: true
+
+ds_path <- '~/Dropbox/HMD/hld-part.parquet'
+
+if (!fs::file_exists(ds_path)){
+  tb |> 
+    group_by(Country, Sex) |>
+    arrow::write_dataset(path=ds_path)
+}
+```
+
+```{r}
+#| label: country-codes
+#| appendix: true
+
+country_iso3 <- c(
+  "France"="FRA",
+  "Canada"="CAN",
+  "Netherlands"="NLD",
+  "Sweden"="SWE",
+  "Italy"="ITA",
+  "Spain"="ESP",
+  "Portugal"="PRT",
+  "USA"="USA"
+)
+
+tb_iso3 <- tibble(
+  name=names(country_iso3), iso3=country_iso3
+)
+```
+
+
+```{r}
+#| label: col-selection
+#| appendix: true
+
+ds <- open_dataset(ds_path)
+
+ds$schema
+```
+
+```{r}
+#| label: load-lt-countries
+tb <- ds |>
+  filter(
+    Country %in% country_iso3, 
+    Sex %in% c(1L, 2L), 
+    Region=='0', 
+    Residence=='0',
+    SocDem=='0',
+    Version=='1',
+    Year1 >= 1948, 
+    Ethnicity=='0', 
+    AgeInt==1,
+    TypeLT==1) |> 
+    select(-c(Region, Ethnicity,Year2,AgeInt, TypeLT, Residence, SocDem, Version)) |> 
+  collect()
+```
+
+```{r}
+#| label: crude-averaging
+#| appendix: true
+tb <- tb  |>  
+  group_by(Country, Sex, Year1, Age)  |>  
+  summarise(across(ends_with('(x)'), mean)) |> 
+  ungroup()
+```
+
+
+# Saving and reloading
+
+# The evolution of mortality quotients in Western Europe and the USA since WWII
+
+## Facets
+
+## Animations
+
+## Focus on infant mortality
+
+## Focus on young adults
+
+## Older people 
+
+
+========================================================================================
 
 ```{r coding_tables}
 #| echo: false
@@ -88,23 +272,11 @@ gender_names <- list('b'='Both',
 
 
 ```{r}
+#| echo: false
 params <- list(
-  year_e=2017, 
-  year_p=1948
+  year_e=2020, 
+  year_p=1950
 )
-```
-
-```{r}
-datafile <- '../../resources/full_life_table.Rds'
-fpath <- datafile #str_c("./DATA/", datafile) # here::here('DATA', datafile)   # check getwd() if problem 
-
-if (! file.exists(fpath)) {
-  download.file("https://stephane-v-boucheron.fr/data/tamed_life_table.Rds", 
-                fpath,
-                mode="wb")
-}
-
-life_table <- readr::read_rds(fpath)
 ```
 
 
@@ -112,15 +284,15 @@ life_table <- readr::read_rds(fpath)
 ```{r}
 #| eval: true
 #| echo: true
-life_table <- life_table |>
-  mutate(Country = as_factor(Country)) |>
-  mutate(Country = fct_relevel(Country, 
-                               "Spain", "Italy", "France", "England & Wales", "Netherlands", "Sweden", "USA")) |>
-  mutate(Gender = as_factor(Gender)) |>
-  mutate(Area = fct_collapse(Country, 
-    SE = c("Spain", "Italy", "France"), 
-    NE = c("England & Wales", "Netherlands", "Sweden"), 
-    USA = "USA")) 
+life_tables <- tb |>
+  mutate(Iso3 = factor(Country)) |>
+  mutate(Gender = factor(Sex, labels=c("Male", "Female"))) |>
+  mutate(Area = fct_collapse(Iso3, 
+    SE = c("PRT", "ESP", "ITA", "FRA"), 
+    NE = c("NLD", "SWE", "CAN"), 
+    USA = "USA")) |> 
+  rename(Year=Year1) |> 
+  select(Country, Gender, Year, Age, `q(x)`) 
 ```
 
 
@@ -138,103 +310,89 @@ detailed information on the construction of Life Tables for France.
 ## Period tables versus cohort tables 
 
 Two kinds of Life Tables can be distinguished: *Period tables* (*Table du moment*) which
-contain for each period (here a period is a calendar year), the mortality risks at different age ranges (here, we have one year ranges) for that very period; and *Tables de génération* which contain for a given birthyear, the   mortality risks at which an individual born during that year has been exposed. 
+contain for each period (here a period is a calendar year), the mortality risks at different age ranges (here, we have one year ranges) for that very period; and *Cohort tables* (*Tables de génération*) which contain for a given birthyear, the   mortality risks at which an individual born during that year has been exposed. 
 
-
-The life tables investigated in this lab are *Table du moment*. According to the document by Vallin and Meslé, building the life tables  required ,decisions and doctoring.
+The life tables investigated in this lab are *Period table* (*Table du moment*). According to the cited documents  ([Methodology](https://www.lifetable.de/File/GetDocument/methodology.pdf), Vallin and Meslé), building life tables  requires decisions and doctoring (imputations, smoothing, ...).
 
 ## Lexis diagrams 
 
-Lexis diagrams provide a graphical device that summarizes the construction of mortality 
-quotients (and other rates in demography). 
+Lexis diagrams provide a graphical device that summarizes the construction of mortality  quotients (and other rates in demography). 
+
 
 ```{r}
-#| fig_title: "Lexis diagram"
+#| label: lexis-diagram
 #| code-fold: true
-birth_dates <- as_date("1999-01-01") + duration(sample(2*365, size=20, replace=T),units="day")
-death_dates <- as_date("2009-07-01") + duration(sample(3*365, size=20, replace=T),units="day")
+#| appendix: true
+birth_dates <- lubridate::as_date("1999-01-01") + lubridate::duration(sample(2*365, size=20, replace=T),units="day")
+death_dates <- lubridate::as_date("2009-07-01") + lubridate::duration(sample(3*365, size=20, replace=T),units="day")
 
-b_period <- as_date("2010-01-01")
-b_frame <-  as_date(b_period - duration(1, units = "year"))
+b_period <- lubridate::as_date("2010-01-01")
+b_frame <-  lubridate::as_date(b_period - lubridate::duration(1, units = "year"))
 b_age <- 10L
 
 tb_ld <- tibble(birth=birth_dates, death=death_dates)
+```
 
+```{r}
+#| label: lexis-diagram-2
+#| fig_title: "Lexis diagram"
+#| appendix: true
 tb_ld |> 
   ggplot() +
   geom_segment(aes(x=b_frame,
                    xend=death,
-                   y=interval(birth, b_frame)/years(1),
-                   yend=interval(birth, death)/years(1))
+                   y=lubridate::interval(birth, b_frame)/lubridate::years(1),
+                   yend=lubridate::interval(birth, death)/lubridate::years(1))
                ) +
   annotate(geom="rect",
            xmin=b_period,
-           xmax=as_date(b_period + duration(1, units = "year")),
+           xmax=b_period + lubridate::duration(1, units = "year"),
            ymin=b_age,
            ymax=b_age + 1L,
            fill="grey",
           alpha=.5) +
   ylab("Age") +
   xlab("Time") +
-  coord_cartesian(xlim=c(as_date(b_period - duration(6, units = "months")), 
-                         as_date(b_period + duration(18, units = "months"))),
+  coord_cartesian(xlim=c(lubridate::as_date(b_period - lubridate::duration(6, units = "months")), 
+                         lubridate::as_date(b_period + lubridate::duration(18, units = "months"))),
                   ylim=c(b_age - .5, b_age+1.5)) +
   labs(
     title="A Lexis diagram",
     subtitle = "for mortality quotient at Age 10 during Year 2010-11"
-  )
-
+  ) +
+  theme_minimal()
 ```
+
 Each line represents the *life line* of an individual born during years 1999 and 2000 and deceased beetween mid 2009 and mid 2012. In order to compute the mortality quotient at age 10 for year 2010, we have to compute the relevant *number of occurrences*, that is the number of segments ending in the grey rectangle, and the *sum of exposure times*, which is proportional to the sum of the lengths of the segments crossing the grey rectangle. 
 
-Have a look at [Lexis diagram](https://en.wikipedia.org/wiki/Lexis_diagram) or at Preston *et al*.
+Have a look at [Lexis diagram](https://en.wikipedia.org/wiki/Lexis_diagram), at Preston *et al*, at []().
 
-Definitions can be obtained from [www.lifeexpectancy.org](http://www.lifeexpectancy.org/lifetable.shtml). We translate
-it into mathematical (rather than demographic) language. 
+Definitions can be obtained from [www.lifeexpectancy.org](http://www.lifeexpectancy.org/lifetable.shtml). We translate it into mathematical (rather than demographic) language. 
 
-The mortality quotients define a probability distribution over $\mathbb{N}$. This probability distribution is a _construction_ that reflects the health situation in a population at a given time. This probability distribution does not describe the sequence of sanitary situations experienced by a _cohort_ (people born during a specific year).
+The mortality quotients define a probability distribution over $\mathbb{N}$. This probability distribution is a _construction_ that reflects the *health situation* in a population at a given time. This probability distribution does not describe the sequence of health situations experienced by a _cohort_ (people born during a specific year).
 
-> One  works with a period, or current, life table (_table du moment_). This summarizes the mortality experience of persons across all ages in a short period, typically one year or three years. More precisely, the death probabilities $q_x$ for every age $x$ are computed for that short period, often using census information gathered at regular intervals. These $q_x$'s are then applied to a hypothetical cohort of $100 000$ people over their life span to produce a life table. 
+> One  works with a period, or current, life table (_table du moment_). This summarizes the mortality experience of persons across all ages in a short period, typically one year or three years. More precisely, the death probabilities $q_x$ for every age $x$ are computed for that short period, often using *census information* gathered at regular intervals. These $q_x$'s are then applied to a hypothetical cohort of $100 000$ people over their life span to produce a life table. 
 
-```{r}
-small_tb <- life_table |> 
-  filter(Country=='France', Year== 2010, Gender=='Female', Age < 10 | between(Age, 80, 89)) |> 
-  select(Age, qx, mx, lx, dx, Lx, Tx, ex)
-
-small_tb
-```
 
 ::: {.callout-note}
 
-### Question
-
-The table above is not as readable as it should. Use package `gt` to get a more tunable outpout.  
-
-Reorder  and filter the columns  so that  `Age` comes first (they identify rows), then `qx, mx` up to `ex`.  You can use `select` or `relocate`, or both to do this.  Note that `Gender, Country, Year` are constant in this tibble and need to be reported in the table header, but nowhere else.
-
-Columns `qx` and `mx` (for mortality quotient  and central death rate) should be dsplayed in scientific notation so that the fact that their range extends over several orders of magnitude shows up. 
-
-Columns `lx, dx, Lx, Tx` contain integer values. 
-
-Column `ex` (residual life expectancy) is a (fictional) decimal number of years 
+Columns `q(x)` and `m(x)` (for mortality quotient  and central death rate) are displayed in scientific notation to stress the fact that their range extends over several orders of magnitude. 
 
 :::
 
 ::::: {.content-visible when-profile="solution"}  
 
 ```{r}
-small_tb |> 
-  gt() |> 
-  tab_header(
-    title = "Life table (extract)",
-    subtitle = "France, Women, 2010"
-  ) |> 
-  fmt_integer(columns=c(lx, dx, Lx, Tx)) |> 
-  fmt_engineering(columns = c(qx,mx), exp_style = "e", drop_trailing_zeros = T ) |> 
-  tab_source_note(source_note = "From https://mortality.org")
+#| label: french-lt-excerpt
+#| appendix: true
+#| 
+tb |> 
+    filter(Country=='FRA', Year1== 2010, Sex==2, Age<10|Age==64|between(Age, 80, 88)) |> 
+    select(Age, `q(x)`, `m(x)`, `l(x)`, `d(x)`, `L(x)`, `T(x)`, `e(x)`) |> 
+    gt::gt() |> 
+    gt::tab_caption("Excerpt of French Period Life Table for Year 2010, Females") |> 
+    gt::fmt_scientific(columns=c(`q(x)`, `m(x)`))
 ```
-
-
 :::::
 
 
@@ -246,14 +404,14 @@ In the sequel, we denote by $F_{t}$ the _cumulative distribution function_ for y
 
 
 
-`qx`
+`q(x)`
 : (age-specific) `risk of death` at age $x$, or `mortality quotient` at given age $x$ for given year $t$.
 
 ::: {.callout-note}
 
 ### About the definition of `q_{t,x}`
 
-Defining and computing `q_{t,x}`  does not boil down to knowing the number of people at age $x$ at the beginning of ear $t$ and knowing how many of them died during year $t$. If we want to be rigorous, we need to know all life lines in the Lexis diagram, or equivalently, how many people at Age $x$ were alive on each  day of Year $t$.       
+Defining and computing `q_{t,x}`  does not boil down to knowing the number of people at age $x$ at the beginning of ear $t$ and knowing how many of them died during year $t$. If we want to be rigorous, we need to know all life lines in the Lexis diagram, or equivalently, how many people at Age $x$ were alive on each  day of Year $t$.  That is, we need accurate *death counts* and *exposures to risk*.      
 
 :::
 
@@ -271,7 +429,7 @@ This recursion can also be read as:
 
 $$\overline{F}_{t}(x+1) = \overline{F}_{t}(x) \times (1-q_{t,x+1})\, .$$
 
-This artificial probability distribution is used to define and compute life expectancies. 
+Up to (non-trivial) corrections, this artificial probability distribution is used to define and compute life expectancies. 
 
 :::
 
@@ -284,7 +442,7 @@ $q_{t,x}$ is the *hazard rate* of $\overline{F}_t$ at age $x$.
 :::
 
 
-`mx`
+`m(x)`
 : *central death rate* at age $x$  during year $t$. This is connected with $q_{t,x}$ by
 $$m_{t,x} = -\log(1- q_{t,x}) \,,$$ 
 
@@ -295,7 +453,7 @@ $$q_{t,x} = 1 - \exp(-m_{t,x})$$
 
 ### About central death rate
 
-If we want to define a continuous probability distribution $G$ over $[0,\infty)$ so that 
+If we want to define an absolutely continuous probability distribution $G$ over $[0,\infty)$ so that 
 $G$ and $F$ coincide over integers and $G$ has piecewise constant hazard rate, we can pick
 $m_{t,x}$ as the piecewise constant hazard rate. 
 
@@ -303,7 +461,7 @@ $m_{t,x}$ as the piecewise constant hazard rate.
 
 
 
-`lx`
+`l(x)`
 : the so-called _survival function_: the scaled proportion of persons alive at age $x$. These values are computed recursively from the $q_{t,x}$ values using the formula 
 
 $$l_t(x+1) = l_t(x) \times (1-q_{t,x}) \, ,$$
@@ -318,14 +476,14 @@ $$l_{t,x + 1} = l_{t,0} \times \overline{F}_t(x)\,.$$
 : $d_{t,x} = q_{t,x} \times l_{t,x}$. 
 The fictitious number of deaths occurring at age $x$ during year $t$. Again this is a rounded quantity. 
 
-`Tx`
+`T(x)`
 : Total number of person-years lived by the cohort from age $x$ to $x+1$. This is the sum of the years lived by the $l_{t, x+1}$ persons who survive the interval, and the $d_{t,x}$ persons who die during the interval. The former contribute exactly $1$ year each, while the latter contribute, on average, approximately half a year, so that $L_{t,x} = l_{t,x+1} + 0.5 \times d_{t,x}$. This approximation assumes that deaths occur, on average, half way in the age interval x to x+1. Such is satisfactory except at age 0 and the oldest age, where other approximations are often used. 
 
-Compare with the denominator in the definition of `qx` and its description using the Lexis diagram. 
+Compare with the denominator in the definition of `q(x)` and its description using the Lexis diagram. 
 
 *We will stick to a simplified vision  $L_{t,x}= l_{t,x+1}$*
 
-`ex`:
+`e(x)`:
 : Residual Life Expectancy at age $x$ and year $t$
 
 This is the  expectation of $X -x$ for a random variable $X$ distributed according to $\overline{F}_t$ conditionnally on the event  $\{ X \geq x \}$. That is $e_{t,x}$ is the expectation of the probability distribution defined by $\overline{F}_t(\cdot + x-1)/\overline{F}_t(x-1)$. 
@@ -338,12 +496,14 @@ Check dependencies between columns
 
 :::
 
-::: {.content-visible when-profile='solution'} 
+::::: {.content-visible when-profile='solution'} 
  
  
 ```{r}
-#| label: "sanity checks"
-life_table |> 
+#| label: sanity-checks
+#| eval: false
+#| appendix: true
+life_tables |> 
   filter( Year>=1948, Age < 90, Gender != "Both") |> 
   group_by(Country, Year, Gender) |> 
   summarise(m1 =max(abs(lx -dx -lead(lx))/lx, na.rm = T), 
@@ -369,11 +529,11 @@ life_table |>
 ```
 
 
-:::
+:::::
 
 
 
-# Western countries in 1948
+# Western countries aroun 1950
 
 Several pictures share a common canvas: 
 
@@ -381,10 +541,10 @@ Several pictures share a common canvas:
 
 ### Question 
 
-Plot mortality quotients (`qx`) against age using a logarithmic scale on the
+Plot mortality quotients (`q(x)`) against age using a logarithmic scale on the
 $y$ axis. Countries are identified by aesthetics (`shape`, `color`, `linetype`). 
 
-1. Use facetting to plot `qx` of all countries at all ages for years 1950, 1960, ...,  2010.
+1. Use facetting to plot `q(x)` of all countries at all ages for years 1950, 1960, ...,  2010.
 2. Use `plotly` to build an animated plot using `Year` for the `frame` aesthetics. 
 
 :::
@@ -399,20 +559,19 @@ and arranged for the different figures.
 
 :::
 
-::: {.content-visible when-profile='solution'} 
+::::: {.content-visible when-profile='solution'} 
 
 ```{r}
 #| label: protogg
 #| 
-dummy_data <- filter(life_table, FALSE)
+dummy_data <- filter(life_tables, FALSE)
 
 proto_plot <- dummy_data |>
   ggplot() +
     aes(x=Age,
-        y=qx,
+        y=`q(x)`,
         col=Country,
-        linetype=Country,
-        shape=Area) +
+        linetype=Country) +
     scale_y_log10() +
     scale_x_continuous(breaks = c(seq(0, 100, 10), 109)) +
     ylab("Mortality quotients") +
@@ -420,7 +579,7 @@ proto_plot <- dummy_data |>
     theme_minimal()
 ```
 
-:::
+:::::
 
 
 ::::: {.content-visible when-profile="solution"}  
@@ -430,11 +589,10 @@ proto_plot <- dummy_data |>
 #| message: false
 #| warning: false
 #| echo: false
-# year_p <- 1948
-# year_e <- 2017
+
 p_1 <-  with(params,
   (proto_plot + (
-    life_table |>
+    life_tables |>
     filter(Year %in% c(year_p, year_e), 
       Age<90,
       Gender != 'Both')) +
@@ -464,35 +622,35 @@ p_1
 
 :::
 
-:::
+:::::
 
 ::::: {.content-visible when-profile="solution"}  
 
 
-```{r film_1948_2013}
+```{r}
+#| label: film_1948_2013
 proto_plt2 <-
   ggplot() +
-  aes(x=Age, y=qx, colour=Area, frame=Year, linetype=Country) +
+  aes(x=Age, y=`q(x)`, colour=Country, frame=Year, linetype=Country) +
   geom_point(size=.1) +
-  geom_line(size=.1) +
   scale_y_log10() +
-  labs(linetype=c("Country")) +
-  scale_x_continuous(breaks = c(seq(0, 100, 10), 109)) +
+  scale_x_continuous(breaks = c(seq(0, 100, 20), 109)) +
   xlab("Age") +
   ylab("Mortality quotients") +
   facet_grid(cols=vars(Gender)) +
   theme_minimal()
 ```
 
-```{r film_1948_2013_plotly}
+```{r}
+#| label: film_1948_2013_plotly
 p_2 <- with(params,
-  (proto_plt2 %+%
-    (life_table |>
+  (proto_plt2 +
+    (life_tables |>
       filter(between(Year, year_p, year_e), 
              Year %% 10 == 0, 
              Gender != 'Both', 
              Age < 90))  +
-    ggtitle(glue("Mortality quotient {{year_p}}-{{year_e}}: Europe catches up")))
+    ggtitle(glue::glue("Mortality quotient {params$year_p}-{params$year_e}: Europe catches up")))
 )
 ```
 
@@ -503,11 +661,12 @@ p_2 |>
   plotly::ggplotly()
 
 ```
+
 :::
 
-In 1948, NE and the USA exhibit comparable mortality quotients at all ages for the two genders, the USA looking like a more dangerous place for young adults. Spain lags behind, Italy and France showing up at intermediate positions.
+In 1948, NE (Northern Europe) and the USA exhibit comparable mortality quotients at all ages for the two genders, the USA looking like a more dangerous place for young adults. Spain lags behind, Italy and France showing up at intermediate positions.
 
-By year 1962, SE has almost caught up the USA. Italy and Spain still have higher infant mortality while mortality quotients in the USA and France are almost identical at all ages for both genders.
+By year 1962, SE (Northern Europe)has almost caught up the USA. Italy and Spain still have higher infant mortality while mortality quotients in the USA and France are almost identical at all ages for both genders.
 Mortality quotients attain a minimum around 10-12 for both genders. In Spain the minium
 central death rate has been divided by almost ten between 1948 and 1962.
 
@@ -516,43 +675,47 @@ In 1962, in the USA and France, mortality quotients exhibit a sharp increase bet
 then remain almost constant between 20 and 30 and afterwards increase again. This pattern shows up in other countries but in a less spectacular way.
 
 Twenty years afterwards, during years 1980-1985, death rates at age 0 have decreased at around $1\%$
-in all countries while it was $7\%$ in Spain in 1948. The male central death curve exhibits a plateau between ages 20 and 30. Mortality quotients at this age look higher in France and the USA.
+in all countries while it was $7\%$ in Spain in 1948. The male curve exhibits a plateau between ages 20 and 30. Mortality quotients at this age look higher in France and the USA.
 
-By year 2000, France is back amongst European countries (at least with respect to mortality quotients). Young adult mortality rates are higher in the USA than in Europe. This phenomenon  became more pregnant during the last decade.
+By year 2000, France is back amongst European countries (at least with respect to mortality quotients). Young adult mortality rates are higher in the USA than in Europe. This phenomenon  became more pregnant during decade 2010-2020.
 
-:::
+:::::
 
 
 ::: {.callout-note}
 
 ### Question
 
-Plot ratios between mortality quotients (`qx`) in European countries and
+Plot ratios between mortality quotients (`q(x)`) in European countries and
 mortality quotients in the USA in 1948.
 
 :::
 
-::: {.content-visible when-profile='solution'} 
+::::: {.content-visible when-profile='solution'} 
  
  
-```{r, message=FALSE, warning=FALSE, echo=FALSE}
+```{r}
+#| label: build-eur-us-table
+#| message: false
+#| warning: false
+#| echo: false
 
-simplified_life_table <- with(params, 
-  life_table |>
-  filter(between(Year, year_p, year_e), Age<90, Gender!="Both") |>
-  select(Area, Country, Year, Gender, Age, qx)
-)
+# simplified_life_table <- with(params, 
+#   life_tables |>
+#   filter(between(Year, year_p, year_e), Age<90, Gender!="Both") |>
+#   select(Country, Year, Gender, Age, qx)
+# )
 
-eur_table <- simplified_life_table |>
+eur_table <- life_tables |>
   filter(Country!='USA')
 
-us_table <- simplified_life_table |>
+us_table <- life_tables |>
   filter(Country=='USA') |>
-  select(-Area, -Country)
+  select(-Country)
 
 eur_us_table <-  eur_table |>
   inner_join(us_table, by=c('Age', 'Year', 'Gender')) |>
-  mutate(Ratio=qx.x/qx.y)
+  mutate(Ratio=`q(x).x`/`q(x).y`)
 ```
 
 ```{r}
@@ -563,7 +726,7 @@ p <- with(params,
         y=Ratio,
         frame=Year) +
     aes(linetype=Country, show.legend = FALSE) +
-    aes(color=Area, show.legend = FALSE) +
+#    aes(color=Area, show.legend = FALSE) +
     scale_y_log10() +
     scale_x_continuous(breaks = c(seq(0, 100, 10), 109)) +
     geom_point(size=.1) +
@@ -592,8 +755,10 @@ for (i in seq_along(gp$x$data)) {
 
 gp
 ```
+
+
 ```{r}
-(p %+% with(params,
+(p + with(params,
   filter(eur_us_table, Year %% 10==0, Age <= 10)) +
   geom_point(size=.5) ) |>
   ggplotly()
@@ -607,7 +772,7 @@ gp
 
 
 
-:::
+:::::
 
 
 ::: {.callout-note}
@@ -626,11 +791,11 @@ tend to be within a factor of 2 across all ages, and even less at ages 50 and ab
 
 # Death rates evolution since WW II
 
-::: {.`callout`}
+::: {.callout-note}
 
 ### Question
 
-Plot mortality quotients (column `qx`) for
+Plot mortality quotients (column `q(x)`) for
 both genders as a function of `Age` for  years `1946, 1956, ...` up to `2016` . Use aesthetics to distinguish years. You will need to categorize  the `Year`  column
 (`forcats::` may be helpful).
 
@@ -639,19 +804,21 @@ both genders as a function of `Age` for  years `1946, 1956, ...` up to `2016` . 
 
 :::
 
-::: {.content-visible when-profile='solution'} 
+::::: {.content-visible when-profile='solution'} 
  
 
-```{r mx_1913_21_f, warning=FALSE, echo=FALSE}
+```{r}
+#| label: mx_1913_21_f
+
 post_ww_II <- with(params, 
   seq(year_p, year_e, 10)
 )
 
-p <- life_table |>
+p <- life_tables |>
   filter(FALSE) |>
   ggplot() +
   aes(x=Age,
-       y=qx,
+       y=`q(x)`,
        col=as_factor(Year),
        linetype=as_factor(Year)) +
   geom_smooth(se=FALSE, method="loess", span= .1, size=.2) +
@@ -661,8 +828,8 @@ p <- life_table |>
 ```
 
 ```{r}
-p_3 <- (p  %+%
-  filter(life_table,
+p_3 <- (p  +
+  filter(life_tables,
     Year %in% post_ww_II, 
     Gender!="Both",
     Age < 90,
@@ -675,11 +842,9 @@ p_3 <- (p  %+%
 ::: {.content-hidden unless-format="html"}
 
 ```{r}
-p_3 |> ggplotly()
+p_3 |> 
+  ggplotly()
 ```
-
-
-
 
 :::
 
@@ -691,14 +856,14 @@ p_3
 
 
 ```{r}
-filter(life_table,
+filter(life_tables,
     Year %in% post_ww_II, 
     Gender!="Both",
     Age < 11,
     Country %in% c('Spain', 'USA')) |>
 ggplot() +
   aes(x=Age,
-       y=qx,
+       y=`q(x)`,
        col=as_factor(Year),
        linetype=as_factor(Year)) +
   geom_point() +
@@ -710,7 +875,7 @@ ggplot() +
 
 :::
 
-:::
+:::::
 
 
 ::: {.callout-note}
@@ -732,22 +897,23 @@ and that returns a dataframe with schema:
 |:------------|:------------|
 |  Year       | integer     |
 |  Age        | integer     |
-|  mx         | double      |
-|  mx.ref_year| double      |
+|  q(x)         | double      |
+|  q(x).ref_year| double      |
 |  Country    | factor      |
 |  Gender     | factor      |
 
 where `(Country, Year, Age, Gender)` serves as a _primary key_,
-`mx` denotes the central death rate at `Age` for `Year` and `Gender` in `Country`
-whereas `mx_ref_year` denotes central death rate at `Age` for argument `reference_year`
+`q(x)` denotes the mortality quotient at `Age` for `Year` and `Gender` in `Country`
+whereas `q(x)_ref_year` denotes mortality quotient at `Age` for argument `reference_year`
 in `Country` for `Gender`.
 
 :::
 
-::: {.content-visible when-profile='solution'} 
+::::: {.content-visible when-profile='solution'} 
  
 
-```{r ratio_mortality_rates}
+```{r}
+#| label: ratio_mortality_rates
 ratio_mortality_rates <- function(df,
                                   reference_year=1946,
                                   target_years=seq(1946, 2016, 10)){
@@ -756,17 +922,17 @@ ratio_mortality_rates <- function(df,
   
   right_df <- df |>
     filter(Year==reference_year) |>
-    select(Age, Gender, Country, qx)
+    select(Age, Gender, Country, `q(x)`)
   
   df |> 
     filter(Year %in% target_years, Age <90) |>
-    select(Age, Area, Gender, Country, qx, Year) |>
+    select(Age, Gender, Country, `q(x)`, Year) |>
     inner_join(right_df, by = jbe)
     
 }
 ```
 
-:::
+:::::
 
 ::: {.callout-note}
 
@@ -777,12 +943,13 @@ Draw plots displaying the ratio  $q_{x,t}/q_{x, 1946}$ for ages $x \in 1, \ldots
 1. Handle both genders and all countries 
 2. One properly facetted plot is enough.
 
-::::
+:::
 
-::: {.content-visible when-profile='solution'} 
+::::: {.content-visible when-profile='solution'} 
  
-```{r com_ratio_mortality_rates, echo=FALSE}
-df_ratios <- life_table |>
+```{r}
+#| label: com_ratio_mortality_rates
+df_ratios <- life_tables |>
   filter(Gender !="Both") |>
   ratio_mortality_rates(reference_year=1948,
     target_years=seq(1948, 2013, 1))
@@ -790,7 +957,7 @@ df_ratios <- life_table |>
 
 
 
-```{r }
+```{r}
 geom_smooth_line <- geom_smooth(method="loess",
   formula = y ~ x,
   se= FALSE,
@@ -799,13 +966,14 @@ geom_smooth_line <- geom_smooth(method="loess",
 )
 ```
 
-```{r, full_comparison_template}
+```{r}
+#| label: full_comparison_template
 #| warning: false
 #| message: false
 q <- df_ratios |>
   ggplot() +
   aes(x=Age,
-      y=qx.x/qx.y) +
+      y=`q(x).x`/`q(x).y`) +
   geom_smooth_line +
   scale_y_log10() 
 
@@ -838,11 +1006,12 @@ q1 + (
 ```
 
 
-```{r frame_full_comparison, message=FALSE, warning=FALSE, echo=FALSE}
+```{r}
+#| label: frame_full_comparison
+# 
 qf <- q +
   aes(linetype=Country,
-      frame=Year,
-      col=Area) +
+      frame=Year) +
   geom_smooth(method="loess",
               formula= y ~ x, 
               se= FALSE,
@@ -852,19 +1021,20 @@ qf <- q +
   facet_grid(rows=vars(Gender))
 ```
 
-```{r, warning=FALSE, message=FALSE, echo=FALSE}
+```{r}
 qf |> ggplotly()
 ```
 
-:::
+:::::
 
 ::: {.content-visible when-profile='solution'} 
  
 
-```{r  full_comparison, message=FALSE, warning=FALSE, echo=FALSE}
+```{r}
+#| label: full_comparison
+# 
 with(params, 
-     q +
-  filter(df_ratios, 0 == (Year - year_p) %% 15) +
+     q + filter(df_ratios, 0 == (Year - year_p) %% 15) +
   ggtitle("Full comparison") +
   facet_grid(cols=vars(Gender), rows=vars(Country)))
 ```
@@ -894,24 +1064,25 @@ Plot mortality quotients at ages $0, 1, 5$  as a function of time. Facet by Gend
 
 :::
 
-::: {.content-visible when-profile='solution'} 
+::::: {.content-visible when-profile='solution'} 
  
-```{r infant_mort_rate, echo=FALSE, warning=FALSE, message=FALSE}
+```{r}
+#| label: infant_mort_rate
 ages <- c(0, 1, 5)
 
-p_children <- filter(life_table, FALSE) |>
-  ggplot(mapping=aes(x=Year, y=qx,
+p_children <- filter(life_tables, FALSE) |>
+  ggplot(mapping=aes(x=Year, y=`q(x)`,
                      linetype=forcats::as_factor(Age),
                      shape=forcats::as_factor(Age),
                      col=forcats::as_factor(Age))) +
   geom_line(size=.2) +
   labs(linetype="Age", col="Age", shape="Age") +
   scale_y_log10() +
-  scale_x_continuous(breaks=seq(1935,2010,5)) +
+  scale_x_continuous(breaks=seq(1935,2020,5)) +
   facet_grid(cols=vars(Gender), rows=vars(Country))
 
-p_children %+%
-  filter(life_table,
+p_children +
+  filter(life_tables,
             Age %in% ages,
             Gender != "Both",
             Year %in% 1933:2013) +
@@ -919,7 +1090,7 @@ p_children %+%
             subtitle = "Hygiene, Vaccination, Antibiotics")
 ```
  
-:::
+:::::
 
 
 ::: {.callout-note}
@@ -941,21 +1112,22 @@ Plot mortality quotients at ages $15, 20, 40, 60$  as a function of time. Facet 
 
 :::
 
-::: {.content-visible when-profile='solution'} 
+::::: {.content-visible when-profile='solution'} 
  
 
-```{r adult_mortality_rates}
+```{r}
+#| label: adult_mortality_rates
 ages <- c(15, 20, 40, 60)
 
 p_children +
-  filter(life_table,
+  filter(life_tables,
          Age %in% ages,
          Gender != "Both",
-         Year %in% 1933:2013) +
+         Year %in% 1935:2020) +
   ggtitle("Mortality rate at different ages")
 ```
 
-:::
+:::::
 
 ::: {.callout-note}
 
@@ -967,3 +1139,20 @@ until 1960, and then increased back to their initial level until 1980. Male deat
 to decline around 1980. Female death rates at age 60 declined steadily throughout the 7 decades.
 Years 1940-1945 exhibit disruptions with different shapes and intensities in  Italy, France, England & Wales, and the Netherlands.
 
+:::
+
+::::: {.content-visible when-profile="solution"}
+
+# Appendix 
+
+
+```{r}
+#| label: chunk-make-appendix
+#| ref.label: !expr knitr::all_labels(appendix==TRUE)
+#| echo: true
+#| eval: false
+#| code-fold: false
+```
+
+
+:::::

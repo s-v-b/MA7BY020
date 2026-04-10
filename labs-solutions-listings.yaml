@@ -63,6 +63,16 @@
   date: "2026-03-30"
   path: "core/labs-solutions/lab-hclust.html"
   categories: [Clustering, Hierarchical]
+- title: "Life tables"
+  author: "Master I MIDS UParis Cité"
+  date: "2026-04-10"
+  path: "core/labs-solutions/lab-lt-1948-2016.html"
+  categories: [Life tables, Demography]
+# - title: "Life tables, SVD, Lee-Carter"
+#   author: "Master I MIDS UParis Cité"
+#   date: "2026-04-10"
+#   path: "core/labs/lab-lee-carter.html"
+#   categories: [Life tables, Lee-Carter model, Demography]
 # - title: "Bi and Multivariate categorical data"
 #   author: "Master I MIDS UParis Cité"
 #   date: "2026-02-09"
