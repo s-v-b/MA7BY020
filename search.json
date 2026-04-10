@@ -2797,5 +2797,75 @@
     "title": "Introduction to Lee-Carter",
     "section": "Individuals (Years)",
     "text": "Individuals (Years)\nIf we plot the rows (years) on the plane spanned by the first two principal axes, patterns across genders and countries again look very similar. Axis 1 roughly corresponds to a time axis. If we look at points corresponding to the first 15 years, plots for European countries are very much alike. For Female plots, the four points corresponding to years 1948-1951 follow the same paths in all six European countries; for the US the path is different. For England and Wales, France and Italy, the projections on the planed spanned by the first two principal axes look strikingly similar."
+  },
+  {
+    "objectID": "weeks/week-11.html",
+    "href": "weeks/week-11.html",
+    "title": "Week 11",
+    "section": "",
+    "text": "Important\n\n\n\n\nSession I Sophie Germain (2017) Monday 16h-17h30\nSession II Sophie Germain (2011) Friday 16h45-18h15\n Calendar"
+  },
+  {
+    "objectID": "weeks/week-11.html#b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c20666120666c61736b2d7669616c203e7d7d-labs",
+    "href": "weeks/week-11.html#b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c20666120666c61736b2d7669616c203e7d7d-labs",
+    "title": "Week 11",
+    "section": " Labs",
+    "text": "Labs\n\nLab 11 Clustering with \\(k\\)-means\nLab 12 Hierarchical clustering\n\nWe still rely on the previous labs\n\nLab 1 - Introduction to R and RStudio\nLab 2 - Introduction to Data Visualization using Gapminder dataset\nLab 3 - Working with dplyr\nLab 4 Univariate categorical variables\nLab 5 Univariate numeric variables\nLab 6 - Linear Regression I\nLab 6 - Linear Regression II\nLab 7 - Linear Regression II\nLab 8 Principal Component Analysis as an application of SVD\nLab 9 Correspondence Analysis as an application of extended SVD\nLab 10 Multiple Correspondence Analysis and Canonical Correspondence Analysis as applications of extended SVD)"
+  },
+  {
+    "objectID": "weeks/week-11.html#b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c20666120706572736f6e2d64696767696e67203e7d7d-further-work",
+    "href": "weeks/week-11.html#b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c20666120706572736f6e2d64696767696e67203e7d7d-further-work",
+    "title": "Week 11",
+    "section": " Further work",
+    "text": "Further work\n Review the content of the two labs. Work out every part you do not already know. Report an issue if you are unhappy with the proposed solutions/hints."
+  },
+  {
+    "objectID": "weeks/week-11.html#b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c20666120626f6f6b203e7d7d-further-reading",
+    "href": "weeks/week-11.html#b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c20666120626f6f6b203e7d7d-further-reading",
+    "title": "Week 11",
+    "section": " Further reading",
+    "text": "Further reading\n\nBin Yu and Rebecca Barter, Veridical Data Science\nR for data science\nAdvanced R\n\nS3 classes\nS4 classes"
+  },
+  {
+    "objectID": "weeks/week-11.html#b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c206661206c6170746f70203e7d7d-logistics",
+    "href": "weeks/week-11.html#b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c206661206c6170746f70203e7d7d-logistics",
+    "title": "Week 11",
+    "section": " Logistics",
+    "text": "Logistics\n : you will work with the R programming language in this course.\nYou need either to install R, RStudio and VS Code on your computer, or to use your posit-cloud account.\n Install Quarto on your computer to render the .qmd files.\nPlease follow the instructions here to install R, RStudio, VS Code, and Quarto or to access posit-cloud.\n Please activate your ENT account (follow the instructions on Moodle). You will be able to access the PostGres server.\n\n\nBack to Agenda ⏎"
+  },
+  {
+    "objectID": "weeks/week-12.html",
+    "href": "weeks/week-12.html",
+    "title": "Week 12",
+    "section": "",
+    "text": "Important\n\n\n\n\nSession I Sophie Germain (2017) Monday 16h-17h30\n Calendar"
+  },
+  {
+    "objectID": "weeks/week-12.html#b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c20666120666c61736b2d7669616c203e7d7d-labs",
+    "href": "weeks/week-12.html#b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c20666120666c61736b2d7669616c203e7d7d-labs",
+    "title": "Week 12",
+    "section": " Labs",
+    "text": "Labs\n\nLab 13 Life tables, pattern or mortality\nLab 14 Life tables, PCA, SVD, Lee-Carter\n\nWe still rely on the previous labs\n\nLab 1 - Introduction to R and RStudio\nLab 2 - Introduction to Data Visualization using Gapminder dataset\nLab 3 - Working with dplyr\nLab 4 Univariate categorical variables\nLab 5 Univariate numeric variables\nLab 6 - Linear Regression I\nLab 6 - Linear Regression II\nLab 7 - Linear Regression II\nLab 8 Principal Component Analysis as an application of SVD\nLab 9 Correspondence Analysis as an application of extended SVD\nLab 10 Multiple Correspondence Analysis and Canonical Correspondence Analysis as applications of extended SVD\nLab 11 Clustering with \\(k\\)-means\nLab 12 Hierarchical clustering"
+  },
+  {
+    "objectID": "weeks/week-12.html#b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c20666120706572736f6e2d64696767696e67203e7d7d-further-work",
+    "href": "weeks/week-12.html#b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c20666120706572736f6e2d64696767696e67203e7d7d-further-work",
+    "title": "Week 12",
+    "section": " Further work",
+    "text": "Further work\n Review the content of the two labs. Work out every part you do not already know. Report an issue if you are unhappy with the proposed solutions/hints."
+  },
+  {
+    "objectID": "weeks/week-12.html#b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c20666120626f6f6b203e7d7d-further-reading",
+    "href": "weeks/week-12.html#b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c20666120626f6f6b203e7d7d-further-reading",
+    "title": "Week 12",
+    "section": " Further reading",
+    "text": "Further reading\n\nBin Yu and Rebecca Barter, Veridical Data Science\nR for data science\nAdvanced R\n\nS3 classes\nS4 classes"
+  },
+  {
+    "objectID": "weeks/week-12.html#b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c206661206c6170746f70203e7d7d-logistics",
+    "href": "weeks/week-12.html#b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c206661206c6170746f70203e7d7d-logistics",
+    "title": "Week 12",
+    "section": " Logistics",
+    "text": "Logistics\n : you will work with the R programming language in this course.\nYou need either to install R, RStudio and VS Code on your computer, or to use your posit-cloud account.\n Install Quarto on your computer to render the .qmd files.\nPlease follow the instructions here to install R, RStudio, VS Code, and Quarto or to access posit-cloud.\n Please activate your ENT account (follow the instructions on Moodle). You will be able to access the PostGres server.\n\n\nBack to Agenda ⏎"
   }
 ]
