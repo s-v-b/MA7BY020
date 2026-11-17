@@ -1,0 +1,666 @@
+---
+title: Scratch session PCA
+
+execute: 
+  eval: true
+  echo: true
+  warning: false
+  message: false
+
+engine: knitr
+---
+
+# Avertissement 
+
+Dans ces notes, il est question de l'exploitation des résultats d'une Analyse en Composantes Principales. On aborde l'ACP à l'aide de deux outils:
+
+1. `prcomp()` qui construit des objets de classe `prcomp` (`R` de base)
+1. `FactoMineR::PCA` qui construit des objets de classe `PCA` (`FactomineR`)
+
+La construction des tables et dessins est aussi envisagée de deux points de vue:
+
+1. Le point de vue `tidyverse` sur les objets de classe `prcomp`
+1. Les outils mis à dispositions dans `FactoMineR`, `factoextra` 
+
+# Les `packages`
+
+```{r}
+#| label: setup
+stopifnot(
+  require(ggplot2),   # graphiques (tidyverse)
+  require(ggfortify), # 
+  require(ggforce),   # pour annoter certains graphiques 
+  require(ggrepel),   # pour écarter certaines annotations 
+  require(dplyr),     # manipulations de table (tidyverse)
+  require(stringr),   # chaines de caractères (tidyverse)
+  require(forcats),   # manipulations de variables catégorielles
+  require(gt),         # pour afficher des tables 
+  require(patchwork),  # pour combiner des objets `ggplot`
+  require(FactoMineR), # 
+  require(factoextra),  # complément de FactoMineR
+  require(skimr)
+)
+```
+
+# Les données
+
+```{r}
+#| label: load_data
+data(iris)
+# data(decathlon, package = "FactoMineR")
+```
+
+## Les donées iris
+
+```{r}
+#| label: iris
+iris |>
+  slice_sample(n=2,by=Species) |>
+  gt::gt() |> 
+  gt::tab_caption("Echantillon de la table `iris`")
+```
+
+```{r}
+iris |> 
+  skimr::skim(where(is.numeric)) |> 
+  select(-skim_type, - n_missing, -complete_rate) |> 
+  rename_with(.fn=\(x) str_replace(x, "numeric.", "")) |> 
+  gt::gt() |>
+  gt::fmt_number(decimals=2) |> 
+  gt::tab_caption("Résumé des colonnes numériques de la table iris") |> 
+  gt::tab_footnote(footnote="NB : Les colonnes n'ont pas le même écart-type")
+```
+
+# Calcul de l'ACP  par `prcomp`
+
+On soumet à `prcomp` les données `iris`. Grâce à `scale()`, on centre et on standardise les colonnes. Si on pense à l'ACP comme à une diagonalisation (décomposition spectrale)  de matrice symétrique, la standardisation des colonnes revient à diagonaliser la matrice de corrélation plutôt que la matrice de covariance. 
+
+```{r}
+#| label: iris_pca
+iris_pca <- iris |>
+  select(where(is.numeric)) |>
+  scale() |>  # centrage et standardisation des colonnes
+  prcomp()
+```
+
+Le résulat est un objet `iris_pca` de classe `prcomp`. On pourra le traiter comme une liste, mais on pourra aussi lui appliquer des fonctions génériques (`generics`) équipées de méthodes pour la classe `prcomp`.
+
+```{r}
+#| label: iris_pca_what
+#| 
+is.list(iris_pca)   # Oui
+class(iris_pca)     # prcomp
+class(unclass(iris_pca))    # list
+attributes(iris_pca)  #
+inherits(unclass(iris_pca), "list")  # Oui
+```
+
+```{r}
+#| label: methodes-prcomp
+sloop::s3_methods_class("prcomp") |> 
+  select(-class) |> 
+  gt::gt() |> 
+  gt::tab_caption("Quelques fonctions génériques équipées pour la classe `prcomp`")
+```
+
+La liste `iris_pca`  est faite de 5 éléments:
+
+|Element  | Description |
+|:--------|:------------------------------------------------------------|
+|`sdev`     | Valeurs singulières (diagonale de la SVD) renormalisées     |
+|`rotation` | Matrice $V$  (de la SVD)                                    |
+|`center`   | Centrage des colonnes (ici $0$)                             | 
+|`scale`    | Standardisation des colonnes (ici $1$)                      |
+|`x`        | Matrice $U \times D$ (de la SVD)                            |
+: Élements des objets de classe `prcomp`
+
+::: {.callout-note}
+
+- La matrice `x` est désignée par $Y$  dans les diapositives du cours.
+- La matrice `rotation` est désignée par $L$ dans les diapositives du cours
+- Les éléments de `sdev` sont les valeurs singulières divisées par $\sqrt{n-1}$ ou $n$ est le nombre d'individus.
+
+
+$$\underbrace{X}_{\texttt{scale(iris)}}  =  \underbrace{Y}_{\text{x}} \times \underbrace{L^\top}_{\texttt{t(rotation)}}$$
+
+$$\underbrace{X^\top \times X}_{\texttt{n * cov(scale(iris))}}$$
+
+$$= L \times \underbrace{\Lambda}_{\texttt{diag(sdev**2)}} \times L^\top$$
+
+
+:::
+
+
+```{r}
+#| label: prcomp-sanity-check
+
+# rotation en est bien une
+with(iris_pca,
+    norm(diag(1, 4) - rotation %*% t(rotation), type="F") # orthogonale
+) 
+
+with(iris_pca,
+    det(rotation)
+) 
+
+# 
+with(iris_pca,
+  norm(scale(select(iris, where(is.numeric))) - x %*% t(rotation),type="F")
+)
+
+with(iris_pca,
+  norm(diag((sdev[1:ncol(x)])^2) - (1/(nrow(x)-1))*t(x) %*% x, type="F")
+)
+```
+
+
+Pour suivre les notations des diapositives du cours $X = Y \times L^\top$
+
+```{r}
+Y <- iris_pca$x 
+X <- iris  |>  select(where(is.numeric)) |> scale()  # les donnees centrees reduites
+n <- 150
+
+norm(((n-1)/n)*cov(Y,X) - (t(Y) %*% X)/n, type="F")
+
+cor(Y,X)
+
+colSums(cor(Y,X)^2)
+
+with(iris_pca, 
+  t(rotation %*% diag(sdev))
+)
+
+norm(cor(Y,X) - with(
+                 iris_pca, 
+                 t(rotation %*% diag(sdev))),
+    type="F")
+```
+
+
+```{r}
+#| label: prcomp-versus-svd
+
+iris_svd <- iris |>
+  select(where(is.numeric)) |>
+  scale() |> 
+  svd()
+
+# Rapport entre `iris_pca$sdev` et `iris_svd$d`
+((nrow(iris)-1)*iris_pca$sdev^2 -(iris_svd$d)^2)
+
+#
+with(iris_pca,
+  norm(abs(t(rotation) %*% iris_svd$v) - diag(1, ncol(rotation)), type="F")
+)
+```
+
+::: {.callout-important}
+
+La visualisation d'une ACP consiste en 4 dessins :
+
+- Éboulis des valeurs propres (`screeplot`)
+- Représentation des individus dans les plans définis par les composantes principales (on peut choisir les composantes principales, en général, on prend les deux premières)
+- Représentation des variables/colonnes originelles dans les plans définis par les axes principaux. On représente les corrélations entre les colonnes originelles. C'est le cercle des corrélations.
+- Le `biplot` superpose la représentation des lignes et celle des individus.
+
+:::
+
+
+# Dessin des individus 
+
+Considérons la représentation des individus dans les plans principaux. 
+
+À partir d'un objet de classe `prcomp`, on peut procéder de deux façons:
+
+1. Utiliser la fonction générique `autoplot` offerte par `ggplot2`
+
+```{r}
+#| label: iris_pca_plot
+iris_ind <- iris_pca |>
+  autoplot(iris) 
+
+iris_ind +
+  ggtitle("Diagramme des individus dans le plan des deux premières composantes principales",
+    subtitle="Données Iris") +
+  theme_minimal()
+```
+
+Ce n'est ni parfait, ni complet. Mais on peut retravailler l'objet de classe `ggplot` `iris_ind`
+
+```{r}
+g_ind_iris <- iris_ind + 
+    geom_point(aes(x=PC1, y=PC2, color=Species)) +
+    coord_fixed() +  # important
+    ggtitle("Diagramme des individus dans le plan des deux premières composantes principales",
+    subtitle="Données Iris") +
+    theme_minimal()
+```
+
+
+```{r}
+#| label: code-autoplot-prcomp
+#| eval: false
+sloop::s3_get_method(autoplot.prcomp)
+```
+
+Il est à peine utile d'invoquer `autoplot()` pour réaliser ce dessin. `broom::augment()` suffit presque (il faudrait ajouter la part de variance projetée sur chaque axe).  
+
+```{r}
+#| label: iris_pca_ind_deco
+g_ind_iris_2 <- iris_pca |>
+  broom::augment(data=iris) |>
+  rename_with(.fn=\(x) stringr::str_replace(x, '.fittedPC', 'PC')) |> 
+  ggplot() +
+    aes(x=PC1, y=PC2, shape=Species) +
+    geom_point() +
+    coord_fixed() +
+    theme_minimal()
+
+g_ind_iris_2
+```
+
+
+```{r}
+g_ind_iris + g_ind_iris_2
+```
+
+# Screeplot 
+
+L'éboulis des valeurs propres est un diagramme en baton (`bapplot`) construit 
+à partir des valeurs propres de la matrice de Gram des colonnes $X\top X$, 
+ou à partir des carrés des valeurs singulières de $X$. 
+
+```{r}
+p_screeplot <- function(res_pca) {
+  fmt_pourcentage <- scales::label_percent()
+
+  broom::tidy( res_pca, matrix="pcs") %>%  # pipe de magrittr !!! 
+  { 
+  ggplot(.) +   # . est un pronom qui renvoie à la partie gauche du pipe 
+  aes(x=PC, y=percent) + 
+  geom_col(fill=NA, colour="black") +
+  geom_text(aes(
+    label=fmt_pourcentage(1. -cumulative)),  # cumulative est une colonne de la partie gauche du pipe
+    vjust= .85,
+    hjust= .85,
+    angle = 45
+  ) +
+  ylab("Percentage of inertia") +
+  theme_minimal()
+  } 
+}
+```
+
+
+```{r}
+iris_screeplot <- p_screeplot(iris_pca) # +
+  # labs(caption="Percentages above bars indicate relative squared Frobenius error\n when using truncation at specified rank
+  # ")
+
+iris_screeplot  +
+  ggtitle(
+    "Screeplot",
+    subtitle = "Iris dataset"
+  )
+```
+
+# Cercle des corrélations 
+
+```{r}
+
+```
+
+```{r}
+prep_co_circle <- function(pco) {
+  r <- with(pco,  t(t(rotation) * sdev[1:ncol(rotation)]))
+  as_tibble(r) |> 
+    rename_with(.fn = \(x) gsub('PC', '', x), .cols=everything()) |>
+    mutate(row_id=rownames(r))
+}
+```
+
+
+```{r}
+co_circle_ppl <- (
+    iris_pca |> 
+    prep_co_circle() |> 
+    filter(F)
+    ) %>% 
+  ggplot() +
+  aes(x=`1`, y=`2`, label=row_id) +
+  geom_segment(
+    aes(xend=0, yend=0), 
+    arrow = grid::arrow(ends = "first")) +
+  ggrepel::geom_text_repel() +
+  coord_fixed() +
+  xlim(c(-1.1, 1.1)) + ylim(c(-1.1, 1.1))  + 
+  ggforce::geom_circle(aes(x0=0, y0=0, r=1), linetype="dashed") +
+  theme_minimal()
+```
+
+
+```{r}
+#| 
+iris_co_circ1 <- co_circle_ppl + (
+  iris_pca %>% 
+  prep_co_circle()
+  )  +
+  labs(title="Matrice de corrélation") +
+  theme_minimal()
+```
+
+```{r}
+#| label: cercle-cor-2
+#| 
+tb_cor_iris_pca <- with(
+  iris_pca,
+  cor(scale(iris[,1:4]),x)) |> 
+  as_tibble()  |>  
+  mutate(vars=rownames(iris_pca$rotation)) 
+  
+iris_co_circ2 <- tb_cor_iris_pca |> 
+  ggplot() +
+    aes(x=PC1, y=PC2, label=vars) +
+    geom_segment(aes(xend=0, yend=0)) +
+    geom_text() +
+    coord_fixed() +
+    ggforce::geom_circle(aes(x0=0, y0=0, r=1), linetype="dashed") +
+      labs(title="Matrice de correlation") +
+    xlim(c(-1.1, 1.1)) + ylim(c(-1.1, 1.1))  + 
+    theme_minimal() 
+```
+
+
+```{r}
+#| label: comparaisons-des-cercles-correlations
+#| 
+iris_co_circ1 + 
+  iris_co_circ2 +
+  patchwork::plot_annotation(
+    "Cercle(s) des corrélations",
+    subtitle="Données Iris, ACP centrée, standardisée")
+```
+
+::: {.callout}
+
+Distinction entre les deux cercles des corrélations
+
+...
+
+:::
+
+Nous reviendrons sur le cercle des corrélations obtenu de manière détournée via `autoplot()` et sur le cercle des corrélations
+construit par `FactoMiner`  et `factoextra`. 
+
+
+# Biplot avec `autoplot()`
+
+```{r}
+neat_color_scale <-
+      c("setosa" = "#01d4e5",
+        "versicolor" = "#7dea01" ,
+        "virginica" = "#fc5173")
+```
+
+```{r}
+#| label: biplot-autoplot
+# 
+iris_biplot <- iris_pca |>
+  autoplot(
+    iris,
+    loadings=T, 
+    loadings.label=T
+  ) 
+```
+
+```{r}
+#| label: biplot-autoplot-coord-fix
+# 
+iris_biplot +
+  geom_point(aes(color=Species)) +
+  scale_color_manual(values=neat_color_scale) +
+  coord_fixed() +
+  ggforce::geom_circle(
+    aes(x0=0,y0=0, r=.2),
+    linetype="dotted"
+  ) +
+  theme_minimal()
+```
+
+## Obtenir le cercle des corrélations à partir du biplot
+
+Il suffit de retirer la couche "nuage de points" (`geom_point()`) à l'objet 
+de classe `ggplot` retourné par `autoplot`. 
+
+
+::: {.callout-caution}
+
+Cette manière de procéder est périlleuse. Elle revient à contourner l'API offerte par 
+`ggplot2`. 
+
+:::
+
+
+```{r}
+#| label: jouer-avec-les-couches
+iris_layer_1 <- iris_biplot$layers[[1]]  # backup
+iris_biplot$layers[[1]] <- NULL
+
+iris_cocirc <- iris_biplot + coord_fixed() +
+  ggforce::geom_circle(
+    aes(x0=0,y0=0, r=.2),
+    linetype="dotted"
+  ) +
+  theme_minimal()
+
+iris_cocirc
+
+iris_biplot$layers <- c(iris_layer_1 ,iris_biplot$layers)  # restauration
+```
+
+```{r}
+#| label: recomparaison
+
+iris_cocirc + iris_co_circ2
+```
+
+## Un mini-rapport avec `patchwork`
+
+```{r}
+#| label: patchwork-des-iris
+
+pwk <- iris_screeplot + iris_co_circ2
+
+pwk
+```
+
+```{r}
+#| label: biplot-colore
+#| eval: true
+#| echo: false
+#| include: false
+iris_biplot_col <- iris_biplot +
+  geom_point(aes(color=Species)) +
+  scale_color_manual(values=neat_color_scale) +
+  coord_fixed() +
+  ggforce::geom_circle(
+    aes(x0=0,y0=0, r=.2),
+    linetype="dotted"
+  ) +
+  ggtitle("Biplot") +
+  theme_minimal()
+
+iris_biplot_col
+```
+
+
+```{r}
+iris_indivi <- iris_pca |>
+  autoplot(data=tibble::rowid_to_column(iris),labels=T) + 
+  coord_fixed() +
+  geom_point(aes(color=Species), show.legend = FALSE) +
+  geom_text_repel(aes(label=rowid)) +
+  scale_color_manual(values=neat_color_scale) +
+  theme_minimal(    
+  )
+
+iris_indivi
+```
+
+## Pour finir
+
+
+```{r}
+pwk
+```
+
+
+::: {.columns}
+::: {.column}
+```{r}
+iris_indivi
+```
+:::
+::: {.column}
+
+```{r}
+iris_biplot_col
+```
+:::
+:::
+
+
+# Avec FactoMineR
+
+
+```{r}
+#| label: iris-facto-pca
+iris_facto_pca <- select(iris, where(is.numeric)) |> 
+  scale() |> 
+  FactoMineR::PCA(graph=F) 
+```
+
+Sinon on utilise l'option par défaut de `graph`
+
+```{r}
+FactoMineR::PCA(select(iris, where(is.numeric)), scale.unit = T)
+```
+
+
+
+```{r}
+#| label: depouillage-de-var-dans-objet-de-classe-PCA
+#| 
+V <- iris_facto_pca$var$coord
+
+diag(t(V) %*% V)
+
+with(iris_facto_pca$var,
+  norm(coord -cor, type="F")
+)
+```
+
+```{r}
+#| label: depouillage-de-var-dans-objet-de-classe-PCA-suite
+#| 
+# cor est égal à la corrélation entre X et Y
+with(
+  iris_facto_pca$var,
+  norm(cor - cor(X, iris_facto_pca$ind$coord), type="F")
+)
+
+
+# On obtient cos2 en elevant au carré chaque élément de cor au carré
+with(
+  iris_facto_pca$var,
+  norm(cos2 -cor^2, type="F")
+)
+
+# On obtient contrib à partir de cos2 en divisant chaque colonne de cos2 par sa somme
+with(
+  iris_facto_pca$var,
+  norm(contrib - 100* t(t(cos2)/ colSums(cos2)), type="F")
+)
+```
+
+
+
+# A revised `autoplot.prcomp`
+
+
+
+```{r}
+sloop::s3_get_method("autoplot.prcomp")
+```
+
+
+```{r}
+plot_prcomp <- function (object, 
+  data = NULL, 
+  scale = 1, 
+  x = 1, y = 2, 
+  variance_percentage = TRUE, 
+  ...) 
+{
+    plot.data <- ggplot2::fortify(object, data = data)  # semblable au augment(object, data)
+    plot.data$rownames <- rownames(plot.data)           # ajout d'une colonne de noms
+        ve <- object$sdev^2/sum(object$sdev^2)          # part de variance projete sur les PCs
+        PC <- paste0("PC", c(x, y))
+        x.column <- PC[1]              # nom premiere PC 
+        y.column <- PC[2]              # nom deuxieme PC
+        loadings.column <- "rotation"    # 
+        lam <- object$sdev[c(x, y)]      # valeurs singulieres 
+        lam <- lam * sqrt(nrow(plot.data))   # 
+    if (scale != 0) {
+        lam <- lam^scale
+        plot.data[, c(x.column, y.column)] <- t(t(plot.data[, 
+            c(x.column, y.column)])/lam)    # scale=1 revient à choisir l'element U dans la svd
+    }
+    plot.columns <- unique(c(x.column, y.column, colnames(plot.data)))
+    plot.data <- plot.data[, plot.columns]  # reordonne les colonnes, met x.column, y.column en tête
+    if (!is.null(loadings.column)) {
+        loadings.data <- as.data.frame(object[[loadings.column]][, 
+            ])
+        loadings.data[, c(x, y)] <- t(t(loadings.data[, c(x, y)]) * lam[c(x, y)])
+        loadings.data$rownames <- rownames(loadings.data)
+        loadings.columns <- unique(c(x.column, y.column, colnames(loadings.data)))
+        loadings.data <- loadings.data[, loadings.columns]
+    }
+    else {
+        loadings.data <- NULL
+    }
+    if (is.null(ve) | !variance_percentage) {
+        labs <- PC
+    }
+    else {
+        ve <- ve[c(x, y)]
+        labs <- paste0(PC, " (", round(ve * 100, 2), "%)")
+    }
+    xlab <- labs[1]
+    ylab <- labs[2]
+    p <- ggfortify::ggbiplot(plot.data = plot.data, 
+                  loadings.data = loadings.data, 
+                  xlab = xlab, 
+                  ylab = ylab, 
+                  ...)   # transmission d'arguments supplémentaires 
+    return(p)
+}
+```
+
+```{r}
+iris_pca |>
+  plot_prcomp(data=tibble::rowid_to_column(iris),
+              loadings=T,
+              loadings.labels=T,
+              labels=F) + 
+  coord_fixed() +
+  geom_point(aes(color=Species), show.legend = FALSE) +
+#  geom_text_repel(aes(label=rowid)) +
+  scale_color_manual(values=neat_color_scale) +
+  theme_minimal(    
+  ) +
+  ggforce::geom_circle(aes(x0=0,y0=0, r=.13), linetype="dotted")
+
+```
+

@@ -498,7 +498,7 @@ evolution of the log-central death rates for the United States during the XXth c
 Let $A_{x,t}$ denote the log central death rate at age $x$ during year $t\in T$
 for a given population (defined by Gender and Country).
 
-The Lee-Carter model assumes that observed loagrithmic central death rates
+The Lee-Carter model assumes that observed logarithmic central death rates
 are sampled according to the following model
 
 $$A_{x,t} \sim_{\text{independent}} a_x + b_x \kappa_t + \epsilon_{x,t}$$
@@ -512,8 +512,7 @@ and $\epsilon_{x,t}$ are i.i.d Gaussian random variables.
 ## US data
 
 - [ ] Fit a Lee-Carter model on the American data (for Male and Female data) training on years `1933` up to `1995`.
-- [ ] Compare the fit provided by the Lee-Carter model with the fit provided by a rank $2$
-truncated SVD
+- [ ] Compare the fit provided by the Lee-Carter model with the fit provided by a rank $2$ truncated SVD
 - [ ] Compare vectors avec $(a_x)_x, (b_x)_x$ and $(\kappa_t)_t$ with appropriate singular vectors. 
 - [ ] Use the Lee-Carter model to predict the central death rates for years $2000$ up to $2015$
 - [ ] Plot predictions and observations for years $2000, 2005, 2010, 2015$

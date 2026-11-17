@@ -1,0 +1,37 @@
+---
+title: 'Quizz: R'
+date: "`r Sys.time()`"
+draft: false 
+
+
+execute:
+  echo: true
+  eval: true
+  collapse: true
+
+
+format:
+  html:
+    output-file: quizz-r.html
+  pdf:
+    output-file: quizz-r.pdf
+
+
+---
+
+
+{{< include _preamble.qmd >}}
+
+
+
+# Lists 
+
+
+# Dataframes 
+
+
+# S3 and generics
+
+
+
+

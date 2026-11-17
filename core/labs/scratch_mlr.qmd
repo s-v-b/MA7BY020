@@ -1,0 +1,255 @@
+---
+title: Scratch session Multiple Linear Regression
+
+execute: 
+  eval: true
+  echo: true
+  warning: false
+  message: false
+
+engine: knitr
+---
+
+
+
+
+```{r}
+#| echo: false
+#| 
+stopifnot(
+  require(MASS),
+  require(gt),
+  require(patchwork),
+  require(ggforce),
+  require(glue),
+  require(ggfortify),
+  require(ggvoronoi),
+  require(broom),
+  require(ggdendro),
+  require(ggrepel),
+  require(dendextend),
+  require(tidyverse)
+)
+```
+
+
+
+# Données Decathlon
+
+```{r}
+decathlon <- factoextra::decathlon2
+```
+
+
+```{r}
+decathlon  |>  
+  rownames_to_column(var="Athlete") |>  
+  gt::gt() |> 
+  gt::tab_caption("Données decathlon (factoextra::decathlon2)")
+```
+
+## Corrélations
+
+```{r}
+decathlon |> 
+  select(-Competition, -Rank) |> 
+  mutate(across(contains('0m'), \(x) 1/x)) |> 
+  corrr::correlate(method="spearman") |> 
+  arrange(desc(abs(Points))) |> 
+  select(term, Points, X100m, Shot.put, Long.jump, Discus, X400m, X110m.hurdle, High.jump, Javeline, X1500m, Pole.vault) |> 
+  gt::gt() |> 
+  gt::fmt_number(decimals=2)
+```
+
+
+
+```{r}
+decathlon |>  
+  select(-Competition, -Rank) |> 
+  mutate(across(contains('0m'), \(x) 1/x)) |> 
+  corrr::correlate(method="spearman") |> 
+  corrr::autoplot()
+```
+
+## Régressions linéaires
+
+```{r}
+form1 <- Points ~ X100m + Shot.put + Long.jump
+lm_1 <- lm(form1, decathlon)
+```
+
+Quelles sont les classes de `form1` et `lm_1`? De quelles méthodes sont munies ces classes?
+(`sloop::s3_methods_class("lm")`)
+
+```{r}
+form2 <- Points ~ Long.jump + Shot.put + High.jump
+lm_2 <- lm(form2, decathlon)
+```
+
+```{r}
+form0 <- Points ~ .
+lm_0 <- lm(form0, select(decathlon, -Rank, -Competition))
+```
+
+```{r}
+form4 <-  Points ~ X100m
+lm_4 <- lm(form4, decathlon)
+```
+
+
+```{r}
+form5 <- Points ~ Pole.vault
+lm_5 <- lm(form5, decathlon)
+```
+
+### Comparaison de modèles 
+
+```{r}
+list(lm_0, lm_1, lm_2, lm_4, lm_5) |>  
+  map(glance) |> 
+  bind_rows() |> 
+  mutate(Formule=c(form0, form1, form2, form4, form5)) |> 
+  relocate(Formule) |> 
+  gt::gt() |> 
+  gt::fmt_scientific(columns=c(r.squared, adj.r.squared, statistic, p.value, deviance)) 
+```
+
+### Diagnostics
+
+
+```{r}
+p_lm_1 <- autoplot(lm_1, data=decathlon) +
+  theme_minimal()
+```
+
+```{r}
+p_lm_1@plots[[1]] + geom_point(aes(color=Competition))
+```
+
+```{r}
+p_lm_1@plots[[2]] + geom_point(aes(color=Competition))
+```
+
+```{r}
+p_lm_1@plots[[3]] + geom_point(aes(color=Competition))
+```
+
+```{r}
+p_lm_1@plots[[4]] + geom_point(aes(color=Competition))
+```
+
+```{r}
+autoplot(lm_0, data=decathlon) +
+  theme_minimal()
+```
+
+
+
+```{r}
+#| eval: false
+plot(lm_1)
+```
+
+### retour sur comparaison de modèles 
+
+```{r}
+anova(lm_0, lm_1)
+```
+
+
+# Données mixtes
+
+
+```{r}
+data(whiteside)  # De MASS
+```
+
+
+```{r}
+whiteside |>  
+  slice_sample(n=5, by=Insul) |> 
+  gt::gt()
+```
+
+
+```{r}
+form0 <- Gas ~ Temp
+form1 <- Gas ~ Insul
+form2 <- Gas ~ Temp * Insul 
+form3 <- Gas ~ (Temp + I(Temp^2))*Insul
+forms <- c(form0, form1, form2, form3)
+```
+
+
+```{r}
+lms <- forms |>  purrr::map(\(f) lm(f, data=whiteside))
+```
+
+
+```{r}
+lms |> 
+  purrr::map(glance) |> 
+  bind_rows() |> 
+  mutate(Formule=forms) |> 
+  relocate(Formule) |>  
+  gt::gt() |> 
+  gt::fmt_scientific(where(is.numeric))
+```
+
+
+
+```{r}
+p_lm_1 <- autoplot(lms[[1]], data=whiteside) + theme_minimal()
+
+p_lm_1@plots[[1]] + geom_point(aes(color=Insul))
+```
+
+
+```{r}
+p_lm_1@plots[[2]] + geom_point(aes(color=Insul))
+```
+
+
+```{r}
+p_lm_1@plots[[3]] + geom_point(aes(color=Insul))
+```
+
+
+```{r}
+p_lm_1@plots[[4]] + geom_point(aes(color=Insul))
+```
+
+
+
+# Anscombe quartet
+
+
+```{r}
+anscombe <- datasets::anscombe
+# From base R
+anscombe <- anscombe %>%
+  pivot_longer(- starts_with('y'), names_to = 'group', values_to = 'X') %>%
+  pivot_longer(starts_with('y'), names_to = 'groupy', values_to = 'Y') %>%
+  filter(stringr::str_sub(group, 2L)==stringr::str_sub(groupy, 2L)) %>%
+  select(-groupy) %>%
+  mutate(group=stringr::str_sub(group, 2L)) 
+```
+
+
+
+```{r}
+anscombe_nested <- anscombe |>  
+  nest(.by=group, .key='donnees') 
+  
+  
+anscombe_nested <- anscombe_nested  |> 
+  mutate(lm_ = map(donnees, \(df) lm(formula=Y ~ X, data=df)))
+```
+
+
+```{r}
+anscombe_nested$lm_ |>  
+  map(glance) |>  
+  bind_rows() |> 
+  gt::gt()
+```

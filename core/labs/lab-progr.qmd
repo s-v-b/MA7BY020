@@ -52,32 +52,55 @@ gc <- options(ggplot2.continuous.fill="viridis")
 gc <- options(ggplot2.continuous.colour="viridis")
 ```
 
-## Objectives
+## Objectives    {#sec-objectives}
+
+In this lab, we describe original features fo language `R`. 
+Language `R` is not regarded as an Object Oriented (OO) language in the same way 
+as `C++`, 'Java', or `Python`. Indeed, the lineage of `R` goes back to [`Scheme`](https://www.scheme.org), a functional language. 
+
+Nevertheless, `R` offers users and developers several Object Oriented frameworks. In @sec-s3,  we showcase the oldest such framework named `S3`. In order to explore `S3`, we use base `R` and packages  `sloop`, `lobstr`, `generics`, and `rlang`. `S3` classes and generic functions play an important role in the `tidyverse` (`autoplot` within `ggplot2`, `augment`, `tidy` and `glance` in `broom`, to mention a few). 
+
+In @sec-dplyr-ggplot-programming, we move to a practical and fundamental issue: programming with functions from `dplyr` and `ggplot2.` Functions from `dplyr` and `ggplot2` are tailored 
+to interactive computations. Using *data masking*, they relieve us from quoting each and every column name, they allow us to write readable pipelines. When it comes to programming 
+with `dplyr` verbs, things get more tricky: passing columns as arguments becomes more difficult because of  *data masking*. Nevertheless, the tidyverse offers simple devices to circumvent these impediments. 
+
+*Data masking* is one facet of *tidy/lazy evaluation* that makes `R` so suitable for data exploration. `R`'s ability to handle expressions and environments as first-class objects is the most interesting aspect of the language. The ability to capture functions calls within the very body of functions is one benefit garnered this reflective power. In @sec-inside-lm, we showcase this possibility by inspecting the body of `lm`. 
+
+In @sec-tidy-eval, we describe some applications of *tidy evaluation* as suggested by the eponymous cheatsheet.   
+
+
+## Setup   {#sec-setup}
 
 
 ```{r}
+#| label: load-toolkit
 #| echo: true
 #| 
 stopifnot(
-  require(rlang),
-  require(lobstr),
-  require(sloop),
-  require(devtools),
+  require(rlang),   # <1>
+  require(lobstr),  # <2>
+  require(sloop),   # <3>
+  require(generics), 
+  require(devtools), # <4>
   require(usethis),
   require(testthat),
-  require(generics)
 )
 ```
+1. for tidy evaluation
+2. for investigating memory mappings and objects structure 
+3. for investigating the S3 object system
+4. for package development
+
+## Generics and S3 classes  {#sec-s3}
 
 
-
-## Generics and S3 classes
-
-Let us first create an instance of class `lm`.
-
+Let us first create an instance of class `lm`. This object will serve as an instance 
+of an S3 class. 
 ```{r}
-lm0  <- lm(Gas ~ Insul * Temp, MASS::whiteside)
+#| label: build-lm-instance
+lm0  <- lm(Gas ~ Insul * Temp, MASS::whiteside) # <1>
 ```
+1. `lm` denotes both a function and the *class* of the result returned by the function. The function acts as a constructor for the class. 
 
 ::: {.callout-note title='Question'} 
 
@@ -94,13 +117,37 @@ lm0  <- lm(Gas ~ Insul * Temp, MASS::whiteside)
 ::: {.callout-tip title='Solution'} 
  
 ```{r}
-class(lm0)
-is.list(lm0)
-attributes(lm0)
-inherits(lm0,"list")
-inherits(lm0, "lm")
+#| label: class-and-friends
+#|
+rlang::typeof(lm0) # <1>
+is.list(lm0)       # <2>
+attributes(lm0)    # <3>
+inherits(lm0,"list")  
+inherits(lm0, "lm")  # <4>
 ```
- 
+1. `lm0` is a list (with 13 named elements)
+2. `lm0` is not just a list 
+3. `lm0` has a `class` attribute
+4. What an object inherits from depends on its `class` attribute. 
+
+
+
+```{r}
+#| label: attributes
+
+attr(lm0, "class")
+attr(lm0, "class") <- c("elephant", "animal")
+attr(lm0, "class")        # <1> 
+inherits(lm0, "animal")   # <2>
+inherits(lm0, "elephant") # <3> 
+typeof(lm0)
+attr(lm0, "class") <- "lm"  # <4>
+```
+1. The `class` attribute is a vector of strings
+2. An object may inherit from several classes
+3. The components of the list `lm0` have not been affected
+4. Everything is back in order 
+
 ::: 
  
 :::
@@ -119,22 +166,32 @@ Load package `sloop`.
  
 ::: {.callout-tip title='Solution'} 
  
+
 ```{r}
-sloop::otype(lm0)
-sloop::otype(unclass(lm0))
+#| label: 
+sloop::otype(lm0)  # <1> 
+sloop::otype(unclass(lm0))  # <2> 
+attr(unclass(lm0), "class") # <3> 
+all(lobstr::obj_addrs(lm0) == lobstr::obj_addrs(unclass(lm0))) # <4>
 ```
- 
+1. `otype()` 
+2. Removing `class` attributes modifies `otype()` result
+3. `unclass` removes the class attribute. 
+4. The components of the list `lm0` have not been moved
 ::: 
 :::
 
 
 ::: {.callout-note title='Question'} 
  
+`S3` classes are (usually) endowed with methods for generic function. 
+Use `sloop::sloop::s3_methods_class()` to list the methods available for `lm`.  
+
 `sloop` exports functions `s3_class()` and `s3_get_method()`  
 
 - Apply `s3_class()` to all members of `lm0`
 - What is the `otype` of `autoplot()` applied to an object of class `lm`?
-- 
+
 
 :::
 
@@ -144,8 +201,40 @@ sloop::otype(unclass(lm0))
 ::: {.callout-tip title='Solution'} 
  
 ```{r}
-sloop::s3_class(lm0)
+sloop::s3_methods_class("lm") |>
+  gt::gt() |>
+  gt::tab_header("Generics of S3 class lm")
 ```
+
+
+```{r}
+#| label: sloop_s3_class
+sloop::s3_class(lm0)  # <1> 
+```
+1. More reliable, more transparent `class` inference. 
+
+
+```{r}
+map(lm0, s3_class) |> 
+  map_chr(\(x) paste0(x, collapse=", ")) |> 
+  as.data.frame() |> 
+  rownames_to_column("name") |> 
+  set_names(c("name", "classes")) |> 
+  gt::gt()
+```
+
+:::
+:::
+
+::: {.callout-note title="Question"}
+
+Use `s3_get_method()` to print the code of method `autoplot` and `augment`  for class `lm`. 
+
+:::
+
+::: {.content-visible when-profile='solution'} 
+:::  {.callout-tip title='Solution'} 
+
 
 ```{r}
 sloop::s3_get_method(autoplot.lm)
@@ -160,7 +249,8 @@ sloop::s3_get_method(augment.lm)
 
 ::: {.callout-note title='Question'} 
  
- 
+List the registered methods for S3 class `prcomp`. 
+
 :::
 
 
@@ -180,7 +270,10 @@ sloop::s3_methods_class("prcomp") |>
 
 ::: {.callout-note title='Question'} 
  
- 
+What is the purpose of `s3_dispatch()`? 
+What is method dispatching? 
+
+
 :::
 
 ::: {.content-visible when-profile='solution'} 
@@ -226,7 +319,7 @@ otype(UCBAdmissions)
  
 ```{r}
 sloop::s3_class(UCBAdmissions)
-# sloop::s3_get_method(autoplot.table)
+sloop::s3_get_method(plot.table)
 # sloop::s3_get_method(augment.table)
 ``` 
 ::: 
@@ -242,7 +335,7 @@ sloop::s3_class(UCBAdmissions)
 
 
 
-## Programming with `dplyr` and `ggplot2`
+## Programming with `dplyr` and `ggplot2`  {#sec-dplyr-ggplot-programming}
 
 We first aim at programming a function that takes as input a dataframe `df`, a column name `col`, and that, depending on the type of the column denoted by `col`, plots a histogram (for numerical column), a barplot (for factors), or raise an error of the column is neither categorical, nor numerical.
 
@@ -321,6 +414,29 @@ gg_obj <-  function(df, col){
 
 :::
 
+```{r}
+gg_obj_0 <-  function(df, col){
+  
+  # vct <- df[[col]]  # <1>
+  tp <- pull(df, col) # class(vct)
+
+  if (tp != "numeric" & tp !="factor") {
+    stop(paste0(col, " is of wrong type!"))
+  }
+
+  p <- ggplot(df) + 
+    aes(x=col)  # <2>
+
+  if (tp=="numeric") {
+    p <- p + geom_histogram()
+  } else {
+    p <- p + geom_bar()
+  }
+
+  p  
+}
+
+```
 
 ::: {.content-visible when-profile='solution'} 
  
@@ -409,7 +525,7 @@ plots |>
 ::: 
 :::
 
-## Inside `lm()`
+## Inside `lm()`    {#sec-inside-lm}
 
 ::: {.callout-note title="Question"}
 
@@ -428,14 +544,14 @@ function (formula, data, subset, weights, na.action, method = "qr",
 {
     ret.x <- x
     ret.y <- y
-    cl <- match.call()
-    mf <- match.call(expand.dots = FALSE)
+    cl <- match.call()    # <1>
+    mf <- match.call(expand.dots = FALSE)  # <2>
     m <- match(c("formula", "data", "subset", "weights", "na.action", 
         "offset"), names(mf), 0L)
     mf <- mf[c(1L, m)]
     mf$drop.unused.levels <- TRUE
     mf[[1L]] <- quote(stats::model.frame)
-    mf <- eval(mf, parent.frame())
+    mf <- eval(mf, parent.frame())   # <3>
     if (method == "model.frame") 
         return(mf)
     else if (method != "qr") 
@@ -501,21 +617,37 @@ function (formula, data, subset, weights, na.action, method = "qr",
 <bytecode: 0x55564224e930>
 <environment: namespace:stats>
 ```
+1. This is where the function stores the calling expressions
+2. What is the purpose of optional argument `expand.dots`?
+3. What is the purpose of call engineering?  
 
 ::: {.callout-note title='Question'} 
  
-Have a look at function `match.call()`
+Have a look at function `match.call()`.
+
+Is it only storing the calling expression? 
+
+Think of possible use cases for function `match.call`
+
+In the context of `lm()`, what is the purpose of invoking `match.call`?  
 
 
- 
 :::
 
 ::::: {.content-visible when-profile="solution"}  
 
 ::: {.content-visible when-profile='solution'} 
- 
- 
 
+
+ 
+```{r}
+spam <-  function(x, y=1, ...){
+  match.call()
+}
+
+
+
+```
 
 ```{r}
 e <- match.call(get, call("get", "abc", i = FALSE, p = 3))
@@ -524,7 +656,6 @@ is_expression(e)
 
 is_call(e)
 
-lobstr::ast(match.call(get, call("get", "abc", i = FALSE, p = 3)))
 ```
 
 Let us explore the next toy example. 
@@ -575,7 +706,7 @@ eval(x)
 :::::
 
 
-## Tidy evaluation
+## Tidy evaluation   {#sec-tidy-eval}
 
 ::: {.callout-note title="Question"}
 
@@ -588,12 +719,68 @@ Keep the `rlang` cheatsheet around.
 ::::: {.content-visible when-profile="solution"}  
 
 ```{r}
+foo <-  function(df, col, ...){
+  cl <- match.call()
+  params <- list(...)
+  vct <- pull(df, {{col}})
+  tp <- class(vct)[1]
 
+  if (tp != "numeric" & tp !="factor") {
+    stop("column is of wrong type!")
+    return
+  }
+
+  p <- ggplot(df) + 
+    aes(x={{col}})  # <1>
+
+  if (tp=="numeric") {
+    p <- p + geom_histogram(...) # <2>
+  } else {
+    p <- p + geom_bar(...)
+  }
+
+  structure(list(PLOT=p, CALL=cl), class="foobar")  
+}
+```
+
+```{r}
+(
+  foo(tb, col_num)$PLOT +
+    labs(
+      title= "Histogram", 
+      subtitle= "Numerical column")
+) +
+(
+  foo(tb, col_num, fill="red")$PLOT +
+    labs(
+      title= "Histogram, tuning color", 
+      subtitle= "Numerical column")
+)
+```
+
+
+```{r}
+foo(tb, col_num)$PLOT
 ```
 
 
 
+
+```{r}
+foobar <- foo(tb, col_num)$CALL
+```
+
+
+
+```{r}
+rlang::is_expression(foobar)
+
+rlang::eval_bare(foobar)
+
+rlang::eval_tidy(foobar)
+```
 :::::
+
 
 ::: {.callout-note title="Question"}
 
@@ -616,7 +803,8 @@ Explain the difference between an *expression* and a *quosure*
 
 ## References 
 
-[Programming with `ggplot`](https://ggplot2-book.org/programming)
 
+- [Programming with `ggplot`](https://ggplot2-book.org/programming)
+- [Advanced R Programming]()
 
 

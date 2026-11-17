@@ -1,0 +1,44 @@
+---
+title: 'Quizz: Tables'
+date: "`r Sys.time()`"
+draft: false 
+
+
+execute:
+  echo: true
+  eval: true
+  collapse: true
+
+
+format:
+  html:
+    output-file: quizz-tables.html
+  pdf:
+    output-file: quizz-tables.pdf
+
+
+---
+
+
+{{< include _preamble.qmd >}}
+
+
+# dplyr
+
+
+# tidyr
+
+
+# arrow
+
+
+# data.table
+
+
+# List columns
+
+
+
+
+
+

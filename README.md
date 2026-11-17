@@ -4,18 +4,25 @@ THis site uses https://github.com/s-v-b/eda-core as a **subtree** for core mater
 at subdirectory `core`.(see [GitHub on subtrees](https://gist.github.com/SKempin/b7857a6ff6bddb05717cc17a44091202)).
 
 A schematic view at the working tree (excluding files) looks like:
+
 ```
 ├── core
 │   ├── DATA
 │   ├── labs
 │   ├── labs-solutions
-│   └── projects
+│   ├── projects
+│   └── slides
 ├── _extensions
 ├── images
+├── weeks
+├── *.yml
+├── *-listings.qmd
+├── index.qmd
 ```
 
 
 ```{.bash}
 quarto render [--to-html]
-quarto render core/labs-solutions/  [--to html] --profile solution
+quarto render core/labs-solutions/  [--to html] --profile solution  --no-clean
 ```
+

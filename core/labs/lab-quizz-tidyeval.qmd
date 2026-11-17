@@ -1,0 +1,69 @@
+---
+title: 'Quizz: Tidy evaluation'
+date: "`r Sys.time()`"
+draft: false 
+
+
+execute:
+  echo: true
+  eval: true
+  collapse: true
+
+
+format:
+  html:
+    output-file: quizz-tidyeval.html
+  pdf:
+    output-file: quizz-tidyeval.pdf
+
+
+---
+
+
+{{< include _preamble.qmd >}}
+
+
+# Environments 
+
+- [ ] An environment is a list.
+- [ ] Users cannot create objects  of mode `environment`
+- [ ] To get the objects accessible in a given environment, call `ls()`
+
+
+# Expressions  (`base::expression`, etc)
+
+In `R` an object of type `expression` is 
+
+- [ ] a string satisfying some syntactic properties
+- [ ] an abstract syntax tree (AST)
+- [ ] an object than can be fed to `eval()`
+- [ ] an object with `mode` `expression`
+- [ ] an object with `class` `expression`
+- [ ] an object that passes test `is.expression()`?
+
+
+```{r}
+#| label: rlang-and-companions
+#| 
+stopifnot(
+  require(rlang),
+  require(sloop),
+  require(lobstr),
+)
+```
+
+
+
+# Quosures
+
+
+# Deparse and substitute
+
+
+# rlang
+
+
+
+
+
+

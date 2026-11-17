@@ -91,11 +91,13 @@ keys <- c(
   "https://opendata.paris.fr/explore/dataset/elections-legislatives-2024-2emetour/information/"
 )
 
-furl
+
 ```
 
 ```{r}
 furl <- "https://data.opendatasoft.com/api/explore/v2.1/catalog/datasets/elections-france-presidentielles-2022-1er-tour-par-bureau-de-vote@public/exports/parquet?lang=en&refine=dep_name%3A%22Paris%22&timezone=Europe%2FParis"
+
+furl
 
 tb <- arrow::read_parquet('/home/boucheron/Downloads/elections-france-presidentielles-2022-1er-tour-par-bureau-de-vote@public (1).parquet')
 ```

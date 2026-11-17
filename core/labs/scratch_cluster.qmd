@@ -1,0 +1,548 @@
+---
+title: Scratch session Clustering
+
+execute: 
+  eval: true
+  echo: true
+  warning: false
+  message: false
+
+engine: knitr
+---
+
+
+
+
+```{r}
+stopifnot(
+  require(gt),
+  require(patchwork),
+  require(ggforce),
+  require(glue),
+  require(ggfortify),
+  require(ggvoronoi),
+  require(broom),
+  require(ggdendro),
+  require(ggrepel),
+  require(dendextend),
+  require(tidyverse)
+)
+```
+
+
+
+
+
+```{r}
+data(iris)
+```
+
+# Jouer 
+
+
+```{r}
+dend <- 1:5 |> 
+  dist() |> 
+  hclust(method="ward.D2") |> 
+  as.dendrogram()
+```
+
+```{r}
+dend |>  plot()
+```
+
+```{r}
+dend  |>  head(10)
+```
+
+::: {.callout-note title="Question"}
+
+- List the generic functions with registered methods for class `dendrogram`
+
+:::
+
+::: {.content-visible when-profile="solution"}
+
+::: {.callout-tip title="Solution"}
+
+```{r}
+#| label: methods-dendrogram
+
+sloop::s3_methods_class("dendrogram") |> 
+  select(generic) |> 
+  gt::gt() |> 
+  gt::tab_caption("Fonctions génériques pour `dendrogram`")
+```
+:::
+
+:::
+
+::: {.callout-note title="Question"}
+
+Explain attribute `members`  in the next chunk.
+
+Hint: Nodes are identified by their *prefix order index*. 
+
+:::
+
+```{r}
+dend |>  
+  get_nodes_attr("members", 
+                 id = c(1, 2, 5, 7)) 
+```
+
+
+::: {.callout-tip title="Solution"}
+
+The dendrogram is traversed using depth-first-search. For each node, attribute `members` is the number of leaves 
+in the subtree rooted at that node. 
+
+We start form the root with 5 leaves/members, then proceed to left child with 2 leaves/members .... 
+
+:::
+
+
+
+
+
+
+
+::: {.callout-note title="Question"}
+
+- What does `labels()` return?
+- What does function `rotate` do ?
+
+:::
+
+```{r}
+dend |>  labels()
+
+dend |> 
+  rotate(c(1,2,4,5,3)) |> 
+  plot()
+```
+
+
+::: {.callout-tip title="Solution"}
+
+`labels()` returns leaves labels ordered by depth-first-search tarversal.
+
+:::
+
+::: {.callout-note type="Question"}
+
+What is the *height* of a branch?
+
+Just look at what happens when `hclust` uses method `ward.D2`
+
+:::  
+
+
+::: {.callout-tip title="Solution"}
+
+```{r}
+hc9 <- 1:9  |>  
+  dist()  |>  
+  hclust(method="ward.D2")
+
+hc9$height
+
+dend9 <- as.dendrogram(hc9)
+
+dend9 |>  
+  plot()
+#get_branches_heights(dend9)
+
+hc9$height^2
+```
+
+This is consistent with the `ward.D2` clost  for merging clusters with $n_A, n_B$ elements and centroids $\mu_A, \mu_B$
+
+$$\left(2 \frac{n_An_B}{n_A+n_B} \|\mu_A - \mu_B\|^2\right)^{1/2}$$
+
+:::
+
+::: {.callout-note type="Question"}
+
+Qu'est-ce qu'une distance cophénétique ?
+
+:::
+
+```{r}
+cophenetic(rotate(dend, c(1,2,4,5,3)))
+cophenetic(dend)
+```
+
+
+::: {.callout-tip title="Solution"}
+
+`?cophenetic`
+
+:::
+
+
+
+
+
+
+
+
+
+
+::: {.callout-note title="Question"}
+
+Comment est calculé l'attribut `height` ? Quel est son objet ? 
+
+Quel genre de parcours est effectué par  `get_nodes_...`?
+
+:::
+
+
+```{r}
+#| label: Get-various-attributes
+dend |> 
+  rotate(c(1,2,4,5,3)) |> 
+  get_nodes_attr("height") 
+```
+  
+
+```{r}
+dend |> 
+  get_nodes_attr("members")
+```
+
+
+# Iris
+
+```{r}
+dist_iris <- iris |> 
+  select(where(is.numeric)) |> 
+  dist() 
+
+hcl_iris <- dist_iris |> 
+  hclust(method = "ward.D2") 
+
+dendro_iris <- as.dendrogram(hcl_iris)
+```
+
+```{r}
+hcl_iris |>  
+  plot()
+```
+
+```{r}
+cl_iris_3 <- cutree(hcl_iris, k=3)
+iris$cluster <- factor(cl_iris_3)
+```
+
+```{r}
+pca_iris <- iris |> 
+  select(where(is.numeric)) |> 
+  scale() |> 
+  prcomp() 
+
+pca_iris_aug <- augment(pca_iris, iris)
+```
+
+```{r}
+pca_iris_aug |> 
+  ggplot() +
+  aes(x=.fittedPC1, y=.fittedPC2, color=Species, shape=cluster, label=.rownames) +
+  geom_point() +
+  ggrepel::geom_text_repel() +
+  coord_fixed()
+```
+
+```{r}
+autoplot(pca_iris, data=iris, loadings=T, loadings.labels=T) +
+  geom_point(aes(color=Species, shape=cluster)) +
+  coord_fixed()
+```
+
+
+```{r}
+data(package = "factoextra")
+```
+
+
+# Temperature  
+
+
+
+```{r}
+data(temperature, package="fdm2id")
+```
+
+
+
+```{r}
+temperature <- temperature |> 
+  mutate(City=rownames(temperature)) |> 
+  relocate(City)
+  
+temperature  |> 
+  group_by(Region) |> 
+  slice_sample(n=2) |>  
+  gt::gt() |> 
+  gt::data_color(columns=January:December, method="bin", bins=c(-20, 0, 40))
+```
+
+
+```{r}
+temp_dist <- temperature |>  
+  select(where(is.numeric)) |> 
+  select(-Latitude, -Longitude, -Mean, -Amplitude) |> 
+  dist()
+```
+
+
+```{r}
+as.matrix(temp_dist)[1:3, 1:3]
+```
+
+
+```{r}
+temp_hclust <- temperature |>  
+  select(where(is.numeric)) |> 
+  select(-Latitude, -Longitude, -Mean, -Amplitude) |> 
+  dist() |> 
+  hclust(method="ward.D2")
+```
+
+
+
+```{r}
+temp_hclust |> 
+  dendextend::color_labels(k=4) |> 
+  plot()
+```
+
+
+
+```{r}
+#| label: geo-plot
+temperature |> 
+  mutate(classe=factor(cutree(temp_hclust, k=4))) |> 
+  ggplot() +
+    aes(x=Longitude, y=Latitude, color=classe, label=City, shape=Region) +
+    geom_point() +
+    ggrepel::geom_text_repel() +
+    theme_minimal() 
+```
+
+
+```{r}
+#| label: ggdendrogram
+temp_hclust |> 
+  # as.dendrogram() |>
+  # set("branches_k_color", k=4) |> 
+  # set("labels_colors") |> 
+  # set("nodes_col", c("orange", "black", "plum", NA)) |> 
+  ggdendro::ggdendrogram(rotate=T) 
+```
+
+```{r}
+temp_heights <- temp_hclust |> 
+  as.dendrogram() |> 
+  get_branches_heights() 
+```
+
+
+```{r}
+tibble::tibble(heights=sort(temp_heights^2,decreasing = T)) |> 
+  ggplot() +
+  aes(x=seq_along(heights), y=heights) +
+  geom_col() +
+  xlab("#classes résiduelles") +
+  ylab("Incrément d'inertie (Ward.D2)") +
+  scale_y_log10() 
+```
+
+
+
+```{r}
+temp_pca <- temperature |> 
+  select(where(is.numeric)) |> 
+  select(-Latitude, -Longitude, -Mean, -Amplitude) |> 
+  scale() |> 
+  prcomp()
+```
+
+
+
+```{r}
+fmt_pourcentage <- scales::label_percent()
+
+temp_pca |> 
+  broom::tidy(matrix="d") |> 
+  filter(PC<=4) |> 
+  ggplot() +
+  aes(x=PC, y=percent, label=fmt_pourcentage(cumulative)) +
+  geom_col() +
+  geom_text(angle=45, hjust=-.25, vjust=-.75) +
+  ylim(c(0, 1.1)) +
+  labs(
+    title="ACP données température",
+    subtitle="Éboulis des valeurs propres",
+    caption="Les pourcentages sont les cumuls d'inertie projetée"
+  )
+```
+
+
+
+```{r}
+temperature$cluster <-  factor(cutree(temp_hclust, k=4))
+
+temp_pca |> 
+  augment(temperature) |> 
+  ggplot() +
+  aes(x=.fittedPC1, y=.fittedPC2, color=cluster, shape=Region, label=City) +
+  geom_point() +
+  ggrepel::geom_text_repel() +
+  coord_fixed()
+```
+
+
+
+```{r}
+temp_pca |> 
+  autoplot(data=temperature, 
+           loadings=T, 
+           loadings.label=T) +
+  geom_point(aes(color=cluster, shape=Region)) + 
+  ggrepel::geom_text_repel(aes(label=City)) +
+  coord_fixed() +
+  theme_minimal()
+```
+
+```{r}
+
+prep_co_circle <- function(pco) {
+  r <- with(pco,  t(t(rotation) * sdev[1:ncol(rotation)]))
+  as_tibble(r) |> 
+    rename_with(.fn = \(x) gsub('PC', '', x), .cols=everything()) |>
+    mutate(row_id=rownames(r))
+}
+```
+
+
+
+```{r}
+
+  temp_pca |> 
+  prep_co_circle() |> 
+  ggplot() +
+  aes(x=`1`, y=`2`, label=row_id) +
+  geom_segment(
+    aes(xend=0, yend=0), 
+    arrow = grid::arrow(ends = "first")) +
+  ggrepel::geom_text_repel() +
+  coord_fixed() +
+  xlim(c(-1.1, 1.1)) + ylim(c(-1.1, 1.1))  + 
+  ggforce::geom_circle(aes(x0=0, y0=0, r=1), linetype="dashed") +
+  theme_minimal()
+```
+
+```{r}
+plot_prcomp <- function (object, 
+  data = NULL, 
+  scale = 1, 
+  x = 1, y = 2, 
+  variance_percentage = TRUE, 
+  ...) 
+{
+    plot.data <- ggplot2::fortify(object, data = data)  # semblable au augment(object, data)
+    plot.data$rownames <- rownames(plot.data)           # ajout d'une colonne de noms
+        ve <- object$sdev^2/sum(object$sdev^2)          # part de variance projete sur les PCs
+        PC <- paste0("PC", c(x, y))
+        x.column <- PC[1]              # nom premiere PC 
+        y.column <- PC[2]              # nom deuxieme PC
+        loadings.column <- "rotation"    # 
+        lam <- object$sdev[c(x, y)]      # valeurs singulieres 
+        lam <- lam * sqrt(nrow(plot.data))   # 
+    if (scale != 0) {
+        lam <- lam^scale
+        plot.data[, c(x.column, y.column)] <- t(t(plot.data[, 
+            c(x.column, y.column)])/lam)    # scale=1 revient à choisir l'element U dans la svd
+    }
+    plot.columns <- unique(c(x.column, y.column, colnames(plot.data)))
+    plot.data <- plot.data[, plot.columns]  # reordonne les colonnes, met x.column, y.column en tête
+    if (!is.null(loadings.column)) {
+        loadings.data <- as.data.frame(object[[loadings.column]][, 
+            ])
+        loadings.data[, c(x, y)] <- t(t(loadings.data[, c(x, y)]) * lam[c(x, y)])
+        loadings.data$rownames <- rownames(loadings.data)
+        loadings.columns <- unique(c(x.column, y.column, colnames(loadings.data)))
+        loadings.data <- loadings.data[, loadings.columns]
+    }
+    else {
+        loadings.data <- NULL
+    }
+    if (is.null(ve) | !variance_percentage) {
+        labs <- PC
+    }
+    else {
+        ve <- ve[c(x, y)]
+        labs <- paste0(PC, " (", round(ve * 100, 2), "%)")
+    }
+    xlab <- labs[1]
+    ylab <- labs[2]
+    p <- ggfortify::ggbiplot(plot.data = plot.data, 
+                  loadings.data = loadings.data, 
+                  xlab = xlab, 
+                  ylab = ylab, 
+                  ...)   # transmission d'arguments supplémentaires 
+    return(p)
+}
+```
+
+
+```{r}
+neat_color_scale <-
+      c("1" = "#01d4e5",
+        "2" = "#c3ea01ff" ,
+        "3" = "#fc5173",
+        "4" = "#0fdc1dff")
+```
+
+
+```{r}
+temperature$cluster = factor(cutree(temp_hclust, k=3))
+
+bp1 <- temp_pca |>
+  plot_prcomp(data=temperature,
+              loadings=T,
+              loadings.labels=T,
+              labels=T) + 
+  coord_fixed() +
+  scale_color_manual(values=neat_color_scale) +
+  theme_minimal(    
+  ) +
+  ggforce::geom_circle(aes(x0=0,y0=0, r=.28), linetype="dotted") +
+  ggrepel::geom_text_repel(aes(label=City, color=cluster), show.legend = FALSE)
+
+```
+
+
+
+```{r}
+temperature$cluster = factor(cutree(temp_hclust, k=4))
+
+geom_bspline2() <- temp_pca |>
+  plot_prcomp(data=temperature,
+              loadings=T,
+              loadings.labels=T,
+              labels=T) + 
+  coord_fixed() +
+  scale_color_manual(values=neat_color_scale) +
+  theme_minimal(    
+  ) +
+  ggforce::geom_circle(aes(x0=0,y0=0, r=.28), linetype="dotted") +
+  ggrepel::geom_text_repel(aes(label=City, color=cluster), show.legend = FALSE)
+```
+
+
+
+```{r}
+bp1 + bp2
+```

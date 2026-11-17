@@ -55,7 +55,7 @@ old_theme <- theme_set(theme_minimal())
 
 Life tables 
 
-- [John Gaunt. The first life table. 1663](https://doi.org/10.1098/rsnr.1938.0017) 
+- [John Graunt. The first life table. 1663](https://doi.org/10.1098/rsnr.1938.0017) 
 - [De Witt. Valuation of life annuities. 1671](https://mathshistory.st-andrews.ac.uk/Projects/Daxenberger/chapter-7/)
 - [Actuarial science](https://en.wikipedia.org/wiki/Actuarial_science)
 
@@ -1105,7 +1105,7 @@ was particularly difficult in the Netherlands.
 :::
 
 ::: {.callout-note}
-
+--actually England and Wales--
 ### Question
 
 Plot mortality quotients at ages $15, 20, 40, 60$  as a function of time. Facet by `Gender` and `Country`

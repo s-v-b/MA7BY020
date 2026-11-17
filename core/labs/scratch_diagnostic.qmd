@@ -1,0 +1,682 @@
+---
+title: Régression Linéaire Multiple, diagnostics
+
+execute: 
+  eval: true
+  echo: true
+  warning: false
+  message: false
+
+code-annotations: hover
+
+
+bibliography: references.bib
+
+engine: knitr
+---
+
+
+
+
+```{r}
+#| echo: false
+#| 
+stopifnot(
+  require(MASS),
+  require(gt),
+  require(patchwork),
+  require(ggforce),
+  require(glue),
+  require(ggfortify),
+  require(broom),
+  require(ggrepel),
+  require(tidyverse)
+)
+```
+
+
+```{r}
+old_theme <- theme_set(theme_minimal())
+```
+
+# Quator d'Anscombe 
+
+Le quatuor d'[Anscombe](https://en.wikipedia.org/wiki/Frank_Anscombe) sert à montrer que les résumés statistiques (en régression, le coefficient de détermination) ne suffisent pas.
+
+Il se compose de quatre petits ensembles de données bivariées qui présentent des caractéristiques presque identiques :
+
+- même moyenne de x et y
+- même variance de x et y
+- même corrélation entre x et y
+- même intercept et même pente en sortie  de régression linéaire (conséquence des remarques précédentes).
+
+Mais, graphiquement, ces quatre jeux de données sont très différents.
+Le message est simple : pas de statistiques sans dessins!
+
+Le quator d'Anscombe est disponible sous forme large. Pour travailler plus aisément,
+on le met en forme longue avec `tidyr::pivot_longer()`
+
+```{r}
+#| label: pivot-anscombe
+anscombe <- datasets::anscombe   # <1> 
+# From base R
+anscombe <- anscombe |>
+  pivot_longer(starts_with('x'), names_to = 'group', values_to = 'X') |>  # <2>
+  pivot_longer(starts_with('y'), names_to = 'groupy', values_to = 'Y') |>
+  filter(stringr::str_sub(group, 2L)==stringr::str_sub(groupy, 2L)) |>
+  select(-groupy) |>
+  mutate(group=stringr::str_sub(group, 2L)) 
+```
+1. Disponible dans `R`
+2. Usage simple mais naïf de `pivot_longer()`. Voir [Documentation](https://tidyr.tidyverse.org/reference/pivot_longer.html), pour une écriture concise, élégante, mais plus difficile à suivre.  
+
+On en profite pour utiliser le mécanisme des tableaux emboîtés. 
+
+```{r}
+#| label: anscombe-nested
+anscombe <- anscombe |>  
+  nest(.by=group, .key='donnees') 
+
+anscombe |> glimpse()
+```
+
+La colonne `donnees` est de type `list`, chaque élément est un `tibble` (`data.frame`) avec 
+deux colonnes `X` et `Y`. On peut ajuster une régression linéaire à chaque élément de a colonne `données`. On forme ainsi une nouvelle colonne de type `list` qu'on nomme `ml` (comme modèle linéaire).  
+
+## Résumés statistiques {#sec-resumes-stats-anscombe}
+
+```{r} 
+#| label: map-on-list-column 
+anscombe <- anscombe  |> 
+  mutate(ml = map(donnees, \(df) lm(formula=Y ~ X, data=df)))
+
+anscombe |> glimpse()
+```
+
+On peut comparer les performances de la régression linéaire sur les éléments du quator d'Anscombe. On extrait les résumés statistiques des modèles linéaires
+
+```{r}
+#| label: a-glance
+anscombe <- anscombe |>  
+  mutate(resume= map(ml, \(it) broom::glance(it))) 
+  
+anscombe |>
+  select(group, resume) |>
+  unnest(cols=c(resume)) |>
+  gt::gt() |>
+  gt::tab_caption("Résumé des modèles linéaires ajustés sur le quator d'Anscombe")
+```
+
+Les colonnes `AIC`, `BIC` ne  sont pas au programme du cours. 
+
+On est frappé par la coïncidence des résumés plus élémentaires (`r.squared`, `adj.r.squared`, ...). 
+
+On peut aussi extraire les coefficients estimés 
+
+```{r}
+#| label: tbl-anscombe-coefficients
+#| 
+  anscombe |>  
+  mutate(coefficients= map(ml, \(it) tidy(it))) |> 
+  select(group, coefficients) |>
+  unnest(cols=c(coefficients)) |>
+  gt::gt() |>
+  gt::tab_caption("Coefficients estimés par la méthode des moindre carrés pour le quator d'Anscombe") |>
+  gt::fmt_number(columns=where(is.numeric), decimals=3)
+```
+
+Là encore, les résumés numériques coïncident pour les quatre jeux de données. 
+
+```{r}
+#| label: dessin-naif
+petit_dessin <- function(df) {
+  df |> 
+    ggplot() +
+    aes(x=X, y=Y) +
+    geom_smooth(method="lm", formula= 'y ~ x', se=F)
+}
+
+anscombe <- anscombe |> 
+  mutate(dessin=map(donnees, petit_dessin)) |>
+  mutate(dessin=map2(dessin, group, \(p, g) p + labs(title=paste0("Regression sur groupe ", g)))) 
+```
+
+
+```{r}
+#| label: fig-regression-1
+anscombe |> 
+  pull(dessin) |>
+  patchwork::wrap_plots()
+```
+
+Ces quatre dessins illustrent la coïncidence des modèles linéaires ajustés, déjà notée à propos de la   @tbl-anscombe-coefficients.
+
+
+```{r}
+#| label: fig-regression-2 
+anscombe |>
+  mutate(dessin=map(dessin, \(p) p + geom_point())) |> 
+  pull(dessin) |>
+  patchwork::wrap_plots()
+```
+
+En ajoutant les nuages de points à @fig-regression-1, on doit admettre que les quatre régressions méritent un commentaire différent. 
+
+::: {#tbl-comparaison .list-table tbl-colwidths="[15,85]" aligns="l,l"}
+Remarques sur les régressions par groupe 
+
+- - Groupe
+  - Commentaire
+
+- - 1
+  - Une régression linéaire qui semble compatible avec un modèle linéaire gaussien 
+
+- - 2
+  - La relation entre `Y` et `X` semble plus quadratique que linéaire
+
+- - 3
+  - La régression linéaire semble perturbée par un point aberrant
+
+- - 4
+  - La régression linéaire est excessivement sensible à un point particulier
+     
+:::
+
+
+Ces commentaires demandent à être étayés. Les dessins de diagnostic peuvent aider. 
+La classe `lm` est munie de méthodes pour les fonctions génériques `plot`  et `autoplot`
+qui construisent (automatiquement) ces dessins de diagnostic (définis et expliqués dans la littérature, en particulier dans [@fox2018r])
+
+## Dessins pour le diagnostic {#sec-diagnostic-plots}
+
+```{r}
+#| label: anscombe-autoplots
+
+anscombe <- anscombe |> 
+  mutate(diagnostics= map2(ml, donnees, \(m,d) autoplot(m, data=d)))
+```
+
+Tous ces dessins  sont construits à partir des résidus (*residuals*) et possiblement des prédictions (*fitted values*).  Ces dessins aident à vérifier si les hypothèses de régression linéaire (celles qui permettent d'interpréter la plupart des éléments du résumé) sont plausibles voire valables et d'identifier les observations (trop) influentes voire aberrantes.
+
+
+::: {#tbl-diagnostic-plots .list-table tbl-colwidths="[25,35,40]" aligns="l,l,l"}
+
+Graphiques 
+
+- - Nom
+  - Objectif
+  - Interprétation
+
+- - Résidus versus valeurs ajustées
+  - Vérifie la linéarité et la variance constante (homoschedasticité).
+  - Bon : nuage aléatoire autour de 0
+ 
+    Problèmes : courbe (non-linéarité), forme en entonnoir (hétéroscédasticité)
+
+- - Q-Q plot
+  - Vérifie si les résidus sont approximativement normaux.
+  - Bon : points proches de la ligne (droite de Henry)
+
+    Problèmes : écarts importants aux extrémités / forme en S
+
+- - Échelle-Localisation 
+  - Test d'homoscédasticité  (bis)
+
+  - Bon : bande à peu près horizontale
+
+    Problèmes : écart croissant/décroissant
+
+- - Résidus vs levier 
+  - Identifie les points influents/aberrants
+
+  - Bon : ...
+
+    Problèmes :  ...  
+
+:::
+
+### Groupe `1`
+
+::: {.columns}
+::: {.column}
+
+### Résidus versus valeurs ajustées
+
+```{r}
+#| label: diagnostic-1-1
+#| code-fold: true
+groupe <- 1
+anscombe$diagnostics[[groupe]][[1]] 
+```
+
+:::
+::: {.column}
+
+Le nuage de points (*scatterplot*) ne révèle pas de tendance marquée des résidus par rapports 
+aux valeurs ajustées. La courbe de régression non-linéaire (en bleu) ne s'éloigne pas trop de l'axe des abscisses. 
+
+:::
+:::
+
+
+
+::: {.columns}
+::: {.column}
+
+### QQ plot
+
+```{r}
+#| label: diagnostic-1-2
+#| code-fold: true
+anscombe$diagnostics[[groupe]][[2]] 
+```
+
+:::
+::: {.column}
+
+Le QQ-plot est comparable au dessin qui serait construit à partir 
+d'un échantillon gaussien de taille identique. 
+
+```{.r}
+tibble(x=rnorm(11)) |> 
+  ggplot() + 
+  aes(sample=x) + 
+  geom_qq() + 
+  geom_qq_line()
+```
+
+Attention: même si les hypothèses des modèles linéaires gaussiens sont valables, 
+les résidus ne sont pas distribués comme un échantillon gaussien centrée i.i.d., 
+mais comme la projection sur un sous-espace d'un échantillon gaussien centrée i.i.d.
+La matrice de covariance des résidus n'est pas diagonale, c'est une matrice de 
+projection (la Hat-matrice). 
+
+:::
+:::
+
+
+::: {.columns}
+::: {.column}
+
+### Résidus standardisés contre valeurs ajustées
+
+```{r}
+#| label: diagnostic-1-3
+#| code-fold: true
+anscombe$diagnostics[[groupe]][[3]] 
+```
+
+:::
+
+::: {.column}
+
+
+:::
+:::
+
+
+
+::: {.columns}
+::: {.column}
+
+### Résidus standardisés contre leviers
+
+```{r}
+#| label: diagnostic-1-4
+#| code-fold: true
+anscombe$diagnostics[[groupe]][[4]] 
+```
+
+:::
+
+::: {.column}
+
+
+:::
+:::
+
+Les dessins de diagnostic sont constructibles à partir d'un table facile à former 
+à l'aide de la fonction `augment` de `broom`. Cette fonction augmente la table originelle avec 
+les résidus (`.resid`), les valeurs ajustées (`.fitted`), mais aussi les coefficients diagonaux 
+de la matrice de projection (Hat matrix), qui quantifient le *levier*  de chaque point de l'échantillon.   
+
+```{r}
+#| label: tbl-augmentation-1
+#| 
+anscombe <- anscombe |>
+  mutate(augmentees=map2(ml, donnees, augment)) 
+
+anscombe$augmentees[[1]] |>
+  gt::gt() |>
+  gt::fmt_number(decimals=2) |>
+  gt::tab_caption("Données augmentées : groupe 1")
+```
+
+Un *résidu standardisé* (colonne `.std.resid`) correspond à chaque résidu brut $e_i$ (`.resid`)divisé par son écart-type estimé $\hat{\sigma}\sqrt{1-h_{ii}}$. Pour l'observation $i$ :
+
+$$r_i = \frac{e_i}{\hat{\sigma}\sqrt{1-h_{ii}}}$$
+
+où :
+
+- $e_i = y_i - \hat y_i$ : le résidu brut (`.resid`)
+- $\hat{\sigma}^2 = \text{RSS}/(n-p)$ : erreur standard résiduelle du modèle $\text{RSS}=\sum_i e_i^2$.
+- $h_{ii}$ : levier (valeur diagonale de la matrice *Hat*, colonne `.hat`)
+
+La standardisation permet de  comparer des résidus provenant d'observations avec des leviers différents.  
+
+
+```{r}
+#| eval: false
+#| include: false
+anscombe$augmentees[[1]] |>
+  mutate(sigma_hat = sqrt(sum(.resid^2)/(n()-2)),
+         .check_sigma = sigma_hat*sqrt(n()-3-.std.resid^2)/sqrt(n()-4), 
+#         .resid_sta= .resid/(sigma_hat* sqrt(1-.hat)),
+         .resid_stud= .resid*sqrt((n()-3)/(n()-2-.resid^2)), 
+         .foobar_stud= rstudent(anscombe$ml[[1]]),
+         .cook_foo = .resid^2*.hat/(2*sigma_hat^2*(1-.hat^2))) |> 
+  select(-X, -Y, -.fitted, -sigma_hat) |>
+  gt::gt()
+```
+
+Les résidus *studentisés* sont obtenus en divisant chaque résidu brut par une estimation *individualisée* de son écart-type.
+
+$$t_i = \frac{e_i}{\hat\sigma_{(i)}\sqrt{1-h_{ii}}}$$
+
+où $\hat\sigma_{(i)}$ est l'écart-type résiduel estimé après réajustement sans l'observation $i$.
+
+$$t_i = r_i \sqrt{\frac{n-p-1}{\,n-p-r_i^2\,}}$$
+
+avec $r_i = \frac{e_i}{\hat{\sigma}\sqrt{1-h_{ii}}}$.
+
+La *studentisation*  utilise une variance “leave-one-out” (hors échantillons), ce qui la rend plus adaptée à la détection de valeurs aberrantes (elle suit une loi $t$ à $n-p-1$ degrés de liberté sous les hypothèses du modèle).
+
+
+La *distance de Cook* $D_i$ pour l'observation $i$ indique à quel point la régression ajustée change lorsque ce point est retiré.
+
+$$
+D_i=\frac{\sum_{j=1}^n\left(\hat y_j-\hat y_{j(i)}\right)^2}{p\,\hat\sigma^2}
+$$ {#eq-def-cook}
+
+où $\hat y_{j(i)}$ est la valeur ajustée (prédiction) lorsque l'observation $i$ est retirée.  
+
+En utilisant les résidus standardisés $r_i$ plutôt que les résidus bruts $e_i$, on obtient une formulation équivalente de la distance de Cook: 
+
+$$
+D_i=\frac{r_i^2}{p}\,\frac{h_{ii}}{1-h_{ii}}.
+$$ {#eq-def-cook-2}
+
+La distance de Cook combine en un seul indice le résidu standardisé et le levier.
+
+Lorsqu'on applique la fonction `plot` (`R` base) à un objet de classe `lm`, le dessin 4 est complété par des courbes de niveau de la distance de Cook. 
+
+La distance de Cook est un exemple de statistique définie par *ré-échantillonnage*. Pour la calculer, on a formé à partir d'un échantillon
+originel de taille $n$, $n$ sous-échantillons de taille $n-1$ (*leave one out* Jackknife), ajusté le modèle sur chaque sous-échantillon et calculé les prédictions à partir de ces ajustements. Potentiellement, ce travail est très coûteux, proportionnel  produit du nombre d'observations et du coût d'un calcul des moindre carrés.    
+
+Pourtant, le calcul de la distance de Cook ne nécessite pas de lourds calculs. 
+En effet, à l'aide de  la formule de Sherman-Morrison (l'inverse d'une perturbation de rang 1 d'une matrice est une perturbation de rang 1 de  l'inverse, sous réserve d'existence), on peut vérifier que la distance de Cook vérifie l'identité suivante:
+
+$$
+D_i=\frac{e_i^2}{p\,\hat\sigma^2}\cdot\frac{h_{ii}}{(1-h_{ii})^2}
+$$ {#eq-calcul-cook}
+
+Une grande valeur de la distance de Cook suggère que l'observation $i$ a une (trop?) grande influence sur le modèle ajusté.
+
+
+
+### Groupe 2
+
+Pour les données du groupe 2, la relation entre $Y$ et $X$ n'est pas linéaire. Une petite modification de l'approche permet de corriger ce problème. 
+
+::: {.columns}
+::: {.column}
+
+
+```{r}
+#| label: diagnostic-2
+#| code-fold: true
+groupe <- 2
+
+anscombe$diagnostics[[groupe]][[1]]
+```
+:::
+
+::: {.column}
+
+Le nuage de points (*scatterplot*) du dessin résidus contre valeurs ajustées révèle une dépendance quasi-quadratique des résidus par rapports  aux valeurs ajustées. Il semble pertinent d'ajuster un modèle quadratique au données.
+
+:::
+:::
+
+::: {.columns}
+::: {.column}
+
+Pour ajuster un modèle quadratique il suffit de changer la formule. 
+
+```{r}
+#| label: fit-quadratic-2
+lm2_2 <- lm(Y ~ 1 +X + I(X^2), anscombe$donnees[[2]]) 
+```
+
+:::
+
+::: {.column}
+
+```{r}
+#| label: scatterplot-quadratic-2
+#| code-fold: true
+anscombe$donnees[[2]] |> 
+  ggplot() + 
+  aes(x=X, y=Y) + 
+  geom_smooth(formula= 'y ~ x + I(x^2)', method="lm", se=F) +
+  geom_point() +
+  labs(title="Groupe 2 avec relation quadratique")
+```
+
+:::
+
+:::
+
+Les diagnostics ne présentent plus d'anomalies
+
+
+```{r}
+#| code-fold: true
+#| label: autoplot-group-2-again
+autoplot(lm2_2)
+```
+
+### Groupe 3
+
+Dans le groupe, un résidu important pose problème.
+
+::: {.columns}
+::: {.column}
+
+
+```{r}
+#| label: diagnostic-3
+#| code-fold: true
+groupe <- 3
+
+anscombe$diagnostics[[groupe]][[1]] +
+ aes(label=1:11) + 
+ geom_label()
+```
+:::
+
+::: {.column}
+
+Le nuage de points (*scatterplot*)  révèle le caractère aberrant du point `3`
+On peut confirmer cette observation sur les 3 autres dessins. Il est urgent 
+d'ajuster un modèle linéaire sur l'échantillon privé du point `3`.
+
+:::
+:::
+
+::: {.columns}
+::: {.column}
+
+```{r}
+#| code-fold: true
+tb_tmp <- anscombe$donnees[[3]] |> 
+  rownames_to_column("id")
+
+lm3_2 <- lm(Y ~ X, tb_tmp[-3,])
+```
+
+```{r}
+#| code-fold: true
+augment(lm3_2, newdata= tb_tmp) |>
+  ggplot() +
+  aes(x=X, y=Y, label=id) +
+  geom_point(aes(color=.resid)) +
+  geom_label(aes(fill=.resid)) +
+  geom_line(aes(x=X, y=.fitted)) +
+  geom_point(aes(x=X, y=.fitted, color=.resid)) +
+  theme(legend.position="none")
+```
+
+:::
+::: {.column}
+
+Le modèle linéaire ajusté sans le point `3` est parfaitement ajusté au reste de l'échantillon.
+
+Le point `3` se distingue des autres par sa distance de Cook extrêmement élevée.  
+
+:::
+:::
+
+
+### Groupe 4
+
+Dans le groupe 4, un point possède un levier anormal. 
+
+::: {.columns}
+::: {.column}
+
+
+```{r}
+#| label: diagnostic-4
+#| code-fold: true
+groupe <- 4
+
+anscombe$diagnostics[[groupe]][[1]] +
+ aes(label=1:11) + 
+ geom_label()
+```
+:::
+
+::: {.column}
+
+Le nuage de points (*scatterplot*)  révèle le caractère aberrant du point `8`.
+L'affichage du quatrième dessin provoque un avertissement. La distance de Cook
+et le résidu standardisé du point `8` ne sont pas  définis (`NaN`). Cela vient 
+du levier du point `8`  qui est égal à `1` (la plus grande valeur possible pour 
+un coefficient diagonal de matrice de projection). 
+
+Si on retire le point aberrant `8` au groupe `4`, la colonne `X` devient constante.
+
+:::
+:::
+
+## Calcul (efficace) de la distance de Cook {#sec-calcul-cook}
+
+Il s'agit d'établir la formule calculatoire @eq-calcul-cook. 
+
+Dans cette section $x_i$ désigne la $i^{\text{ème}}$
+observation, soit la $i^{\text{ème}}$ ligne la matrice $X$. Il faut concevoir $x_i$ comme un vecteur colonne de dimension $p$ et $x_i^\top$  comme un vecteur ligne.
+$x_i x_i^\top$ est une matrice de dimensions $n,n$  de rang $1$. 
+
+
+On repart de la definition de la distance de Cook  (@eq-def-cook) mais (pour l'observation $i$), en utilisant :
+
+$$\hat Y = X \hat{\theta} \qquad \hat Y^{(i)} = X \hat{\theta}^{(i)}$$
+
+où $\hat \theta$ et $\hat \theta^{(i)}$ sont les estimateurs des moindre carrés ordinaires à partir de l'échantillon total et à partir de l'échantillon privé de l'observation $i$.  
+
+On obtient 
+$$
+D_i=\frac{(\hat\theta-\hat\theta^{(i)})^\top X^\top X(\hat\theta-\hat\theta^{(i)})}{p\,\hat\sigma^2}
+$$
+
+Explicitons $\hat \theta$ et $\hat \theta^{(i)}$
+
+$$
+\hat \theta = (X^\top X)^{-1} X^\top Y = \left(\sum_j x_j x_j^\top \right)^{-1} \sum_{j} y_j x_j = \sum_{j\leq n} y_j \left(\sum_{k\leq n} x_k x_k^\top \right)^{-1} x_j 
+$$
+et 
+$$
+\hat \theta^{(i)} = (X^\top X - x_i x_i^\top)^{-1} \sum_{j\neq i} y_j x_j
+= \sum_{j\neq i} y_j \left(\sum_{k\leq n} x_k x_k^\top - x_i x_i^\top\right)^{-1} x_j 
+$$
+
+Si $X^\top X - x_i x_i^\top$ est inversible, la  formule Sherman-Morrison
+(@eq-sherman-morrison) relie les inverses matricielles:
+
+$$
+(X^\top X - x_i x_i^\top)^{-1} = (X^\top X)^{-1} + \frac{(X^\top X)^{-1} x_i x_i^\top (X^\top X)^{-1}}{1 - x_i^\top (X^\top X)^{-1} x_i}
+$$
+
+On rappelle $h_{i,j}= x_i^\top (X^\top X)^{-1} x_j$ et 
+$\hat{y}_i =\sum_{j\leq n} h_{i,j} y_j$  pour $i,j \leq n$.
+
+\begin{align*}
+\hat\theta-\hat\theta^{(i)}
+  & = \sum_{j\leq n} y_j \left(X^\top X \right)^{-1} x_j  - 
+  \sum_{j\neq i} y_j \left(X^\top X - x_i x_i^\top\right)^{-1} x_j \\
+  & = \sum_{j\leq n} y_j \left(X^\top X \right)^{-1} x_j  - 
+  \sum_{j\neq i} y_j \left( \left(X^\top X\right)^{-1} + \frac{(X^\top X)^{-1} x_i x_i^\top (X^\top X)^{-1}}{1- h_{ii}}\right) x_j \\
+   & =  y_i \left(X^\top X \right)^{-1} x_i  - 
+  \sum_{j\neq i} y_j  \frac{(X^\top X)^{-1} x_i x_i^\top (X^\top X)^{-1}}{1- h_{ii}} x_j \\
+  & = \left(X^\top X \right)^{-1} x_i \left(y_i - \frac{\sum_{j\neq i} x_i^\top \left(X^\top X\right)^{-1}x_j y_j}{1-h_{i,i}} \right) \\
+  & = \left(X^\top X \right)^{-1} x_i \left(y_i - \frac{\sum_{j\neq i} h_{i,j} y_j}{1-h_{i,i}} \right) \\
+  & = \left(X^\top X \right)^{-1} x_i \left(y_i - \frac{\hat{y}_i - h_{i,i}y_i}{1-h_{i,i}} \right) \\
+  & = (X^\top X)^{-1}x_i\,\frac{y_i - \hat{y}_i}{1-h_{ii}},
+\end{align*}
+
+soit: 
+$$
+\hat\theta-\hat\theta^{(i)}=(X^\top X)^{-1}x_i\,\frac{e_i}{1-h_{ii}},
+$$
+
+où $e_i=y_i-\hat y_i$ est le résidu brut pour l'observation $i$.
+
+On substitue dans la définition de la distance de Cook :
+
+\begin{align*}
+(\hat\theta-\hat\theta^{(i)})^\top X^\top X(\hat\theta-\hat\theta^{(i)})
+&=
+\left(\frac{e_i}{1-h_{ii}}\right)^2
+x_i^\top (X^\top X)^{-1} X^\top X (X^\top X)^{-1} x_i \\
+&=
+\left(\frac{e_i}{1-h_{ii}}\right)^2
+x_i^\top (X^\top X)^{-1}x_i \\
+&=
+\left(\frac{e_i}{1-h_{ii}}\right)^2 h_{ii}.
+\end{align*}
+
+et finalement, on obtient le résultat désiré:
+
+$$
+D_i=\frac{e_i^2}{p\,\hat\sigma^2}\,\frac{h_{ii}}{(1-h_{ii})^2} \, .
+$$
+
+
+
+::: {.callout-note}
+
+### Formule de Sherman-Morrison
+
+Si $A$ et une matrice inversible de dimension $n \times n$, $u, v$ deux vecteurs (colonne) de $\mathbb{R}^n$, alors 
+
+- $1 + v^\top A^{-1}u \neq 0$ 
+si et seulement si  $A + u v^\top$ est inversible 
+- si $A + u v^\top$ est inversible
+    $$
+    \left(A + u v^\top \right)^{-1} = A^{-1} - \frac{A^{-1}u v^\top A^{-1}}{1 + v^\top A^{-1}u} 
+    $$ {#eq-sherman-morrison}
+
+:::
+
+Voir @golub2013matrix. 
